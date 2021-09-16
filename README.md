@@ -1,5 +1,4 @@
-# scala-sdk
-
+# scala sdk
 # What is API2Cart
 <b>With API2Cart shopping platform integration is easy.</b>
 
@@ -43,7 +42,4 @@ All URIs are relative to https://api.api2cart.com/v1.1
 Our <a href="https://docs.api2cart.com/">documentation</a> includes explanations, code samples and interactive examples. 
 
 <h2><b>Support</b></h2>
-  
-If you have any questions or problems, please <a href="https://api2cart.com/contact-us/">contact us</a>.
-You can also reach us at manager@api2cart.com. You can also mail us your ideas and suggestions about any changes.
-We provide full-tech 24/7 support.
+If you have any questions or issues, you can <a href="https://api2cart.com/contact-us/">contact us</a> in whatever way is convenient for you. We provide full-tech 24/7 support.
