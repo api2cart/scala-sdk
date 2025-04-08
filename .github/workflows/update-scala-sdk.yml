@@ -20,7 +20,7 @@ jobs:
 
       - name: Download csharp.tgz
         run: |
-          curl -L -o scala.tgz https://app.api2cart.com/sdk/openapi/scala.tgz
+          curl -L -o scala.tgz https://app.api2cart.com/sdk/openapi/scala-akka.tgz
 
       # Розпаковуємо, видаляючи 1 рівень (папку csharp)
       - name: Extract scala.tgz
