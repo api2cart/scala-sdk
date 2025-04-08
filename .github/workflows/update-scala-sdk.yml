@@ -11,7 +11,7 @@ permissions:
   contents: write
 
 jobs:
-  update_csharp_sdk:
+  update_scala_sdk:
     runs-on: ubuntu-latest
 
     steps:
