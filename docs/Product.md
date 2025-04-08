@@ -1,0 +1,68 @@
+
+
+# Product
+
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**id** | **String** |  |  [optional]
+**`type`** | **String** |  |  [optional]
+**uModel** | **String** |  |  [optional]
+**uSku** | **String** |  |  [optional]
+**name** | **String** |  |  [optional]
+**description** | **String** |  |  [optional]
+**shortDescription** | **String** |  |  [optional]
+**price** | **BigDecimal** |  |  [optional]
+**advancedPrice** | [**Seq&lt;ProductAdvancedPrice&gt;**](ProductAdvancedPrice.md) |  |  [optional]
+**costPrice** | **BigDecimal** |  |  [optional]
+**quantity** | **BigDecimal** |  |  [optional]
+**inventory** | [**Seq&lt;ProductInventory&gt;**](ProductInventory.md) |  |  [optional]
+**groupItems** | [**Seq&lt;ProductGroupItem&gt;**](ProductGroupItem.md) |  |  [optional]
+**uBrandId** | **String** |  |  [optional]
+**uBrand** | **String** |  |  [optional]
+**categoriesIds** | **Seq&lt;String&gt;** |  |  [optional]
+**storesIds** | **Seq&lt;String&gt;** |  |  [optional]
+**url** | **String** |  |  [optional]
+**seoUrl** | **String** |  |  [optional]
+**metaTitle** | **String** |  |  [optional]
+**metaKeywords** | **String** |  |  [optional]
+**metaDescription** | **String** |  |  [optional]
+**availSale** | **Boolean** |  |  [optional]
+**availView** | **Boolean** |  |  [optional]
+**isVirtual** | **Boolean** |  |  [optional]
+**isDownloadable** | **Boolean** |  |  [optional]
+**weight** | **BigDecimal** |  |  [optional]
+**weightUnit** | **String** |  |  [optional]
+**sortOrder** | **Int** |  |  [optional]
+**inStock** | **Boolean** |  |  [optional]
+**backorders** | **String** |  |  [optional]
+**manageStock** | **String** |  |  [optional]
+**isStockManaged** | **Boolean** |  |  [optional]
+**createAt** | [**A2CDateTime**](A2CDateTime.md) |  |  [optional]
+**modifiedAt** | [**A2CDateTime**](A2CDateTime.md) |  |  [optional]
+**taxClassId** | **String** |  |  [optional]
+**specialPrice** | [**SpecialPrice**](SpecialPrice.md) |  |  [optional]
+**tierPrice** | [**Seq&lt;ProductTierPrice&gt;**](ProductTierPrice.md) |  |  [optional]
+**groupPrice** | [**Seq&lt;ProductGroupPrice&gt;**](ProductGroupPrice.md) |  |  [optional]
+**images** | [**Seq&lt;Image&gt;**](Image.md) |  |  [optional]
+**productOptions** | [**Seq&lt;ProductOption&gt;**](ProductOption.md) |  |  [optional]
+**uUpc** | **String** |  |  [optional]
+**uMpn** | **String** |  |  [optional]
+**uGtin** | **String** |  |  [optional]
+**uIsbn** | **String** |  |  [optional]
+**uEan** | **String** |  |  [optional]
+**relatedProductsIds** | **Seq&lt;String&gt;** |  |  [optional]
+**upSellProductsIds** | **Seq&lt;String&gt;** |  |  [optional]
+**crossSellProductsIds** | **Seq&lt;String&gt;** |  |  [optional]
+**dimensionsUnit** | **String** |  |  [optional]
+**width** | **BigDecimal** |  |  [optional]
+**height** | **BigDecimal** |  |  [optional]
+**length** | **BigDecimal** |  |  [optional]
+**discounts** | [**Seq&lt;Discount&gt;**](Discount.md) |  |  [optional]
+**additionalFields** | **Any** |  |  [optional]
+**customFields** | **Any** |  |  [optional]
+
+
+

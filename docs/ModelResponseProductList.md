@@ -1,0 +1,18 @@
+
+
+# ModelResponseProductList
+
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**returnCode** | **Int** |  |  [optional]
+**returnMessage** | **String** |  |  [optional]
+**pagination** | [**Pagination**](Pagination.md) |  |  [optional]
+**result** | [**ResponseProductListResult**](ResponseProductListResult.md) |  |  [optional]
+**additionalFields** | **Any** |  |  [optional]
+**customFields** | **Any** |  |  [optional]
+
+
+
