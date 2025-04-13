@@ -45,6 +45,7 @@ case class Product (
   weightUnit: Option[String] = None,
   sortOrder: Option[Int] = None,
   inStock: Option[Boolean] = None,
+  onSale: Option[Boolean] = None,
   backorders: Option[String] = None,
   manageStock: Option[String] = None,
   isStockManaged: Option[Boolean] = None,

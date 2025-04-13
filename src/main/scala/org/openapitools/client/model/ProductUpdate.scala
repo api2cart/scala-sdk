@@ -170,6 +170,8 @@ case class ProductUpdate (
   /* A list of material strings for materials used in the product. */
   materials: Option[Seq[String]] = None,
   /* When true, automatically renews a listing upon its expiration. */
-  autoRenew: Option[Boolean] = None
+  autoRenew: Option[Boolean] = None,
+  /* Set whether the product on sale */
+  onSale: Option[Boolean] = None
 ) extends ApiModel
 
