@@ -244,6 +244,7 @@ class ProductApi(baseUrl: String) {
    * @param params Set this parameter in order to choose which entity fields you want to retrieve
    * @param brandIds Retrieves brands specified by brand ids
    * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
+   * @param categoryId Retrieves product brands specified by category id
    * @param storeId Store Id
    * @param langId Language id
    * @param createdFrom Retrieve entities from their creation date
@@ -255,7 +256,7 @@ class ProductApi(baseUrl: String) {
    * @param findWhere Entity search that is specified by the comma-separated unique fields
    * @param findValue Entity search that is specified by some value
    */
-  def productBrandList(start: Option[Int] = None, count: Option[Int] = None, pageCursor: Option[String] = None, params: Option[String] = None, brandIds: Option[String] = None, exclude: Option[String] = None, storeId: Option[String] = None, langId: Option[String] = None, createdFrom: Option[String] = None, createdTo: Option[String] = None, modifiedFrom: Option[String] = None, modifiedTo: Option[String] = None, parentId: Option[String] = None, responseFields: Option[String] = None, findWhere: Option[String] = None, findValue: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseProductBrandList] =
+  def productBrandList(start: Option[Int] = None, count: Option[Int] = None, pageCursor: Option[String] = None, params: Option[String] = None, brandIds: Option[String] = None, exclude: Option[String] = None, categoryId: Option[String] = None, storeId: Option[String] = None, langId: Option[String] = None, createdFrom: Option[String] = None, createdTo: Option[String] = None, modifiedFrom: Option[String] = None, modifiedTo: Option[String] = None, parentId: Option[String] = None, responseFields: Option[String] = None, findWhere: Option[String] = None, findValue: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseProductBrandList] =
     ApiRequest[ModelResponseProductBrandList](ApiMethods.GET, baseUrl, "/product.brand.list.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
@@ -265,6 +266,7 @@ class ProductApi(baseUrl: String) {
       .withQueryParam("params", params)
       .withQueryParam("brand_ids", brandIds)
       .withQueryParam("exclude", exclude)
+      .withQueryParam("category_id", categoryId)
       .withQueryParam("store_id", storeId)
       .withQueryParam("lang_id", langId)
       .withQueryParam("created_from", createdFrom)

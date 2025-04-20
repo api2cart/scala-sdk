@@ -12,6 +12,7 @@
 package org.openapitools.client.model
 
 import java.math.BigDecimal
+import java.net.URI
 import org.openapitools.client.core.ApiModel
 
 case class ProductAdd (
@@ -147,6 +148,8 @@ case class ProductAdd (
   imageUrl: Option[String] = None,
   /* Defines image's name */
   imageName: Option[String] = None,
+  /* Image Url */
+  additionalImageUrls: Option[Seq[URI]] = None,
   /* Defines reserve price value */
   reservePrice: Option[BigDecimal] = None,
   /* Defines buy it now value */
@@ -155,6 +158,8 @@ case class ProductAdd (
   conditionDescription: Option[String] = None,
   /* This allows buyers to remain anonymous when the bid or buy an item. */
   auctionConfidentialityLevel: Option[String] = None,
+  /* Defines product's logistic channel settings */
+  logisticInfo: Option[Seq[ProductAddLogisticInfoInner]] = None,
   /* Allows to schedule a time in the future that the item becomes available. The value should be greater than the current date and time. */
   availFrom: Option[String] = None,
   /* Product tags */

@@ -667,6 +667,8 @@ object Example extends App {
 
     val exclude: String = false // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
 
+    val categoryId: String = 6 // String | Retrieves product brands specified by category id
+
     val storeId: String = 1 // String | Store Id
 
     val langId: String = 3 // String | Language id
@@ -687,7 +689,7 @@ object Example extends App {
 
     val findValue: String = Phone // String | Entity search that is specified by some value
     
-    val request = apiInstance.productBrandList(start, count, pageCursor, params, brandIds, exclude, storeId, langId, createdFrom, createdTo, modifiedFrom, modifiedTo, parentId, responseFields, findWhere, findValue)
+    val request = apiInstance.productBrandList(start, count, pageCursor, params, brandIds, exclude, categoryId, storeId, langId, createdFrom, createdTo, modifiedFrom, modifiedTo, parentId, responseFields, findWhere, findValue)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -721,6 +723,7 @@ Name | Type | Description  | Notes
  **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
  **brandIds** | **String**| Retrieves brands specified by brand ids | [optional]
  **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional]
+ **categoryId** | **String**| Retrieves product brands specified by category id | [optional]
  **storeId** | **String**| Store Id | [optional]
  **langId** | **String**| Language id | [optional]
  **createdFrom** | **String**| Retrieve entities from their creation date | [optional]

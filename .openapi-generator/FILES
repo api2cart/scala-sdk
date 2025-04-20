@@ -281,6 +281,7 @@ docs/ProductAddCertificationsInnerFilesInner.md
 docs/ProductAddCertificationsInnerImagesInner.md
 docs/ProductAddFilesInner.md
 docs/ProductAddGroupPricesInner.md
+docs/ProductAddLogisticInfoInner.md
 docs/ProductAddManufacturerInfo.md
 docs/ProductAddPackageDetails.md
 docs/ProductAddSalesTax.md
@@ -747,6 +748,7 @@ src/main/scala/org/openapitools/client/model/ProductAddCertificationsInnerFilesI
 src/main/scala/org/openapitools/client/model/ProductAddCertificationsInnerImagesInner.scala
 src/main/scala/org/openapitools/client/model/ProductAddFilesInner.scala
 src/main/scala/org/openapitools/client/model/ProductAddGroupPricesInner.scala
+src/main/scala/org/openapitools/client/model/ProductAddLogisticInfoInner.scala
 src/main/scala/org/openapitools/client/model/ProductAddManufacturerInfo.scala
 src/main/scala/org/openapitools/client/model/ProductAddPackageDetails.scala
 src/main/scala/org/openapitools/client/model/ProductAddSalesTax.scala
