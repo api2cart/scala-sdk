@@ -43,15 +43,15 @@ object Example extends App {
 
     val apiInvoker = ApiInvoker()
     val apiInstance = MarketplaceApi("https://api.api2cart.com/v1.1")
-    val storeId: String = 1 // String | Store Id
-
     val count: Int = 20 // Int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
 
     val pageCursor: String =  // String | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
 
+    val keyword: String = T-shirt // String | Defines search keyword
+
     val categoriesIds: String = 23,56 // String | Defines product add that is specified by comma-separated categories id
 
-    val keyword: String = T-shirt // String | Defines search keyword
+    val storeId: String = 1 // String | Store Id
 
     val asin: String = 97703178470 // String | Amazon Standard Identification Number.
 
@@ -65,13 +65,13 @@ object Example extends App {
 
     val isbn: String = 9783161484100 // String | International Standard Book Number. An ISBN is a unique identifier for books.
 
+    val responseFields: String = {result} // String | Set this parameter in order to choose which entity fields you want to retrieve
+
     val params: String = id,model,price,images // String | Set this parameter in order to choose which entity fields you want to retrieve
 
     val exclude: String = false // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
-
-    val responseFields: String = {result} // String | Set this parameter in order to choose which entity fields you want to retrieve
     
-    val request = apiInstance.marketplaceProductFind(storeId, count, pageCursor, categoriesIds, keyword, asin, ean, gtin, upc, mpn, isbn, params, exclude, responseFields)
+    val request = apiInstance.marketplaceProductFind(count, pageCursor, keyword, categoriesIds, storeId, asin, ean, gtin, upc, mpn, isbn, responseFields, params, exclude)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -99,20 +99,20 @@ object Example extends App {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storeId** | **String**| Store Id | [optional]
  **count** | **Int**| This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional]
  **pageCursor** | **String**| Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional]
- **categoriesIds** | **String**| Defines product add that is specified by comma-separated categories id | [optional]
  **keyword** | **String**| Defines search keyword | [optional]
+ **categoriesIds** | **String**| Defines product add that is specified by comma-separated categories id | [optional]
+ **storeId** | **String**| Store Id | [optional]
  **asin** | **String**| Amazon Standard Identification Number. | [optional]
  **ean** | **String**| European Article Number. An EAN is a unique 8 or 13-digit identifier that many industries (such as book publishers) use to identify products. | [optional]
  **gtin** | **String**| Global Trade Item Number. An GTIN is an identifier for trade items. | [optional]
  **upc** | **String**| Universal Product Code. A UPC (UPC-A) is a commonly used identifer for many different products. | [optional]
  **mpn** | **String**| Manufacturer Part Number. A MPN is an identifier of a particular part design or material used. | [optional]
  **isbn** | **String**| International Standard Book Number. An ISBN is a unique identifier for books. | [optional]
+ **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
  **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
  **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional]
- **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
 
 ### Return type
 

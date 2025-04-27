@@ -15,14 +15,8 @@ import java.math.BigDecimal
 import org.openapitools.client.core.ApiModel
 
 case class CartCouponAdd (
-  /* Store Id */
-  storeId: Option[String] = None,
   /* Coupon code */
   code: String,
-  /* Coupon name */
-  name: Option[String] = None,
-  /* Entity codes */
-  codes: Option[Seq[String]] = None,
   /* Coupon discount type */
   actionType: CartCouponAddEnums.ActionType,
   /* Defines where discount should be applied */
@@ -31,6 +25,10 @@ case class CartCouponAdd (
   actionScope: CartCouponAddEnums.ActionScope,
   /* Defines the discount amount value. */
   actionAmount: BigDecimal,
+  /* Entity codes */
+  codes: Option[Seq[String]] = None,
+  /* Coupon name */
+  name: Option[String] = None,
   /* Date start */
   dateStart: Option[String] = None,
   /* Defines when discount code will be expired. */
@@ -48,7 +46,9 @@ case class CartCouponAdd (
   /* Defines condition attribute value/s. Can be comma separated string. */
   actionConditionValue: Option[String] = None,
   /* Indicates whether to apply a discount for taxes. */
-  includeTax: Option[Boolean] = None
+  includeTax: Option[Boolean] = None,
+  /* Store Id */
+  storeId: Option[String] = None
 ) extends ApiModel
 
 object CartCouponAddEnums {

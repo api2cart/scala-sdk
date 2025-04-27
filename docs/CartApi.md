@@ -260,21 +260,21 @@ object Example extends App {
 
     val apiInvoker = ApiInvoker()
     val apiInstance = CartApi("https://api.api2cart.com/v1.1")
-    val pageCursor: String =  // String | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
-
     val start: Int = 0 // Int | This parameter sets the number from which you want to get entities
 
     val count: Int = 20 // Int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
 
-    val ids: String = 24,25 // String | Retrieves  catalog_price_rules by ids
+    val pageCursor: String =  // String | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
 
-    val params: String = id,model,price,images // String | Set this parameter in order to choose which entity fields you want to retrieve
+    val ids: String = 24,25 // String | Retrieves  catalog_price_rules by ids
 
     val responseFields: String = {result{catalog_price_rules_count,catalog_price_rules{id,type,name,avail,usage_count,actions,conditions}}} // String | Set this parameter in order to choose which entity fields you want to retrieve
 
+    val params: String = id,model,price,images // String | Set this parameter in order to choose which entity fields you want to retrieve
+
     val exclude: String = false // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
     
-    val request = apiInstance.cartCatalogPriceRulesList(pageCursor, start, count, ids, params, responseFields, exclude)
+    val request = apiInstance.cartCatalogPriceRulesList(start, count, pageCursor, ids, responseFields, params, exclude)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -302,12 +302,12 @@ object Example extends App {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pageCursor** | **String**| Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional]
  **start** | **Int**| This parameter sets the number from which you want to get entities | [optional]
  **count** | **Int**| This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional]
+ **pageCursor** | **String**| Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional]
  **ids** | **String**| Retrieves  catalog_price_rules by ids | [optional]
- **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
  **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
+ **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
  **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional]
 
 ### Return type
@@ -723,15 +723,15 @@ object Example extends App {
 
     val value: String = 2 // String | Defines condition value, can be comma separated according to the operator.
 
-    val storeId: String = 1 // String | Store Id
-
     val target: String = coupon_action // String | Defines condition operator
 
     val includeTax: Boolean = true // Boolean | Indicates whether to apply a discount for taxes.
 
     val includeShipping: Boolean = true // Boolean | Indicates whether to apply a discount for shipping.
+
+    val storeId: String = 1 // String | Store Id
     
-    val request = apiInstance.cartCouponConditionAdd(couponId, entity, key, operator, value, storeId, target, includeTax, includeShipping)
+    val request = apiInstance.cartCouponConditionAdd(couponId, entity, key, operator, value, target, includeTax, includeShipping, storeId)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -764,10 +764,10 @@ Name | Type | Description  | Notes
  **key** | **String**| Defines condition entity attribute key | [enum: total, subtotal, shipping_total, total_quantity, total_weight, country, product_id, variant_id, category_id, customer_id, item_price, item_total_price, item_quantity, carrier_id]
  **operator** | **String**| Defines condition operator |
  **value** | **String**| Defines condition value, can be comma separated according to the operator. |
- **storeId** | **String**| Store Id | [optional]
  **target** | **String**| Defines condition operator | [optional]
  **includeTax** | **Boolean**| Indicates whether to apply a discount for taxes. | [optional]
  **includeShipping** | **Boolean**| Indicates whether to apply a discount for shipping. | [optional]
+ **storeId** | **String**| Store Id | [optional]
 
 ### Return type
 
@@ -825,6 +825,8 @@ object Example extends App {
     val apiInstance = CartApi("https://api.api2cart.com/v1.1")
     val storeId: String = 1 // String | Store Id
 
+    val avail: Boolean = false // Boolean | Defines category's visibility status
+
     val dateStartFrom: String = 2016-12-29 16:44:30 // String | Filter entity by date_start (greater or equal)
 
     val dateStartTo: String = 2016-12-29 16:44:30 // String | Filter entity by date_start (less or equal)
@@ -832,10 +834,8 @@ object Example extends App {
     val dateEndFrom: String = 2016-12-29 16:44:30 // String | Filter entity by date_end (greater or equal)
 
     val dateEndTo: String = 2016-12-29 16:44:30 // String | Filter entity by date_end (less or equal)
-
-    val avail: Boolean = false // Boolean | Defines category's visibility status
     
-    val request = apiInstance.cartCouponCount(storeId, dateStartFrom, dateStartTo, dateEndFrom, dateEndTo, avail)
+    val request = apiInstance.cartCouponCount(storeId, avail, dateStartFrom, dateStartTo, dateEndFrom, dateEndTo)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -864,11 +864,11 @@ object Example extends App {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **storeId** | **String**| Store Id | [optional]
+ **avail** | **Boolean**| Defines category&#39;s visibility status | [optional]
  **dateStartFrom** | **String**| Filter entity by date_start (greater or equal) | [optional]
  **dateStartTo** | **String**| Filter entity by date_start (less or equal) | [optional]
  **dateEndFrom** | **String**| Filter entity by date_end (greater or equal) | [optional]
  **dateEndTo** | **String**| Filter entity by date_end (less or equal) | [optional]
- **avail** | **Boolean**| Defines category&#39;s visibility status | [optional]
 
 ### Return type
 
@@ -1013,15 +1013,19 @@ object Example extends App {
 
     val apiInvoker = ApiInvoker()
     val apiInstance = CartApi("https://api.api2cart.com/v1.1")
-    val pageCursor: String =  // String | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
-
     val start: Int = 0 // Int | This parameter sets the number from which you want to get entities
 
     val count: Int = 20 // Int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
 
+    val pageCursor: String =  // String | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
+
     val couponsIds: String = 1,2,3 // String | Filter coupons by ids
 
     val storeId: String = 1 // String | Filter coupons by store id
+
+    val langId: String = 3 // String | Language id
+
+    val avail: Boolean = false // Boolean | Filter coupons by avail status
 
     val dateStartFrom: String = 2016-12-29 16:44:30 // String | Filter entity by date_start (greater or equal)
 
@@ -1031,17 +1035,13 @@ object Example extends App {
 
     val dateEndTo: String = 2016-12-29 16:44:30 // String | Filter entity by date_end (less or equal)
 
-    val avail: Boolean = false // Boolean | Filter coupons by avail status
-
-    val langId: String = 3 // String | Language id
+    val responseFields: String = {pagination,result{coupon_count,coupon{id,code,name,conditions,actions{scope,amount,conditions{id,value,sub-conditions}},date_start,avail}}} // String | Set this parameter in order to choose which entity fields you want to retrieve
 
     val params: String = id,code,type,amount // String | Set this parameter in order to choose which entity fields you want to retrieve
 
-    val responseFields: String = {pagination,result{coupon_count,coupon{id,code,name,conditions,actions{scope,amount,conditions{id,value,sub-conditions}},date_start,avail}}} // String | Set this parameter in order to choose which entity fields you want to retrieve
-
     val exclude: String = usage_history,type // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
     
-    val request = apiInstance.cartCouponList(pageCursor, start, count, couponsIds, storeId, dateStartFrom, dateStartTo, dateEndFrom, dateEndTo, avail, langId, params, responseFields, exclude)
+    val request = apiInstance.cartCouponList(start, count, pageCursor, couponsIds, storeId, langId, avail, dateStartFrom, dateStartTo, dateEndFrom, dateEndTo, responseFields, params, exclude)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -1069,19 +1069,19 @@ object Example extends App {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pageCursor** | **String**| Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional]
  **start** | **Int**| This parameter sets the number from which you want to get entities | [optional]
  **count** | **Int**| This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional]
+ **pageCursor** | **String**| Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional]
  **couponsIds** | **String**| Filter coupons by ids | [optional]
  **storeId** | **String**| Filter coupons by store id | [optional]
+ **langId** | **String**| Language id | [optional]
+ **avail** | **Boolean**| Filter coupons by avail status | [optional]
  **dateStartFrom** | **String**| Filter entity by date_start (greater or equal) | [optional]
  **dateStartTo** | **String**| Filter entity by date_start (less or equal) | [optional]
  **dateEndFrom** | **String**| Filter entity by date_end (greater or equal) | [optional]
  **dateEndTo** | **String**| Filter entity by date_end (less or equal) | [optional]
- **avail** | **Boolean**| Filter coupons by avail status | [optional]
- **langId** | **String**| Language id | [optional]
- **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
  **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
+ **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
  **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional]
 
 ### Return type
@@ -1668,21 +1668,21 @@ object Example extends App {
 
     val apiInvoker = ApiInvoker()
     val apiInstance = CartApi("https://api.api2cart.com/v1.1")
-    val pageCursor: String =  // String | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
-
     val start: Int = 0 // Int | This parameter sets the number from which you want to get entities
 
     val count: Int = 20 // Int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
 
-    val storeId: String = 1 // String | Store Id
+    val pageCursor: String =  // String | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
 
-    val params: String = id,model,price,images // String | Set this parameter in order to choose which entity fields you want to retrieve
+    val storeId: String = 1 // String | Store Id
 
     val responseFields: String = {pagination,result{gift_card{id,code,amount,status}}} // String | Set this parameter in order to choose which entity fields you want to retrieve
 
+    val params: String = id,model,price,images // String | Set this parameter in order to choose which entity fields you want to retrieve
+
     val exclude: String = false // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
     
-    val request = apiInstance.cartGiftcardList(pageCursor, start, count, storeId, params, responseFields, exclude)
+    val request = apiInstance.cartGiftcardList(start, count, pageCursor, storeId, responseFields, params, exclude)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -1710,12 +1710,12 @@ object Example extends App {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pageCursor** | **String**| Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional]
  **start** | **Int**| This parameter sets the number from which you want to get entities | [optional]
  **count** | **Int**| This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional]
+ **pageCursor** | **String**| Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional]
  **storeId** | **String**| Store Id | [optional]
- **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
  **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
+ **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
  **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional]
 
 ### Return type
@@ -1772,15 +1772,15 @@ object Example extends App {
 
     val apiInvoker = ApiInvoker()
     val apiInstance = CartApi("https://api.api2cart.com/v1.1")
-    val params: String = name,url // String | Set this parameter in order to choose which entity fields you want to retrieve
+    val storeId: String = 1 // String | Store Id
 
     val responseFields: String = {result{name,url,stores_info{store_id,name,currency{id,iso3},store_owner_info}}} // String | Set this parameter in order to choose which entity fields you want to retrieve
 
-    val exclude: String = name,url // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
+    val params: String = name,url // String | Set this parameter in order to choose which entity fields you want to retrieve
 
-    val storeId: String = 1 // String | Store Id
+    val exclude: String = name,url // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
     
-    val request = apiInstance.cartInfo(params, responseFields, exclude, storeId)
+    val request = apiInstance.cartInfo(storeId, responseFields, params, exclude)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -1808,10 +1808,10 @@ object Example extends App {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
- **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
- **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional]
  **storeId** | **String**| Store Id | [optional]
+ **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
+ **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
+ **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional]
 
 ### Return type
 
@@ -1947,6 +1947,10 @@ object Example extends App {
     val apiInstance = CartApi("https://api.api2cart.com/v1.1")
     val entityId: String = 1 // String | Entity Id
 
+    val count: Int = 20 // Int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
+
+    val pageCursor: String =  // String | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
+
     val entity: String = order // String | Entity
 
     val storeId: String = 1 // String | Store Id
@@ -1955,17 +1959,13 @@ object Example extends App {
 
     val key: String = subtotal // String | Key
 
-    val count: Int = 20 // Int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
-
-    val pageCursor: String =  // String | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
+    val responseFields: String = {result{items{key,value}}} // String | Set this parameter in order to choose which entity fields you want to retrieve
 
     val params: String = id,model,price,images // String | Set this parameter in order to choose which entity fields you want to retrieve
 
-    val responseFields: String = {result{items{key,value}}} // String | Set this parameter in order to choose which entity fields you want to retrieve
-
     val exclude: String = false // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
     
-    val request = apiInstance.cartMetaDataList(entityId, entity, storeId, langId, key, count, pageCursor, params, responseFields, exclude)
+    val request = apiInstance.cartMetaDataList(entityId, count, pageCursor, entity, storeId, langId, key, responseFields, params, exclude)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -1994,14 +1994,14 @@ object Example extends App {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **entityId** | **String**| Entity Id |
+ **count** | **Int**| This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional]
+ **pageCursor** | **String**| Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional]
  **entity** | **String**| Entity | [optional]
  **storeId** | **String**| Store Id | [optional]
  **langId** | **String**| Language id | [optional]
  **key** | **String**| Key | [optional]
- **count** | **Int**| This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional]
- **pageCursor** | **String**| Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional]
- **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
  **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
+ **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
  **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional]
 
 ### Return type
@@ -2341,13 +2341,13 @@ object Example extends App {
 
     val apiInvoker = ApiInvoker()
     val apiInstance = CartApi("https://api.api2cart.com/v1.1")
-    val storeId: String = 1 // String | Store Id
-
     val start: Int = 0 // Int | This parameter sets the number from which you want to get entities
 
     val count: Int = 20 // Int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
+
+    val storeId: String = 1 // String | Store Id
     
-    val request = apiInstance.cartPluginList(storeId, start, count)
+    val request = apiInstance.cartPluginList(start, count, storeId)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -2375,9 +2375,9 @@ object Example extends App {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storeId** | **String**| Store Id | [optional]
  **start** | **Int**| This parameter sets the number from which you want to get entities | [optional]
  **count** | **Int**| This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional]
+ **storeId** | **String**| Store Id | [optional]
 
 ### Return type
 
@@ -2629,11 +2629,15 @@ object Example extends App {
 
     val apiInvoker = ApiInvoker()
     val apiInstance = CartApi("https://api.api2cart.com/v1.1")
-    val pageCursor: String =  // String | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
-
     val start: Int = 0 // Int | This parameter sets the number from which you want to get entities
 
     val count: Int = 20 // Int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
+
+    val pageCursor: String =  // String | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
+
+    val scriptIds: String = 34023324,34024032 // String | Retrieves only scripts with specific ids
+
+    val storeId: String = 1 // String | Store Id
 
     val createdFrom: String = 2010-07-29 13:45:52 // String | Retrieve entities from their creation date
 
@@ -2643,17 +2647,13 @@ object Example extends App {
 
     val modifiedTo: String = 2100-08-29 13:45:52 // String | Retrieve entities to their modification date
 
-    val scriptIds: String = 34023324,34024032 // String | Retrieves only scripts with specific ids
-
-    val storeId: String = 1 // String | Store Id
+    val responseFields: String = {pagination,result{total_count,scripts{id,name,src,created_time{value}}}} // String | Set this parameter in order to choose which entity fields you want to retrieve
 
     val params: String = id,model,price,images // String | Set this parameter in order to choose which entity fields you want to retrieve
 
-    val responseFields: String = {pagination,result{total_count,scripts{id,name,src,created_time{value}}}} // String | Set this parameter in order to choose which entity fields you want to retrieve
-
     val exclude: String = false // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
     
-    val request = apiInstance.cartScriptList(pageCursor, start, count, createdFrom, createdTo, modifiedFrom, modifiedTo, scriptIds, storeId, params, responseFields, exclude)
+    val request = apiInstance.cartScriptList(start, count, pageCursor, scriptIds, storeId, createdFrom, createdTo, modifiedFrom, modifiedTo, responseFields, params, exclude)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -2681,17 +2681,17 @@ object Example extends App {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pageCursor** | **String**| Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional]
  **start** | **Int**| This parameter sets the number from which you want to get entities | [optional]
  **count** | **Int**| This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional]
+ **pageCursor** | **String**| Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional]
+ **scriptIds** | **String**| Retrieves only scripts with specific ids | [optional]
+ **storeId** | **String**| Store Id | [optional]
  **createdFrom** | **String**| Retrieve entities from their creation date | [optional]
  **createdTo** | **String**| Retrieve entities to their creation date | [optional]
  **modifiedFrom** | **String**| Retrieve entities from their modification date | [optional]
  **modifiedTo** | **String**| Retrieve entities to their modification date | [optional]
- **scriptIds** | **String**| Retrieves only scripts with specific ids | [optional]
- **storeId** | **String**| Store Id | [optional]
- **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
  **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
+ **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
  **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional]
 
 ### Return type
@@ -2748,19 +2748,19 @@ object Example extends App {
 
     val apiInvoker = ApiInvoker()
     val apiInstance = CartApi("https://api.api2cart.com/v1.1")
-    val storeId: String = 1 // String | Store Id
-
     val start: Int = 0 // Int | This parameter sets the number from which you want to get entities
 
     val count: Int = 20 // Int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
 
-    val params: String = id,model,price,images // String | Set this parameter in order to choose which entity fields you want to retrieve
+    val storeId: String = 1 // String | Store Id
 
     val responseFields: String = {result{id,name,enabled,countries,shipping_methods{name,rates}}} // String | Set this parameter in order to choose which entity fields you want to retrieve
 
+    val params: String = id,model,price,images // String | Set this parameter in order to choose which entity fields you want to retrieve
+
     val exclude: String = false // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
     
-    val request = apiInstance.cartShippingZonesList(storeId, start, count, params, responseFields, exclude)
+    val request = apiInstance.cartShippingZonesList(start, count, storeId, responseFields, params, exclude)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -2788,11 +2788,11 @@ object Example extends App {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storeId** | **String**| Store Id | [optional]
  **start** | **Int**| This parameter sets the number from which you want to get entities | [optional]
  **count** | **Int**| This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional]
- **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
+ **storeId** | **String**| Store Id | [optional]
  **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
+ **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
  **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional]
 
 ### Return type

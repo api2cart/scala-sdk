@@ -55,13 +55,13 @@ object Example extends App {
 
     val storeId: String = 1 // String | Store Id
 
+    val responseFields: String = {result} // String | Set this parameter in order to choose which entity fields you want to retrieve
+
     val params: String = id,model,price,images // String | Set this parameter in order to choose which entity fields you want to retrieve
 
     val exclude: String = false // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
-
-    val responseFields: String = {result} // String | Set this parameter in order to choose which entity fields you want to retrieve
     
-    val request = apiInstance.basketInfo(id, storeId, params, exclude, responseFields)
+    val request = apiInstance.basketInfo(id, storeId, responseFields, params, exclude)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -91,9 +91,9 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| Entity id |
  **storeId** | **String**| Store Id | [optional]
+ **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
  **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
  **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional]
- **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
 
 ### Return type
 
@@ -426,13 +426,13 @@ object Example extends App {
 
     val apiInvoker = ApiInvoker()
     val apiInstance = BasketApi("https://api.api2cart.com/v1.1")
-    val storeId: String = 1 // String | Store Id
-
     val start: Int = 0 // Int | This parameter sets the number from which you want to get entities
 
     val count: Int = 20 // Int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
+
+    val storeId: String = 1 // String | Store Id
     
-    val request = apiInstance.basketLiveShippingServiceList(storeId, start, count)
+    val request = apiInstance.basketLiveShippingServiceList(start, count, storeId)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -460,9 +460,9 @@ object Example extends App {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storeId** | **String**| Store Id | [optional]
  **start** | **Int**| This parameter sets the number from which you want to get entities | [optional]
  **count** | **Int**| This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional]
+ **storeId** | **String**| Store Id | [optional]
 
 ### Return type
 

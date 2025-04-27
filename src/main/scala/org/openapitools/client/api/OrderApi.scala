@@ -62,38 +62,38 @@ class OrderApi(baseUrl: String) {
    *   StoreKeyAuth (apiKey)
    *   ApiKeyAuth (apiKey)
    * 
+   * @param start This parameter sets the number from which you want to get entities
+   * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count=250
+   * @param pageCursor Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
    * @param customerId Retrieves orders specified by customer id
    * @param customerEmail Retrieves orders specified by customer email
-   * @param createdTo Retrieve entities to their creation date
-   * @param createdFrom Retrieve entities from their creation date
-   * @param modifiedTo Retrieve entities to their modification date
-   * @param modifiedFrom Retrieve entities from their modification date
-   * @param skipEmptyEmail Filter empty emails
    * @param storeId Store Id
-   * @param pageCursor Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
-   * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count=250
-   * @param start This parameter sets the number from which you want to get entities
-   * @param params Set this parameter in order to choose which entity fields you want to retrieve
+   * @param createdFrom Retrieve entities from their creation date
+   * @param createdTo Retrieve entities to their creation date
+   * @param modifiedFrom Retrieve entities from their modification date
+   * @param modifiedTo Retrieve entities to their modification date
+   * @param skipEmptyEmail Filter empty emails
    * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
+   * @param params Set this parameter in order to choose which entity fields you want to retrieve
    * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
    */
-  def orderAbandonedList(customerId: Option[String] = None, customerEmail: Option[String] = None, createdTo: Option[String] = None, createdFrom: Option[String] = None, modifiedTo: Option[String] = None, modifiedFrom: Option[String] = None, skipEmptyEmail: Option[Boolean] = None, storeId: Option[String] = None, pageCursor: Option[String] = None, count: Option[Int] = None, start: Option[Int] = None, params: Option[String] = None, responseFields: Option[String] = None, exclude: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseOrderAbandonedList] =
+  def orderAbandonedList(start: Option[Int] = None, count: Option[Int] = None, pageCursor: Option[String] = None, customerId: Option[String] = None, customerEmail: Option[String] = None, storeId: Option[String] = None, createdFrom: Option[String] = None, createdTo: Option[String] = None, modifiedFrom: Option[String] = None, modifiedTo: Option[String] = None, skipEmptyEmail: Option[Boolean] = None, responseFields: Option[String] = None, params: Option[String] = None, exclude: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseOrderAbandonedList] =
     ApiRequest[ModelResponseOrderAbandonedList](ApiMethods.GET, baseUrl, "/order.abandoned.list.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
+      .withQueryParam("start", start)
+      .withQueryParam("count", count)
+      .withQueryParam("page_cursor", pageCursor)
       .withQueryParam("customer_id", customerId)
       .withQueryParam("customer_email", customerEmail)
-      .withQueryParam("created_to", createdTo)
-      .withQueryParam("created_from", createdFrom)
-      .withQueryParam("modified_to", modifiedTo)
-      .withQueryParam("modified_from", modifiedFrom)
-      .withQueryParam("skip_empty_email", skipEmptyEmail)
       .withQueryParam("store_id", storeId)
-      .withQueryParam("page_cursor", pageCursor)
-      .withQueryParam("count", count)
-      .withQueryParam("start", start)
-      .withQueryParam("params", params)
+      .withQueryParam("created_from", createdFrom)
+      .withQueryParam("created_to", createdTo)
+      .withQueryParam("modified_from", modifiedFrom)
+      .withQueryParam("modified_to", modifiedTo)
+      .withQueryParam("skip_empty_email", skipEmptyEmail)
       .withQueryParam("response_fields", responseFields)
+      .withQueryParam("params", params)
       .withQueryParam("exclude", exclude)
       .withSuccessResponse[ModelResponseOrderAbandonedList](200)
       
@@ -128,17 +128,13 @@ class OrderApi(baseUrl: String) {
    *   StoreKeyAuth (apiKey)
    *   ApiKeyAuth (apiKey)
    * 
+   * @param orderIds Counts orders specified by order ids
+   * @param ids Counts orders specified by ids
    * @param customerId Counts orders quantity specified by customer id
+   * @param storeId Counts orders quantity specified by store id
    * @param customerEmail Counts orders quantity specified by customer email
    * @param orderStatus Counts orders quantity specified by order status
    * @param orderStatusIds Retrieves orders specified by order statuses
-   * @param createdTo Retrieve entities to their creation date
-   * @param createdFrom Retrieve entities from their creation date
-   * @param modifiedTo Retrieve entities to their modification date
-   * @param modifiedFrom Retrieve entities from their modification date
-   * @param storeId Counts orders quantity specified by store id
-   * @param ids Counts orders specified by ids
-   * @param orderIds Counts orders specified by order ids
    * @param ebayOrderStatus Counts orders quantity specified by order status
    * @param financialStatus Counts orders quantity specified by financial status
    * @param financialStatusIds Retrieves orders count specified by financial status ids
@@ -148,22 +144,22 @@ class OrderApi(baseUrl: String) {
    * @param deliveryMethod Retrieves order with delivery method
    * @param tags Order tags
    * @param shipNodeType Retrieves order with ship node type
+   * @param createdFrom Retrieve entities from their creation date
+   * @param createdTo Retrieve entities to their creation date
+   * @param modifiedFrom Retrieve entities from their modification date
+   * @param modifiedTo Retrieve entities to their modification date
    */
-  def orderCount(customerId: Option[String] = None, customerEmail: Option[String] = None, orderStatus: Option[String] = None, orderStatusIds: Seq[String], createdTo: Option[String] = None, createdFrom: Option[String] = None, modifiedTo: Option[String] = None, modifiedFrom: Option[String] = None, storeId: Option[String] = None, ids: Option[String] = None, orderIds: Option[String] = None, ebayOrderStatus: Option[String] = None, financialStatus: Option[String] = None, financialStatusIds: Seq[String], fulfillmentChannel: Option[String] = None, fulfillmentStatus: Option[String] = None, shippingMethod: Option[String] = None, deliveryMethod: Option[String] = None, tags: Option[String] = None, shipNodeType: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[OrderCount200Response] =
+  def orderCount(orderIds: Option[String] = None, ids: Option[String] = None, customerId: Option[String] = None, storeId: Option[String] = None, customerEmail: Option[String] = None, orderStatus: Option[String] = None, orderStatusIds: Seq[String], ebayOrderStatus: Option[String] = None, financialStatus: Option[String] = None, financialStatusIds: Seq[String], fulfillmentChannel: Option[String] = None, fulfillmentStatus: Option[String] = None, shippingMethod: Option[String] = None, deliveryMethod: Option[String] = None, tags: Option[String] = None, shipNodeType: Option[String] = None, createdFrom: Option[String] = None, createdTo: Option[String] = None, modifiedFrom: Option[String] = None, modifiedTo: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[OrderCount200Response] =
     ApiRequest[OrderCount200Response](ApiMethods.GET, baseUrl, "/order.count.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
+      .withQueryParam("order_ids", orderIds)
+      .withQueryParam("ids", ids)
       .withQueryParam("customer_id", customerId)
+      .withQueryParam("store_id", storeId)
       .withQueryParam("customer_email", customerEmail)
       .withQueryParam("order_status", orderStatus)
       .withQueryParam("order_status_ids", ArrayValues(orderStatusIds, MULTI))
-      .withQueryParam("created_to", createdTo)
-      .withQueryParam("created_from", createdFrom)
-      .withQueryParam("modified_to", modifiedTo)
-      .withQueryParam("modified_from", modifiedFrom)
-      .withQueryParam("store_id", storeId)
-      .withQueryParam("ids", ids)
-      .withQueryParam("order_ids", orderIds)
       .withQueryParam("ebay_order_status", ebayOrderStatus)
       .withQueryParam("financial_status", financialStatus)
       .withQueryParam("financial_status_ids", ArrayValues(financialStatusIds, MULTI))
@@ -173,6 +169,10 @@ class OrderApi(baseUrl: String) {
       .withQueryParam("delivery_method", deliveryMethod)
       .withQueryParam("tags", tags)
       .withQueryParam("ship_node_type", shipNodeType)
+      .withQueryParam("created_from", createdFrom)
+      .withQueryParam("created_to", createdTo)
+      .withQueryParam("modified_from", modifiedFrom)
+      .withQueryParam("modified_to", modifiedTo)
       .withSuccessResponse[OrderCount200Response](200)
       
 
@@ -203,35 +203,35 @@ class OrderApi(baseUrl: String) {
    *   StoreKeyAuth (apiKey)
    *   ApiKeyAuth (apiKey)
    * 
+   * @param start This parameter sets the number from which you want to get entities
+   * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count=250
    * @param customerId Retrieves orders specified by customer id
    * @param customerEmail Retrieves orders specified by customer email
    * @param orderStatus Retrieves orders specified by order status
-   * @param start This parameter sets the number from which you want to get entities
-   * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count=250
-   * @param params Set this parameter in order to choose which entity fields you want to retrieve
-   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
+   * @param financialStatus Retrieves orders specified by financial status
    * @param createdTo Retrieve entities to their creation date
    * @param createdFrom Retrieve entities from their creation date
    * @param modifiedTo Retrieve entities to their modification date
    * @param modifiedFrom Retrieve entities from their modification date
-   * @param financialStatus Retrieves orders specified by financial status
+   * @param params Set this parameter in order to choose which entity fields you want to retrieve
+   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
    */
-  def orderFind(customerId: Option[String] = None, customerEmail: Option[String] = None, orderStatus: Option[String] = None, start: Option[Int] = None, count: Option[Int] = None, params: Option[String] = None, exclude: Option[String] = None, createdTo: Option[String] = None, createdFrom: Option[String] = None, modifiedTo: Option[String] = None, modifiedFrom: Option[String] = None, financialStatus: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[OrderFind200Response] =
+  def orderFind(start: Option[Int] = None, count: Option[Int] = None, customerId: Option[String] = None, customerEmail: Option[String] = None, orderStatus: Option[String] = None, financialStatus: Option[String] = None, createdTo: Option[String] = None, createdFrom: Option[String] = None, modifiedTo: Option[String] = None, modifiedFrom: Option[String] = None, params: Option[String] = None, exclude: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[OrderFind200Response] =
     ApiRequest[OrderFind200Response](ApiMethods.GET, baseUrl, "/order.find.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
+      .withQueryParam("start", start)
+      .withQueryParam("count", count)
       .withQueryParam("customer_id", customerId)
       .withQueryParam("customer_email", customerEmail)
       .withQueryParam("order_status", orderStatus)
-      .withQueryParam("start", start)
-      .withQueryParam("count", count)
-      .withQueryParam("params", params)
-      .withQueryParam("exclude", exclude)
+      .withQueryParam("financial_status", financialStatus)
       .withQueryParam("created_to", createdTo)
       .withQueryParam("created_from", createdFrom)
       .withQueryParam("modified_to", modifiedTo)
       .withQueryParam("modified_from", modifiedFrom)
-      .withQueryParam("financial_status", financialStatus)
+      .withQueryParam("params", params)
+      .withQueryParam("exclude", exclude)
       .withSuccessResponse[OrderFind200Response](200)
       
 
@@ -265,25 +265,25 @@ class OrderApi(baseUrl: String) {
    *   StoreKeyAuth (apiKey)
    *   ApiKeyAuth (apiKey)
    * 
-   * @param orderId Retrieves order’s info specified by order id
    * @param id Retrieves order info specified by id
+   * @param orderId Retrieves order’s info specified by order id
+   * @param storeId Defines store id where the order should be found
    * @param params Set this parameter in order to choose which entity fields you want to retrieve
    * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
    * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
-   * @param storeId Defines store id where the order should be found
    * @param enableCache If the value is 'true' and order exist in our cache, we will return order.info response from cache
    * @param useLatestApiVersion Use the latest platform API version
    */
-  def orderInfo(orderId: Option[String] = None, id: Option[String] = None, params: Option[String] = None, responseFields: Option[String] = None, exclude: Option[String] = None, storeId: Option[String] = None, enableCache: Option[Boolean] = None, useLatestApiVersion: Option[Boolean] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[OrderInfo200Response] =
+  def orderInfo(id: Option[String] = None, orderId: Option[String] = None, storeId: Option[String] = None, params: Option[String] = None, responseFields: Option[String] = None, exclude: Option[String] = None, enableCache: Option[Boolean] = None, useLatestApiVersion: Option[Boolean] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[OrderInfo200Response] =
     ApiRequest[OrderInfo200Response](ApiMethods.GET, baseUrl, "/order.info.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
-      .withQueryParam("order_id", orderId)
       .withQueryParam("id", id)
+      .withQueryParam("order_id", orderId)
+      .withQueryParam("store_id", storeId)
       .withQueryParam("params", params)
       .withQueryParam("response_fields", responseFields)
       .withQueryParam("exclude", exclude)
-      .withQueryParam("store_id", storeId)
       .withQueryParam("enable_cache", enableCache)
       .withQueryParam("use_latest_api_version", useLatestApiVersion)
       .withSuccessResponse[OrderInfo200Response](200)
@@ -299,86 +299,86 @@ class OrderApi(baseUrl: String) {
    *   StoreKeyAuth (apiKey)
    *   ApiKeyAuth (apiKey)
    * 
-   * @param customerId Retrieves orders specified by customer id
-   * @param customerEmail Retrieves orders specified by customer email
-   * @param phone Filter orders by customer's phone number
-   * @param orderStatus Retrieves orders specified by order status
-   * @param orderStatusIds Retrieves orders specified by order statuses
    * @param start This parameter sets the number from which you want to get entities
    * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count=250
    * @param pageCursor Used to retrieve orders via cursor-based pagination (it can't be used with any other filtering parameter)
+   * @param ids Retrieves orders specified by ids
+   * @param orderIds Retrieves orders specified by order ids
+   * @param sinceId Retrieve entities starting from the specified id.
+   * @param storeId Store Id
+   * @param customerId Retrieves orders specified by customer id
+   * @param customerEmail Retrieves orders specified by customer email
+   * @param basketId Retrieves order’s info specified by basket id.
+   * @param currencyId Currency Id
+   * @param phone Filter orders by customer's phone number
+   * @param orderStatus Retrieves orders specified by order status
+   * @param orderStatusIds Retrieves orders specified by order statuses
+   * @param ebayOrderStatus Retrieves orders specified by order status
+   * @param financialStatus Retrieves orders specified by financial status
+   * @param financialStatusIds Retrieves orders specified by financial status ids
+   * @param fulfillmentStatus Create order with fulfillment status
+   * @param returnStatus Retrieves orders specified by return status
+   * @param fulfillmentChannel Retrieves order with a fulfillment channel
+   * @param shippingMethod Retrieve entities according to shipping method
+   * @param skipOrderIds Skipped orders by ids
+   * @param isDeleted Filter deleted orders
+   * @param shippingCountryIso3 Retrieve entities according to shipping country
+   * @param deliveryMethod Retrieves order with delivery method
+   * @param shipNodeType Retrieves order with ship node type
+   * @param createdTo Retrieve entities to their creation date
+   * @param createdFrom Retrieve entities from their creation date
+   * @param modifiedTo Retrieve entities to their modification date
+   * @param modifiedFrom Retrieve entities from their modification date
+   * @param tags Order tags
    * @param sortBy Set field to sort by
    * @param sortDirection Set sorting direction
    * @param params Set this parameter in order to choose which entity fields you want to retrieve
    * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
    * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
-   * @param createdTo Retrieve entities to their creation date
-   * @param createdFrom Retrieve entities from their creation date
-   * @param modifiedTo Retrieve entities to their modification date
-   * @param modifiedFrom Retrieve entities from their modification date
-   * @param storeId Store Id
-   * @param ids Retrieves orders specified by ids
-   * @param orderIds Retrieves orders specified by order ids
-   * @param ebayOrderStatus Retrieves orders specified by order status
-   * @param basketId Retrieves order’s info specified by basket id.
-   * @param financialStatus Retrieves orders specified by financial status
-   * @param financialStatusIds Retrieves orders specified by financial status ids
-   * @param fulfillmentStatus Create order with fulfillment status
-   * @param fulfillmentChannel Retrieves order with a fulfillment channel
-   * @param shippingMethod Retrieve entities according to shipping method
-   * @param skipOrderIds Skipped orders by ids
-   * @param sinceId Retrieve entities starting from the specified id.
-   * @param isDeleted Filter deleted orders
-   * @param shippingCountryIso3 Retrieve entities according to shipping country
    * @param enableCache If the value is 'true', we will cache orders for a 15 minutes in order to increase speed and reduce requests throttling for some methods and shoping platforms (for example order.shipment.add)
-   * @param deliveryMethod Retrieves order with delivery method
-   * @param tags Order tags
-   * @param shipNodeType Retrieves order with ship node type
-   * @param currencyId Currency Id
-   * @param returnStatus Retrieves orders specified by return status
    * @param useLatestApiVersion Use the latest platform API version
    */
-  def orderList(customerId: Option[String] = None, customerEmail: Option[String] = None, phone: Option[String] = None, orderStatus: Option[String] = None, orderStatusIds: Seq[String], start: Option[Int] = None, count: Option[Int] = None, pageCursor: Option[String] = None, sortBy: Option[String] = None, sortDirection: Option[String] = None, params: Option[String] = None, responseFields: Option[String] = None, exclude: Option[String] = None, createdTo: Option[String] = None, createdFrom: Option[String] = None, modifiedTo: Option[String] = None, modifiedFrom: Option[String] = None, storeId: Option[String] = None, ids: Option[String] = None, orderIds: Option[String] = None, ebayOrderStatus: Option[String] = None, basketId: Option[String] = None, financialStatus: Option[String] = None, financialStatusIds: Seq[String], fulfillmentStatus: Option[String] = None, fulfillmentChannel: Option[String] = None, shippingMethod: Option[String] = None, skipOrderIds: Option[String] = None, sinceId: Option[String] = None, isDeleted: Option[Boolean] = None, shippingCountryIso3: Option[String] = None, enableCache: Option[Boolean] = None, deliveryMethod: Option[String] = None, tags: Option[String] = None, shipNodeType: Option[String] = None, currencyId: Option[String] = None, returnStatus: Option[String] = None, useLatestApiVersion: Option[Boolean] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseOrderList] =
+  def orderList(start: Option[Int] = None, count: Option[Int] = None, pageCursor: Option[String] = None, ids: Option[String] = None, orderIds: Option[String] = None, sinceId: Option[String] = None, storeId: Option[String] = None, customerId: Option[String] = None, customerEmail: Option[String] = None, basketId: Option[String] = None, currencyId: Option[String] = None, phone: Option[String] = None, orderStatus: Option[String] = None, orderStatusIds: Seq[String], ebayOrderStatus: Option[String] = None, financialStatus: Option[String] = None, financialStatusIds: Seq[String], fulfillmentStatus: Option[String] = None, returnStatus: Option[String] = None, fulfillmentChannel: Option[String] = None, shippingMethod: Option[String] = None, skipOrderIds: Option[String] = None, isDeleted: Option[Boolean] = None, shippingCountryIso3: Option[String] = None, deliveryMethod: Option[String] = None, shipNodeType: Option[String] = None, createdTo: Option[String] = None, createdFrom: Option[String] = None, modifiedTo: Option[String] = None, modifiedFrom: Option[String] = None, tags: Option[String] = None, sortBy: Option[String] = None, sortDirection: Option[String] = None, params: Option[String] = None, responseFields: Option[String] = None, exclude: Option[String] = None, enableCache: Option[Boolean] = None, useLatestApiVersion: Option[Boolean] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseOrderList] =
     ApiRequest[ModelResponseOrderList](ApiMethods.GET, baseUrl, "/order.list.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
-      .withQueryParam("customer_id", customerId)
-      .withQueryParam("customer_email", customerEmail)
-      .withQueryParam("phone", phone)
-      .withQueryParam("order_status", orderStatus)
-      .withQueryParam("order_status_ids", ArrayValues(orderStatusIds, MULTI))
       .withQueryParam("start", start)
       .withQueryParam("count", count)
       .withQueryParam("page_cursor", pageCursor)
+      .withQueryParam("ids", ids)
+      .withQueryParam("order_ids", orderIds)
+      .withQueryParam("since_id", sinceId)
+      .withQueryParam("store_id", storeId)
+      .withQueryParam("customer_id", customerId)
+      .withQueryParam("customer_email", customerEmail)
+      .withQueryParam("basket_id", basketId)
+      .withQueryParam("currency_id", currencyId)
+      .withQueryParam("phone", phone)
+      .withQueryParam("order_status", orderStatus)
+      .withQueryParam("order_status_ids", ArrayValues(orderStatusIds, MULTI))
+      .withQueryParam("ebay_order_status", ebayOrderStatus)
+      .withQueryParam("financial_status", financialStatus)
+      .withQueryParam("financial_status_ids", ArrayValues(financialStatusIds, MULTI))
+      .withQueryParam("fulfillment_status", fulfillmentStatus)
+      .withQueryParam("return_status", returnStatus)
+      .withQueryParam("fulfillment_channel", fulfillmentChannel)
+      .withQueryParam("shipping_method", shippingMethod)
+      .withQueryParam("skip_order_ids", skipOrderIds)
+      .withQueryParam("is_deleted", isDeleted)
+      .withQueryParam("shipping_country_iso3", shippingCountryIso3)
+      .withQueryParam("delivery_method", deliveryMethod)
+      .withQueryParam("ship_node_type", shipNodeType)
+      .withQueryParam("created_to", createdTo)
+      .withQueryParam("created_from", createdFrom)
+      .withQueryParam("modified_to", modifiedTo)
+      .withQueryParam("modified_from", modifiedFrom)
+      .withQueryParam("tags", tags)
       .withQueryParam("sort_by", sortBy)
       .withQueryParam("sort_direction", sortDirection)
       .withQueryParam("params", params)
       .withQueryParam("response_fields", responseFields)
       .withQueryParam("exclude", exclude)
-      .withQueryParam("created_to", createdTo)
-      .withQueryParam("created_from", createdFrom)
-      .withQueryParam("modified_to", modifiedTo)
-      .withQueryParam("modified_from", modifiedFrom)
-      .withQueryParam("store_id", storeId)
-      .withQueryParam("ids", ids)
-      .withQueryParam("order_ids", orderIds)
-      .withQueryParam("ebay_order_status", ebayOrderStatus)
-      .withQueryParam("basket_id", basketId)
-      .withQueryParam("financial_status", financialStatus)
-      .withQueryParam("financial_status_ids", ArrayValues(financialStatusIds, MULTI))
-      .withQueryParam("fulfillment_status", fulfillmentStatus)
-      .withQueryParam("fulfillment_channel", fulfillmentChannel)
-      .withQueryParam("shipping_method", shippingMethod)
-      .withQueryParam("skip_order_ids", skipOrderIds)
-      .withQueryParam("since_id", sinceId)
-      .withQueryParam("is_deleted", isDeleted)
-      .withQueryParam("shipping_country_iso3", shippingCountryIso3)
       .withQueryParam("enable_cache", enableCache)
-      .withQueryParam("delivery_method", deliveryMethod)
-      .withQueryParam("tags", tags)
-      .withQueryParam("ship_node_type", shipNodeType)
-      .withQueryParam("currency_id", currencyId)
-      .withQueryParam("return_status", returnStatus)
       .withQueryParam("use_latest_api_version", useLatestApiVersion)
       .withSuccessResponse[ModelResponseOrderList](200)
       
@@ -564,22 +564,22 @@ class OrderApi(baseUrl: String) {
    * @param id Entity id
    * @param orderId Defines the order id
    * @param start This parameter sets the number from which you want to get entities
-   * @param params Set this parameter in order to choose which entity fields you want to retrieve
-   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
-   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
    * @param storeId Store Id
+   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
+   * @param params Set this parameter in order to choose which entity fields you want to retrieve
+   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
    */
-  def orderShipmentInfo(id: String, orderId: String, start: Option[Int] = None, params: Option[String] = None, responseFields: Option[String] = None, exclude: Option[String] = None, storeId: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[OrderShipmentInfo200Response] =
+  def orderShipmentInfo(id: String, orderId: String, start: Option[Int] = None, storeId: Option[String] = None, responseFields: Option[String] = None, params: Option[String] = None, exclude: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[OrderShipmentInfo200Response] =
     ApiRequest[OrderShipmentInfo200Response](ApiMethods.GET, baseUrl, "/order.shipment.info.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
+      .withQueryParam("start", start)
       .withQueryParam("id", id)
       .withQueryParam("order_id", orderId)
-      .withQueryParam("start", start)
-      .withQueryParam("params", params)
-      .withQueryParam("response_fields", responseFields)
-      .withQueryParam("exclude", exclude)
       .withQueryParam("store_id", storeId)
+      .withQueryParam("response_fields", responseFields)
+      .withQueryParam("params", params)
+      .withQueryParam("exclude", exclude)
       .withSuccessResponse[OrderShipmentInfo200Response](200)
       
 
@@ -594,34 +594,34 @@ class OrderApi(baseUrl: String) {
    *   ApiKeyAuth (apiKey)
    * 
    * @param orderId Retrieves shipments specified by order id
-   * @param pageCursor Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
    * @param start This parameter sets the number from which you want to get entities
    * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count=250
-   * @param params Set this parameter in order to choose which entity fields you want to retrieve
-   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
-   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
+   * @param pageCursor Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
+   * @param storeId Store Id
    * @param createdFrom Retrieve entities from their creation date
    * @param createdTo Retrieve entities to their creation date
    * @param modifiedFrom Retrieve entities from their modification date
    * @param modifiedTo Retrieve entities to their modification date
-   * @param storeId Store Id
+   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
+   * @param params Set this parameter in order to choose which entity fields you want to retrieve
+   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
    */
-  def orderShipmentList(orderId: String, pageCursor: Option[String] = None, start: Option[Int] = None, count: Option[Int] = None, params: Option[String] = None, responseFields: Option[String] = None, exclude: Option[String] = None, createdFrom: Option[String] = None, createdTo: Option[String] = None, modifiedFrom: Option[String] = None, modifiedTo: Option[String] = None, storeId: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseOrderShipmentList] =
+  def orderShipmentList(orderId: String, start: Option[Int] = None, count: Option[Int] = None, pageCursor: Option[String] = None, storeId: Option[String] = None, createdFrom: Option[String] = None, createdTo: Option[String] = None, modifiedFrom: Option[String] = None, modifiedTo: Option[String] = None, responseFields: Option[String] = None, params: Option[String] = None, exclude: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseOrderShipmentList] =
     ApiRequest[ModelResponseOrderShipmentList](ApiMethods.GET, baseUrl, "/order.shipment.list.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
-      .withQueryParam("order_id", orderId)
-      .withQueryParam("page_cursor", pageCursor)
       .withQueryParam("start", start)
       .withQueryParam("count", count)
-      .withQueryParam("params", params)
-      .withQueryParam("response_fields", responseFields)
-      .withQueryParam("exclude", exclude)
+      .withQueryParam("page_cursor", pageCursor)
+      .withQueryParam("order_id", orderId)
+      .withQueryParam("store_id", storeId)
       .withQueryParam("created_from", createdFrom)
       .withQueryParam("created_to", createdTo)
       .withQueryParam("modified_from", modifiedFrom)
       .withQueryParam("modified_to", modifiedTo)
-      .withQueryParam("store_id", storeId)
+      .withQueryParam("response_fields", responseFields)
+      .withQueryParam("params", params)
+      .withQueryParam("exclude", exclude)
       .withSuccessResponse[ModelResponseOrderShipmentList](200)
       
 
@@ -701,23 +701,23 @@ class OrderApi(baseUrl: String) {
    * 
    * @param orderIds Retrieves order transactions specified by order ids
    * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count=250
+   * @param pageCursor Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
    * @param storeId Store Id
    * @param params Set this parameter in order to choose which entity fields you want to retrieve
    * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
    * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
-   * @param pageCursor Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
    */
-  def orderTransactionList(orderIds: String, count: Option[Int] = None, storeId: Option[String] = None, params: Option[String] = None, responseFields: Option[String] = None, exclude: Option[String] = None, pageCursor: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseOrderTransactionList] =
+  def orderTransactionList(orderIds: String, count: Option[Int] = None, pageCursor: Option[String] = None, storeId: Option[String] = None, params: Option[String] = None, responseFields: Option[String] = None, exclude: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseOrderTransactionList] =
     ApiRequest[ModelResponseOrderTransactionList](ApiMethods.GET, baseUrl, "/order.transaction.list.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
       .withQueryParam("count", count)
+      .withQueryParam("page_cursor", pageCursor)
       .withQueryParam("order_ids", orderIds)
       .withQueryParam("store_id", storeId)
       .withQueryParam("params", params)
       .withQueryParam("response_fields", responseFields)
       .withQueryParam("exclude", exclude)
-      .withQueryParam("page_cursor", pageCursor)
       .withSuccessResponse[ModelResponseOrderTransactionList](200)
       
 
@@ -734,40 +734,40 @@ class OrderApi(baseUrl: String) {
    * @param orderId Defines the orders specified by order id
    * @param storeId Defines store id where the order should be found
    * @param orderStatus Defines new order's status
+   * @param financialStatus Update order financial status to specified
+   * @param fulfillmentStatus Create order with fulfillment status
    * @param cancellationReason Defines the cancellation reason when the order will be canceled
+   * @param orderPaymentMethod Defines order payment method.<br/>Setting order_payment_method on Shopify will also change financial_status field value to 'paid'
    * @param comment Specifies order comment
    * @param adminComment Specifies admin's order comment
    * @param adminPrivateComment Specifies private admin's order comment
+   * @param invoiceAdminComment Specifies admin's order invoice comment
    * @param dateModified Specifies order's  modification date
    * @param dateFinished Specifies order's  finished date
-   * @param financialStatus Update order financial status to specified
-   * @param fulfillmentStatus Create order with fulfillment status
-   * @param orderPaymentMethod Defines order payment method.<br/>Setting order_payment_method on Shopify will also change financial_status field value to 'paid'
    * @param sendNotifications Send notifications to customer after order was created
-   * @param origin The source of the order
    * @param createInvoice Determines whether an invoice should be created if it has not already been created
-   * @param invoiceAdminComment Specifies admin's order invoice comment
+   * @param origin The source of the order
    */
-  def orderUpdate(orderId: String, storeId: Option[String] = None, orderStatus: Option[String] = None, cancellationReason: Option[String] = None, comment: Option[String] = None, adminComment: Option[String] = None, adminPrivateComment: Option[String] = None, dateModified: Option[String] = None, dateFinished: Option[String] = None, financialStatus: Option[String] = None, fulfillmentStatus: Option[String] = None, orderPaymentMethod: Option[String] = None, sendNotifications: Option[Boolean] = None, origin: Option[String] = None, createInvoice: Option[Boolean] = None, invoiceAdminComment: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[AccountConfigUpdate200Response] =
+  def orderUpdate(orderId: String, storeId: Option[String] = None, orderStatus: Option[String] = None, financialStatus: Option[String] = None, fulfillmentStatus: Option[String] = None, cancellationReason: Option[String] = None, orderPaymentMethod: Option[String] = None, comment: Option[String] = None, adminComment: Option[String] = None, adminPrivateComment: Option[String] = None, invoiceAdminComment: Option[String] = None, dateModified: Option[String] = None, dateFinished: Option[String] = None, sendNotifications: Option[Boolean] = None, createInvoice: Option[Boolean] = None, origin: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[AccountConfigUpdate200Response] =
     ApiRequest[AccountConfigUpdate200Response](ApiMethods.PUT, baseUrl, "/order.update.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
       .withQueryParam("order_id", orderId)
       .withQueryParam("store_id", storeId)
       .withQueryParam("order_status", orderStatus)
+      .withQueryParam("financial_status", financialStatus)
+      .withQueryParam("fulfillment_status", fulfillmentStatus)
       .withQueryParam("cancellation_reason", cancellationReason)
+      .withQueryParam("order_payment_method", orderPaymentMethod)
       .withQueryParam("comment", comment)
       .withQueryParam("admin_comment", adminComment)
       .withQueryParam("admin_private_comment", adminPrivateComment)
+      .withQueryParam("invoice_admin_comment", invoiceAdminComment)
       .withQueryParam("date_modified", dateModified)
       .withQueryParam("date_finished", dateFinished)
-      .withQueryParam("financial_status", financialStatus)
-      .withQueryParam("fulfillment_status", fulfillmentStatus)
-      .withQueryParam("order_payment_method", orderPaymentMethod)
       .withQueryParam("send_notifications", sendNotifications)
-      .withQueryParam("origin", origin)
       .withQueryParam("create_invoice", createInvoice)
-      .withQueryParam("invoice_admin_comment", invoiceAdminComment)
+      .withQueryParam("origin", origin)
       .withSuccessResponse[AccountConfigUpdate200Response](200)
       
 

@@ -51,13 +51,13 @@ object Example extends App {
 
     val langId: String = 3 // String | Language id
 
-    val params: String = tax_class_id,tax // String | Set this parameter in order to choose which entity fields you want to retrieve
-
     val responseFields: String = {result{id,name,tax,tax_rates{id,countries{id,name,states},cities,address,zip_codes{is_range,range,fields}}}} // String | Set this parameter in order to choose which entity fields you want to retrieve
+
+    val params: String = tax_class_id,tax // String | Set this parameter in order to choose which entity fields you want to retrieve
 
     val exclude: String = tax_class_id,tax // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
     
-    val request = apiInstance.taxClassInfo(taxClassId, storeId, langId, params, responseFields, exclude)
+    val request = apiInstance.taxClassInfo(taxClassId, storeId, langId, responseFields, params, exclude)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -88,8 +88,8 @@ Name | Type | Description  | Notes
  **taxClassId** | **String**| Retrieves taxes specified by class id |
  **storeId** | **String**| Store Id | [optional]
  **langId** | **String**| Language id | [optional]
- **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
  **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
+ **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
  **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional]
 
 ### Return type
@@ -146,6 +146,16 @@ object Example extends App {
 
     val apiInvoker = ApiInvoker()
     val apiInstance = TaxApi("https://api.api2cart.com/v1.1")
+    val count: Int = 20 // Int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
+
+    val pageCursor: String =  // String | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
+
+    val storeId: String = 1 // String | Store Id
+
+    val findValue: String = tax // String | Entity search that is specified by some value
+
+    val findWhere: String = name // String | Tax class search that is specified by field
+
     val createdTo: String = 2100-08-29 13:45:52 // String | Retrieve entities to their creation date
 
     val createdFrom: String = 2010-07-29 13:45:52 // String | Retrieve entities from their creation date
@@ -154,19 +164,9 @@ object Example extends App {
 
     val modifiedFrom: String = 2010-07-29 13:45:52 // String | Retrieve entities from their modification date
 
-    val findValue: String = tax // String | Entity search that is specified by some value
-
-    val findWhere: String = name // String | Tax class search that is specified by field
-
-    val storeId: String = 1 // String | Store Id
-
-    val count: Int = 20 // Int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
-
-    val pageCursor: String =  // String | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
-
     val responseFields: String = {result} // String | Set this parameter in order to choose which entity fields you want to retrieve
     
-    val request = apiInstance.taxClassList(createdTo, createdFrom, modifiedTo, modifiedFrom, findValue, findWhere, storeId, count, pageCursor, responseFields)
+    val request = apiInstance.taxClassList(count, pageCursor, storeId, findValue, findWhere, createdTo, createdFrom, modifiedTo, modifiedFrom, responseFields)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -194,15 +194,15 @@ object Example extends App {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **count** | **Int**| This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional]
+ **pageCursor** | **String**| Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional]
+ **storeId** | **String**| Store Id | [optional]
+ **findValue** | **String**| Entity search that is specified by some value | [optional]
+ **findWhere** | **String**| Tax class search that is specified by field | [optional]
  **createdTo** | **String**| Retrieve entities to their creation date | [optional]
  **createdFrom** | **String**| Retrieve entities from their creation date | [optional]
  **modifiedTo** | **String**| Retrieve entities to their modification date | [optional]
  **modifiedFrom** | **String**| Retrieve entities from their modification date | [optional]
- **findValue** | **String**| Entity search that is specified by some value | [optional]
- **findWhere** | **String**| Tax class search that is specified by field | [optional]
- **storeId** | **String**| Store Id | [optional]
- **count** | **Int**| This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional]
- **pageCursor** | **String**| Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional]
  **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
 
 ### Return type

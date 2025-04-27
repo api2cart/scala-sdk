@@ -131,25 +131,25 @@ class WebhookApi(baseUrl: String) {
    *   StoreKeyAuth (apiKey)
    *   ApiKeyAuth (apiKey)
    * 
-   * @param params Set this parameter in order to choose which entity fields you want to retrieve
    * @param start This parameter sets the number from which you want to get entities
    * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count=250
    * @param entity The entity you want to filter webhooks by (e.g. order or product)
    * @param action The action you want to filter webhooks by (e.g. add, update, or delete)
    * @param active The webhook status you want to filter webhooks by
    * @param ids List of сomma-separated webhook ids
+   * @param params Set this parameter in order to choose which entity fields you want to retrieve
    */
-  def webhookList(params: Option[String] = None, start: Option[Int] = None, count: Option[Int] = None, entity: Option[String] = None, action: Option[String] = None, active: Option[Boolean] = None, ids: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[WebhookList200Response] =
+  def webhookList(start: Option[Int] = None, count: Option[Int] = None, entity: Option[String] = None, action: Option[String] = None, active: Option[Boolean] = None, ids: Option[String] = None, params: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[WebhookList200Response] =
     ApiRequest[WebhookList200Response](ApiMethods.GET, baseUrl, "/webhook.list.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
-      .withQueryParam("params", params)
       .withQueryParam("start", start)
       .withQueryParam("count", count)
       .withQueryParam("entity", entity)
       .withQueryParam("action", action)
       .withQueryParam("active", active)
       .withQueryParam("ids", ids)
+      .withQueryParam("params", params)
       .withSuccessResponse[WebhookList200Response](200)
       
 

@@ -92,11 +92,11 @@ class CustomerApi(baseUrl: String) {
    * @param pageCursor Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
    * @param storeId Store Id
    * @param langId Language id
+   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
    * @param params Set this parameter in order to choose which entity fields you want to retrieve
    * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
-   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
    */
-  def customerAttributeList(customerId: String, count: Option[Int] = None, pageCursor: Option[String] = None, storeId: Option[String] = None, langId: Option[String] = None, params: Option[String] = None, exclude: Option[String] = None, responseFields: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseCustomerAttributeList] =
+  def customerAttributeList(customerId: String, count: Option[Int] = None, pageCursor: Option[String] = None, storeId: Option[String] = None, langId: Option[String] = None, responseFields: Option[String] = None, params: Option[String] = None, exclude: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseCustomerAttributeList] =
     ApiRequest[ModelResponseCustomerAttributeList](ApiMethods.GET, baseUrl, "/customer.attribute.list.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
@@ -105,9 +105,9 @@ class CustomerApi(baseUrl: String) {
       .withQueryParam("customer_id", customerId)
       .withQueryParam("store_id", storeId)
       .withQueryParam("lang_id", langId)
+      .withQueryParam("response_fields", responseFields)
       .withQueryParam("params", params)
       .withQueryParam("exclude", exclude)
-      .withQueryParam("response_fields", responseFields)
       .withSuccessResponse[ModelResponseCustomerAttributeList](200)
       
 
@@ -121,35 +121,35 @@ class CustomerApi(baseUrl: String) {
    *   StoreKeyAuth (apiKey)
    *   ApiKeyAuth (apiKey)
    * 
+   * @param ids Counts customers specified by ids
+   * @param sinceId Retrieve entities starting from the specified id.
+   * @param customerListId The numeric ID of the customer list in Demandware.
    * @param groupId Customer group_id
+   * @param storeId Counts customer specified by store id
+   * @param avail Defines category's visibility status
+   * @param findValue Entity search that is specified by some value
+   * @param findWhere Counts customers that are searched specified by field
    * @param createdFrom Retrieve entities from their creation date
    * @param createdTo Retrieve entities to their creation date
    * @param modifiedFrom Retrieve entities from their modification date
    * @param modifiedTo Retrieve entities to their modification date
-   * @param storeId Counts customer specified by store id
-   * @param customerListId The numeric ID of the customer list in Demandware.
-   * @param avail Defines category's visibility status
-   * @param findValue Entity search that is specified by some value
-   * @param findWhere Counts customers that are searched specified by field
-   * @param ids Counts customers specified by ids
-   * @param sinceId Retrieve entities starting from the specified id.
    */
-  def customerCount(groupId: Option[String] = None, createdFrom: Option[String] = None, createdTo: Option[String] = None, modifiedFrom: Option[String] = None, modifiedTo: Option[String] = None, storeId: Option[String] = None, customerListId: Option[String] = None, avail: Option[Boolean] = None, findValue: Option[String] = None, findWhere: Option[String] = None, ids: Option[String] = None, sinceId: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[CustomerCount200Response] =
+  def customerCount(ids: Option[String] = None, sinceId: Option[String] = None, customerListId: Option[String] = None, groupId: Option[String] = None, storeId: Option[String] = None, avail: Option[Boolean] = None, findValue: Option[String] = None, findWhere: Option[String] = None, createdFrom: Option[String] = None, createdTo: Option[String] = None, modifiedFrom: Option[String] = None, modifiedTo: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[CustomerCount200Response] =
     ApiRequest[CustomerCount200Response](ApiMethods.GET, baseUrl, "/customer.count.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
+      .withQueryParam("ids", ids)
+      .withQueryParam("since_id", sinceId)
+      .withQueryParam("customer_list_id", customerListId)
       .withQueryParam("group_id", groupId)
+      .withQueryParam("store_id", storeId)
+      .withQueryParam("avail", avail)
+      .withQueryParam("find_value", findValue)
+      .withQueryParam("find_where", findWhere)
       .withQueryParam("created_from", createdFrom)
       .withQueryParam("created_to", createdTo)
       .withQueryParam("modified_from", modifiedFrom)
       .withQueryParam("modified_to", modifiedTo)
-      .withQueryParam("store_id", storeId)
-      .withQueryParam("customer_list_id", customerListId)
-      .withQueryParam("avail", avail)
-      .withQueryParam("find_value", findValue)
-      .withQueryParam("find_where", findWhere)
-      .withQueryParam("ids", ids)
-      .withQueryParam("since_id", sinceId)
       .withSuccessResponse[CustomerCount200Response](200)
       
 
@@ -233,31 +233,31 @@ class CustomerApi(baseUrl: String) {
    *   StoreKeyAuth (apiKey)
    *   ApiKeyAuth (apiKey)
    * 
-   * @param disableCache Disable cache for current request
-   * @param pageCursor Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
    * @param start This parameter sets the number from which you want to get entities
    * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count=250
+   * @param pageCursor Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
+   * @param groupIds Groups that will be assigned to a customer
    * @param storeId Store Id
    * @param langId Language id
-   * @param groupIds Groups that will be assigned to a customer
+   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
    * @param params Set this parameter in order to choose which entity fields you want to retrieve
    * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
-   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
+   * @param disableCache Disable cache for current request
    */
-  def customerGroupList(disableCache: Option[Boolean] = None, pageCursor: Option[String] = None, start: Option[Int] = None, count: Option[Int] = None, storeId: Option[String] = None, langId: Option[String] = None, groupIds: Option[String] = None, params: Option[String] = None, exclude: Option[String] = None, responseFields: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseCustomerGroupList] =
+  def customerGroupList(start: Option[Int] = None, count: Option[Int] = None, pageCursor: Option[String] = None, groupIds: Option[String] = None, storeId: Option[String] = None, langId: Option[String] = None, responseFields: Option[String] = None, params: Option[String] = None, exclude: Option[String] = None, disableCache: Option[Boolean] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseCustomerGroupList] =
     ApiRequest[ModelResponseCustomerGroupList](ApiMethods.GET, baseUrl, "/customer.group.list.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
-      .withQueryParam("disable_cache", disableCache)
-      .withQueryParam("page_cursor", pageCursor)
       .withQueryParam("start", start)
       .withQueryParam("count", count)
+      .withQueryParam("page_cursor", pageCursor)
+      .withQueryParam("group_ids", groupIds)
       .withQueryParam("store_id", storeId)
       .withQueryParam("lang_id", langId)
-      .withQueryParam("group_ids", groupIds)
+      .withQueryParam("response_fields", responseFields)
       .withQueryParam("params", params)
       .withQueryParam("exclude", exclude)
-      .withQueryParam("response_fields", responseFields)
+      .withQueryParam("disable_cache", disableCache)
       .withSuccessResponse[ModelResponseCustomerGroupList](200)
       
 
@@ -272,20 +272,20 @@ class CustomerApi(baseUrl: String) {
    *   ApiKeyAuth (apiKey)
    * 
    * @param id Retrieves customer's info specified by customer id
-   * @param params Set this parameter in order to choose which entity fields you want to retrieve
-   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
-   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
    * @param storeId Retrieves customer info specified by store id
+   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
+   * @param params Set this parameter in order to choose which entity fields you want to retrieve
+   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
    */
-  def customerInfo(id: String, params: Option[String] = None, responseFields: Option[String] = None, exclude: Option[String] = None, storeId: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[CustomerInfo200Response] =
+  def customerInfo(id: String, storeId: Option[String] = None, responseFields: Option[String] = None, params: Option[String] = None, exclude: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[CustomerInfo200Response] =
     ApiRequest[CustomerInfo200Response](ApiMethods.GET, baseUrl, "/customer.info.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
       .withQueryParam("id", id)
-      .withQueryParam("params", params)
-      .withQueryParam("response_fields", responseFields)
-      .withQueryParam("exclude", exclude)
       .withQueryParam("store_id", storeId)
+      .withQueryParam("response_fields", responseFields)
+      .withQueryParam("params", params)
+      .withQueryParam("exclude", exclude)
       .withSuccessResponse[CustomerInfo200Response](200)
       
 
@@ -299,51 +299,51 @@ class CustomerApi(baseUrl: String) {
    *   StoreKeyAuth (apiKey)
    *   ApiKeyAuth (apiKey)
    * 
-   * @param pageCursor Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
    * @param start This parameter sets the number from which you want to get entities
    * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count=250
+   * @param pageCursor Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
+   * @param ids Retrieves customers specified by ids
+   * @param sinceId Retrieve entities starting from the specified id.
+   * @param customerListId The numeric ID of the customer list in Demandware.
+   * @param groupId Customer group_id
+   * @param storeId Retrieves customers specified by store id
+   * @param avail Defines category's visibility status
+   * @param findValue Entity search that is specified by some value
+   * @param findWhere Customer search that is specified by field
    * @param createdFrom Retrieve entities from their creation date
    * @param createdTo Retrieve entities to their creation date
    * @param modifiedFrom Retrieve entities from their modification date
    * @param modifiedTo Retrieve entities to their modification date
-   * @param params Set this parameter in order to choose which entity fields you want to retrieve
-   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
-   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
-   * @param groupId Customer group_id
-   * @param storeId Retrieves customers specified by store id
-   * @param customerListId The numeric ID of the customer list in Demandware.
-   * @param avail Defines category's visibility status
-   * @param findValue Entity search that is specified by some value
-   * @param findWhere Customer search that is specified by field
    * @param sortBy Set field to sort by
    * @param sortDirection Set sorting direction
-   * @param ids Retrieves customers specified by ids
-   * @param sinceId Retrieve entities starting from the specified id.
+   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
+   * @param params Set this parameter in order to choose which entity fields you want to retrieve
+   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
    */
-  def customerList(pageCursor: Option[String] = None, start: Option[Int] = None, count: Option[Int] = None, createdFrom: Option[String] = None, createdTo: Option[String] = None, modifiedFrom: Option[String] = None, modifiedTo: Option[String] = None, params: Option[String] = None, responseFields: Option[String] = None, exclude: Option[String] = None, groupId: Option[String] = None, storeId: Option[String] = None, customerListId: Option[String] = None, avail: Option[Boolean] = None, findValue: Option[String] = None, findWhere: Option[String] = None, sortBy: Option[String] = None, sortDirection: Option[String] = None, ids: Option[String] = None, sinceId: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseCustomerList] =
+  def customerList(start: Option[Int] = None, count: Option[Int] = None, pageCursor: Option[String] = None, ids: Option[String] = None, sinceId: Option[String] = None, customerListId: Option[String] = None, groupId: Option[String] = None, storeId: Option[String] = None, avail: Option[Boolean] = None, findValue: Option[String] = None, findWhere: Option[String] = None, createdFrom: Option[String] = None, createdTo: Option[String] = None, modifiedFrom: Option[String] = None, modifiedTo: Option[String] = None, sortBy: Option[String] = None, sortDirection: Option[String] = None, responseFields: Option[String] = None, params: Option[String] = None, exclude: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseCustomerList] =
     ApiRequest[ModelResponseCustomerList](ApiMethods.GET, baseUrl, "/customer.list.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
-      .withQueryParam("page_cursor", pageCursor)
       .withQueryParam("start", start)
       .withQueryParam("count", count)
+      .withQueryParam("page_cursor", pageCursor)
+      .withQueryParam("ids", ids)
+      .withQueryParam("since_id", sinceId)
+      .withQueryParam("customer_list_id", customerListId)
+      .withQueryParam("group_id", groupId)
+      .withQueryParam("store_id", storeId)
+      .withQueryParam("avail", avail)
+      .withQueryParam("find_value", findValue)
+      .withQueryParam("find_where", findWhere)
       .withQueryParam("created_from", createdFrom)
       .withQueryParam("created_to", createdTo)
       .withQueryParam("modified_from", modifiedFrom)
       .withQueryParam("modified_to", modifiedTo)
-      .withQueryParam("params", params)
-      .withQueryParam("response_fields", responseFields)
-      .withQueryParam("exclude", exclude)
-      .withQueryParam("group_id", groupId)
-      .withQueryParam("store_id", storeId)
-      .withQueryParam("customer_list_id", customerListId)
-      .withQueryParam("avail", avail)
-      .withQueryParam("find_value", findValue)
-      .withQueryParam("find_where", findWhere)
       .withQueryParam("sort_by", sortBy)
       .withQueryParam("sort_direction", sortDirection)
-      .withQueryParam("ids", ids)
-      .withQueryParam("since_id", sinceId)
+      .withQueryParam("response_fields", responseFields)
+      .withQueryParam("params", params)
+      .withQueryParam("exclude", exclude)
       .withSuccessResponse[ModelResponseCustomerList](200)
       
 
@@ -378,23 +378,23 @@ class CustomerApi(baseUrl: String) {
    *   ApiKeyAuth (apiKey)
    * 
    * @param customerId Retrieves orders specified by customer id
-   * @param id Entity id
-   * @param storeId Store Id
    * @param start This parameter sets the number from which you want to get entities
    * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count=250
    * @param pageCursor Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
+   * @param id Entity id
+   * @param storeId Store Id
    * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
    */
-  def customerWishlistList(customerId: String, id: Option[String] = None, storeId: Option[String] = None, start: Option[Int] = None, count: Option[Int] = None, pageCursor: Option[String] = None, responseFields: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseCustomerWishlistList] =
+  def customerWishlistList(customerId: String, start: Option[Int] = None, count: Option[Int] = None, pageCursor: Option[String] = None, id: Option[String] = None, storeId: Option[String] = None, responseFields: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseCustomerWishlistList] =
     ApiRequest[ModelResponseCustomerWishlistList](ApiMethods.GET, baseUrl, "/customer.wishlist.list.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
-      .withQueryParam("customer_id", customerId)
-      .withQueryParam("id", id)
-      .withQueryParam("store_id", storeId)
       .withQueryParam("start", start)
       .withQueryParam("count", count)
       .withQueryParam("page_cursor", pageCursor)
+      .withQueryParam("customer_id", customerId)
+      .withQueryParam("id", id)
+      .withQueryParam("store_id", storeId)
       .withQueryParam("response_fields", responseFields)
       .withSuccessResponse[ModelResponseCustomerWishlistList](200)
       

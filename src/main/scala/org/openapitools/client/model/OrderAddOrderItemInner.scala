@@ -31,6 +31,8 @@ case class OrderAddOrderItemInner (
   orderItemVariantId: Option[String] = None,
   /* Percentage of tax for product order */
   orderItemTax: Option[BigDecimal] = None,
+  /* Defines if item price includes tax */
+  orderItemPriceIncludesTax: Option[Boolean] = None,
   /* Index of the parent grouped/bundle product */
   orderItemParent: Option[Int] = None,
   /* Option name of the parent grouped/bundle product */
@@ -39,8 +41,6 @@ case class OrderAddOrderItemInner (
   orderItemAllowRefundItemsSeparately: Option[Boolean] = None,
   /* Indicates whether subitems of the grouped/bundle product can be shipped separately */
   orderItemAllowShipItemsSeparately: Option[Boolean] = None,
-  /* Defines if item price includes tax */
-  orderItemPriceIncludesTax: Option[Boolean] = None,
   orderItemOption: Option[Seq[OrderAddOrderItemInnerOrderItemOptionInner]] = None,
   orderItemProperty: Option[Seq[OrderAddOrderItemInnerOrderItemPropertyInner]] = None
 ) extends ApiModel

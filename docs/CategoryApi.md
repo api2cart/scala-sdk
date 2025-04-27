@@ -67,25 +67,19 @@ object Example extends App {
     val apiInstance = CategoryApi("https://api.api2cart.com/v1.1")
     val name: String = Shoes // String | Defines category's name that has to be added
 
+    val description: String = Test category // String | Defines category's description
+
+    val shortDescription: String = Short description. This is very short description // String | Defines short description
+
     val parentId: String = 6 // String | Adds categories specified by parent id
 
-    val storesIds: String = 1,2 // String | Create category in the stores that is specified by comma-separated stores' id
-
-    val storeId: String = 1 // String | Store Id
-
-    val langId: String = 3 // String | Language id
-
     val avail: Boolean = false // Boolean | Defines category's visibility status
-
-    val sortOrder: Int = 2 // Int | Sort number in the list
 
     val createdTime: String = 2014-01-30 15:58:41 // String | Entity's date creation
 
     val modifiedTime: String = 2014-07-30 15:58:41 // String | Entity's date modification
 
-    val description: String = Test category // String | Defines category's description
-
-    val shortDescription: String = Short description. This is very short description // String | Defines short description
+    val sortOrder: Int = 2 // Int | Sort number in the list
 
     val metaTitle: String = category,test // String | Defines unique meta title for each entity
 
@@ -94,8 +88,14 @@ object Example extends App {
     val metaKeywords: String = category,test // String | Defines unique meta keywords for each entity
 
     val seoUrl: String = category,test // String | Defines unique category's URL for SEO
+
+    val storeId: String = 1 // String | Store Id
+
+    val storesIds: String = 1,2 // String | Create category in the stores that is specified by comma-separated stores' id
+
+    val langId: String = 3 // String | Language id
     
-    val request = apiInstance.categoryAdd(name, parentId, storesIds, storeId, langId, avail, sortOrder, createdTime, modifiedTime, description, shortDescription, metaTitle, metaDescription, metaKeywords, seoUrl)
+    val request = apiInstance.categoryAdd(name, description, shortDescription, parentId, avail, createdTime, modifiedTime, sortOrder, metaTitle, metaDescription, metaKeywords, seoUrl, storeId, storesIds, langId)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -124,20 +124,20 @@ object Example extends App {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String**| Defines category&#39;s name that has to be added |
- **parentId** | **String**| Adds categories specified by parent id | [optional]
- **storesIds** | **String**| Create category in the stores that is specified by comma-separated stores&#39; id | [optional]
- **storeId** | **String**| Store Id | [optional]
- **langId** | **String**| Language id | [optional]
- **avail** | **Boolean**| Defines category&#39;s visibility status | [optional]
- **sortOrder** | **Int**| Sort number in the list | [optional]
- **createdTime** | **String**| Entity&#39;s date creation | [optional]
- **modifiedTime** | **String**| Entity&#39;s date modification | [optional]
  **description** | **String**| Defines category&#39;s description | [optional]
  **shortDescription** | **String**| Defines short description | [optional]
+ **parentId** | **String**| Adds categories specified by parent id | [optional]
+ **avail** | **Boolean**| Defines category&#39;s visibility status | [optional]
+ **createdTime** | **String**| Entity&#39;s date creation | [optional]
+ **modifiedTime** | **String**| Entity&#39;s date modification | [optional]
+ **sortOrder** | **Int**| Sort number in the list | [optional]
  **metaTitle** | **String**| Defines unique meta title for each entity | [optional]
  **metaDescription** | **String**| Defines unique meta description of a entity | [optional]
  **metaKeywords** | **String**| Defines unique meta keywords for each entity | [optional]
  **seoUrl** | **String**| Defines unique category&#39;s URL for SEO | [optional]
+ **storeId** | **String**| Store Id | [optional]
+ **storesIds** | **String**| Create category in the stores that is specified by comma-separated stores&#39; id | [optional]
+ **langId** | **String**| Language id | [optional]
 
 ### Return type
 
@@ -280,13 +280,13 @@ object Example extends App {
 
     val apiInvoker = ApiInvoker()
     val apiInstance = CategoryApi("https://api.api2cart.com/v1.1")
-    val productId: String = 10 // String | Defines category assign to the product, specified by product id
-
     val categoryId: String = 6 // String | Defines category assign, specified by category id
+
+    val productId: String = 10 // String | Defines category assign to the product, specified by product id
 
     val storeId: String = 1 // String | Store Id
     
-    val request = apiInstance.categoryAssign(productId, categoryId, storeId)
+    val request = apiInstance.categoryAssign(categoryId, productId, storeId)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -314,8 +314,8 @@ object Example extends App {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **productId** | **String**| Defines category assign to the product, specified by product id |
  **categoryId** | **String**| Defines category assign, specified by category id |
+ **productId** | **String**| Defines category assign to the product, specified by product id |
  **storeId** | **String**| Store Id | [optional]
 
 ### Return type
@@ -378,6 +378,8 @@ object Example extends App {
 
     val langId: String = 3 // String | Counts category specified by language id
 
+    val avail: Boolean = false // Boolean | Defines category's visibility status
+
     val createdFrom: String = 2010-07-29 13:45:52 // String | Retrieve entities from their creation date
 
     val createdTo: String = 2100-08-29 13:45:52 // String | Retrieve entities to their creation date
@@ -385,8 +387,6 @@ object Example extends App {
     val modifiedFrom: String = 2010-07-29 13:45:52 // String | Retrieve entities from their modification date
 
     val modifiedTo: String = 2100-08-29 13:45:52 // String | Retrieve entities to their modification date
-
-    val avail: Boolean = false // Boolean | Defines category's visibility status
 
     val productType: String = BICYCLE // String | A categorization for the product
 
@@ -398,7 +398,7 @@ object Example extends App {
 
     val disableReportCache: Boolean = false // Boolean | Disable report cache for current request
     
-    val request = apiInstance.categoryCount(parentId, storeId, langId, createdFrom, createdTo, modifiedFrom, modifiedTo, avail, productType, findValue, findWhere, reportRequestId, disableReportCache)
+    val request = apiInstance.categoryCount(parentId, storeId, langId, avail, createdFrom, createdTo, modifiedFrom, modifiedTo, productType, findValue, findWhere, reportRequestId, disableReportCache)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -429,11 +429,11 @@ Name | Type | Description  | Notes
  **parentId** | **String**| Counts categories specified by parent id | [optional]
  **storeId** | **String**| Counts category specified by store id | [optional]
  **langId** | **String**| Counts category specified by language id | [optional]
+ **avail** | **Boolean**| Defines category&#39;s visibility status | [optional]
  **createdFrom** | **String**| Retrieve entities from their creation date | [optional]
  **createdTo** | **String**| Retrieve entities to their creation date | [optional]
  **modifiedFrom** | **String**| Retrieve entities from their modification date | [optional]
  **modifiedTo** | **String**| Retrieve entities to their modification date | [optional]
- **avail** | **Boolean**| Defines category&#39;s visibility status | [optional]
  **productType** | **String**| A categorization for the product | [optional]
  **findValue** | **String**| Entity search that is specified by some value | [optional]
  **findWhere** | **String**| Counts categories that are searched specified by field | [optional]
@@ -689,15 +689,15 @@ object Example extends App {
 
     val `type`: String = base // String | Defines image's types that are specified by comma-separated list
 
+    val storeId: String = 1 // String | Store Id
+
     val label: String = This cool image // String | Defines alternative text that has to be attached to the picture
 
     val mime: String = image/jpeg // String | Mime type of image http://en.wikipedia.org/wiki/Internet_media_type.
 
     val position: Int = 5 // Int | Defines image’s position in the list
-
-    val storeId: String = 1 // String | Store Id
     
-    val request = apiInstance.categoryImageAdd(categoryId, imageName, url, `type`, label, mime, position, storeId)
+    val request = apiInstance.categoryImageAdd(categoryId, imageName, url, `type`, storeId, label, mime, position)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -729,10 +729,10 @@ Name | Type | Description  | Notes
  **imageName** | **String**| Defines image&#39;s name |
  **url** | **String**| Defines URL of the image that has to be added |
  **`type`** | **String**| Defines image&#39;s types that are specified by comma-separated list | [enum: base, thumbnail]
+ **storeId** | **String**| Store Id | [optional]
  **label** | **String**| Defines alternative text that has to be attached to the picture | [optional]
  **mime** | **String**| Mime type of image http://en.wikipedia.org/wiki/Internet_media_type. | [optional]
  **position** | **Int**| Defines image’s position in the list | [optional]
- **storeId** | **String**| Store Id | [optional]
 
 ### Return type
 
@@ -882,23 +882,23 @@ object Example extends App {
     val apiInstance = CategoryApi("https://api.api2cart.com/v1.1")
     val id: String = 10 // String | Retrieves category's info specified by category id
 
-    val params: String = id,parent_id,name // String | Set this parameter in order to choose which entity fields you want to retrieve
-
-    val responseFields: String = {result{id,name,parent_id,modified_at{value},images}} // String | Set this parameter in order to choose which entity fields you want to retrieve
-
-    val exclude: String = id,parent_id,name // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
-
     val storeId: String = 1 // String | Retrieves category info  specified by store id
 
     val langId: String = 3 // String | Retrieves category info  specified by language id
 
     val schemaType: String = LISTING // String | The name of the requirements set for the provided schema.
 
+    val responseFields: String = {result{id,name,parent_id,modified_at{value},images}} // String | Set this parameter in order to choose which entity fields you want to retrieve
+
+    val params: String = id,parent_id,name // String | Set this parameter in order to choose which entity fields you want to retrieve
+
+    val exclude: String = id,parent_id,name // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
+
     val reportRequestId: String = 105245017661 // String | Report request id
 
     val disableReportCache: Boolean = false // Boolean | Disable report cache for current request
     
-    val request = apiInstance.categoryInfo(id, params, responseFields, exclude, storeId, langId, schemaType, reportRequestId, disableReportCache)
+    val request = apiInstance.categoryInfo(id, storeId, langId, schemaType, responseFields, params, exclude, reportRequestId, disableReportCache)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -927,12 +927,12 @@ object Example extends App {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| Retrieves category&#39;s info specified by category id |
- **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
- **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
- **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional]
  **storeId** | **String**| Retrieves category info  specified by store id | [optional]
  **langId** | **String**| Retrieves category info  specified by language id | [optional]
  **schemaType** | **String**| The name of the requirements set for the provided schema. | [optional]
+ **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
+ **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
+ **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional]
  **reportRequestId** | **String**| Report request id | [optional]
  **disableReportCache** | **Boolean**| Disable report cache for current request | [optional]
 
@@ -996,17 +996,15 @@ object Example extends App {
 
     val pageCursor: String =  // String | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
 
-    val parentId: String = 6 // String | Retrieves categories specified by parent id
-
-    val params: String = id,parent_id,name // String | Set this parameter in order to choose which entity fields you want to retrieve
-
-    val responseFields: String = {result{categories_count,category{id,parent_id,modified_at{value},images}}} // String | Set this parameter in order to choose which entity fields you want to retrieve
-
-    val exclude: String = id,parent_id,name // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
-
     val storeId: String = 1 // String | Retrieves categories specified by store id
 
     val langId: String = 3 // String | Retrieves categorys specified by language id
+
+    val parentId: String = 6 // String | Retrieves categories specified by parent id
+
+    val avail: Boolean = false // Boolean | Defines category's visibility status
+
+    val productType: String = BICYCLE // String | A categorization for the product
 
     val createdFrom: String = 2010-07-29 13:45:52 // String | Retrieve entities from their creation date
 
@@ -1016,13 +1014,15 @@ object Example extends App {
 
     val modifiedTo: String = 2100-08-29 13:45:52 // String | Retrieve entities to their modification date
 
-    val avail: Boolean = false // Boolean | Defines category's visibility status
-
-    val productType: String = BICYCLE // String | A categorization for the product
-
     val findValue: String = Demo category 1 // String | Entity search that is specified by some value
 
     val findWhere: String = name // String | Category search that is specified by field
+
+    val responseFields: String = {result{categories_count,category{id,parent_id,modified_at{value},images}}} // String | Set this parameter in order to choose which entity fields you want to retrieve
+
+    val params: String = id,parent_id,name // String | Set this parameter in order to choose which entity fields you want to retrieve
+
+    val exclude: String = id,parent_id,name // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
 
     val reportRequestId: String = 105245017661 // String | Report request id
 
@@ -1030,7 +1030,7 @@ object Example extends App {
 
     val disableCache: Boolean = false // Boolean | Disable cache for current request
     
-    val request = apiInstance.categoryList(start, count, pageCursor, parentId, params, responseFields, exclude, storeId, langId, createdFrom, createdTo, modifiedFrom, modifiedTo, avail, productType, findValue, findWhere, reportRequestId, disableReportCache, disableCache)
+    val request = apiInstance.categoryList(start, count, pageCursor, storeId, langId, parentId, avail, productType, createdFrom, createdTo, modifiedFrom, modifiedTo, findValue, findWhere, responseFields, params, exclude, reportRequestId, disableReportCache, disableCache)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -1061,20 +1061,20 @@ Name | Type | Description  | Notes
  **start** | **Int**| This parameter sets the number from which you want to get entities | [optional]
  **count** | **Int**| This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional]
  **pageCursor** | **String**| Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional]
- **parentId** | **String**| Retrieves categories specified by parent id | [optional]
- **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
- **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
- **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional]
  **storeId** | **String**| Retrieves categories specified by store id | [optional]
  **langId** | **String**| Retrieves categorys specified by language id | [optional]
+ **parentId** | **String**| Retrieves categories specified by parent id | [optional]
+ **avail** | **Boolean**| Defines category&#39;s visibility status | [optional]
+ **productType** | **String**| A categorization for the product | [optional]
  **createdFrom** | **String**| Retrieve entities from their creation date | [optional]
  **createdTo** | **String**| Retrieve entities to their creation date | [optional]
  **modifiedFrom** | **String**| Retrieve entities from their modification date | [optional]
  **modifiedTo** | **String**| Retrieve entities to their modification date | [optional]
- **avail** | **Boolean**| Defines category&#39;s visibility status | [optional]
- **productType** | **String**| A categorization for the product | [optional]
  **findValue** | **String**| Entity search that is specified by some value | [optional]
  **findWhere** | **String**| Category search that is specified by field | [optional]
+ **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
+ **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
+ **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional]
  **reportRequestId** | **String**| Report request id | [optional]
  **disableReportCache** | **Boolean**| Disable report cache for current request | [optional]
  **disableCache** | **Boolean**| Disable cache for current request | [optional]
@@ -1229,19 +1229,17 @@ object Example extends App {
 
     val name: String = NEW Shoes // String | Defines new category’s name
 
-    val parentId: String = 6 // String | Defines new parent category id
+    val description: String = New test category // String | Defines new category's description
 
-    val storesIds: String = 1,2 // String | Update category in the stores that is specified by comma-separated stores' id
+    val shortDescription: String = Short description. This is very short description // String | Defines short description
+
+    val parentId: String = 6 // String | Defines new parent category id
 
     val avail: Boolean = false // Boolean | Defines category's visibility status
 
     val sortOrder: Int = 2 // Int | Sort number in the list
 
     val modifiedTime: String = 2014-07-30 15:58:41 // String | Entity's date modification
-
-    val description: String = New test category // String | Defines new category's description
-
-    val shortDescription: String = Short description. This is very short description // String | Defines short description
 
     val metaTitle: String = category,test // String | Defines unique meta title for each entity
 
@@ -1251,11 +1249,13 @@ object Example extends App {
 
     val seoUrl: String = category,test // String | Defines unique category's URL for SEO
 
-    val langId: String = 3 // String | Language id
-
     val storeId: String = 1 // String | Store Id
+
+    val storesIds: String = 1,2 // String | Update category in the stores that is specified by comma-separated stores' id
+
+    val langId: String = 3 // String | Language id
     
-    val request = apiInstance.categoryUpdate(id, name, parentId, storesIds, avail, sortOrder, modifiedTime, description, shortDescription, metaTitle, metaDescription, metaKeywords, seoUrl, langId, storeId)
+    val request = apiInstance.categoryUpdate(id, name, description, shortDescription, parentId, avail, sortOrder, modifiedTime, metaTitle, metaDescription, metaKeywords, seoUrl, storeId, storesIds, langId)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -1285,19 +1285,19 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| Defines category update specified by category id |
  **name** | **String**| Defines new category’s name | [optional]
+ **description** | **String**| Defines new category&#39;s description | [optional]
+ **shortDescription** | **String**| Defines short description | [optional]
  **parentId** | **String**| Defines new parent category id | [optional]
- **storesIds** | **String**| Update category in the stores that is specified by comma-separated stores&#39; id | [optional]
  **avail** | **Boolean**| Defines category&#39;s visibility status | [optional]
  **sortOrder** | **Int**| Sort number in the list | [optional]
  **modifiedTime** | **String**| Entity&#39;s date modification | [optional]
- **description** | **String**| Defines new category&#39;s description | [optional]
- **shortDescription** | **String**| Defines short description | [optional]
  **metaTitle** | **String**| Defines unique meta title for each entity | [optional]
  **metaDescription** | **String**| Defines unique meta description of a entity | [optional]
  **metaKeywords** | **String**| Defines unique meta keywords for each entity | [optional]
  **seoUrl** | **String**| Defines unique category&#39;s URL for SEO | [optional]
- **langId** | **String**| Language id | [optional]
  **storeId** | **String**| Store Id | [optional]
+ **storesIds** | **String**| Update category in the stores that is specified by comma-separated stores&#39; id | [optional]
+ **langId** | **String**| Language id | [optional]
 
 ### Return type
 

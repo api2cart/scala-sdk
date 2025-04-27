@@ -249,13 +249,13 @@ object Example extends App {
 
     val langId: String = 3 // String | Language id
 
+    val responseFields: String = {return_code,return_message,pagination,result} // String | Set this parameter in order to choose which entity fields you want to retrieve
+
     val params: String = id,model,price,images // String | Set this parameter in order to choose which entity fields you want to retrieve
 
     val exclude: String = false // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
-
-    val responseFields: String = {return_code,return_message,pagination,result} // String | Set this parameter in order to choose which entity fields you want to retrieve
     
-    val request = apiInstance.customerAttributeList(customerId, count, pageCursor, storeId, langId, params, exclude, responseFields)
+    val request = apiInstance.customerAttributeList(customerId, count, pageCursor, storeId, langId, responseFields, params, exclude)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -288,9 +288,9 @@ Name | Type | Description  | Notes
  **pageCursor** | **String**| Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional]
  **storeId** | **String**| Store Id | [optional]
  **langId** | **String**| Language id | [optional]
+ **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
  **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
  **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional]
- **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
 
 ### Return type
 
@@ -346,7 +346,21 @@ object Example extends App {
 
     val apiInvoker = ApiInvoker()
     val apiInstance = CustomerApi("https://api.api2cart.com/v1.1")
+    val ids: String = 24,25 // String | Counts customers specified by ids
+
+    val sinceId: String = 56 // String | Retrieve entities starting from the specified id.
+
+    val customerListId: String = exampleListId // String | The numeric ID of the customer list in Demandware.
+
     val groupId: String = 3 // String | Customer group_id
+
+    val storeId: String = 1 // String | Counts customer specified by store id
+
+    val avail: Boolean = false // Boolean | Defines category's visibility status
+
+    val findValue: String = mail@gmail.com // String | Entity search that is specified by some value
+
+    val findWhere: String = email // String | Counts customers that are searched specified by field
 
     val createdFrom: String = 2010-07-29 13:45:52 // String | Retrieve entities from their creation date
 
@@ -355,22 +369,8 @@ object Example extends App {
     val modifiedFrom: String = 2010-07-29 13:45:52 // String | Retrieve entities from their modification date
 
     val modifiedTo: String = 2100-08-29 13:45:52 // String | Retrieve entities to their modification date
-
-    val storeId: String = 1 // String | Counts customer specified by store id
-
-    val customerListId: String = exampleListId // String | The numeric ID of the customer list in Demandware.
-
-    val avail: Boolean = false // Boolean | Defines category's visibility status
-
-    val findValue: String = mail@gmail.com // String | Entity search that is specified by some value
-
-    val findWhere: String = email // String | Counts customers that are searched specified by field
-
-    val ids: String = 24,25 // String | Counts customers specified by ids
-
-    val sinceId: String = 56 // String | Retrieve entities starting from the specified id.
     
-    val request = apiInstance.customerCount(groupId, createdFrom, createdTo, modifiedFrom, modifiedTo, storeId, customerListId, avail, findValue, findWhere, ids, sinceId)
+    val request = apiInstance.customerCount(ids, sinceId, customerListId, groupId, storeId, avail, findValue, findWhere, createdFrom, createdTo, modifiedFrom, modifiedTo)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -398,18 +398,18 @@ object Example extends App {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ids** | **String**| Counts customers specified by ids | [optional]
+ **sinceId** | **String**| Retrieve entities starting from the specified id. | [optional]
+ **customerListId** | **String**| The numeric ID of the customer list in Demandware. | [optional]
  **groupId** | **String**| Customer group_id | [optional]
+ **storeId** | **String**| Counts customer specified by store id | [optional]
+ **avail** | **Boolean**| Defines category&#39;s visibility status | [optional]
+ **findValue** | **String**| Entity search that is specified by some value | [optional]
+ **findWhere** | **String**| Counts customers that are searched specified by field | [optional]
  **createdFrom** | **String**| Retrieve entities from their creation date | [optional]
  **createdTo** | **String**| Retrieve entities to their creation date | [optional]
  **modifiedFrom** | **String**| Retrieve entities from their modification date | [optional]
  **modifiedTo** | **String**| Retrieve entities to their modification date | [optional]
- **storeId** | **String**| Counts customer specified by store id | [optional]
- **customerListId** | **String**| The numeric ID of the customer list in Demandware. | [optional]
- **avail** | **Boolean**| Defines category&#39;s visibility status | [optional]
- **findValue** | **String**| Entity search that is specified by some value | [optional]
- **findWhere** | **String**| Counts customers that are searched specified by field | [optional]
- **ids** | **String**| Counts customers specified by ids | [optional]
- **sinceId** | **String**| Retrieve entities starting from the specified id. | [optional]
 
 ### Return type
 
@@ -738,27 +738,27 @@ object Example extends App {
 
     val apiInvoker = ApiInvoker()
     val apiInstance = CustomerApi("https://api.api2cart.com/v1.1")
-    val disableCache: Boolean = false // Boolean | Disable cache for current request
-
-    val pageCursor: String =  // String | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
-
     val start: Int = 0 // Int | This parameter sets the number from which you want to get entities
 
     val count: Int = 20 // Int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
+
+    val pageCursor: String =  // String | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
+
+    val groupIds: String = 1,2,3 // String | Groups that will be assigned to a customer
 
     val storeId: String = 1 // String | Store Id
 
     val langId: String = 3 // String | Language id
 
-    val groupIds: String = 1,2,3 // String | Groups that will be assigned to a customer
+    val responseFields: String = {return_code,return_message,pagination,result} // String | Set this parameter in order to choose which entity fields you want to retrieve
 
     val params: String = id,model,price,images // String | Set this parameter in order to choose which entity fields you want to retrieve
 
     val exclude: String = false // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
 
-    val responseFields: String = {return_code,return_message,pagination,result} // String | Set this parameter in order to choose which entity fields you want to retrieve
+    val disableCache: Boolean = false // Boolean | Disable cache for current request
     
-    val request = apiInstance.customerGroupList(disableCache, pageCursor, start, count, storeId, langId, groupIds, params, exclude, responseFields)
+    val request = apiInstance.customerGroupList(start, count, pageCursor, groupIds, storeId, langId, responseFields, params, exclude, disableCache)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -786,16 +786,16 @@ object Example extends App {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **disableCache** | **Boolean**| Disable cache for current request | [optional]
- **pageCursor** | **String**| Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional]
  **start** | **Int**| This parameter sets the number from which you want to get entities | [optional]
  **count** | **Int**| This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional]
+ **pageCursor** | **String**| Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional]
+ **groupIds** | **String**| Groups that will be assigned to a customer | [optional]
  **storeId** | **String**| Store Id | [optional]
  **langId** | **String**| Language id | [optional]
- **groupIds** | **String**| Groups that will be assigned to a customer | [optional]
+ **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
  **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
  **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional]
- **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
+ **disableCache** | **Boolean**| Disable cache for current request | [optional]
 
 ### Return type
 
@@ -853,15 +853,15 @@ object Example extends App {
     val apiInstance = CustomerApi("https://api.api2cart.com/v1.1")
     val id: String = 10 // String | Retrieves customer's info specified by customer id
 
-    val params: String = id,email // String | Set this parameter in order to choose which entity fields you want to retrieve
+    val storeId: String = 1 // String | Retrieves customer info specified by store id
 
     val responseFields: String = {result{id,parent_id,sku,upc,images,combination}} // String | Set this parameter in order to choose which entity fields you want to retrieve
 
-    val exclude: String = id,email // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
+    val params: String = id,email // String | Set this parameter in order to choose which entity fields you want to retrieve
 
-    val storeId: String = 1 // String | Retrieves customer info specified by store id
+    val exclude: String = id,email // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
     
-    val request = apiInstance.customerInfo(id, params, responseFields, exclude, storeId)
+    val request = apiInstance.customerInfo(id, storeId, responseFields, params, exclude)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -890,10 +890,10 @@ object Example extends App {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| Retrieves customer&#39;s info specified by customer id |
- **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
- **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
- **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional]
  **storeId** | **String**| Retrieves customer info specified by store id | [optional]
+ **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
+ **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
+ **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional]
 
 ### Return type
 
@@ -949,11 +949,27 @@ object Example extends App {
 
     val apiInvoker = ApiInvoker()
     val apiInstance = CustomerApi("https://api.api2cart.com/v1.1")
-    val pageCursor: String =  // String | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
-
     val start: Int = 0 // Int | This parameter sets the number from which you want to get entities
 
     val count: Int = 20 // Int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
+
+    val pageCursor: String =  // String | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
+
+    val ids: String = 24,25 // String | Retrieves customers specified by ids
+
+    val sinceId: String = 56 // String | Retrieve entities starting from the specified id.
+
+    val customerListId: String = exampleListId // String | The numeric ID of the customer list in Demandware.
+
+    val groupId: String = 3 // String | Customer group_id
+
+    val storeId: String = 1 // String | Retrieves customers specified by store id
+
+    val avail: Boolean = false // Boolean | Defines category's visibility status
+
+    val findValue: String = mail@gmail.com // String | Entity search that is specified by some value
+
+    val findWhere: String = email // String | Customer search that is specified by field
 
     val createdFrom: String = 2010-07-29 13:45:52 // String | Retrieve entities from their creation date
 
@@ -963,33 +979,17 @@ object Example extends App {
 
     val modifiedTo: String = 2100-08-29 13:45:52 // String | Retrieve entities to their modification date
 
-    val params: String = id,email // String | Set this parameter in order to choose which entity fields you want to retrieve
-
-    val responseFields: String = {result{customer}} // String | Set this parameter in order to choose which entity fields you want to retrieve
-
-    val exclude: String = id,email // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
-
-    val groupId: String = 3 // String | Customer group_id
-
-    val storeId: String = 1 // String | Retrieves customers specified by store id
-
-    val customerListId: String = exampleListId // String | The numeric ID of the customer list in Demandware.
-
-    val avail: Boolean = false // Boolean | Defines category's visibility status
-
-    val findValue: String = mail@gmail.com // String | Entity search that is specified by some value
-
-    val findWhere: String = email // String | Customer search that is specified by field
-
     val sortBy: String = value_id // String | Set field to sort by
 
     val sortDirection: String = asc // String | Set sorting direction
 
-    val ids: String = 24,25 // String | Retrieves customers specified by ids
+    val responseFields: String = {result{customer}} // String | Set this parameter in order to choose which entity fields you want to retrieve
 
-    val sinceId: String = 56 // String | Retrieve entities starting from the specified id.
+    val params: String = id,email // String | Set this parameter in order to choose which entity fields you want to retrieve
+
+    val exclude: String = id,email // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
     
-    val request = apiInstance.customerList(pageCursor, start, count, createdFrom, createdTo, modifiedFrom, modifiedTo, params, responseFields, exclude, groupId, storeId, customerListId, avail, findValue, findWhere, sortBy, sortDirection, ids, sinceId)
+    val request = apiInstance.customerList(start, count, pageCursor, ids, sinceId, customerListId, groupId, storeId, avail, findValue, findWhere, createdFrom, createdTo, modifiedFrom, modifiedTo, sortBy, sortDirection, responseFields, params, exclude)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -1017,26 +1017,26 @@ object Example extends App {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pageCursor** | **String**| Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional]
  **start** | **Int**| This parameter sets the number from which you want to get entities | [optional]
  **count** | **Int**| This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional]
+ **pageCursor** | **String**| Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional]
+ **ids** | **String**| Retrieves customers specified by ids | [optional]
+ **sinceId** | **String**| Retrieve entities starting from the specified id. | [optional]
+ **customerListId** | **String**| The numeric ID of the customer list in Demandware. | [optional]
+ **groupId** | **String**| Customer group_id | [optional]
+ **storeId** | **String**| Retrieves customers specified by store id | [optional]
+ **avail** | **Boolean**| Defines category&#39;s visibility status | [optional]
+ **findValue** | **String**| Entity search that is specified by some value | [optional]
+ **findWhere** | **String**| Customer search that is specified by field | [optional]
  **createdFrom** | **String**| Retrieve entities from their creation date | [optional]
  **createdTo** | **String**| Retrieve entities to their creation date | [optional]
  **modifiedFrom** | **String**| Retrieve entities from their modification date | [optional]
  **modifiedTo** | **String**| Retrieve entities to their modification date | [optional]
- **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
- **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
- **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional]
- **groupId** | **String**| Customer group_id | [optional]
- **storeId** | **String**| Retrieves customers specified by store id | [optional]
- **customerListId** | **String**| The numeric ID of the customer list in Demandware. | [optional]
- **avail** | **Boolean**| Defines category&#39;s visibility status | [optional]
- **findValue** | **String**| Entity search that is specified by some value | [optional]
- **findWhere** | **String**| Customer search that is specified by field | [optional]
  **sortBy** | **String**| Set field to sort by | [optional]
  **sortDirection** | **String**| Set sorting direction | [optional]
- **ids** | **String**| Retrieves customers specified by ids | [optional]
- **sinceId** | **String**| Retrieve entities starting from the specified id. | [optional]
+ **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
+ **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
+ **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional]
 
 ### Return type
 
@@ -1181,19 +1181,19 @@ object Example extends App {
     val apiInstance = CustomerApi("https://api.api2cart.com/v1.1")
     val customerId: String = 5 // String | Retrieves orders specified by customer id
 
-    val id: String = 10 // String | Entity id
-
-    val storeId: String = 1 // String | Store Id
-
     val start: Int = 0 // Int | This parameter sets the number from which you want to get entities
 
     val count: Int = 20 // Int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
 
     val pageCursor: String =  // String | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
 
+    val id: String = 10 // String | Entity id
+
+    val storeId: String = 1 // String | Store Id
+
     val responseFields: String = {return_code,return_message,pagination,result} // String | Set this parameter in order to choose which entity fields you want to retrieve
     
-    val request = apiInstance.customerWishlistList(customerId, id, storeId, start, count, pageCursor, responseFields)
+    val request = apiInstance.customerWishlistList(customerId, start, count, pageCursor, id, storeId, responseFields)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -1222,11 +1222,11 @@ object Example extends App {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **customerId** | **String**| Retrieves orders specified by customer id |
- **id** | **String**| Entity id | [optional]
- **storeId** | **String**| Store Id | [optional]
  **start** | **Int**| This parameter sets the number from which you want to get entities | [optional]
  **count** | **Int**| This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional]
  **pageCursor** | **String**| Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional]
+ **id** | **String**| Entity id | [optional]
+ **storeId** | **String**| Store Id | [optional]
  **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
 
 ### Return type

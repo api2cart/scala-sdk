@@ -321,35 +321,35 @@ object Example extends App {
     val apiInstance = ProductApi("https://api.api2cart.com/v1.1")
     val productId: String = 10 // String | Retrieves attributes specified by product id
 
-    val attributeId: String = 156 // String | Retrieves info for specified attribute_id
-
-    val variantId: String = 45 // String | Defines product's variants specified by variant id
-
-    val pageCursor: String =  // String | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
-
     val start: Int = 0 // Int | This parameter sets the number from which you want to get entities
 
     val count: Int = 20 // Int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
 
-    val attributeGroupId: String = 202 // String | Filter by attribute_group_id
+    val pageCursor: String =  // String | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
 
-    val setName: String = Shoes // String | Retrieves attributes specified by set_name in Magento
+    val attributeId: String = 156 // String | Retrieves info for specified attribute_id
+
+    val variantId: String = 45 // String | Defines product's variants specified by variant id
+
+    val attributeGroupId: String = 202 // String | Filter by attribute_group_id
 
     val langId: String = 3 // String | Retrieves attributes specified by language id
 
     val storeId: String = 1 // String | Retrieves attributes specified by store id
 
+    val setName: String = Shoes // String | Retrieves attributes specified by set_name in Magento
+
     val sortBy: String = value // String | Set field to sort by
 
     val sortDirection: String = asc // String | Set sorting direction
 
-    val params: String = attribute_id,name // String | Set this parameter in order to choose which entity fields you want to retrieve
-
     val responseFields: String = {pagination,result{attribute}} // String | Set this parameter in order to choose which entity fields you want to retrieve
+
+    val params: String = attribute_id,name // String | Set this parameter in order to choose which entity fields you want to retrieve
 
     val exclude: String = attribute_id,name // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
     
-    val request = apiInstance.productAttributeList(productId, attributeId, variantId, pageCursor, start, count, attributeGroupId, setName, langId, storeId, sortBy, sortDirection, params, responseFields, exclude)
+    val request = apiInstance.productAttributeList(productId, start, count, pageCursor, attributeId, variantId, attributeGroupId, langId, storeId, setName, sortBy, sortDirection, responseFields, params, exclude)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -378,19 +378,19 @@ object Example extends App {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **productId** | **String**| Retrieves attributes specified by product id |
- **attributeId** | **String**| Retrieves info for specified attribute_id | [optional]
- **variantId** | **String**| Defines product&#39;s variants specified by variant id | [optional]
- **pageCursor** | **String**| Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional]
  **start** | **Int**| This parameter sets the number from which you want to get entities | [optional]
  **count** | **Int**| This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional]
+ **pageCursor** | **String**| Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional]
+ **attributeId** | **String**| Retrieves info for specified attribute_id | [optional]
+ **variantId** | **String**| Defines product&#39;s variants specified by variant id | [optional]
  **attributeGroupId** | **String**| Filter by attribute_group_id | [optional]
- **setName** | **String**| Retrieves attributes specified by set_name in Magento | [optional]
  **langId** | **String**| Retrieves attributes specified by language id | [optional]
  **storeId** | **String**| Retrieves attributes specified by store id | [optional]
+ **setName** | **String**| Retrieves attributes specified by set_name in Magento | [optional]
  **sortBy** | **String**| Set field to sort by | [optional]
  **sortDirection** | **String**| Set sorting direction | [optional]
- **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
  **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
+ **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
  **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional]
 
 ### Return type
@@ -661,17 +661,19 @@ object Example extends App {
 
     val pageCursor: String =  // String | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
 
-    val params: String = id,model,price,images // String | Set this parameter in order to choose which entity fields you want to retrieve
-
     val brandIds: String = 4,5 // String | Retrieves brands specified by brand ids
 
-    val exclude: String = false // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
-
     val categoryId: String = 6 // String | Retrieves product brands specified by category id
+
+    val parentId: String = 6 // String | Retrieves brands specified by parent id
 
     val storeId: String = 1 // String | Store Id
 
     val langId: String = 3 // String | Language id
+
+    val findWhere: String = name // String | Entity search that is specified by the comma-separated unique fields
+
+    val findValue: String = Phone // String | Entity search that is specified by some value
 
     val createdFrom: String = 2010-07-29 13:45:52 // String | Retrieve entities from their creation date
 
@@ -681,15 +683,13 @@ object Example extends App {
 
     val modifiedTo: String = 2100-08-29 13:45:52 // String | Retrieve entities to their modification date
 
-    val parentId: String = 6 // String | Retrieves brands specified by parent id
-
     val responseFields: String = {return_code,return_message,pagination,result} // String | Set this parameter in order to choose which entity fields you want to retrieve
 
-    val findWhere: String = name // String | Entity search that is specified by the comma-separated unique fields
+    val params: String = id,model,price,images // String | Set this parameter in order to choose which entity fields you want to retrieve
 
-    val findValue: String = Phone // String | Entity search that is specified by some value
+    val exclude: String = false // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
     
-    val request = apiInstance.productBrandList(start, count, pageCursor, params, brandIds, exclude, categoryId, storeId, langId, createdFrom, createdTo, modifiedFrom, modifiedTo, parentId, responseFields, findWhere, findValue)
+    val request = apiInstance.productBrandList(start, count, pageCursor, brandIds, categoryId, parentId, storeId, langId, findWhere, findValue, createdFrom, createdTo, modifiedFrom, modifiedTo, responseFields, params, exclude)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -720,20 +720,20 @@ Name | Type | Description  | Notes
  **start** | **Int**| This parameter sets the number from which you want to get entities | [optional]
  **count** | **Int**| This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional]
  **pageCursor** | **String**| Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional]
- **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
  **brandIds** | **String**| Retrieves brands specified by brand ids | [optional]
- **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional]
  **categoryId** | **String**| Retrieves product brands specified by category id | [optional]
+ **parentId** | **String**| Retrieves brands specified by parent id | [optional]
  **storeId** | **String**| Store Id | [optional]
  **langId** | **String**| Language id | [optional]
+ **findWhere** | **String**| Entity search that is specified by the comma-separated unique fields | [optional]
+ **findValue** | **String**| Entity search that is specified by some value | [optional]
  **createdFrom** | **String**| Retrieve entities from their creation date | [optional]
  **createdTo** | **String**| Retrieve entities to their creation date | [optional]
  **modifiedFrom** | **String**| Retrieve entities from their modification date | [optional]
  **modifiedTo** | **String**| Retrieve entities to their modification date | [optional]
- **parentId** | **String**| Retrieves brands specified by parent id | [optional]
  **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
- **findWhere** | **String**| Entity search that is specified by the comma-separated unique fields | [optional]
- **findValue** | **String**| Entity search that is specified by some value | [optional]
+ **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
+ **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional]
 
 ### Return type
 
@@ -888,21 +888,21 @@ object Example extends App {
 
     val id: String = 10 // String | Entity id
 
-    val params: String = id,model,price,images // String | Set this parameter in order to choose which entity fields you want to retrieve
-
-    val responseFields: String = {result{id,parent_id,sku,upc,images,combination}} // String | Set this parameter in order to choose which entity fields you want to retrieve
-
-    val exclude: String = false // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
-
     val storeId: String = 1 // String | Store Id
 
     val langId: String = 3 // String | Language id
 
     val currencyId: String = usd // String | Currency Id
 
+    val responseFields: String = {result{id,parent_id,sku,upc,images,combination}} // String | Set this parameter in order to choose which entity fields you want to retrieve
+
+    val params: String = id,model,price,images // String | Set this parameter in order to choose which entity fields you want to retrieve
+
+    val exclude: String = false // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
+
     val useLatestApiVersion: Boolean = true // Boolean | Use the latest platform API version
     
-    val request = apiInstance.productChildItemInfo(productId, id, params, responseFields, exclude, storeId, langId, currencyId, useLatestApiVersion)
+    val request = apiInstance.productChildItemInfo(productId, id, storeId, langId, currencyId, responseFields, params, exclude, useLatestApiVersion)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -932,12 +932,12 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **productId** | **String**| Filter by parent product id |
  **id** | **String**| Entity id |
- **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
- **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
- **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional]
  **storeId** | **String**| Store Id | [optional]
  **langId** | **String**| Language id | [optional]
  **currencyId** | **String**| Currency Id | [optional]
+ **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
+ **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
+ **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional]
  **useLatestApiVersion** | **Boolean**| Use the latest platform API version | [optional]
 
 ### Return type
@@ -994,25 +994,11 @@ object Example extends App {
 
     val apiInvoker = ApiInvoker()
     val apiInstance = ProductApi("https://api.api2cart.com/v1.1")
-    val pageCursor: String =  // String | Used to retrieve products child items via cursor-based pagination (it can't be used with any other filtering parameter)
-
     val start: Int = 0 // Int | This parameter sets the number from which you want to get entities
 
     val count: Int = 20 // Int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
 
-    val params: String = id,model,price,images // String | Set this parameter in order to choose which entity fields you want to retrieve
-
-    val responseFields: String = {result{children{id,parent_id,sku,upc,images,combination}}} // String | Set this parameter in order to choose which entity fields you want to retrieve
-
-    val exclude: String = false // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
-
-    val createdFrom: String = 2010-07-29 13:45:52 // String | Retrieve entities from their creation date
-
-    val createdTo: String = 2100-08-29 13:45:52 // String | Retrieve entities to their creation date
-
-    val modifiedFrom: String = 2010-07-29 13:45:52 // String | Retrieve entities from their modification date
-
-    val modifiedTo: String = 2100-08-29 13:45:52 // String | Retrieve entities to their modification date
+    val pageCursor: String =  // String | Used to retrieve products child items via cursor-based pagination (it can't be used with any other filtering parameter)
 
     val productId: String = 10 // String | Filter by parent product id
 
@@ -1032,15 +1018,29 @@ object Example extends App {
 
     val findWhere: String = sku // String | Child products search that is specified by field
 
+    val createdFrom: String = 2010-07-29 13:45:52 // String | Retrieve entities from their creation date
+
+    val createdTo: String = 2100-08-29 13:45:52 // String | Retrieve entities to their creation date
+
+    val modifiedFrom: String = 2010-07-29 13:45:52 // String | Retrieve entities from their modification date
+
+    val modifiedTo: String = 2100-08-29 13:45:52 // String | Retrieve entities to their modification date
+
+    val returnGlobal: Boolean = false // Boolean | Determines the type of products to be returned. If set to 'true', only global products will be returned; if set to 'false', only local products will be returned.
+
+    val responseFields: String = {result{children{id,parent_id,sku,upc,images,combination}}} // String | Set this parameter in order to choose which entity fields you want to retrieve
+
+    val params: String = id,model,price,images // String | Set this parameter in order to choose which entity fields you want to retrieve
+
+    val exclude: String = false // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
+
     val reportRequestId: String = 105245017661 // String | Report request id
 
     val disableReportCache: Boolean = false // Boolean | Disable report cache for current request
 
     val useLatestApiVersion: Boolean = true // Boolean | Use the latest platform API version
-
-    val returnGlobal: Boolean = false // Boolean | Determines the type of products to be returned. If set to 'true', only global products will be returned; if set to 'false', only local products will be returned.
     
-    val request = apiInstance.productChildItemList(pageCursor, start, count, params, responseFields, exclude, createdFrom, createdTo, modifiedFrom, modifiedTo, productId, productIds, sku, storeId, langId, currencyId, availSale, findValue, findWhere, reportRequestId, disableReportCache, useLatestApiVersion, returnGlobal)
+    val request = apiInstance.productChildItemList(start, count, pageCursor, productId, productIds, sku, storeId, langId, currencyId, availSale, findValue, findWhere, createdFrom, createdTo, modifiedFrom, modifiedTo, returnGlobal, responseFields, params, exclude, reportRequestId, disableReportCache, useLatestApiVersion)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -1068,16 +1068,9 @@ object Example extends App {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pageCursor** | **String**| Used to retrieve products child items via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional]
  **start** | **Int**| This parameter sets the number from which you want to get entities | [optional]
  **count** | **Int**| This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional]
- **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
- **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
- **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional]
- **createdFrom** | **String**| Retrieve entities from their creation date | [optional]
- **createdTo** | **String**| Retrieve entities to their creation date | [optional]
- **modifiedFrom** | **String**| Retrieve entities from their modification date | [optional]
- **modifiedTo** | **String**| Retrieve entities to their modification date | [optional]
+ **pageCursor** | **String**| Used to retrieve products child items via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional]
  **productId** | **String**| Filter by parent product id | [optional]
  **productIds** | **String**| Filter by parent product ids | [optional]
  **sku** | **String**| Filter by products variant&#39;s sku | [optional]
@@ -1087,10 +1080,17 @@ Name | Type | Description  | Notes
  **availSale** | **Boolean**| Specifies the set of available/not available products for sale | [optional]
  **findValue** | **String**| Entity search that is specified by some value | [optional]
  **findWhere** | **String**| Child products search that is specified by field | [optional]
+ **createdFrom** | **String**| Retrieve entities from their creation date | [optional]
+ **createdTo** | **String**| Retrieve entities to their creation date | [optional]
+ **modifiedFrom** | **String**| Retrieve entities from their modification date | [optional]
+ **modifiedTo** | **String**| Retrieve entities to their modification date | [optional]
+ **returnGlobal** | **Boolean**| Determines the type of products to be returned. If set to &#39;true&#39;, only global products will be returned; if set to &#39;false&#39;, only local products will be returned. | [optional]
+ **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
+ **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
+ **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional]
  **reportRequestId** | **String**| Report request id | [optional]
  **disableReportCache** | **Boolean**| Disable report cache for current request | [optional]
  **useLatestApiVersion** | **Boolean**| Use the latest platform API version | [optional]
- **returnGlobal** | **Boolean**| Determines the type of products to be returned. If set to &#39;true&#39;, only global products will be returned; if set to &#39;false&#39;, only local products will be returned. | [optional]
 
 ### Return type
 
@@ -1146,7 +1146,21 @@ object Example extends App {
 
     val apiInvoker = ApiInvoker()
     val apiInstance = ProductApi("https://api.api2cart.com/v1.1")
+    val productIds: String = 4,5 // String | Counts products specified by product ids
+
+    val sinceId: String = 56 // String | Retrieve entities starting from the specified id.
+
+    val categoriesIds: String = 23,56 // String | Defines product add that is specified by comma-separated categories id
+
     val categoryId: String = 6 // String | Counts products specified by category id
+
+    val storeId: String = 1 // String | Counts products specified by store id
+
+    val langId: String = 3 // String | Counts products specified by language id
+
+    val availView: Boolean = true // Boolean | Specifies the set of visible/invisible products
+
+    val availSale: Boolean = false // Boolean | Specifies the set of available/not available products for sale
 
     val createdFrom: String = 2010-07-29 13:45:52 // String | Retrieve entities from their creation date
 
@@ -1155,22 +1169,6 @@ object Example extends App {
     val modifiedFrom: String = 2010-07-29 13:45:52 // String | Retrieve entities from their modification date
 
     val modifiedTo: String = 2100-08-29 13:45:52 // String | Retrieve entities to their modification date
-
-    val availView: Boolean = true // Boolean | Specifies the set of visible/invisible products
-
-    val availSale: Boolean = false // Boolean | Specifies the set of available/not available products for sale
-
-    val storeId: String = 1 // String | Counts products specified by store id
-
-    val langId: String = 3 // String | Counts products specified by language id
-
-    val productIds: String = 4,5 // String | Counts products specified by product ids
-
-    val sinceId: String = 56 // String | Retrieve entities starting from the specified id.
-
-    val reportRequestId: String = 105245017661 // String | Report request id
-
-    val disableReportCache: Boolean = false // Boolean | Disable report cache for current request
 
     val brandName: String = Abidas // String | Retrieves brands specified by brand name
 
@@ -1184,13 +1182,15 @@ object Example extends App {
 
     val findWhere: String = name // String | Counts products that are searched specified by field
 
-    val useLatestApiVersion: Boolean = true // Boolean | Use the latest platform API version
+    val reportRequestId: String = 105245017661 // String | Report request id
 
     val returnGlobal: Boolean = false // Boolean | Determines the type of products to be returned. If set to 'true', only global products will be returned; if set to 'false', only local products will be returned.
 
-    val categoriesIds: String = 23,56 // String | Defines product add that is specified by comma-separated categories id
+    val disableReportCache: Boolean = false // Boolean | Disable report cache for current request
+
+    val useLatestApiVersion: Boolean = true // Boolean | Use the latest platform API version
     
-    val request = apiInstance.productCount(categoryId, createdFrom, createdTo, modifiedFrom, modifiedTo, availView, availSale, storeId, langId, productIds, sinceId, reportRequestId, disableReportCache, brandName, productAttributes, status, `type`, findValue, findWhere, useLatestApiVersion, returnGlobal, categoriesIds)
+    val request = apiInstance.productCount(productIds, sinceId, categoriesIds, categoryId, storeId, langId, availView, availSale, createdFrom, createdTo, modifiedFrom, modifiedTo, brandName, productAttributes, status, `type`, findValue, findWhere, reportRequestId, returnGlobal, disableReportCache, useLatestApiVersion)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -1218,28 +1218,28 @@ object Example extends App {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **productIds** | **String**| Counts products specified by product ids | [optional]
+ **sinceId** | **String**| Retrieve entities starting from the specified id. | [optional]
+ **categoriesIds** | **String**| Defines product add that is specified by comma-separated categories id | [optional]
  **categoryId** | **String**| Counts products specified by category id | [optional]
+ **storeId** | **String**| Counts products specified by store id | [optional]
+ **langId** | **String**| Counts products specified by language id | [optional]
+ **availView** | **Boolean**| Specifies the set of visible/invisible products | [optional]
+ **availSale** | **Boolean**| Specifies the set of available/not available products for sale | [optional]
  **createdFrom** | **String**| Retrieve entities from their creation date | [optional]
  **createdTo** | **String**| Retrieve entities to their creation date | [optional]
  **modifiedFrom** | **String**| Retrieve entities from their modification date | [optional]
  **modifiedTo** | **String**| Retrieve entities to their modification date | [optional]
- **availView** | **Boolean**| Specifies the set of visible/invisible products | [optional]
- **availSale** | **Boolean**| Specifies the set of available/not available products for sale | [optional]
- **storeId** | **String**| Counts products specified by store id | [optional]
- **langId** | **String**| Counts products specified by language id | [optional]
- **productIds** | **String**| Counts products specified by product ids | [optional]
- **sinceId** | **String**| Retrieve entities starting from the specified id. | [optional]
- **reportRequestId** | **String**| Report request id | [optional]
- **disableReportCache** | **Boolean**| Disable report cache for current request | [optional]
  **brandName** | **String**| Retrieves brands specified by brand name | [optional]
  **productAttributes** | [**Seq[String]**](String.md)| Defines product attributes | [optional]
  **status** | **String**| Defines product&#39;s status | [optional]
  **`type`** | **String**| Defines products&#39;s type | [optional]
  **findValue** | **String**| Entity search that is specified by some value | [optional]
  **findWhere** | **String**| Counts products that are searched specified by field | [optional]
- **useLatestApiVersion** | **Boolean**| Use the latest platform API version | [optional]
+ **reportRequestId** | **String**| Report request id | [optional]
  **returnGlobal** | **Boolean**| Determines the type of products to be returned. If set to &#39;true&#39;, only global products will be returned; if set to &#39;false&#39;, only local products will be returned. | [optional]
- **categoriesIds** | **String**| Defines product add that is specified by comma-separated categories id | [optional]
+ **disableReportCache** | **Boolean**| Disable report cache for current request | [optional]
+ **useLatestApiVersion** | **Boolean**| Use the latest platform API version | [optional]
 
 ### Return type
 
@@ -1404,19 +1404,19 @@ object Example extends App {
 
     val count: Int = 20 // Int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
 
-    val params: String = name,iso3,default,avail // String | Set this parameter in order to choose which entity fields you want to retrieve
-
     val pageCursor: String =  // String | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
-
-    val exclude: String = name,iso3,default,avail // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
-
-    val responseFields: String = {return_message,pagination,result{currency}} // String | Set this parameter in order to choose which entity fields you want to retrieve
 
     val default: Boolean = true // Boolean | Specifies the set of default/not default currencies
 
     val avail: Boolean = false // Boolean | Specifies the set of available/not available currencies
+
+    val responseFields: String = {return_message,pagination,result{currency}} // String | Set this parameter in order to choose which entity fields you want to retrieve
+
+    val params: String = name,iso3,default,avail // String | Set this parameter in order to choose which entity fields you want to retrieve
+
+    val exclude: String = name,iso3,default,avail // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
     
-    val request = apiInstance.productCurrencyList(start, count, params, pageCursor, exclude, responseFields, default, avail)
+    val request = apiInstance.productCurrencyList(start, count, pageCursor, default, avail, responseFields, params, exclude)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -1446,12 +1446,12 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **start** | **Int**| This parameter sets the number from which you want to get entities | [optional]
  **count** | **Int**| This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional]
- **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
  **pageCursor** | **String**| Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional]
- **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional]
- **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
  **default** | **Boolean**| Specifies the set of default/not default currencies | [optional]
  **avail** | **Boolean**| Specifies the set of available/not available currencies | [optional]
+ **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
+ **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
+ **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional]
 
 ### Return type
 
@@ -2050,6 +2050,10 @@ object Example extends App {
 
     val variantIds: String = 1,2,3,4,5 // String | Defines product's variants ids
 
+    val storeId: String = 1 // String | Store Id
+
+    val langId: String = 3 // String | Language id
+
     val imageName: String = data/product/main/product_69_bag-gray.png // String | Defines image's name
 
     val `type`: String = thumbnail // String | Defines image's types that are specified by comma-separated list
@@ -2058,13 +2062,9 @@ object Example extends App {
 
     val position: Int = 5 // Int | Defines image’s position in the list
 
-    val storeId: String = 1 // String | Store Id
-
-    val langId: String = 3 // String | Language id
-
     val hidden: Boolean = true // Boolean | Define is hide image
     
-    val request = apiInstance.productImageUpdate(productId, id, variantIds, imageName, `type`, label, position, storeId, langId, hidden)
+    val request = apiInstance.productImageUpdate(productId, id, variantIds, storeId, langId, imageName, `type`, label, position, hidden)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -2095,12 +2095,12 @@ Name | Type | Description  | Notes
  **productId** | **String**| Defines product id where the image should be updated |
  **id** | **String**| Defines image update specified by image id |
  **variantIds** | **String**| Defines product&#39;s variants ids | [optional]
+ **storeId** | **String**| Store Id | [optional]
+ **langId** | **String**| Language id | [optional]
  **imageName** | **String**| Defines image&#39;s name | [optional]
  **`type`** | **String**| Defines image&#39;s types that are specified by comma-separated list | [optional]
  **label** | **String**| Defines alternative text that has to be attached to the picture | [optional]
  **position** | **Int**| Defines image’s position in the list | [optional]
- **storeId** | **String**| Store Id | [optional]
- **langId** | **String**| Language id | [optional]
  **hidden** | **Boolean**| Define is hide image | [optional]
 
 ### Return type
@@ -2159,17 +2159,17 @@ object Example extends App {
     val apiInstance = ProductApi("https://api.api2cart.com/v1.1")
     val id: String = 10 // String | Retrieves product's info specified by product id
 
-    val params: String = id,model,price,images // String | Set this parameter in order to choose which entity fields you want to retrieve
-
-    val responseFields: String = {result{id,name,price,images}} // String | Set this parameter in order to choose which entity fields you want to retrieve
-
-    val exclude: String = false // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
-
     val storeId: String = 1 // String | Retrieves product info specified by store id
 
     val langId: String = 3 // String | Retrieves product info specified by language id
 
     val currencyId: String = usd // String | Currency Id
+
+    val responseFields: String = {result{id,name,price,images}} // String | Set this parameter in order to choose which entity fields you want to retrieve
+
+    val params: String = id,model,price,images // String | Set this parameter in order to choose which entity fields you want to retrieve
+
+    val exclude: String = false // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
 
     val reportRequestId: String = 105245017661 // String | Report request id
 
@@ -2177,7 +2177,7 @@ object Example extends App {
 
     val useLatestApiVersion: Boolean = true // Boolean | Use the latest platform API version
     
-    val request = apiInstance.productInfo(id, params, responseFields, exclude, storeId, langId, currencyId, reportRequestId, disableReportCache, useLatestApiVersion)
+    val request = apiInstance.productInfo(id, storeId, langId, currencyId, responseFields, params, exclude, reportRequestId, disableReportCache, useLatestApiVersion)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -2206,12 +2206,12 @@ object Example extends App {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| Retrieves product&#39;s info specified by product id |
- **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
- **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
- **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional]
  **storeId** | **String**| Retrieves product info specified by store id | [optional]
  **langId** | **String**| Retrieves product info specified by language id | [optional]
  **currencyId** | **String**| Currency Id | [optional]
+ **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
+ **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
+ **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional]
  **reportRequestId** | **String**| Report request id | [optional]
  **disableReportCache** | **Boolean**| Disable report cache for current request | [optional]
  **useLatestApiVersion** | **Boolean**| Use the latest platform API version | [optional]
@@ -2270,19 +2270,29 @@ object Example extends App {
 
     val apiInvoker = ApiInvoker()
     val apiInstance = ProductApi("https://api.api2cart.com/v1.1")
-    val pageCursor: String =  // String | Used to retrieve products via cursor-based pagination (it can't be used with any other filtering parameter)
-
     val start: Int = 0 // Int | This parameter sets the number from which you want to get entities
 
     val count: Int = 20 // Int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
 
-    val params: String = id,model,price,images // String | Set this parameter in order to choose which entity fields you want to retrieve
+    val pageCursor: String =  // String | Used to retrieve products via cursor-based pagination (it can't be used with any other filtering parameter)
 
-    val responseFields: String = {return_code,pagination,result{product{id,name,price,images}}} // String | Set this parameter in order to choose which entity fields you want to retrieve
+    val productIds: String = 4,5 // String | Retrieves products specified by product ids
 
-    val exclude: String = false // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
+    val sinceId: String = 56 // String | Retrieve entities starting from the specified id.
+
+    val categoriesIds: String = 23,56 // String | Retrieves products specified by categories ids
 
     val categoryId: String = 6 // String | Retrieves products specified by category id
+
+    val storeId: String = 1 // String | Retrieves products specified by store id
+
+    val langId: String = 3 // String | Retrieves products specified by language id
+
+    val currencyId: String = usd // String | Currency Id
+
+    val availView: Boolean = true // Boolean | Specifies the set of visible/invisible products
+
+    val availSale: Boolean = false // Boolean | Specifies the set of available/not available products for sale
 
     val createdFrom: String = 2010-07-29 13:45:52 // String | Retrieve entities from their creation date
 
@@ -2292,31 +2302,7 @@ object Example extends App {
 
     val modifiedTo: String = 2100-08-29 13:45:52 // String | Retrieve entities to their modification date
 
-    val availView: Boolean = true // Boolean | Specifies the set of visible/invisible products
-
-    val availSale: Boolean = false // Boolean | Specifies the set of available/not available products for sale
-
-    val storeId: String = 1 // String | Retrieves products specified by store id
-
-    val langId: String = 3 // String | Retrieves products specified by language id
-
-    val currencyId: String = usd // String | Currency Id
-
-    val productIds: String = 4,5 // String | Retrieves products specified by product ids
-
-    val sinceId: String = 56 // String | Retrieve entities starting from the specified id.
-
-    val reportRequestId: String = 105245017661 // String | Report request id
-
-    val disableReportCache: Boolean = false // Boolean | Disable report cache for current request
-
-    val sortBy: String = value_id // String | Set field to sort by
-
-    val sortDirection: String = asc // String | Set sorting direction
-
     val sku: String = bag_01 // String | Filter by product's sku
-
-    val disableCache: Boolean = false // Boolean | Disable cache for current request
 
     val brandName: String = Abidas // String | Retrieves brands specified by brand name
 
@@ -2330,13 +2316,27 @@ object Example extends App {
 
     val findWhere: String = name // String | Product search that is specified by field
 
-    val useLatestApiVersion: Boolean = true // Boolean | Use the latest platform API version
-
     val returnGlobal: Boolean = false // Boolean | Determines the type of products to be returned. If set to 'true', only global products will be returned; if set to 'false', only local products will be returned.
 
-    val categoriesIds: String = 23,56 // String | Retrieves products specified by categories ids
+    val params: String = id,model,price,images // String | Set this parameter in order to choose which entity fields you want to retrieve
+
+    val responseFields: String = {return_code,pagination,result{product{id,name,price,images}}} // String | Set this parameter in order to choose which entity fields you want to retrieve
+
+    val exclude: String = false // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
+
+    val sortBy: String = value_id // String | Set field to sort by
+
+    val sortDirection: String = asc // String | Set sorting direction
+
+    val reportRequestId: String = 105245017661 // String | Report request id
+
+    val disableCache: Boolean = false // Boolean | Disable cache for current request
+
+    val disableReportCache: Boolean = false // Boolean | Disable report cache for current request
+
+    val useLatestApiVersion: Boolean = true // Boolean | Use the latest platform API version
     
-    val request = apiInstance.productList(pageCursor, start, count, params, responseFields, exclude, categoryId, createdFrom, createdTo, modifiedFrom, modifiedTo, availView, availSale, storeId, langId, currencyId, productIds, sinceId, reportRequestId, disableReportCache, sortBy, sortDirection, sku, disableCache, brandName, productAttributes, status, `type`, findValue, findWhere, useLatestApiVersion, returnGlobal, categoriesIds)
+    val request = apiInstance.productList(start, count, pageCursor, productIds, sinceId, categoriesIds, categoryId, storeId, langId, currencyId, availView, availSale, createdFrom, createdTo, modifiedFrom, modifiedTo, sku, brandName, productAttributes, status, `type`, findValue, findWhere, returnGlobal, params, responseFields, exclude, sortBy, sortDirection, reportRequestId, disableCache, disableReportCache, useLatestApiVersion)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -2364,39 +2364,39 @@ object Example extends App {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pageCursor** | **String**| Used to retrieve products via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional]
  **start** | **Int**| This parameter sets the number from which you want to get entities | [optional]
  **count** | **Int**| This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional]
- **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
- **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
- **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional]
+ **pageCursor** | **String**| Used to retrieve products via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional]
+ **productIds** | **String**| Retrieves products specified by product ids | [optional]
+ **sinceId** | **String**| Retrieve entities starting from the specified id. | [optional]
+ **categoriesIds** | **String**| Retrieves products specified by categories ids | [optional]
  **categoryId** | **String**| Retrieves products specified by category id | [optional]
+ **storeId** | **String**| Retrieves products specified by store id | [optional]
+ **langId** | **String**| Retrieves products specified by language id | [optional]
+ **currencyId** | **String**| Currency Id | [optional]
+ **availView** | **Boolean**| Specifies the set of visible/invisible products | [optional]
+ **availSale** | **Boolean**| Specifies the set of available/not available products for sale | [optional]
  **createdFrom** | **String**| Retrieve entities from their creation date | [optional]
  **createdTo** | **String**| Retrieve entities to their creation date | [optional]
  **modifiedFrom** | **String**| Retrieve entities from their modification date | [optional]
  **modifiedTo** | **String**| Retrieve entities to their modification date | [optional]
- **availView** | **Boolean**| Specifies the set of visible/invisible products | [optional]
- **availSale** | **Boolean**| Specifies the set of available/not available products for sale | [optional]
- **storeId** | **String**| Retrieves products specified by store id | [optional]
- **langId** | **String**| Retrieves products specified by language id | [optional]
- **currencyId** | **String**| Currency Id | [optional]
- **productIds** | **String**| Retrieves products specified by product ids | [optional]
- **sinceId** | **String**| Retrieve entities starting from the specified id. | [optional]
- **reportRequestId** | **String**| Report request id | [optional]
- **disableReportCache** | **Boolean**| Disable report cache for current request | [optional]
- **sortBy** | **String**| Set field to sort by | [optional]
- **sortDirection** | **String**| Set sorting direction | [optional]
  **sku** | **String**| Filter by product&#39;s sku | [optional]
- **disableCache** | **Boolean**| Disable cache for current request | [optional]
  **brandName** | **String**| Retrieves brands specified by brand name | [optional]
  **productAttributes** | [**Seq[String]**](String.md)| Defines product attributes | [optional]
  **status** | **String**| Defines product&#39;s status | [optional]
  **`type`** | **String**| Defines products&#39;s type | [optional]
  **findValue** | **String**| Entity search that is specified by some value | [optional]
  **findWhere** | **String**| Product search that is specified by field | [optional]
- **useLatestApiVersion** | **Boolean**| Use the latest platform API version | [optional]
  **returnGlobal** | **Boolean**| Determines the type of products to be returned. If set to &#39;true&#39;, only global products will be returned; if set to &#39;false&#39;, only local products will be returned. | [optional]
- **categoriesIds** | **String**| Retrieves products specified by categories ids | [optional]
+ **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
+ **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
+ **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional]
+ **sortBy** | **String**| Set field to sort by | [optional]
+ **sortDirection** | **String**| Set sorting direction | [optional]
+ **reportRequestId** | **String**| Report request id | [optional]
+ **disableCache** | **Boolean**| Disable cache for current request | [optional]
+ **disableReportCache** | **Boolean**| Disable report cache for current request | [optional]
+ **useLatestApiVersion** | **Boolean**| Use the latest platform API version | [optional]
 
 ### Return type
 
@@ -2828,19 +2828,19 @@ object Example extends App {
 
     val count: Int = 20 // Int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
 
-    val params: String = id,name,sort_order // String | Set this parameter in order to choose which entity fields you want to retrieve
-
-    val exclude: String = id,name,sort_order // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
-
-    val responseFields: String = {return_code,return_message,pagination,result} // String | Set this parameter in order to choose which entity fields you want to retrieve
-
     val productId: String = 10 // String | Retrieves products' options specified by product id
 
     val langId: String = 3 // String | Language id
 
     val storeId: String = 1 // String | Store Id
+
+    val responseFields: String = {return_code,return_message,pagination,result} // String | Set this parameter in order to choose which entity fields you want to retrieve
+
+    val params: String = id,name,sort_order // String | Set this parameter in order to choose which entity fields you want to retrieve
+
+    val exclude: String = id,name,sort_order // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
     
-    val request = apiInstance.productOptionList(start, count, params, exclude, responseFields, productId, langId, storeId)
+    val request = apiInstance.productOptionList(start, count, productId, langId, storeId, responseFields, params, exclude)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -2870,12 +2870,12 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **start** | **Int**| This parameter sets the number from which you want to get entities | [optional]
  **count** | **Int**| This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional]
- **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
- **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional]
- **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
  **productId** | **String**| Retrieves products&#39; options specified by product id | [optional]
  **langId** | **String**| Language id | [optional]
  **storeId** | **String**| Store Id | [optional]
+ **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
+ **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
+ **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional]
 
 ### Return type
 
@@ -3600,9 +3600,9 @@ object Example extends App {
 
     val start: Int = 0 // Int | This parameter sets the number from which you want to get entities
 
-    val pageCursor: String =  // String | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
-
     val count: Int = 20 // Int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
+
+    val pageCursor: String =  // String | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
 
     val ids: String = 24,25 // String | Retrieves reviews specified by ids
 
@@ -3610,13 +3610,13 @@ object Example extends App {
 
     val status: String = disabled // String | Defines status
 
+    val responseFields: String = {return_code,return_message,pagination,result} // String | Set this parameter in order to choose which entity fields you want to retrieve
+
     val params: String = id,model,price,images // String | Set this parameter in order to choose which entity fields you want to retrieve
 
     val exclude: String = false // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
-
-    val responseFields: String = {return_code,return_message,pagination,result} // String | Set this parameter in order to choose which entity fields you want to retrieve
     
-    val request = apiInstance.productReviewList(productId, start, pageCursor, count, ids, storeId, status, params, exclude, responseFields)
+    val request = apiInstance.productReviewList(productId, start, count, pageCursor, ids, storeId, status, responseFields, params, exclude)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -3646,14 +3646,14 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **productId** | **String**| Product id |
  **start** | **Int**| This parameter sets the number from which you want to get entities | [optional]
- **pageCursor** | **String**| Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional]
  **count** | **Int**| This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional]
+ **pageCursor** | **String**| Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional]
  **ids** | **String**| Retrieves reviews specified by ids | [optional]
  **storeId** | **String**| Store Id | [optional]
  **status** | **String**| Defines status | [optional]
+ **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
  **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
  **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional]
- **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
 
 ### Return type
 
@@ -4235,6 +4235,10 @@ object Example extends App {
     val apiInstance = ProductApi("https://api.api2cart.com/v1.1")
     val productId: String = 10 // String | Retrieves products' variants specified by product id
 
+    val categoryId: String = 6 // String | Counts products’ variants specified by category id
+
+    val storeId: String = 1 // String | Retrieves variants specified by store id
+
     val createdFrom: String = 2010-07-29 13:45:52 // String | Retrieve entities from their creation date
 
     val createdTo: String = 2100-08-29 13:45:52 // String | Retrieve entities to their creation date
@@ -4242,12 +4246,8 @@ object Example extends App {
     val modifiedFrom: String = 2010-07-29 13:45:52 // String | Retrieve entities from their modification date
 
     val modifiedTo: String = 2100-08-29 13:45:52 // String | Retrieve entities to their modification date
-
-    val categoryId: String = 6 // String | Counts products’ variants specified by category id
-
-    val storeId: String = 1 // String | Retrieves variants specified by store id
     
-    val request = apiInstance.productVariantCount(productId, createdFrom, createdTo, modifiedFrom, modifiedTo, categoryId, storeId)
+    val request = apiInstance.productVariantCount(productId, categoryId, storeId, createdFrom, createdTo, modifiedFrom, modifiedTo)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -4276,12 +4276,12 @@ object Example extends App {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **productId** | **String**| Retrieves products&#39; variants specified by product id |
+ **categoryId** | **String**| Counts products’ variants specified by category id | [optional]
+ **storeId** | **String**| Retrieves variants specified by store id | [optional]
  **createdFrom** | **String**| Retrieve entities from their creation date | [optional]
  **createdTo** | **String**| Retrieve entities to their creation date | [optional]
  **modifiedFrom** | **String**| Retrieve entities from their modification date | [optional]
  **modifiedTo** | **String**| Retrieve entities to their modification date | [optional]
- **categoryId** | **String**| Counts products’ variants specified by category id | [optional]
- **storeId** | **String**| Retrieves variants specified by store id | [optional]
 
 ### Return type
 
@@ -4700,13 +4700,13 @@ object Example extends App {
     val apiInstance = ProductApi("https://api.api2cart.com/v1.1")
     val id: String = 10 // String | Retrieves variant's info specified by variant id
 
+    val storeId: String = 1 // String | Retrieves variant info specified by store id
+
     val params: String = id,model,price,images // String | Set this parameter in order to choose which entity fields you want to retrieve
 
     val exclude: String = false // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
-
-    val storeId: String = 1 // String | Retrieves variant info specified by store id
     
-    val request = apiInstance.productVariantInfo(id, params, exclude, storeId)
+    val request = apiInstance.productVariantInfo(id, storeId, params, exclude)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -4735,9 +4735,9 @@ object Example extends App {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| Retrieves variant&#39;s info specified by variant id |
+ **storeId** | **String**| Retrieves variant info specified by store id | [optional]
  **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
  **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional]
- **storeId** | **String**| Retrieves variant info specified by store id | [optional]
 
 ### Return type
 
@@ -4797,9 +4797,11 @@ object Example extends App {
 
     val count: Int = 20 // Int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
 
-    val params: String = id,model,price,images // String | Set this parameter in order to choose which entity fields you want to retrieve
+    val productId: String = 10 // String | Retrieves products' variants specified by product id
 
-    val exclude: String = false // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
+    val categoryId: String = 6 // String | Retrieves products’ variants specified by category id
+
+    val storeId: String = 1 // String | Retrieves variants specified by store id
 
     val createdFrom: String = 2010-07-29 13:45:52 // String | Retrieve entities from their creation date
 
@@ -4809,13 +4811,11 @@ object Example extends App {
 
     val modifiedTo: String = 2100-08-29 13:45:52 // String | Retrieve entities to their modification date
 
-    val categoryId: String = 6 // String | Retrieves products’ variants specified by category id
+    val params: String = id,model,price,images // String | Set this parameter in order to choose which entity fields you want to retrieve
 
-    val productId: String = 10 // String | Retrieves products' variants specified by product id
-
-    val storeId: String = 1 // String | Retrieves variants specified by store id
+    val exclude: String = false // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
     
-    val request = apiInstance.productVariantList(start, count, params, exclude, createdFrom, createdTo, modifiedFrom, modifiedTo, categoryId, productId, storeId)
+    val request = apiInstance.productVariantList(start, count, productId, categoryId, storeId, createdFrom, createdTo, modifiedFrom, modifiedTo, params, exclude)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -4845,15 +4845,15 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **start** | **Int**| This parameter sets the number from which you want to get entities | [optional]
  **count** | **Int**| This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional]
- **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
- **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional]
+ **productId** | **String**| Retrieves products&#39; variants specified by product id | [optional]
+ **categoryId** | **String**| Retrieves products’ variants specified by category id | [optional]
+ **storeId** | **String**| Retrieves variants specified by store id | [optional]
  **createdFrom** | **String**| Retrieve entities from their creation date | [optional]
  **createdTo** | **String**| Retrieve entities to their creation date | [optional]
  **modifiedFrom** | **String**| Retrieve entities from their modification date | [optional]
  **modifiedTo** | **String**| Retrieve entities to their modification date | [optional]
- **categoryId** | **String**| Retrieves products’ variants specified by category id | [optional]
- **productId** | **String**| Retrieves products&#39; variants specified by product id | [optional]
- **storeId** | **String**| Retrieves variants specified by store id | [optional]
+ **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
+ **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional]
 
 ### Return type
 

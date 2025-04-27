@@ -37,19 +37,19 @@ class TaxApi(baseUrl: String) {
    * @param taxClassId Retrieves taxes specified by class id
    * @param storeId Store Id
    * @param langId Language id
-   * @param params Set this parameter in order to choose which entity fields you want to retrieve
    * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
+   * @param params Set this parameter in order to choose which entity fields you want to retrieve
    * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
    */
-  def taxClassInfo(taxClassId: String, storeId: Option[String] = None, langId: Option[String] = None, params: Option[String] = None, responseFields: Option[String] = None, exclude: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseTaxClassInfo] =
+  def taxClassInfo(taxClassId: String, storeId: Option[String] = None, langId: Option[String] = None, responseFields: Option[String] = None, params: Option[String] = None, exclude: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseTaxClassInfo] =
     ApiRequest[ModelResponseTaxClassInfo](ApiMethods.GET, baseUrl, "/tax.class.info.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
       .withQueryParam("tax_class_id", taxClassId)
       .withQueryParam("store_id", storeId)
       .withQueryParam("lang_id", langId)
-      .withQueryParam("params", params)
       .withQueryParam("response_fields", responseFields)
+      .withQueryParam("params", params)
       .withQueryParam("exclude", exclude)
       .withSuccessResponse[ModelResponseTaxClassInfo](200)
       
@@ -64,30 +64,30 @@ class TaxApi(baseUrl: String) {
    *   StoreKeyAuth (apiKey)
    *   ApiKeyAuth (apiKey)
    * 
+   * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count=250
+   * @param pageCursor Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
+   * @param storeId Store Id
+   * @param findValue Entity search that is specified by some value
+   * @param findWhere Tax class search that is specified by field
    * @param createdTo Retrieve entities to their creation date
    * @param createdFrom Retrieve entities from their creation date
    * @param modifiedTo Retrieve entities to their modification date
    * @param modifiedFrom Retrieve entities from their modification date
-   * @param findValue Entity search that is specified by some value
-   * @param findWhere Tax class search that is specified by field
-   * @param storeId Store Id
-   * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count=250
-   * @param pageCursor Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
    * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
    */
-  def taxClassList(createdTo: Option[String] = None, createdFrom: Option[String] = None, modifiedTo: Option[String] = None, modifiedFrom: Option[String] = None, findValue: Option[String] = None, findWhere: Option[String] = None, storeId: Option[String] = None, count: Option[Int] = None, pageCursor: Option[String] = None, responseFields: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseTaxClassList] =
+  def taxClassList(count: Option[Int] = None, pageCursor: Option[String] = None, storeId: Option[String] = None, findValue: Option[String] = None, findWhere: Option[String] = None, createdTo: Option[String] = None, createdFrom: Option[String] = None, modifiedTo: Option[String] = None, modifiedFrom: Option[String] = None, responseFields: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseTaxClassList] =
     ApiRequest[ModelResponseTaxClassList](ApiMethods.GET, baseUrl, "/tax.class.list.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
+      .withQueryParam("count", count)
+      .withQueryParam("page_cursor", pageCursor)
+      .withQueryParam("store_id", storeId)
+      .withQueryParam("find_value", findValue)
+      .withQueryParam("find_where", findWhere)
       .withQueryParam("created_to", createdTo)
       .withQueryParam("created_from", createdFrom)
       .withQueryParam("modified_to", modifiedTo)
       .withQueryParam("modified_from", modifiedFrom)
-      .withQueryParam("find_value", findValue)
-      .withQueryParam("find_where", findWhere)
-      .withQueryParam("store_id", storeId)
-      .withQueryParam("count", count)
-      .withQueryParam("page_cursor", pageCursor)
       .withQueryParam("response_fields", responseFields)
       .withSuccessResponse[ModelResponseTaxClassList](200)
       

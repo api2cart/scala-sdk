@@ -416,8 +416,6 @@ object Example extends App {
 
     val apiInvoker = ApiInvoker()
     val apiInstance = WebhookApi("https://api.api2cart.com/v1.1")
-    val params: String = id,entity,callback,fields // String | Set this parameter in order to choose which entity fields you want to retrieve
-
     val start: Int = 0 // Int | This parameter sets the number from which you want to get entities
 
     val count: Int = 20 // Int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
@@ -429,8 +427,10 @@ object Example extends App {
     val active: Boolean = true // Boolean | The webhook status you want to filter webhooks by
 
     val ids: String = 3,14,25 // String | List of сomma-separated webhook ids
+
+    val params: String = id,entity,callback,fields // String | Set this parameter in order to choose which entity fields you want to retrieve
     
-    val request = apiInstance.webhookList(params, start, count, entity, action, active, ids)
+    val request = apiInstance.webhookList(start, count, entity, action, active, ids, params)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -458,13 +458,13 @@ object Example extends App {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
  **start** | **Int**| This parameter sets the number from which you want to get entities | [optional]
  **count** | **Int**| This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional]
  **entity** | **String**| The entity you want to filter webhooks by (e.g. order or product) | [optional]
  **action** | **String**| The action you want to filter webhooks by (e.g. add, update, or delete) | [optional]
  **active** | **Boolean**| The webhook status you want to filter webhooks by | [optional]
  **ids** | **String**| List of сomma-separated webhook ids | [optional]
+ **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
 
 ### Return type
 

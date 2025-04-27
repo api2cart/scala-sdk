@@ -18,6 +18,8 @@ case class ProductVariantImageAdd (
   productId: Option[String] = None,
   /* Defines product's variants specified by variant id */
   productVariantId: String,
+  /* Store Id */
+  storeId: Option[String] = None,
   /* Defines image's name */
   imageName: String,
   /* Defines image's types that are specified by comma-separated list */
@@ -32,8 +34,6 @@ case class ProductVariantImageAdd (
   mime: Option[String] = None,
   /* Defines image’s position in the list */
   position: Option[Int] = None,
-  /* Store Id */
-  storeId: Option[String] = None,
   /* Defines option id of the product variant for which the image will be added */
   optionId: Option[String] = None
 ) extends ApiModel

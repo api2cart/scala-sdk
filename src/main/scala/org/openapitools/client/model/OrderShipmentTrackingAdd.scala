@@ -14,14 +14,14 @@ package org.openapitools.client.model
 import org.openapitools.client.core.ApiModel
 
 case class OrderShipmentTrackingAdd (
-  /* Store Id */
-  storeId: Option[String] = None,
   /* Defines the order id */
   orderId: Option[String] = None,
   /* Shipment id indicates the number of delivery */
   shipmentId: String,
   /* Defines tracking carrier id */
   carrierId: Option[String] = None,
+  /* Store Id */
+  storeId: Option[String] = None,
   /* Defines name of the company which provides shipment tracking */
   trackingProvider: Option[String] = None,
   /* Defines tracking number */

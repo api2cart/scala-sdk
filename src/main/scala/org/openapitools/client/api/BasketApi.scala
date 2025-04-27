@@ -40,19 +40,19 @@ class BasketApi(baseUrl: String) {
    * 
    * @param id Entity id
    * @param storeId Store Id
+   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
    * @param params Set this parameter in order to choose which entity fields you want to retrieve
    * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
-   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
    */
-  def basketInfo(id: String, storeId: Option[String] = None, params: Option[String] = None, exclude: Option[String] = None, responseFields: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[BasketInfo200Response] =
+  def basketInfo(id: String, storeId: Option[String] = None, responseFields: Option[String] = None, params: Option[String] = None, exclude: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[BasketInfo200Response] =
     ApiRequest[BasketInfo200Response](ApiMethods.GET, baseUrl, "/basket.info.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
       .withQueryParam("id", id)
       .withQueryParam("store_id", storeId)
+      .withQueryParam("response_fields", responseFields)
       .withQueryParam("params", params)
       .withQueryParam("exclude", exclude)
-      .withQueryParam("response_fields", responseFields)
       .withSuccessResponse[BasketInfo200Response](200)
       
 
@@ -102,9 +102,9 @@ class BasketApi(baseUrl: String) {
     ApiRequest[BasketLiveShippingServiceCreate200Response](ApiMethods.POST, baseUrl, "/basket.live_shipping_service.create.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
-      .withQueryParam("store_id", storeId)
       .withQueryParam("name", name)
       .withQueryParam("callback", callback)
+      .withQueryParam("store_id", storeId)
       .withSuccessResponse[BasketLiveShippingServiceCreate200Response](200)
       
 
@@ -138,17 +138,17 @@ class BasketApi(baseUrl: String) {
    *   StoreKeyAuth (apiKey)
    *   ApiKeyAuth (apiKey)
    * 
-   * @param storeId Store Id
    * @param start This parameter sets the number from which you want to get entities
    * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count=250
+   * @param storeId Store Id
    */
-  def basketLiveShippingServiceList(storeId: Option[String] = None, start: Option[Int] = None, count: Option[Int] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[BasketLiveShippingServiceList200Response] =
+  def basketLiveShippingServiceList(start: Option[Int] = None, count: Option[Int] = None, storeId: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[BasketLiveShippingServiceList200Response] =
     ApiRequest[BasketLiveShippingServiceList200Response](ApiMethods.GET, baseUrl, "/basket.live_shipping_service.list.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
-      .withQueryParam("store_id", storeId)
       .withQueryParam("start", start)
       .withQueryParam("count", count)
+      .withQueryParam("store_id", storeId)
       .withSuccessResponse[BasketLiveShippingServiceList200Response](200)
       
 

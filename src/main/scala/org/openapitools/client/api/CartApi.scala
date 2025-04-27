@@ -95,24 +95,24 @@ class CartApi(baseUrl: String) {
    *   StoreKeyAuth (apiKey)
    *   ApiKeyAuth (apiKey)
    * 
-   * @param pageCursor Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
    * @param start This parameter sets the number from which you want to get entities
    * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count=250
+   * @param pageCursor Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
    * @param ids Retrieves  catalog_price_rules by ids
-   * @param params Set this parameter in order to choose which entity fields you want to retrieve
    * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
+   * @param params Set this parameter in order to choose which entity fields you want to retrieve
    * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
    */
-  def cartCatalogPriceRulesList(pageCursor: Option[String] = None, start: Option[Int] = None, count: Option[Int] = None, ids: Option[String] = None, params: Option[String] = None, responseFields: Option[String] = None, exclude: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseCartCatalogPriceRulesList] =
+  def cartCatalogPriceRulesList(start: Option[Int] = None, count: Option[Int] = None, pageCursor: Option[String] = None, ids: Option[String] = None, responseFields: Option[String] = None, params: Option[String] = None, exclude: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseCartCatalogPriceRulesList] =
     ApiRequest[ModelResponseCartCatalogPriceRulesList](ApiMethods.GET, baseUrl, "/cart.catalog_price_rules.list.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
-      .withQueryParam("page_cursor", pageCursor)
       .withQueryParam("start", start)
       .withQueryParam("count", count)
+      .withQueryParam("page_cursor", pageCursor)
       .withQueryParam("ids", ids)
-      .withQueryParam("params", params)
       .withQueryParam("response_fields", responseFields)
+      .withQueryParam("params", params)
       .withQueryParam("exclude", exclude)
       .withSuccessResponse[ModelResponseCartCatalogPriceRulesList](200)
       
@@ -214,24 +214,24 @@ class CartApi(baseUrl: String) {
    * @param key Defines condition entity attribute key
    * @param operator Defines condition operator
    * @param value Defines condition value, can be comma separated according to the operator.
-   * @param storeId Store Id
    * @param target Defines condition operator
    * @param includeTax Indicates whether to apply a discount for taxes.
    * @param includeShipping Indicates whether to apply a discount for shipping.
+   * @param storeId Store Id
    */
-  def cartCouponConditionAdd(couponId: String, entity: String, key: String, operator: String, value: String, storeId: Option[String] = None, target: Option[String] = None, includeTax: Option[Boolean] = None, includeShipping: Option[Boolean] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[BasketLiveShippingServiceDelete200Response] =
+  def cartCouponConditionAdd(couponId: String, entity: String, key: String, operator: String, value: String, target: Option[String] = None, includeTax: Option[Boolean] = None, includeShipping: Option[Boolean] = None, storeId: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[BasketLiveShippingServiceDelete200Response] =
     ApiRequest[BasketLiveShippingServiceDelete200Response](ApiMethods.POST, baseUrl, "/cart.coupon.condition.add.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
-      .withQueryParam("store_id", storeId)
       .withQueryParam("coupon_id", couponId)
-      .withQueryParam("target", target)
       .withQueryParam("entity", entity)
       .withQueryParam("key", key)
       .withQueryParam("operator", operator)
       .withQueryParam("value", value)
+      .withQueryParam("target", target)
       .withQueryParam("include_tax", includeTax)
       .withQueryParam("include_shipping", includeShipping)
+      .withQueryParam("store_id", storeId)
       .withSuccessResponse[BasketLiveShippingServiceDelete200Response](200)
       
 
@@ -246,22 +246,22 @@ class CartApi(baseUrl: String) {
    *   ApiKeyAuth (apiKey)
    * 
    * @param storeId Store Id
+   * @param avail Defines category's visibility status
    * @param dateStartFrom Filter entity by date_start (greater or equal)
    * @param dateStartTo Filter entity by date_start (less or equal)
    * @param dateEndFrom Filter entity by date_end (greater or equal)
    * @param dateEndTo Filter entity by date_end (less or equal)
-   * @param avail Defines category's visibility status
    */
-  def cartCouponCount(storeId: Option[String] = None, dateStartFrom: Option[String] = None, dateStartTo: Option[String] = None, dateEndFrom: Option[String] = None, dateEndTo: Option[String] = None, avail: Option[Boolean] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[CartCouponCount200Response] =
+  def cartCouponCount(storeId: Option[String] = None, avail: Option[Boolean] = None, dateStartFrom: Option[String] = None, dateStartTo: Option[String] = None, dateEndFrom: Option[String] = None, dateEndTo: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[CartCouponCount200Response] =
     ApiRequest[CartCouponCount200Response](ApiMethods.GET, baseUrl, "/cart.coupon.count.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
       .withQueryParam("store_id", storeId)
+      .withQueryParam("avail", avail)
       .withQueryParam("date_start_from", dateStartFrom)
       .withQueryParam("date_start_to", dateStartTo)
       .withQueryParam("date_end_from", dateEndFrom)
       .withQueryParam("date_end_to", dateEndTo)
-      .withQueryParam("avail", avail)
       .withSuccessResponse[CartCouponCount200Response](200)
       
 
@@ -297,38 +297,38 @@ class CartApi(baseUrl: String) {
    *   StoreKeyAuth (apiKey)
    *   ApiKeyAuth (apiKey)
    * 
-   * @param pageCursor Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
    * @param start This parameter sets the number from which you want to get entities
    * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count=250
+   * @param pageCursor Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
    * @param couponsIds Filter coupons by ids
    * @param storeId Filter coupons by store id
+   * @param langId Language id
+   * @param avail Filter coupons by avail status
    * @param dateStartFrom Filter entity by date_start (greater or equal)
    * @param dateStartTo Filter entity by date_start (less or equal)
    * @param dateEndFrom Filter entity by date_end (greater or equal)
    * @param dateEndTo Filter entity by date_end (less or equal)
-   * @param avail Filter coupons by avail status
-   * @param langId Language id
-   * @param params Set this parameter in order to choose which entity fields you want to retrieve
    * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
+   * @param params Set this parameter in order to choose which entity fields you want to retrieve
    * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
    */
-  def cartCouponList(pageCursor: Option[String] = None, start: Option[Int] = None, count: Option[Int] = None, couponsIds: Option[String] = None, storeId: Option[String] = None, dateStartFrom: Option[String] = None, dateStartTo: Option[String] = None, dateEndFrom: Option[String] = None, dateEndTo: Option[String] = None, avail: Option[Boolean] = None, langId: Option[String] = None, params: Option[String] = None, responseFields: Option[String] = None, exclude: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseCartCouponList] =
+  def cartCouponList(start: Option[Int] = None, count: Option[Int] = None, pageCursor: Option[String] = None, couponsIds: Option[String] = None, storeId: Option[String] = None, langId: Option[String] = None, avail: Option[Boolean] = None, dateStartFrom: Option[String] = None, dateStartTo: Option[String] = None, dateEndFrom: Option[String] = None, dateEndTo: Option[String] = None, responseFields: Option[String] = None, params: Option[String] = None, exclude: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseCartCouponList] =
     ApiRequest[ModelResponseCartCouponList](ApiMethods.GET, baseUrl, "/cart.coupon.list.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
-      .withQueryParam("page_cursor", pageCursor)
       .withQueryParam("start", start)
       .withQueryParam("count", count)
+      .withQueryParam("page_cursor", pageCursor)
       .withQueryParam("coupons_ids", couponsIds)
       .withQueryParam("store_id", storeId)
+      .withQueryParam("lang_id", langId)
+      .withQueryParam("avail", avail)
       .withQueryParam("date_start_from", dateStartFrom)
       .withQueryParam("date_start_to", dateStartTo)
       .withQueryParam("date_end_from", dateEndFrom)
       .withQueryParam("date_end_to", dateEndTo)
-      .withQueryParam("avail", avail)
-      .withQueryParam("lang_id", langId)
-      .withQueryParam("params", params)
       .withQueryParam("response_fields", responseFields)
+      .withQueryParam("params", params)
       .withQueryParam("exclude", exclude)
       .withSuccessResponse[ModelResponseCartCouponList](200)
       
@@ -471,24 +471,24 @@ class CartApi(baseUrl: String) {
    *   StoreKeyAuth (apiKey)
    *   ApiKeyAuth (apiKey)
    * 
-   * @param pageCursor Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
    * @param start This parameter sets the number from which you want to get entities
    * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count=250
+   * @param pageCursor Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
    * @param storeId Store Id
-   * @param params Set this parameter in order to choose which entity fields you want to retrieve
    * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
+   * @param params Set this parameter in order to choose which entity fields you want to retrieve
    * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
    */
-  def cartGiftcardList(pageCursor: Option[String] = None, start: Option[Int] = None, count: Option[Int] = None, storeId: Option[String] = None, params: Option[String] = None, responseFields: Option[String] = None, exclude: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseCartGiftCardList] =
+  def cartGiftcardList(start: Option[Int] = None, count: Option[Int] = None, pageCursor: Option[String] = None, storeId: Option[String] = None, responseFields: Option[String] = None, params: Option[String] = None, exclude: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseCartGiftCardList] =
     ApiRequest[ModelResponseCartGiftCardList](ApiMethods.GET, baseUrl, "/cart.giftcard.list.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
-      .withQueryParam("page_cursor", pageCursor)
       .withQueryParam("start", start)
       .withQueryParam("count", count)
+      .withQueryParam("page_cursor", pageCursor)
       .withQueryParam("store_id", storeId)
-      .withQueryParam("params", params)
       .withQueryParam("response_fields", responseFields)
+      .withQueryParam("params", params)
       .withQueryParam("exclude", exclude)
       .withSuccessResponse[ModelResponseCartGiftCardList](200)
       
@@ -503,19 +503,19 @@ class CartApi(baseUrl: String) {
    *   StoreKeyAuth (apiKey)
    *   ApiKeyAuth (apiKey)
    * 
-   * @param params Set this parameter in order to choose which entity fields you want to retrieve
-   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
-   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
    * @param storeId Store Id
+   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
+   * @param params Set this parameter in order to choose which entity fields you want to retrieve
+   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
    */
-  def cartInfo(params: Option[String] = None, responseFields: Option[String] = None, exclude: Option[String] = None, storeId: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[CartInfo200Response] =
+  def cartInfo(storeId: Option[String] = None, responseFields: Option[String] = None, params: Option[String] = None, exclude: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[CartInfo200Response] =
     ApiRequest[CartInfo200Response](ApiMethods.GET, baseUrl, "/cart.info.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
-      .withQueryParam("params", params)
-      .withQueryParam("response_fields", responseFields)
-      .withQueryParam("exclude", exclude)
       .withQueryParam("store_id", storeId)
+      .withQueryParam("response_fields", responseFields)
+      .withQueryParam("params", params)
+      .withQueryParam("exclude", exclude)
       .withSuccessResponse[CartInfo200Response](200)
       
 
@@ -545,29 +545,29 @@ class CartApi(baseUrl: String) {
    *   ApiKeyAuth (apiKey)
    * 
    * @param entityId Entity Id
+   * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count=250
+   * @param pageCursor Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
    * @param entity Entity
    * @param storeId Store Id
    * @param langId Language id
    * @param key Key
-   * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count=250
-   * @param pageCursor Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
-   * @param params Set this parameter in order to choose which entity fields you want to retrieve
    * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
+   * @param params Set this parameter in order to choose which entity fields you want to retrieve
    * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
    */
-  def cartMetaDataList(entityId: String, entity: Option[String] = None, storeId: Option[String] = None, langId: Option[String] = None, key: Option[String] = None, count: Option[Int] = None, pageCursor: Option[String] = None, params: Option[String] = None, responseFields: Option[String] = None, exclude: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseCartMetaDataList] =
+  def cartMetaDataList(entityId: String, count: Option[Int] = None, pageCursor: Option[String] = None, entity: Option[String] = None, storeId: Option[String] = None, langId: Option[String] = None, key: Option[String] = None, responseFields: Option[String] = None, params: Option[String] = None, exclude: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseCartMetaDataList] =
     ApiRequest[ModelResponseCartMetaDataList](ApiMethods.GET, baseUrl, "/cart.meta_data.list.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
+      .withQueryParam("count", count)
+      .withQueryParam("page_cursor", pageCursor)
       .withQueryParam("entity_id", entityId)
       .withQueryParam("entity", entity)
       .withQueryParam("store_id", storeId)
       .withQueryParam("lang_id", langId)
       .withQueryParam("key", key)
-      .withQueryParam("count", count)
-      .withQueryParam("page_cursor", pageCursor)
-      .withQueryParam("params", params)
       .withQueryParam("response_fields", responseFields)
+      .withQueryParam("params", params)
       .withQueryParam("exclude", exclude)
       .withSuccessResponse[ModelResponseCartMetaDataList](200)
       
@@ -595,12 +595,12 @@ class CartApi(baseUrl: String) {
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
       .withQueryParam("entity_id", entityId)
-      .withQueryParam("entity", entity)
-      .withQueryParam("store_id", storeId)
-      .withQueryParam("lang_id", langId)
       .withQueryParam("key", key)
       .withQueryParam("value", value)
       .withQueryParam("namespace", namespace)
+      .withQueryParam("entity", entity)
+      .withQueryParam("store_id", storeId)
+      .withQueryParam("lang_id", langId)
       .withSuccessResponse[AttributeAdd200Response](200)
       
 
@@ -625,10 +625,10 @@ class CartApi(baseUrl: String) {
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
       .withQueryParam("entity_id", entityId)
-      .withQueryParam("entity", entity)
-      .withQueryParam("store_id", storeId)
       .withQueryParam("key", key)
       .withQueryParam("id", id)
+      .withQueryParam("entity", entity)
+      .withQueryParam("store_id", storeId)
       .withSuccessResponse[BasketLiveShippingServiceDelete200Response](200)
       
 
@@ -659,17 +659,17 @@ class CartApi(baseUrl: String) {
    *   StoreKeyAuth (apiKey)
    *   ApiKeyAuth (apiKey)
    * 
-   * @param storeId Store Id
    * @param start This parameter sets the number from which you want to get entities
    * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count=250
+   * @param storeId Store Id
    */
-  def cartPluginList(storeId: Option[String] = None, start: Option[Int] = None, count: Option[Int] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[CartPluginList200Response] =
+  def cartPluginList(start: Option[Int] = None, count: Option[Int] = None, storeId: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[CartPluginList200Response] =
     ApiRequest[CartPluginList200Response](ApiMethods.GET, baseUrl, "/cart.plugin.list.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
-      .withQueryParam("store_id", storeId)
       .withQueryParam("start", start)
       .withQueryParam("count", count)
+      .withQueryParam("store_id", storeId)
       .withSuccessResponse[CartPluginList200Response](200)
       
 
@@ -739,34 +739,34 @@ class CartApi(baseUrl: String) {
    *   StoreKeyAuth (apiKey)
    *   ApiKeyAuth (apiKey)
    * 
-   * @param pageCursor Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
    * @param start This parameter sets the number from which you want to get entities
    * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count=250
+   * @param pageCursor Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
+   * @param scriptIds Retrieves only scripts with specific ids
+   * @param storeId Store Id
    * @param createdFrom Retrieve entities from their creation date
    * @param createdTo Retrieve entities to their creation date
    * @param modifiedFrom Retrieve entities from their modification date
    * @param modifiedTo Retrieve entities to their modification date
-   * @param scriptIds Retrieves only scripts with specific ids
-   * @param storeId Store Id
-   * @param params Set this parameter in order to choose which entity fields you want to retrieve
    * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
+   * @param params Set this parameter in order to choose which entity fields you want to retrieve
    * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
    */
-  def cartScriptList(pageCursor: Option[String] = None, start: Option[Int] = None, count: Option[Int] = None, createdFrom: Option[String] = None, createdTo: Option[String] = None, modifiedFrom: Option[String] = None, modifiedTo: Option[String] = None, scriptIds: Option[String] = None, storeId: Option[String] = None, params: Option[String] = None, responseFields: Option[String] = None, exclude: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseCartScriptList] =
+  def cartScriptList(start: Option[Int] = None, count: Option[Int] = None, pageCursor: Option[String] = None, scriptIds: Option[String] = None, storeId: Option[String] = None, createdFrom: Option[String] = None, createdTo: Option[String] = None, modifiedFrom: Option[String] = None, modifiedTo: Option[String] = None, responseFields: Option[String] = None, params: Option[String] = None, exclude: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseCartScriptList] =
     ApiRequest[ModelResponseCartScriptList](ApiMethods.GET, baseUrl, "/cart.script.list.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
-      .withQueryParam("page_cursor", pageCursor)
       .withQueryParam("start", start)
       .withQueryParam("count", count)
+      .withQueryParam("page_cursor", pageCursor)
+      .withQueryParam("script_ids", scriptIds)
+      .withQueryParam("store_id", storeId)
       .withQueryParam("created_from", createdFrom)
       .withQueryParam("created_to", createdTo)
       .withQueryParam("modified_from", modifiedFrom)
       .withQueryParam("modified_to", modifiedTo)
-      .withQueryParam("script_ids", scriptIds)
-      .withQueryParam("store_id", storeId)
-      .withQueryParam("params", params)
       .withQueryParam("response_fields", responseFields)
+      .withQueryParam("params", params)
       .withQueryParam("exclude", exclude)
       .withSuccessResponse[ModelResponseCartScriptList](200)
       
@@ -781,22 +781,22 @@ class CartApi(baseUrl: String) {
    *   StoreKeyAuth (apiKey)
    *   ApiKeyAuth (apiKey)
    * 
-   * @param storeId Store Id
    * @param start This parameter sets the number from which you want to get entities
    * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count=250
-   * @param params Set this parameter in order to choose which entity fields you want to retrieve
+   * @param storeId Store Id
    * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
+   * @param params Set this parameter in order to choose which entity fields you want to retrieve
    * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
    */
-  def cartShippingZonesList(storeId: Option[String] = None, start: Option[Int] = None, count: Option[Int] = None, params: Option[String] = None, responseFields: Option[String] = None, exclude: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseCartShippingZonesList] =
+  def cartShippingZonesList(start: Option[Int] = None, count: Option[Int] = None, storeId: Option[String] = None, responseFields: Option[String] = None, params: Option[String] = None, exclude: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseCartShippingZonesList] =
     ApiRequest[ModelResponseCartShippingZonesList](ApiMethods.GET, baseUrl, "/cart.shipping_zones.list.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
-      .withQueryParam("store_id", storeId)
       .withQueryParam("start", start)
       .withQueryParam("count", count)
-      .withQueryParam("params", params)
+      .withQueryParam("store_id", storeId)
       .withQueryParam("response_fields", responseFields)
+      .withQueryParam("params", params)
       .withQueryParam("exclude", exclude)
       .withSuccessResponse[ModelResponseCartShippingZonesList](200)
       

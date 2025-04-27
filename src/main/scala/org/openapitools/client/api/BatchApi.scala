@@ -36,24 +36,24 @@ class BatchApi(baseUrl: String) {
    * 
    * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count=250
    * @param pageCursor Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
+   * @param ids Filter batch jobs by ids
    * @param createdFrom Retrieve entities from their creation date
    * @param createdTo Retrieve entities to their creation date
    * @param processedFrom Retrieve entities according to their processing datetime
    * @param processedTo Retrieve entities according to their processing datetime
-   * @param ids Filter batch jobs by ids
    * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
    */
-  def batchJobList(count: Option[Int] = None, pageCursor: Option[String] = None, createdFrom: Option[String] = None, createdTo: Option[String] = None, processedFrom: Option[String] = None, processedTo: Option[String] = None, ids: Option[String] = None, responseFields: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseBatchJobList] =
+  def batchJobList(count: Option[Int] = None, pageCursor: Option[String] = None, ids: Option[String] = None, createdFrom: Option[String] = None, createdTo: Option[String] = None, processedFrom: Option[String] = None, processedTo: Option[String] = None, responseFields: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseBatchJobList] =
     ApiRequest[ModelResponseBatchJobList](ApiMethods.GET, baseUrl, "/batch.job.list.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
       .withQueryParam("count", count)
       .withQueryParam("page_cursor", pageCursor)
+      .withQueryParam("ids", ids)
       .withQueryParam("created_from", createdFrom)
       .withQueryParam("created_to", createdTo)
       .withQueryParam("processed_from", processedFrom)
       .withQueryParam("processed_to", processedTo)
-      .withQueryParam("ids", ids)
       .withQueryParam("response_fields", responseFields)
       .withSuccessResponse[ModelResponseBatchJobList](200)
       

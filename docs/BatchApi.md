@@ -49,6 +49,8 @@ object Example extends App {
 
     val pageCursor: String =  // String | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
 
+    val ids: String = 24,25 // String | Filter batch jobs by ids
+
     val createdFrom: String = 2010-07-29 13:45:52 // String | Retrieve entities from their creation date
 
     val createdTo: String = 2100-08-29 13:45:52 // String | Retrieve entities to their creation date
@@ -57,11 +59,9 @@ object Example extends App {
 
     val processedTo: String = 2100-08-29 13:45:52 // String | Retrieve entities according to their processing datetime
 
-    val ids: String = 24,25 // String | Filter batch jobs by ids
-
     val responseFields: String = {result} // String | Set this parameter in order to choose which entity fields you want to retrieve
     
-    val request = apiInstance.batchJobList(count, pageCursor, createdFrom, createdTo, processedFrom, processedTo, ids, responseFields)
+    val request = apiInstance.batchJobList(count, pageCursor, ids, createdFrom, createdTo, processedFrom, processedTo, responseFields)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -91,11 +91,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **count** | **Int**| This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional]
  **pageCursor** | **String**| Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional]
+ **ids** | **String**| Filter batch jobs by ids | [optional]
  **createdFrom** | **String**| Retrieve entities from their creation date | [optional]
  **createdTo** | **String**| Retrieve entities to their creation date | [optional]
  **processedFrom** | **String**| Retrieve entities according to their processing datetime | [optional]
  **processedTo** | **String**| Retrieve entities according to their processing datetime | [optional]
- **ids** | **String**| Filter batch jobs by ids | [optional]
  **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
 
 ### Return type

@@ -15,12 +15,50 @@ import java.math.BigDecimal
 import org.openapitools.client.core.ApiModel
 
 case class ProductVariantUpdate (
-  /* Defines store id where the variant should be found */
-  storeId: Option[String] = None,
   /* Defines variant update specified by variant id */
   id: Option[String] = None,
   /* Defines product's id where the variant has to be updated */
   productId: Option[String] = None,
+  /* Defines store id where the variant should be found */
+  storeId: Option[String] = None,
+  /* Language id */
+  langId: Option[String] = None,
+  /* Defines variant's options list */
+  options: Option[Seq[ProductVariantUpdateOptionsInner]] = None,
+  /* Defines variant's name that has to be updated */
+  name: Option[String] = None,
+  /* Specifies variant's description */
+  description: Option[String] = None,
+  /* Defines short description */
+  shortDescription: Option[String] = None,
+  /* Specifies variant's model that has to be added */
+  model: Option[String] = None,
+  /* Defines new product's variant sku */
+  sku: Option[String] = None,
+  /* Set visibility status */
+  visible: Option[String] = None,
+  /* Defines product variant's status */
+  status: Option[String] = None,
+  /* Set backorder status */
+  backorderStatus: Option[String] = None,
+  /* Specifies the set of visible/invisible product's variants for sale */
+  availableForSale: Option[Boolean] = None,
+  /* Defines category's visibility status */
+  avail: Option[Boolean] = None,
+  /* Defines as a default variant */
+  isDefault: Option[Boolean] = None,
+  /* Specifies variant's free shipping flag that has to be added */
+  isFreeShipping: Option[Boolean] = None,
+  /* Specifies whether a tax is charged */
+  taxable: Option[Boolean] = None,
+  /* Defines tax classes where entity has to be added */
+  taxClassId: Option[String] = None,
+  /* Defines whether the product is virtual */
+  isVirtual: Option[Boolean] = None,
+  /* Defines inventory tracking for product variant */
+  manageStock: Option[Boolean] = None,
+  /* Set stock status */
+  inStock: Option[Boolean] = None,
   /* This parameter is used for selecting a warehouse where you need to set/modify a product quantity. */
   warehouseId: Option[String] = None,
   /* This parameter allows to reserve/unreserve product variants quantity. */
@@ -47,44 +85,10 @@ case class ProductVariantUpdate (
   spriceCreate: Option[String] = None,
   /* Defines the term of special price offer duration */
   spriceExpire: Option[String] = None,
-  /* Defines inventory tracking for product variant */
-  manageStock: Option[Boolean] = None,
-  /* Set stock status */
-  inStock: Option[Boolean] = None,
-  /* Defines variant's name that has to be updated */
-  name: Option[String] = None,
-  /* Specifies variant's description */
-  description: Option[String] = None,
-  /* Defines new product's variant sku */
-  sku: Option[String] = None,
-  /* Defines unique meta title for each entity */
-  metaTitle: Option[String] = None,
-  /* Defines unique meta description of a entity */
-  metaDescription: Option[String] = None,
-  /* Defines unique meta keywords for each entity */
-  metaKeywords: Option[String] = None,
-  /* Defines short description */
-  shortDescription: Option[String] = None,
-  /* Set visibility status */
-  visible: Option[String] = None,
-  /* Defines product variant's status */
-  status: Option[String] = None,
-  /* Set backorder status */
-  backorderStatus: Option[String] = None,
   /* Weight */
   weight: Option[BigDecimal] = None,
   /* A barcode is a unique code composed of numbers used as a product identifier. */
   barcode: Option[String] = None,
-  /* Is reindex required */
-  reindex: Option[Boolean] = None,
-  /* Specifies whether a tax is charged */
-  taxable: Option[Boolean] = None,
-  /* Defines variant's options list */
-  options: Option[Seq[ProductVariantUpdateOptionsInner]] = None,
-  /* Harmonized System Code. An HSC is a 6-digit identifier that allows participating countries to classify traded goods on a common basis for customs purposes */
-  harmonizedSystemCode: Option[String] = None,
-  /* The country where the inventory item was made */
-  countryOfOrigin: Option[String] = None,
   /* Defines product's width */
   width: Option[BigDecimal] = None,
   /* Weight Unit */
@@ -95,14 +99,6 @@ case class ProductVariantUpdate (
   length: Option[BigDecimal] = None,
   /* Global Trade Item Number. An GTIN is an identifier for trade items. */
   gtin: Option[String] = None,
-  /* Is cache clear required */
-  clearCache: Option[Boolean] = None,
-  /* Language id */
-  langId: Option[String] = None,
-  /* Specifies variant's model that has to be added */
-  model: Option[String] = None,
-  /* Specifies the set of visible/invisible product's variants for sale */
-  availableForSale: Option[Boolean] = None,
   /* Universal Product Code. A UPC (UPC-A) is a commonly used identifer for many different products. */
   upc: Option[String] = None,
   /* Manufacturer Part Number. A MPN is an identifier of a particular part design or material used. */
@@ -111,15 +107,19 @@ case class ProductVariantUpdate (
   ean: Option[String] = None,
   /* International Standard Book Number. An ISBN is a unique identifier for books. */
   isbn: Option[String] = None,
-  /* Defines category's visibility status */
-  avail: Option[Boolean] = None,
-  /* Defines as a default variant */
-  isDefault: Option[Boolean] = None,
-  /* Specifies variant's free shipping flag that has to be added */
-  isFreeShipping: Option[Boolean] = None,
-  /* Defines tax classes where entity has to be added */
-  taxClassId: Option[String] = None,
-  /* Defines whether the product is virtual */
-  isVirtual: Option[Boolean] = None
+  /* Harmonized System Code. An HSC is a 6-digit identifier that allows participating countries to classify traded goods on a common basis for customs purposes */
+  harmonizedSystemCode: Option[String] = None,
+  /* The country where the inventory item was made */
+  countryOfOrigin: Option[String] = None,
+  /* Defines unique meta title for each entity */
+  metaTitle: Option[String] = None,
+  /* Defines unique meta description of a entity */
+  metaDescription: Option[String] = None,
+  /* Defines unique meta keywords for each entity */
+  metaKeywords: Option[String] = None,
+  /* Is reindex required */
+  reindex: Option[Boolean] = None,
+  /* Is cache clear required */
+  clearCache: Option[Boolean] = None
 ) extends ApiModel
 

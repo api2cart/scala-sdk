@@ -407,13 +407,13 @@ object Example extends App {
 
     val count: Int = 20 // Int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
 
+    val responseFields: String = {result} // String | Set this parameter in order to choose which entity fields you want to retrieve
+
     val params: String = id,name // String | Set this parameter in order to choose which entity fields you want to retrieve
 
     val exclude: String = id,name // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
-
-    val responseFields: String = {result} // String | Set this parameter in order to choose which entity fields you want to retrieve
     
-    val request = apiInstance.attributeAttributesetList(start, count, params, exclude, responseFields)
+    val request = apiInstance.attributeAttributesetList(start, count, responseFields, params, exclude)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -443,9 +443,9 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **start** | **Int**| This parameter sets the number from which you want to get entities | [optional]
  **count** | **Int**| This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional]
+ **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
  **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
  **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional]
- **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
 
 ### Return type
 
@@ -698,17 +698,17 @@ object Example extends App {
 
     val count: Int = 20 // Int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
 
+    val attributeSetId: String = 4 // String | Attribute set id
+
     val langId: String = 3 // String | Language id
+
+    val responseFields: String = {result} // String | Set this parameter in order to choose which entity fields you want to retrieve
 
     val params: String = id,name // String | Set this parameter in order to choose which entity fields you want to retrieve
 
     val exclude: String = id,name // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
-
-    val responseFields: String = {result} // String | Set this parameter in order to choose which entity fields you want to retrieve
-
-    val attributeSetId: String = 4 // String | Attribute set id
     
-    val request = apiInstance.attributeGroupList(start, count, langId, params, exclude, responseFields, attributeSetId)
+    val request = apiInstance.attributeGroupList(start, count, attributeSetId, langId, responseFields, params, exclude)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -738,11 +738,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **start** | **Int**| This parameter sets the number from which you want to get entities | [optional]
  **count** | **Int**| This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional]
+ **attributeSetId** | **String**| Attribute set id | [optional]
  **langId** | **String**| Language id | [optional]
+ **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
  **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
  **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional]
- **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
- **attributeSetId** | **String**| Attribute set id | [optional]
 
 ### Return type
 
@@ -806,13 +806,13 @@ object Example extends App {
 
     val langId: String = 3 // String | Language id
 
+    val responseFields: String = {result} // String | Set this parameter in order to choose which entity fields you want to retrieve
+
     val params: String = force_all // String | Set this parameter in order to choose which entity fields you want to retrieve
 
     val exclude: String = name // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
-
-    val responseFields: String = {result} // String | Set this parameter in order to choose which entity fields you want to retrieve
     
-    val request = apiInstance.attributeInfo(id, attributeSetId, storeId, langId, params, exclude, responseFields)
+    val request = apiInstance.attributeInfo(id, attributeSetId, storeId, langId, responseFields, params, exclude)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -844,9 +844,9 @@ Name | Type | Description  | Notes
  **attributeSetId** | **String**| Attribute set id | [optional]
  **storeId** | **String**| Store Id | [optional]
  **langId** | **String**| Language id | [optional]
+ **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
  **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
  **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional]
- **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
 
 ### Return type
 
@@ -906,8 +906,6 @@ object Example extends App {
 
     val count: Int = 20 // Int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
 
-    val `type`: String = text // String | Defines attribute's type
-
     val attributeIds: String = 1,2,3 // String | Filter attributes by ids
 
     val attributeSetId: String = 4 // String | Filter items by attribute set id
@@ -916,19 +914,21 @@ object Example extends App {
 
     val langId: String = 3 // String | Retrieves attributes on specified language id
 
-    val params: String = id,name // String | Set this parameter in order to choose which entity fields you want to retrieve
-
-    val exclude: String = id,name // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
-
-    val responseFields: String = {return_code,return_message,pagination,result} // String | Set this parameter in order to choose which entity fields you want to retrieve
+    val `type`: String = text // String | Defines attribute's type
 
     val visible: Boolean = true // Boolean | Filter items by visibility status
 
     val required: Boolean = true // Boolean | Defines if the option is required
 
     val system: Boolean = false // Boolean | True if attribute is system
+
+    val responseFields: String = {return_code,return_message,pagination,result} // String | Set this parameter in order to choose which entity fields you want to retrieve
+
+    val params: String = id,name // String | Set this parameter in order to choose which entity fields you want to retrieve
+
+    val exclude: String = id,name // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
     
-    val request = apiInstance.attributeList(start, count, `type`, attributeIds, attributeSetId, storeId, langId, params, exclude, responseFields, visible, required, system)
+    val request = apiInstance.attributeList(start, count, attributeIds, attributeSetId, storeId, langId, `type`, visible, required, system, responseFields, params, exclude)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -958,17 +958,17 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **start** | **Int**| This parameter sets the number from which you want to get entities | [optional]
  **count** | **Int**| This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional]
- **`type`** | **String**| Defines attribute&#39;s type | [optional]
  **attributeIds** | **String**| Filter attributes by ids | [optional]
  **attributeSetId** | **String**| Filter items by attribute set id | [optional]
  **storeId** | **String**| Store Id | [optional]
  **langId** | **String**| Retrieves attributes on specified language id | [optional]
- **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
- **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional]
- **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
+ **`type`** | **String**| Defines attribute&#39;s type | [optional]
  **visible** | **Boolean**| Filter items by visibility status | [optional]
  **required** | **Boolean**| Defines if the option is required | [optional]
  **system** | **Boolean**| True if attribute is system | [optional]
+ **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
+ **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
+ **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional]
 
 ### Return type
 

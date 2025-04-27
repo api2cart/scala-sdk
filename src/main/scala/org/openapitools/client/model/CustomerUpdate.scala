@@ -40,12 +40,12 @@ case class CustomerUpdate (
   tags: Option[String] = None,
   /* Defines customer's gender */
   gender: Option[String] = None,
-  /* Store Id */
-  storeId: Option[String] = None,
   /* The customer note. */
   note: Option[String] = None,
   /* Defines customer's status */
   status: Option[String] = None,
+  /* Store Id */
+  storeId: Option[String] = None,
   address: Option[Seq[CustomerUpdateAddressInner]] = None
 ) extends ApiModel
 

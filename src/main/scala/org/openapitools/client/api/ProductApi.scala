@@ -127,39 +127,39 @@ class ProductApi(baseUrl: String) {
    *   ApiKeyAuth (apiKey)
    * 
    * @param productId Retrieves attributes specified by product id
-   * @param attributeId Retrieves info for specified attribute_id
-   * @param variantId Defines product's variants specified by variant id
-   * @param pageCursor Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
    * @param start This parameter sets the number from which you want to get entities
    * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count=250
+   * @param pageCursor Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
+   * @param attributeId Retrieves info for specified attribute_id
+   * @param variantId Defines product's variants specified by variant id
    * @param attributeGroupId Filter by attribute_group_id
-   * @param setName Retrieves attributes specified by set_name in Magento
    * @param langId Retrieves attributes specified by language id
    * @param storeId Retrieves attributes specified by store id
+   * @param setName Retrieves attributes specified by set_name in Magento
    * @param sortBy Set field to sort by
    * @param sortDirection Set sorting direction
-   * @param params Set this parameter in order to choose which entity fields you want to retrieve
    * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
+   * @param params Set this parameter in order to choose which entity fields you want to retrieve
    * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
    */
-  def productAttributeList(productId: String, attributeId: Option[String] = None, variantId: Option[String] = None, pageCursor: Option[String] = None, start: Option[Int] = None, count: Option[Int] = None, attributeGroupId: Option[String] = None, setName: Option[String] = None, langId: Option[String] = None, storeId: Option[String] = None, sortBy: Option[String] = None, sortDirection: Option[String] = None, params: Option[String] = None, responseFields: Option[String] = None, exclude: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseProductAttributeList] =
+  def productAttributeList(productId: String, start: Option[Int] = None, count: Option[Int] = None, pageCursor: Option[String] = None, attributeId: Option[String] = None, variantId: Option[String] = None, attributeGroupId: Option[String] = None, langId: Option[String] = None, storeId: Option[String] = None, setName: Option[String] = None, sortBy: Option[String] = None, sortDirection: Option[String] = None, responseFields: Option[String] = None, params: Option[String] = None, exclude: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseProductAttributeList] =
     ApiRequest[ModelResponseProductAttributeList](ApiMethods.GET, baseUrl, "/product.attribute.list.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
+      .withQueryParam("start", start)
+      .withQueryParam("count", count)
+      .withQueryParam("page_cursor", pageCursor)
       .withQueryParam("product_id", productId)
       .withQueryParam("attribute_id", attributeId)
       .withQueryParam("variant_id", variantId)
-      .withQueryParam("page_cursor", pageCursor)
-      .withQueryParam("start", start)
-      .withQueryParam("count", count)
       .withQueryParam("attribute_group_id", attributeGroupId)
-      .withQueryParam("set_name", setName)
       .withQueryParam("lang_id", langId)
       .withQueryParam("store_id", storeId)
+      .withQueryParam("set_name", setName)
       .withQueryParam("sort_by", sortBy)
       .withQueryParam("sort_direction", sortDirection)
-      .withQueryParam("params", params)
       .withQueryParam("response_fields", responseFields)
+      .withQueryParam("params", params)
       .withQueryParam("exclude", exclude)
       .withSuccessResponse[ModelResponseProductAttributeList](200)
       
@@ -241,42 +241,42 @@ class ProductApi(baseUrl: String) {
    * @param start This parameter sets the number from which you want to get entities
    * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count=250
    * @param pageCursor Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
-   * @param params Set this parameter in order to choose which entity fields you want to retrieve
    * @param brandIds Retrieves brands specified by brand ids
-   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
    * @param categoryId Retrieves product brands specified by category id
+   * @param parentId Retrieves brands specified by parent id
    * @param storeId Store Id
    * @param langId Language id
+   * @param findWhere Entity search that is specified by the comma-separated unique fields
+   * @param findValue Entity search that is specified by some value
    * @param createdFrom Retrieve entities from their creation date
    * @param createdTo Retrieve entities to their creation date
    * @param modifiedFrom Retrieve entities from their modification date
    * @param modifiedTo Retrieve entities to their modification date
-   * @param parentId Retrieves brands specified by parent id
    * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
-   * @param findWhere Entity search that is specified by the comma-separated unique fields
-   * @param findValue Entity search that is specified by some value
+   * @param params Set this parameter in order to choose which entity fields you want to retrieve
+   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
    */
-  def productBrandList(start: Option[Int] = None, count: Option[Int] = None, pageCursor: Option[String] = None, params: Option[String] = None, brandIds: Option[String] = None, exclude: Option[String] = None, categoryId: Option[String] = None, storeId: Option[String] = None, langId: Option[String] = None, createdFrom: Option[String] = None, createdTo: Option[String] = None, modifiedFrom: Option[String] = None, modifiedTo: Option[String] = None, parentId: Option[String] = None, responseFields: Option[String] = None, findWhere: Option[String] = None, findValue: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseProductBrandList] =
+  def productBrandList(start: Option[Int] = None, count: Option[Int] = None, pageCursor: Option[String] = None, brandIds: Option[String] = None, categoryId: Option[String] = None, parentId: Option[String] = None, storeId: Option[String] = None, langId: Option[String] = None, findWhere: Option[String] = None, findValue: Option[String] = None, createdFrom: Option[String] = None, createdTo: Option[String] = None, modifiedFrom: Option[String] = None, modifiedTo: Option[String] = None, responseFields: Option[String] = None, params: Option[String] = None, exclude: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseProductBrandList] =
     ApiRequest[ModelResponseProductBrandList](ApiMethods.GET, baseUrl, "/product.brand.list.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
       .withQueryParam("start", start)
       .withQueryParam("count", count)
       .withQueryParam("page_cursor", pageCursor)
-      .withQueryParam("params", params)
       .withQueryParam("brand_ids", brandIds)
-      .withQueryParam("exclude", exclude)
       .withQueryParam("category_id", categoryId)
+      .withQueryParam("parent_id", parentId)
       .withQueryParam("store_id", storeId)
       .withQueryParam("lang_id", langId)
+      .withQueryParam("find_where", findWhere)
+      .withQueryParam("find_value", findValue)
       .withQueryParam("created_from", createdFrom)
       .withQueryParam("created_to", createdTo)
       .withQueryParam("modified_from", modifiedFrom)
       .withQueryParam("modified_to", modifiedTo)
-      .withQueryParam("parent_id", parentId)
       .withQueryParam("response_fields", responseFields)
-      .withQueryParam("find_where", findWhere)
-      .withQueryParam("find_value", findValue)
+      .withQueryParam("params", params)
+      .withQueryParam("exclude", exclude)
       .withSuccessResponse[ModelResponseProductBrandList](200)
       
 
@@ -318,26 +318,26 @@ class ProductApi(baseUrl: String) {
    * 
    * @param productId Filter by parent product id
    * @param id Entity id
-   * @param params Set this parameter in order to choose which entity fields you want to retrieve
-   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
-   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
    * @param storeId Store Id
    * @param langId Language id
    * @param currencyId Currency Id
+   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
+   * @param params Set this parameter in order to choose which entity fields you want to retrieve
+   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
    * @param useLatestApiVersion Use the latest platform API version
    */
-  def productChildItemInfo(productId: String, id: String, params: Option[String] = None, responseFields: Option[String] = None, exclude: Option[String] = None, storeId: Option[String] = None, langId: Option[String] = None, currencyId: Option[String] = None, useLatestApiVersion: Option[Boolean] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ProductChildItemInfo200Response] =
+  def productChildItemInfo(productId: String, id: String, storeId: Option[String] = None, langId: Option[String] = None, currencyId: Option[String] = None, responseFields: Option[String] = None, params: Option[String] = None, exclude: Option[String] = None, useLatestApiVersion: Option[Boolean] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ProductChildItemInfo200Response] =
     ApiRequest[ProductChildItemInfo200Response](ApiMethods.GET, baseUrl, "/product.child_item.info.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
-      .withQueryParam("params", params)
-      .withQueryParam("response_fields", responseFields)
-      .withQueryParam("exclude", exclude)
       .withQueryParam("product_id", productId)
       .withQueryParam("id", id)
       .withQueryParam("store_id", storeId)
       .withQueryParam("lang_id", langId)
       .withQueryParam("currency_id", currencyId)
+      .withQueryParam("response_fields", responseFields)
+      .withQueryParam("params", params)
+      .withQueryParam("exclude", exclude)
       .withQueryParam("use_latest_api_version", useLatestApiVersion)
       .withSuccessResponse[ProductChildItemInfo200Response](200)
       
@@ -352,16 +352,9 @@ class ProductApi(baseUrl: String) {
    *   StoreKeyAuth (apiKey)
    *   ApiKeyAuth (apiKey)
    * 
-   * @param pageCursor Used to retrieve products child items via cursor-based pagination (it can't be used with any other filtering parameter)
    * @param start This parameter sets the number from which you want to get entities
    * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count=250
-   * @param params Set this parameter in order to choose which entity fields you want to retrieve
-   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
-   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
-   * @param createdFrom Retrieve entities from their creation date
-   * @param createdTo Retrieve entities to their creation date
-   * @param modifiedFrom Retrieve entities from their modification date
-   * @param modifiedTo Retrieve entities to their modification date
+   * @param pageCursor Used to retrieve products child items via cursor-based pagination (it can't be used with any other filtering parameter)
    * @param productId Filter by parent product id
    * @param productIds Filter by parent product ids
    * @param sku Filter by products variant's sku
@@ -371,25 +364,25 @@ class ProductApi(baseUrl: String) {
    * @param availSale Specifies the set of available/not available products for sale
    * @param findValue Entity search that is specified by some value
    * @param findWhere Child products search that is specified by field
+   * @param createdFrom Retrieve entities from their creation date
+   * @param createdTo Retrieve entities to their creation date
+   * @param modifiedFrom Retrieve entities from their modification date
+   * @param modifiedTo Retrieve entities to their modification date
+   * @param returnGlobal Determines the type of products to be returned. If set to 'true', only global products will be returned; if set to 'false', only local products will be returned.
+   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
+   * @param params Set this parameter in order to choose which entity fields you want to retrieve
+   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
    * @param reportRequestId Report request id
    * @param disableReportCache Disable report cache for current request
    * @param useLatestApiVersion Use the latest platform API version
-   * @param returnGlobal Determines the type of products to be returned. If set to 'true', only global products will be returned; if set to 'false', only local products will be returned.
    */
-  def productChildItemList(pageCursor: Option[String] = None, start: Option[Int] = None, count: Option[Int] = None, params: Option[String] = None, responseFields: Option[String] = None, exclude: Option[String] = None, createdFrom: Option[String] = None, createdTo: Option[String] = None, modifiedFrom: Option[String] = None, modifiedTo: Option[String] = None, productId: Option[String] = None, productIds: Option[String] = None, sku: Option[String] = None, storeId: Option[String] = None, langId: Option[String] = None, currencyId: Option[String] = None, availSale: Option[Boolean] = None, findValue: Option[String] = None, findWhere: Option[String] = None, reportRequestId: Option[String] = None, disableReportCache: Option[Boolean] = None, useLatestApiVersion: Option[Boolean] = None, returnGlobal: Option[Boolean] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseProductChildItemList] =
+  def productChildItemList(start: Option[Int] = None, count: Option[Int] = None, pageCursor: Option[String] = None, productId: Option[String] = None, productIds: Option[String] = None, sku: Option[String] = None, storeId: Option[String] = None, langId: Option[String] = None, currencyId: Option[String] = None, availSale: Option[Boolean] = None, findValue: Option[String] = None, findWhere: Option[String] = None, createdFrom: Option[String] = None, createdTo: Option[String] = None, modifiedFrom: Option[String] = None, modifiedTo: Option[String] = None, returnGlobal: Option[Boolean] = None, responseFields: Option[String] = None, params: Option[String] = None, exclude: Option[String] = None, reportRequestId: Option[String] = None, disableReportCache: Option[Boolean] = None, useLatestApiVersion: Option[Boolean] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseProductChildItemList] =
     ApiRequest[ModelResponseProductChildItemList](ApiMethods.GET, baseUrl, "/product.child_item.list.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
-      .withQueryParam("page_cursor", pageCursor)
       .withQueryParam("start", start)
       .withQueryParam("count", count)
-      .withQueryParam("params", params)
-      .withQueryParam("response_fields", responseFields)
-      .withQueryParam("exclude", exclude)
-      .withQueryParam("created_from", createdFrom)
-      .withQueryParam("created_to", createdTo)
-      .withQueryParam("modified_from", modifiedFrom)
-      .withQueryParam("modified_to", modifiedTo)
+      .withQueryParam("page_cursor", pageCursor)
       .withQueryParam("product_id", productId)
       .withQueryParam("product_ids", productIds)
       .withQueryParam("sku", sku)
@@ -399,10 +392,17 @@ class ProductApi(baseUrl: String) {
       .withQueryParam("avail_sale", availSale)
       .withQueryParam("find_value", findValue)
       .withQueryParam("find_where", findWhere)
+      .withQueryParam("created_from", createdFrom)
+      .withQueryParam("created_to", createdTo)
+      .withQueryParam("modified_from", modifiedFrom)
+      .withQueryParam("modified_to", modifiedTo)
+      .withQueryParam("return_global", returnGlobal)
+      .withQueryParam("response_fields", responseFields)
+      .withQueryParam("params", params)
+      .withQueryParam("exclude", exclude)
       .withQueryParam("report_request_id", reportRequestId)
       .withQueryParam("disable_report_cache", disableReportCache)
       .withQueryParam("use_latest_api_version", useLatestApiVersion)
-      .withQueryParam("return_global", returnGlobal)
       .withSuccessResponse[ModelResponseProductChildItemList](200)
       
 
@@ -416,55 +416,55 @@ class ProductApi(baseUrl: String) {
    *   StoreKeyAuth (apiKey)
    *   ApiKeyAuth (apiKey)
    * 
+   * @param productIds Counts products specified by product ids
+   * @param sinceId Retrieve entities starting from the specified id.
+   * @param categoriesIds Defines product add that is specified by comma-separated categories id
    * @param categoryId Counts products specified by category id
+   * @param storeId Counts products specified by store id
+   * @param langId Counts products specified by language id
+   * @param availView Specifies the set of visible/invisible products
+   * @param availSale Specifies the set of available/not available products for sale
    * @param createdFrom Retrieve entities from their creation date
    * @param createdTo Retrieve entities to their creation date
    * @param modifiedFrom Retrieve entities from their modification date
    * @param modifiedTo Retrieve entities to their modification date
-   * @param availView Specifies the set of visible/invisible products
-   * @param availSale Specifies the set of available/not available products for sale
-   * @param storeId Counts products specified by store id
-   * @param langId Counts products specified by language id
-   * @param productIds Counts products specified by product ids
-   * @param sinceId Retrieve entities starting from the specified id.
-   * @param reportRequestId Report request id
-   * @param disableReportCache Disable report cache for current request
    * @param brandName Retrieves brands specified by brand name
    * @param productAttributes Defines product attributes
    * @param status Defines product's status
    * @param `type` Defines products's type
    * @param findValue Entity search that is specified by some value
    * @param findWhere Counts products that are searched specified by field
-   * @param useLatestApiVersion Use the latest platform API version
+   * @param reportRequestId Report request id
    * @param returnGlobal Determines the type of products to be returned. If set to 'true', only global products will be returned; if set to 'false', only local products will be returned.
-   * @param categoriesIds Defines product add that is specified by comma-separated categories id
+   * @param disableReportCache Disable report cache for current request
+   * @param useLatestApiVersion Use the latest platform API version
    */
-  def productCount(categoryId: Option[String] = None, createdFrom: Option[String] = None, createdTo: Option[String] = None, modifiedFrom: Option[String] = None, modifiedTo: Option[String] = None, availView: Option[Boolean] = None, availSale: Option[Boolean] = None, storeId: Option[String] = None, langId: Option[String] = None, productIds: Option[String] = None, sinceId: Option[String] = None, reportRequestId: Option[String] = None, disableReportCache: Option[Boolean] = None, brandName: Option[String] = None, productAttributes: Seq[String], status: Option[String] = None, `type`: Option[String] = None, findValue: Option[String] = None, findWhere: Option[String] = None, useLatestApiVersion: Option[Boolean] = None, returnGlobal: Option[Boolean] = None, categoriesIds: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ProductCount200Response] =
+  def productCount(productIds: Option[String] = None, sinceId: Option[String] = None, categoriesIds: Option[String] = None, categoryId: Option[String] = None, storeId: Option[String] = None, langId: Option[String] = None, availView: Option[Boolean] = None, availSale: Option[Boolean] = None, createdFrom: Option[String] = None, createdTo: Option[String] = None, modifiedFrom: Option[String] = None, modifiedTo: Option[String] = None, brandName: Option[String] = None, productAttributes: Seq[String], status: Option[String] = None, `type`: Option[String] = None, findValue: Option[String] = None, findWhere: Option[String] = None, reportRequestId: Option[String] = None, returnGlobal: Option[Boolean] = None, disableReportCache: Option[Boolean] = None, useLatestApiVersion: Option[Boolean] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ProductCount200Response] =
     ApiRequest[ProductCount200Response](ApiMethods.GET, baseUrl, "/product.count.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
+      .withQueryParam("product_ids", productIds)
+      .withQueryParam("since_id", sinceId)
+      .withQueryParam("categories_ids", categoriesIds)
       .withQueryParam("category_id", categoryId)
+      .withQueryParam("store_id", storeId)
+      .withQueryParam("lang_id", langId)
+      .withQueryParam("avail_view", availView)
+      .withQueryParam("avail_sale", availSale)
       .withQueryParam("created_from", createdFrom)
       .withQueryParam("created_to", createdTo)
       .withQueryParam("modified_from", modifiedFrom)
       .withQueryParam("modified_to", modifiedTo)
-      .withQueryParam("avail_view", availView)
-      .withQueryParam("avail_sale", availSale)
-      .withQueryParam("store_id", storeId)
-      .withQueryParam("lang_id", langId)
-      .withQueryParam("product_ids", productIds)
-      .withQueryParam("since_id", sinceId)
-      .withQueryParam("report_request_id", reportRequestId)
-      .withQueryParam("disable_report_cache", disableReportCache)
       .withQueryParam("brand_name", brandName)
       .withQueryParam("product_attributes", ArrayValues(productAttributes, MULTI))
       .withQueryParam("status", status)
       .withQueryParam("type", `type`)
       .withQueryParam("find_value", findValue)
       .withQueryParam("find_where", findWhere)
-      .withQueryParam("use_latest_api_version", useLatestApiVersion)
+      .withQueryParam("report_request_id", reportRequestId)
       .withQueryParam("return_global", returnGlobal)
-      .withQueryParam("categories_ids", categoriesIds)
+      .withQueryParam("disable_report_cache", disableReportCache)
+      .withQueryParam("use_latest_api_version", useLatestApiVersion)
       .withSuccessResponse[ProductCount200Response](200)
       
 
@@ -512,25 +512,25 @@ class ProductApi(baseUrl: String) {
    * 
    * @param start This parameter sets the number from which you want to get entities
    * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count=250
-   * @param params Set this parameter in order to choose which entity fields you want to retrieve
    * @param pageCursor Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
-   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
-   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
    * @param default Specifies the set of default/not default currencies
    * @param avail Specifies the set of available/not available currencies
+   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
+   * @param params Set this parameter in order to choose which entity fields you want to retrieve
+   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
    */
-  def productCurrencyList(start: Option[Int] = None, count: Option[Int] = None, params: Option[String] = None, pageCursor: Option[String] = None, exclude: Option[String] = None, responseFields: Option[String] = None, default: Option[Boolean] = None, avail: Option[Boolean] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseProductCurrencyList] =
+  def productCurrencyList(start: Option[Int] = None, count: Option[Int] = None, pageCursor: Option[String] = None, default: Option[Boolean] = None, avail: Option[Boolean] = None, responseFields: Option[String] = None, params: Option[String] = None, exclude: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseProductCurrencyList] =
     ApiRequest[ModelResponseProductCurrencyList](ApiMethods.GET, baseUrl, "/product.currency.list.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
       .withQueryParam("start", start)
       .withQueryParam("count", count)
-      .withQueryParam("params", params)
       .withQueryParam("page_cursor", pageCursor)
-      .withQueryParam("exclude", exclude)
-      .withQueryParam("response_fields", responseFields)
       .withQueryParam("default", default)
       .withQueryParam("avail", avail)
+      .withQueryParam("response_fields", responseFields)
+      .withQueryParam("params", params)
+      .withQueryParam("exclude", exclude)
       .withSuccessResponse[ModelResponseProductCurrencyList](200)
       
 
@@ -680,27 +680,27 @@ class ProductApi(baseUrl: String) {
    * @param productId Defines product id where the image should be updated
    * @param id Defines image update specified by image id
    * @param variantIds Defines product's variants ids
+   * @param storeId Store Id
+   * @param langId Language id
    * @param imageName Defines image's name
    * @param `type` Defines image's types that are specified by comma-separated list
    * @param label Defines alternative text that has to be attached to the picture
    * @param position Defines image’s position in the list
-   * @param storeId Store Id
-   * @param langId Language id
    * @param hidden Define is hide image
    */
-  def productImageUpdate(productId: String, id: String, variantIds: Option[String] = None, imageName: Option[String] = None, `type`: Option[String] = None, label: Option[String] = None, position: Option[Int] = None, storeId: Option[String] = None, langId: Option[String] = None, hidden: Option[Boolean] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ProductImageUpdate200Response] =
+  def productImageUpdate(productId: String, id: String, variantIds: Option[String] = None, storeId: Option[String] = None, langId: Option[String] = None, imageName: Option[String] = None, `type`: Option[String] = None, label: Option[String] = None, position: Option[Int] = None, hidden: Option[Boolean] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ProductImageUpdate200Response] =
     ApiRequest[ProductImageUpdate200Response](ApiMethods.PUT, baseUrl, "/product.image.update.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
       .withQueryParam("product_id", productId)
+      .withQueryParam("id", id)
       .withQueryParam("variant_ids", variantIds)
+      .withQueryParam("store_id", storeId)
+      .withQueryParam("lang_id", langId)
       .withQueryParam("image_name", imageName)
       .withQueryParam("type", `type`)
       .withQueryParam("label", label)
       .withQueryParam("position", position)
-      .withQueryParam("id", id)
-      .withQueryParam("store_id", storeId)
-      .withQueryParam("lang_id", langId)
       .withQueryParam("hidden", hidden)
       .withSuccessResponse[ProductImageUpdate200Response](200)
       
@@ -716,27 +716,27 @@ class ProductApi(baseUrl: String) {
    *   ApiKeyAuth (apiKey)
    * 
    * @param id Retrieves product's info specified by product id
-   * @param params Set this parameter in order to choose which entity fields you want to retrieve
-   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
-   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
    * @param storeId Retrieves product info specified by store id
    * @param langId Retrieves product info specified by language id
    * @param currencyId Currency Id
+   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
+   * @param params Set this parameter in order to choose which entity fields you want to retrieve
+   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
    * @param reportRequestId Report request id
    * @param disableReportCache Disable report cache for current request
    * @param useLatestApiVersion Use the latest platform API version
    */
-  def productInfo(id: String, params: Option[String] = None, responseFields: Option[String] = None, exclude: Option[String] = None, storeId: Option[String] = None, langId: Option[String] = None, currencyId: Option[String] = None, reportRequestId: Option[String] = None, disableReportCache: Option[Boolean] = None, useLatestApiVersion: Option[Boolean] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ProductInfo200Response] =
+  def productInfo(id: String, storeId: Option[String] = None, langId: Option[String] = None, currencyId: Option[String] = None, responseFields: Option[String] = None, params: Option[String] = None, exclude: Option[String] = None, reportRequestId: Option[String] = None, disableReportCache: Option[Boolean] = None, useLatestApiVersion: Option[Boolean] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ProductInfo200Response] =
     ApiRequest[ProductInfo200Response](ApiMethods.GET, baseUrl, "/product.info.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
       .withQueryParam("id", id)
-      .withQueryParam("params", params)
-      .withQueryParam("response_fields", responseFields)
-      .withQueryParam("exclude", exclude)
       .withQueryParam("store_id", storeId)
       .withQueryParam("lang_id", langId)
       .withQueryParam("currency_id", currencyId)
+      .withQueryParam("response_fields", responseFields)
+      .withQueryParam("params", params)
+      .withQueryParam("exclude", exclude)
       .withQueryParam("report_request_id", reportRequestId)
       .withQueryParam("disable_report_cache", disableReportCache)
       .withQueryParam("use_latest_api_version", useLatestApiVersion)
@@ -753,77 +753,77 @@ class ProductApi(baseUrl: String) {
    *   StoreKeyAuth (apiKey)
    *   ApiKeyAuth (apiKey)
    * 
-   * @param pageCursor Used to retrieve products via cursor-based pagination (it can't be used with any other filtering parameter)
    * @param start This parameter sets the number from which you want to get entities
    * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count=250
-   * @param params Set this parameter in order to choose which entity fields you want to retrieve
-   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
-   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
+   * @param pageCursor Used to retrieve products via cursor-based pagination (it can't be used with any other filtering parameter)
+   * @param productIds Retrieves products specified by product ids
+   * @param sinceId Retrieve entities starting from the specified id.
+   * @param categoriesIds Retrieves products specified by categories ids
    * @param categoryId Retrieves products specified by category id
+   * @param storeId Retrieves products specified by store id
+   * @param langId Retrieves products specified by language id
+   * @param currencyId Currency Id
+   * @param availView Specifies the set of visible/invisible products
+   * @param availSale Specifies the set of available/not available products for sale
    * @param createdFrom Retrieve entities from their creation date
    * @param createdTo Retrieve entities to their creation date
    * @param modifiedFrom Retrieve entities from their modification date
    * @param modifiedTo Retrieve entities to their modification date
-   * @param availView Specifies the set of visible/invisible products
-   * @param availSale Specifies the set of available/not available products for sale
-   * @param storeId Retrieves products specified by store id
-   * @param langId Retrieves products specified by language id
-   * @param currencyId Currency Id
-   * @param productIds Retrieves products specified by product ids
-   * @param sinceId Retrieve entities starting from the specified id.
-   * @param reportRequestId Report request id
-   * @param disableReportCache Disable report cache for current request
-   * @param sortBy Set field to sort by
-   * @param sortDirection Set sorting direction
    * @param sku Filter by product's sku
-   * @param disableCache Disable cache for current request
    * @param brandName Retrieves brands specified by brand name
    * @param productAttributes Defines product attributes
    * @param status Defines product's status
    * @param `type` Defines products's type
    * @param findValue Entity search that is specified by some value
    * @param findWhere Product search that is specified by field
-   * @param useLatestApiVersion Use the latest platform API version
    * @param returnGlobal Determines the type of products to be returned. If set to 'true', only global products will be returned; if set to 'false', only local products will be returned.
-   * @param categoriesIds Retrieves products specified by categories ids
+   * @param params Set this parameter in order to choose which entity fields you want to retrieve
+   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
+   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
+   * @param sortBy Set field to sort by
+   * @param sortDirection Set sorting direction
+   * @param reportRequestId Report request id
+   * @param disableCache Disable cache for current request
+   * @param disableReportCache Disable report cache for current request
+   * @param useLatestApiVersion Use the latest platform API version
    */
-  def productList(pageCursor: Option[String] = None, start: Option[Int] = None, count: Option[Int] = None, params: Option[String] = None, responseFields: Option[String] = None, exclude: Option[String] = None, categoryId: Option[String] = None, createdFrom: Option[String] = None, createdTo: Option[String] = None, modifiedFrom: Option[String] = None, modifiedTo: Option[String] = None, availView: Option[Boolean] = None, availSale: Option[Boolean] = None, storeId: Option[String] = None, langId: Option[String] = None, currencyId: Option[String] = None, productIds: Option[String] = None, sinceId: Option[String] = None, reportRequestId: Option[String] = None, disableReportCache: Option[Boolean] = None, sortBy: Option[String] = None, sortDirection: Option[String] = None, sku: Option[String] = None, disableCache: Option[Boolean] = None, brandName: Option[String] = None, productAttributes: Seq[String], status: Option[String] = None, `type`: Option[String] = None, findValue: Option[String] = None, findWhere: Option[String] = None, useLatestApiVersion: Option[Boolean] = None, returnGlobal: Option[Boolean] = None, categoriesIds: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseProductList] =
+  def productList(start: Option[Int] = None, count: Option[Int] = None, pageCursor: Option[String] = None, productIds: Option[String] = None, sinceId: Option[String] = None, categoriesIds: Option[String] = None, categoryId: Option[String] = None, storeId: Option[String] = None, langId: Option[String] = None, currencyId: Option[String] = None, availView: Option[Boolean] = None, availSale: Option[Boolean] = None, createdFrom: Option[String] = None, createdTo: Option[String] = None, modifiedFrom: Option[String] = None, modifiedTo: Option[String] = None, sku: Option[String] = None, brandName: Option[String] = None, productAttributes: Seq[String], status: Option[String] = None, `type`: Option[String] = None, findValue: Option[String] = None, findWhere: Option[String] = None, returnGlobal: Option[Boolean] = None, params: Option[String] = None, responseFields: Option[String] = None, exclude: Option[String] = None, sortBy: Option[String] = None, sortDirection: Option[String] = None, reportRequestId: Option[String] = None, disableCache: Option[Boolean] = None, disableReportCache: Option[Boolean] = None, useLatestApiVersion: Option[Boolean] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseProductList] =
     ApiRequest[ModelResponseProductList](ApiMethods.GET, baseUrl, "/product.list.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
-      .withQueryParam("page_cursor", pageCursor)
       .withQueryParam("start", start)
       .withQueryParam("count", count)
-      .withQueryParam("params", params)
-      .withQueryParam("response_fields", responseFields)
-      .withQueryParam("exclude", exclude)
+      .withQueryParam("page_cursor", pageCursor)
+      .withQueryParam("product_ids", productIds)
+      .withQueryParam("since_id", sinceId)
+      .withQueryParam("categories_ids", categoriesIds)
       .withQueryParam("category_id", categoryId)
+      .withQueryParam("store_id", storeId)
+      .withQueryParam("lang_id", langId)
+      .withQueryParam("currency_id", currencyId)
+      .withQueryParam("avail_view", availView)
+      .withQueryParam("avail_sale", availSale)
       .withQueryParam("created_from", createdFrom)
       .withQueryParam("created_to", createdTo)
       .withQueryParam("modified_from", modifiedFrom)
       .withQueryParam("modified_to", modifiedTo)
-      .withQueryParam("avail_view", availView)
-      .withQueryParam("avail_sale", availSale)
-      .withQueryParam("store_id", storeId)
-      .withQueryParam("lang_id", langId)
-      .withQueryParam("currency_id", currencyId)
-      .withQueryParam("product_ids", productIds)
-      .withQueryParam("since_id", sinceId)
-      .withQueryParam("report_request_id", reportRequestId)
-      .withQueryParam("disable_report_cache", disableReportCache)
-      .withQueryParam("sort_by", sortBy)
-      .withQueryParam("sort_direction", sortDirection)
       .withQueryParam("sku", sku)
-      .withQueryParam("disable_cache", disableCache)
       .withQueryParam("brand_name", brandName)
       .withQueryParam("product_attributes", ArrayValues(productAttributes, MULTI))
       .withQueryParam("status", status)
       .withQueryParam("type", `type`)
       .withQueryParam("find_value", findValue)
       .withQueryParam("find_where", findWhere)
-      .withQueryParam("use_latest_api_version", useLatestApiVersion)
       .withQueryParam("return_global", returnGlobal)
-      .withQueryParam("categories_ids", categoriesIds)
+      .withQueryParam("params", params)
+      .withQueryParam("response_fields", responseFields)
+      .withQueryParam("exclude", exclude)
+      .withQueryParam("sort_by", sortBy)
+      .withQueryParam("sort_direction", sortDirection)
+      .withQueryParam("report_request_id", reportRequestId)
+      .withQueryParam("disable_cache", disableCache)
+      .withQueryParam("disable_report_cache", disableReportCache)
+      .withQueryParam("use_latest_api_version", useLatestApiVersion)
       .withSuccessResponse[ModelResponseProductList](200)
       
 
@@ -937,25 +937,25 @@ class ProductApi(baseUrl: String) {
    * 
    * @param start This parameter sets the number from which you want to get entities
    * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count=250
-   * @param params Set this parameter in order to choose which entity fields you want to retrieve
-   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
-   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
    * @param productId Retrieves products' options specified by product id
    * @param langId Language id
    * @param storeId Store Id
+   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
+   * @param params Set this parameter in order to choose which entity fields you want to retrieve
+   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
    */
-  def productOptionList(start: Option[Int] = None, count: Option[Int] = None, params: Option[String] = None, exclude: Option[String] = None, responseFields: Option[String] = None, productId: Option[String] = None, langId: Option[String] = None, storeId: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseProductOptionList] =
+  def productOptionList(start: Option[Int] = None, count: Option[Int] = None, productId: Option[String] = None, langId: Option[String] = None, storeId: Option[String] = None, responseFields: Option[String] = None, params: Option[String] = None, exclude: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseProductOptionList] =
     ApiRequest[ModelResponseProductOptionList](ApiMethods.GET, baseUrl, "/product.option.list.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
       .withQueryParam("start", start)
       .withQueryParam("count", count)
-      .withQueryParam("params", params)
-      .withQueryParam("exclude", exclude)
-      .withQueryParam("response_fields", responseFields)
       .withQueryParam("product_id", productId)
       .withQueryParam("lang_id", langId)
       .withQueryParam("store_id", storeId)
+      .withQueryParam("response_fields", responseFields)
+      .withQueryParam("params", params)
+      .withQueryParam("exclude", exclude)
       .withSuccessResponse[ModelResponseProductOptionList](200)
       
 
@@ -1151,29 +1151,29 @@ class ProductApi(baseUrl: String) {
    * 
    * @param productId Product id
    * @param start This parameter sets the number from which you want to get entities
-   * @param pageCursor Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
    * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count=250
+   * @param pageCursor Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
    * @param ids Retrieves reviews specified by ids
    * @param storeId Store Id
    * @param status Defines status
+   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
    * @param params Set this parameter in order to choose which entity fields you want to retrieve
    * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
-   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
    */
-  def productReviewList(productId: String, start: Option[Int] = None, pageCursor: Option[String] = None, count: Option[Int] = None, ids: Option[String] = None, storeId: Option[String] = None, status: Option[String] = None, params: Option[String] = None, exclude: Option[String] = None, responseFields: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseProductReviewList] =
+  def productReviewList(productId: String, start: Option[Int] = None, count: Option[Int] = None, pageCursor: Option[String] = None, ids: Option[String] = None, storeId: Option[String] = None, status: Option[String] = None, responseFields: Option[String] = None, params: Option[String] = None, exclude: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseProductReviewList] =
     ApiRequest[ModelResponseProductReviewList](ApiMethods.GET, baseUrl, "/product.review.list.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
       .withQueryParam("start", start)
-      .withQueryParam("page_cursor", pageCursor)
       .withQueryParam("count", count)
+      .withQueryParam("page_cursor", pageCursor)
       .withQueryParam("product_id", productId)
       .withQueryParam("ids", ids)
       .withQueryParam("store_id", storeId)
       .withQueryParam("status", status)
+      .withQueryParam("response_fields", responseFields)
       .withQueryParam("params", params)
       .withQueryParam("exclude", exclude)
-      .withQueryParam("response_fields", responseFields)
       .withSuccessResponse[ModelResponseProductReviewList](200)
       
 
@@ -1310,24 +1310,24 @@ class ProductApi(baseUrl: String) {
    *   ApiKeyAuth (apiKey)
    * 
    * @param productId Retrieves products' variants specified by product id
+   * @param categoryId Counts products’ variants specified by category id
+   * @param storeId Retrieves variants specified by store id
    * @param createdFrom Retrieve entities from their creation date
    * @param createdTo Retrieve entities to their creation date
    * @param modifiedFrom Retrieve entities from their modification date
    * @param modifiedTo Retrieve entities to their modification date
-   * @param categoryId Counts products’ variants specified by category id
-   * @param storeId Retrieves variants specified by store id
    */
-  def productVariantCount(productId: String, createdFrom: Option[String] = None, createdTo: Option[String] = None, modifiedFrom: Option[String] = None, modifiedTo: Option[String] = None, categoryId: Option[String] = None, storeId: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ProductVariantCount200Response] =
+  def productVariantCount(productId: String, categoryId: Option[String] = None, storeId: Option[String] = None, createdFrom: Option[String] = None, createdTo: Option[String] = None, modifiedFrom: Option[String] = None, modifiedTo: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ProductVariantCount200Response] =
     ApiRequest[ProductVariantCount200Response](ApiMethods.GET, baseUrl, "/product.variant.count.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
+      .withQueryParam("product_id", productId)
+      .withQueryParam("category_id", categoryId)
+      .withQueryParam("store_id", storeId)
       .withQueryParam("created_from", createdFrom)
       .withQueryParam("created_to", createdTo)
       .withQueryParam("modified_from", modifiedFrom)
       .withQueryParam("modified_to", modifiedTo)
-      .withQueryParam("category_id", categoryId)
-      .withQueryParam("product_id", productId)
-      .withQueryParam("store_id", storeId)
       .withSuccessResponse[ProductVariantCount200Response](200)
       
 
@@ -1432,18 +1432,18 @@ class ProductApi(baseUrl: String) {
    *   ApiKeyAuth (apiKey)
    * 
    * @param id Retrieves variant's info specified by variant id
+   * @param storeId Retrieves variant info specified by store id
    * @param params Set this parameter in order to choose which entity fields you want to retrieve
    * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
-   * @param storeId Retrieves variant info specified by store id
    */
-  def productVariantInfo(id: String, params: Option[String] = None, exclude: Option[String] = None, storeId: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ProductInfo200Response] =
+  def productVariantInfo(id: String, storeId: Option[String] = None, params: Option[String] = None, exclude: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ProductInfo200Response] =
     ApiRequest[ProductInfo200Response](ApiMethods.GET, baseUrl, "/product.variant.info.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
-      .withQueryParam("params", params)
-      .withQueryParam("exclude", exclude)
       .withQueryParam("id", id)
       .withQueryParam("store_id", storeId)
+      .withQueryParam("params", params)
+      .withQueryParam("exclude", exclude)
       .withSuccessResponse[ProductInfo200Response](200)
       
 
@@ -1459,31 +1459,31 @@ class ProductApi(baseUrl: String) {
    * 
    * @param start This parameter sets the number from which you want to get entities
    * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count=250
-   * @param params Set this parameter in order to choose which entity fields you want to retrieve
-   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
+   * @param productId Retrieves products' variants specified by product id
+   * @param categoryId Retrieves products’ variants specified by category id
+   * @param storeId Retrieves variants specified by store id
    * @param createdFrom Retrieve entities from their creation date
    * @param createdTo Retrieve entities to their creation date
    * @param modifiedFrom Retrieve entities from their modification date
    * @param modifiedTo Retrieve entities to their modification date
-   * @param categoryId Retrieves products’ variants specified by category id
-   * @param productId Retrieves products' variants specified by product id
-   * @param storeId Retrieves variants specified by store id
+   * @param params Set this parameter in order to choose which entity fields you want to retrieve
+   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
    */
-  def productVariantList(start: Option[Int] = None, count: Option[Int] = None, params: Option[String] = None, exclude: Option[String] = None, createdFrom: Option[String] = None, createdTo: Option[String] = None, modifiedFrom: Option[String] = None, modifiedTo: Option[String] = None, categoryId: Option[String] = None, productId: Option[String] = None, storeId: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ProductVariantList200Response] =
+  def productVariantList(start: Option[Int] = None, count: Option[Int] = None, productId: Option[String] = None, categoryId: Option[String] = None, storeId: Option[String] = None, createdFrom: Option[String] = None, createdTo: Option[String] = None, modifiedFrom: Option[String] = None, modifiedTo: Option[String] = None, params: Option[String] = None, exclude: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ProductVariantList200Response] =
     ApiRequest[ProductVariantList200Response](ApiMethods.GET, baseUrl, "/product.variant.list.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
       .withQueryParam("start", start)
       .withQueryParam("count", count)
-      .withQueryParam("params", params)
-      .withQueryParam("exclude", exclude)
+      .withQueryParam("product_id", productId)
+      .withQueryParam("category_id", categoryId)
+      .withQueryParam("store_id", storeId)
       .withQueryParam("created_from", createdFrom)
       .withQueryParam("created_to", createdTo)
       .withQueryParam("modified_from", modifiedFrom)
       .withQueryParam("modified_to", modifiedTo)
-      .withQueryParam("category_id", categoryId)
-      .withQueryParam("product_id", productId)
-      .withQueryParam("store_id", storeId)
+      .withQueryParam("params", params)
+      .withQueryParam("exclude", exclude)
       .withSuccessResponse[ProductVariantList200Response](200)
       
 

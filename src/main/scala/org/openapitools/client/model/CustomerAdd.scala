@@ -17,15 +17,17 @@ case class CustomerAdd (
   /* Defines customer's email */
   email: String,
   /* Defines customer's first name */
-  firstName: String,
+  firstName: Option[String] = None,
   /* Defines customer's last name */
-  lastName: String,
+  lastName: Option[String] = None,
   /* Defines customer's unique password */
   password: Option[String] = None,
   /* Defines the group where the customer */
   group: Option[String] = None,
   /* Groups that will be assigned to a customer */
   groupIds: Option[String] = None,
+  /* Defines customer's status */
+  status: Option[String] = None,
   /* Entity's date creation */
   createdTime: Option[String] = None,
   /* Entity's date modification */
@@ -36,8 +38,6 @@ case class CustomerAdd (
   lastLogin: Option[String] = None,
   /* Defines customer's birthday */
   birthDay: Option[String] = None,
-  /* Defines customer's status */
-  status: Option[String] = None,
   /* Defines whether the newsletter subscription is available for the user */
   newsLetterSubscription: Option[Boolean] = None,
   /* Defines consents to notifications */
@@ -46,8 +46,6 @@ case class CustomerAdd (
   gender: Option[String] = None,
   /* Link to customer website */
   website: Option[String] = None,
-  /* Store Id */
-  storeId: Option[String] = None,
   /* Defines customer's fax */
   fax: Option[String] = None,
   /* Defines customer's company */
@@ -58,6 +56,8 @@ case class CustomerAdd (
   note: Option[String] = None,
   /* Specifies ISO code or name of country */
   country: Option[String] = None,
+  /* Store Id */
+  storeId: Option[String] = None,
   address: Option[Seq[CustomerAddAddressInner]] = None
 ) extends ApiModel
 

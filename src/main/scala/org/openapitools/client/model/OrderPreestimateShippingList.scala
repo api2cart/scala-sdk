@@ -14,14 +14,14 @@ package org.openapitools.client.model
 import org.openapitools.client.core.ApiModel
 
 case class OrderPreestimateShippingList (
-  /* Store Id */
-  storeId: Option[String] = None,
   /* This parameter is used for selecting a warehouse where you need to set/modify a product quantity. */
   warehouseId: Option[String] = None,
-  /* Retrieves orders specified by customer email */
-  customerEmail: Option[String] = None,
   /* Retrieves orders specified by customer id */
   customerId: Option[String] = None,
+  /* Retrieves orders specified by customer email */
+  customerEmail: Option[String] = None,
+  /* Store Id */
+  storeId: Option[String] = None,
   /* Specifies first shipping address */
   shippAddress1: Option[String] = None,
   /* Specifies shipping city */

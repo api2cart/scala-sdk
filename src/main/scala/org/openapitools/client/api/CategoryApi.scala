@@ -45,40 +45,40 @@ class CategoryApi(baseUrl: String) {
    *   ApiKeyAuth (apiKey)
    * 
    * @param name Defines category's name that has to be added
-   * @param parentId Adds categories specified by parent id
-   * @param storesIds Create category in the stores that is specified by comma-separated stores' id
-   * @param storeId Store Id
-   * @param langId Language id
-   * @param avail Defines category's visibility status
-   * @param sortOrder Sort number in the list
-   * @param createdTime Entity's date creation
-   * @param modifiedTime Entity's date modification
    * @param description Defines category's description
    * @param shortDescription Defines short description
+   * @param parentId Adds categories specified by parent id
+   * @param avail Defines category's visibility status
+   * @param createdTime Entity's date creation
+   * @param modifiedTime Entity's date modification
+   * @param sortOrder Sort number in the list
    * @param metaTitle Defines unique meta title for each entity
    * @param metaDescription Defines unique meta description of a entity
    * @param metaKeywords Defines unique meta keywords for each entity
    * @param seoUrl Defines unique category's URL for SEO
+   * @param storeId Store Id
+   * @param storesIds Create category in the stores that is specified by comma-separated stores' id
+   * @param langId Language id
    */
-  def categoryAdd(name: String, parentId: Option[String] = None, storesIds: Option[String] = None, storeId: Option[String] = None, langId: Option[String] = None, avail: Option[Boolean] = None, sortOrder: Option[Int] = None, createdTime: Option[String] = None, modifiedTime: Option[String] = None, description: Option[String] = None, shortDescription: Option[String] = None, metaTitle: Option[String] = None, metaDescription: Option[String] = None, metaKeywords: Option[String] = None, seoUrl: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[CategoryAdd200Response] =
+  def categoryAdd(name: String, description: Option[String] = None, shortDescription: Option[String] = None, parentId: Option[String] = None, avail: Option[Boolean] = None, createdTime: Option[String] = None, modifiedTime: Option[String] = None, sortOrder: Option[Int] = None, metaTitle: Option[String] = None, metaDescription: Option[String] = None, metaKeywords: Option[String] = None, seoUrl: Option[String] = None, storeId: Option[String] = None, storesIds: Option[String] = None, langId: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[CategoryAdd200Response] =
     ApiRequest[CategoryAdd200Response](ApiMethods.POST, baseUrl, "/category.add.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
       .withQueryParam("name", name)
-      .withQueryParam("parent_id", parentId)
-      .withQueryParam("stores_ids", storesIds)
-      .withQueryParam("store_id", storeId)
-      .withQueryParam("lang_id", langId)
-      .withQueryParam("avail", avail)
-      .withQueryParam("sort_order", sortOrder)
-      .withQueryParam("created_time", createdTime)
-      .withQueryParam("modified_time", modifiedTime)
       .withQueryParam("description", description)
       .withQueryParam("short_description", shortDescription)
+      .withQueryParam("parent_id", parentId)
+      .withQueryParam("avail", avail)
+      .withQueryParam("created_time", createdTime)
+      .withQueryParam("modified_time", modifiedTime)
+      .withQueryParam("sort_order", sortOrder)
       .withQueryParam("meta_title", metaTitle)
       .withQueryParam("meta_description", metaDescription)
       .withQueryParam("meta_keywords", metaKeywords)
       .withQueryParam("seo_url", seoUrl)
+      .withQueryParam("store_id", storeId)
+      .withQueryParam("stores_ids", storesIds)
+      .withQueryParam("lang_id", langId)
       .withSuccessResponse[CategoryAdd200Response](200)
       
 
@@ -112,16 +112,16 @@ class CategoryApi(baseUrl: String) {
    *   StoreKeyAuth (apiKey)
    *   ApiKeyAuth (apiKey)
    * 
-   * @param productId Defines category assign to the product, specified by product id
    * @param categoryId Defines category assign, specified by category id
+   * @param productId Defines category assign to the product, specified by product id
    * @param storeId Store Id
    */
-  def categoryAssign(productId: String, categoryId: String, storeId: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[CartConfigUpdate200Response] =
+  def categoryAssign(categoryId: String, productId: String, storeId: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[CartConfigUpdate200Response] =
     ApiRequest[CartConfigUpdate200Response](ApiMethods.POST, baseUrl, "/category.assign.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
-      .withQueryParam("product_id", productId)
       .withQueryParam("category_id", categoryId)
+      .withQueryParam("product_id", productId)
       .withQueryParam("store_id", storeId)
       .withSuccessResponse[CartConfigUpdate200Response](200)
       
@@ -139,29 +139,29 @@ class CategoryApi(baseUrl: String) {
    * @param parentId Counts categories specified by parent id
    * @param storeId Counts category specified by store id
    * @param langId Counts category specified by language id
+   * @param avail Defines category's visibility status
    * @param createdFrom Retrieve entities from their creation date
    * @param createdTo Retrieve entities to their creation date
    * @param modifiedFrom Retrieve entities from their modification date
    * @param modifiedTo Retrieve entities to their modification date
-   * @param avail Defines category's visibility status
    * @param productType A categorization for the product
    * @param findValue Entity search that is specified by some value
    * @param findWhere Counts categories that are searched specified by field
    * @param reportRequestId Report request id
    * @param disableReportCache Disable report cache for current request
    */
-  def categoryCount(parentId: Option[String] = None, storeId: Option[String] = None, langId: Option[String] = None, createdFrom: Option[String] = None, createdTo: Option[String] = None, modifiedFrom: Option[String] = None, modifiedTo: Option[String] = None, avail: Option[Boolean] = None, productType: Option[String] = None, findValue: Option[String] = None, findWhere: Option[String] = None, reportRequestId: Option[String] = None, disableReportCache: Option[Boolean] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[CategoryCount200Response] =
+  def categoryCount(parentId: Option[String] = None, storeId: Option[String] = None, langId: Option[String] = None, avail: Option[Boolean] = None, createdFrom: Option[String] = None, createdTo: Option[String] = None, modifiedFrom: Option[String] = None, modifiedTo: Option[String] = None, productType: Option[String] = None, findValue: Option[String] = None, findWhere: Option[String] = None, reportRequestId: Option[String] = None, disableReportCache: Option[Boolean] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[CategoryCount200Response] =
     ApiRequest[CategoryCount200Response](ApiMethods.GET, baseUrl, "/category.count.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
       .withQueryParam("parent_id", parentId)
       .withQueryParam("store_id", storeId)
       .withQueryParam("lang_id", langId)
+      .withQueryParam("avail", avail)
       .withQueryParam("created_from", createdFrom)
       .withQueryParam("created_to", createdTo)
       .withQueryParam("modified_from", modifiedFrom)
       .withQueryParam("modified_to", modifiedTo)
-      .withQueryParam("avail", avail)
       .withQueryParam("product_type", productType)
       .withQueryParam("find_value", findValue)
       .withQueryParam("find_where", findWhere)
@@ -234,23 +234,23 @@ class CategoryApi(baseUrl: String) {
    * @param imageName Defines image's name
    * @param url Defines URL of the image that has to be added
    * @param `type` Defines image's types that are specified by comma-separated list
+   * @param storeId Store Id
    * @param label Defines alternative text that has to be attached to the picture
    * @param mime Mime type of image http://en.wikipedia.org/wiki/Internet_media_type.
    * @param position Defines image’s position in the list
-   * @param storeId Store Id
    */
-  def categoryImageAdd(categoryId: String, imageName: String, url: String, `type`: String, label: Option[String] = None, mime: Option[String] = None, position: Option[Int] = None, storeId: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[CategoryImageAdd200Response] =
+  def categoryImageAdd(categoryId: String, imageName: String, url: String, `type`: String, storeId: Option[String] = None, label: Option[String] = None, mime: Option[String] = None, position: Option[Int] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[CategoryImageAdd200Response] =
     ApiRequest[CategoryImageAdd200Response](ApiMethods.POST, baseUrl, "/category.image.add.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
       .withQueryParam("category_id", categoryId)
       .withQueryParam("image_name", imageName)
       .withQueryParam("url", url)
+      .withQueryParam("type", `type`)
+      .withQueryParam("store_id", storeId)
       .withQueryParam("label", label)
       .withQueryParam("mime", mime)
-      .withQueryParam("type", `type`)
       .withQueryParam("position", position)
-      .withQueryParam("store_id", storeId)
       .withSuccessResponse[CategoryImageAdd200Response](200)
       
 
@@ -289,26 +289,26 @@ class CategoryApi(baseUrl: String) {
    *   ApiKeyAuth (apiKey)
    * 
    * @param id Retrieves category's info specified by category id
-   * @param params Set this parameter in order to choose which entity fields you want to retrieve
-   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
-   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
    * @param storeId Retrieves category info  specified by store id
    * @param langId Retrieves category info  specified by language id
    * @param schemaType The name of the requirements set for the provided schema.
+   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
+   * @param params Set this parameter in order to choose which entity fields you want to retrieve
+   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
    * @param reportRequestId Report request id
    * @param disableReportCache Disable report cache for current request
    */
-  def categoryInfo(id: String, params: Option[String] = None, responseFields: Option[String] = None, exclude: Option[String] = None, storeId: Option[String] = None, langId: Option[String] = None, schemaType: Option[String] = None, reportRequestId: Option[String] = None, disableReportCache: Option[Boolean] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[CategoryInfo200Response] =
+  def categoryInfo(id: String, storeId: Option[String] = None, langId: Option[String] = None, schemaType: Option[String] = None, responseFields: Option[String] = None, params: Option[String] = None, exclude: Option[String] = None, reportRequestId: Option[String] = None, disableReportCache: Option[Boolean] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[CategoryInfo200Response] =
     ApiRequest[CategoryInfo200Response](ApiMethods.GET, baseUrl, "/category.info.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
       .withQueryParam("id", id)
-      .withQueryParam("params", params)
-      .withQueryParam("response_fields", responseFields)
-      .withQueryParam("exclude", exclude)
       .withQueryParam("store_id", storeId)
       .withQueryParam("lang_id", langId)
       .withQueryParam("schema_type", schemaType)
+      .withQueryParam("response_fields", responseFields)
+      .withQueryParam("params", params)
+      .withQueryParam("exclude", exclude)
       .withQueryParam("report_request_id", reportRequestId)
       .withQueryParam("disable_report_cache", disableReportCache)
       .withSuccessResponse[CategoryInfo200Response](200)
@@ -327,45 +327,45 @@ class CategoryApi(baseUrl: String) {
    * @param start This parameter sets the number from which you want to get entities
    * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count=250
    * @param pageCursor Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
-   * @param parentId Retrieves categories specified by parent id
-   * @param params Set this parameter in order to choose which entity fields you want to retrieve
-   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
-   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
    * @param storeId Retrieves categories specified by store id
    * @param langId Retrieves categorys specified by language id
+   * @param parentId Retrieves categories specified by parent id
+   * @param avail Defines category's visibility status
+   * @param productType A categorization for the product
    * @param createdFrom Retrieve entities from their creation date
    * @param createdTo Retrieve entities to their creation date
    * @param modifiedFrom Retrieve entities from their modification date
    * @param modifiedTo Retrieve entities to their modification date
-   * @param avail Defines category's visibility status
-   * @param productType A categorization for the product
    * @param findValue Entity search that is specified by some value
    * @param findWhere Category search that is specified by field
+   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
+   * @param params Set this parameter in order to choose which entity fields you want to retrieve
+   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
    * @param reportRequestId Report request id
    * @param disableReportCache Disable report cache for current request
    * @param disableCache Disable cache for current request
    */
-  def categoryList(start: Option[Int] = None, count: Option[Int] = None, pageCursor: Option[String] = None, parentId: Option[String] = None, params: Option[String] = None, responseFields: Option[String] = None, exclude: Option[String] = None, storeId: Option[String] = None, langId: Option[String] = None, createdFrom: Option[String] = None, createdTo: Option[String] = None, modifiedFrom: Option[String] = None, modifiedTo: Option[String] = None, avail: Option[Boolean] = None, productType: Option[String] = None, findValue: Option[String] = None, findWhere: Option[String] = None, reportRequestId: Option[String] = None, disableReportCache: Option[Boolean] = None, disableCache: Option[Boolean] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseCategoryList] =
+  def categoryList(start: Option[Int] = None, count: Option[Int] = None, pageCursor: Option[String] = None, storeId: Option[String] = None, langId: Option[String] = None, parentId: Option[String] = None, avail: Option[Boolean] = None, productType: Option[String] = None, createdFrom: Option[String] = None, createdTo: Option[String] = None, modifiedFrom: Option[String] = None, modifiedTo: Option[String] = None, findValue: Option[String] = None, findWhere: Option[String] = None, responseFields: Option[String] = None, params: Option[String] = None, exclude: Option[String] = None, reportRequestId: Option[String] = None, disableReportCache: Option[Boolean] = None, disableCache: Option[Boolean] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseCategoryList] =
     ApiRequest[ModelResponseCategoryList](ApiMethods.GET, baseUrl, "/category.list.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
       .withQueryParam("start", start)
       .withQueryParam("count", count)
       .withQueryParam("page_cursor", pageCursor)
-      .withQueryParam("parent_id", parentId)
-      .withQueryParam("params", params)
-      .withQueryParam("response_fields", responseFields)
-      .withQueryParam("exclude", exclude)
       .withQueryParam("store_id", storeId)
       .withQueryParam("lang_id", langId)
+      .withQueryParam("parent_id", parentId)
+      .withQueryParam("avail", avail)
+      .withQueryParam("product_type", productType)
       .withQueryParam("created_from", createdFrom)
       .withQueryParam("created_to", createdTo)
       .withQueryParam("modified_from", modifiedFrom)
       .withQueryParam("modified_to", modifiedTo)
-      .withQueryParam("avail", avail)
-      .withQueryParam("product_type", productType)
       .withQueryParam("find_value", findValue)
       .withQueryParam("find_where", findWhere)
+      .withQueryParam("response_fields", responseFields)
+      .withQueryParam("params", params)
+      .withQueryParam("exclude", exclude)
       .withQueryParam("report_request_id", reportRequestId)
       .withQueryParam("disable_report_cache", disableReportCache)
       .withQueryParam("disable_cache", disableCache)
@@ -408,39 +408,39 @@ class CategoryApi(baseUrl: String) {
    * 
    * @param id Defines category update specified by category id
    * @param name Defines new category’s name
+   * @param description Defines new category's description
+   * @param shortDescription Defines short description
    * @param parentId Defines new parent category id
-   * @param storesIds Update category in the stores that is specified by comma-separated stores' id
    * @param avail Defines category's visibility status
    * @param sortOrder Sort number in the list
    * @param modifiedTime Entity's date modification
-   * @param description Defines new category's description
-   * @param shortDescription Defines short description
    * @param metaTitle Defines unique meta title for each entity
    * @param metaDescription Defines unique meta description of a entity
    * @param metaKeywords Defines unique meta keywords for each entity
    * @param seoUrl Defines unique category's URL for SEO
-   * @param langId Language id
    * @param storeId Store Id
+   * @param storesIds Update category in the stores that is specified by comma-separated stores' id
+   * @param langId Language id
    */
-  def categoryUpdate(id: String, name: Option[String] = None, parentId: Option[String] = None, storesIds: Option[String] = None, avail: Option[Boolean] = None, sortOrder: Option[Int] = None, modifiedTime: Option[String] = None, description: Option[String] = None, shortDescription: Option[String] = None, metaTitle: Option[String] = None, metaDescription: Option[String] = None, metaKeywords: Option[String] = None, seoUrl: Option[String] = None, langId: Option[String] = None, storeId: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[AccountConfigUpdate200Response] =
+  def categoryUpdate(id: String, name: Option[String] = None, description: Option[String] = None, shortDescription: Option[String] = None, parentId: Option[String] = None, avail: Option[Boolean] = None, sortOrder: Option[Int] = None, modifiedTime: Option[String] = None, metaTitle: Option[String] = None, metaDescription: Option[String] = None, metaKeywords: Option[String] = None, seoUrl: Option[String] = None, storeId: Option[String] = None, storesIds: Option[String] = None, langId: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[AccountConfigUpdate200Response] =
     ApiRequest[AccountConfigUpdate200Response](ApiMethods.PUT, baseUrl, "/category.update.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
       .withQueryParam("id", id)
       .withQueryParam("name", name)
+      .withQueryParam("description", description)
+      .withQueryParam("short_description", shortDescription)
       .withQueryParam("parent_id", parentId)
-      .withQueryParam("stores_ids", storesIds)
       .withQueryParam("avail", avail)
       .withQueryParam("sort_order", sortOrder)
       .withQueryParam("modified_time", modifiedTime)
-      .withQueryParam("description", description)
-      .withQueryParam("short_description", shortDescription)
       .withQueryParam("meta_title", metaTitle)
       .withQueryParam("meta_description", metaDescription)
       .withQueryParam("meta_keywords", metaKeywords)
       .withQueryParam("seo_url", seoUrl)
-      .withQueryParam("lang_id", langId)
       .withQueryParam("store_id", storeId)
+      .withQueryParam("stores_ids", storesIds)
+      .withQueryParam("lang_id", langId)
       .withSuccessResponse[AccountConfigUpdate200Response](200)
       
 

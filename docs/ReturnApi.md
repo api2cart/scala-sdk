@@ -256,13 +256,13 @@ object Example extends App {
 
     val storeId: String = 1 // String | Store Id
 
+    val responseFields: String = {return_code,return_message,result} // String | Set this parameter in order to choose which entity fields you want to retrieve
+
     val params: String = id,order_products // String | Set this parameter in order to choose which entity fields you want to retrieve
 
     val exclude: String = id,order_id // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
-
-    val responseFields: String = {return_code,return_message,result} // String | Set this parameter in order to choose which entity fields you want to retrieve
     
-    val request = apiInstance.returnInfo(id, orderId, storeId, params, exclude, responseFields)
+    val request = apiInstance.returnInfo(id, orderId, storeId, responseFields, params, exclude)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -293,9 +293,9 @@ Name | Type | Description  | Notes
  **id** | **String**| Entity id |
  **orderId** | **String**| Defines the order id | [optional]
  **storeId** | **String**| Store Id | [optional]
+ **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
  **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
  **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional]
- **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
 
 ### Return type
 
@@ -357,12 +357,6 @@ object Example extends App {
 
     val pageCursor: String =  // String | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
 
-    val params: String = id,order_products // String | Set this parameter in order to choose which entity fields you want to retrieve
-
-    val exclude: String = id,order_id // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
-
-    val responseFields: String = {return_code,return_message,pagination,result} // String | Set this parameter in order to choose which entity fields you want to retrieve
-
     val orderId: String = 25 // String | Defines the order id
 
     val orderIds: String = 24,25 // String | Retrieves return requests specified by order ids
@@ -383,11 +377,17 @@ object Example extends App {
 
     val modifiedTo: String = 2100-08-29 13:45:52 // String | Retrieve entities to their modification date
 
+    val responseFields: String = {return_code,return_message,pagination,result} // String | Set this parameter in order to choose which entity fields you want to retrieve
+
+    val params: String = id,order_products // String | Set this parameter in order to choose which entity fields you want to retrieve
+
+    val exclude: String = id,order_id // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
+
     val reportRequestId: String = 105245017661 // String | Report request id
 
     val disableReportCache: Boolean = false // Boolean | Disable report cache for current request
     
-    val request = apiInstance.returnList(start, count, pageCursor, params, exclude, responseFields, orderId, orderIds, customerId, storeId, status, returnType, createdFrom, createdTo, modifiedFrom, modifiedTo, reportRequestId, disableReportCache)
+    val request = apiInstance.returnList(start, count, pageCursor, orderId, orderIds, customerId, storeId, status, returnType, createdFrom, createdTo, modifiedFrom, modifiedTo, responseFields, params, exclude, reportRequestId, disableReportCache)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -418,9 +418,6 @@ Name | Type | Description  | Notes
  **start** | **Int**| This parameter sets the number from which you want to get entities | [optional]
  **count** | **Int**| This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional]
  **pageCursor** | **String**| Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional]
- **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
- **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional]
- **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
  **orderId** | **String**| Defines the order id | [optional]
  **orderIds** | **String**| Retrieves return requests specified by order ids | [optional]
  **customerId** | **String**| Retrieves return requests specified by customer id | [optional]
@@ -431,6 +428,9 @@ Name | Type | Description  | Notes
  **createdTo** | **String**| Retrieve entities to their creation date | [optional]
  **modifiedFrom** | **String**| Retrieve entities from their modification date | [optional]
  **modifiedTo** | **String**| Retrieve entities to their modification date | [optional]
+ **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
+ **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
+ **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional]
  **reportRequestId** | **String**| Report request id | [optional]
  **disableReportCache** | **Boolean**| Disable report cache for current request | [optional]
 

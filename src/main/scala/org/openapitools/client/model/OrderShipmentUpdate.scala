@@ -14,23 +14,23 @@ package org.openapitools.client.model
 import org.openapitools.client.core.ApiModel
 
 case class OrderShipmentUpdate (
-  /* Store Id */
-  storeId: Option[String] = None,
   /* Shipment id indicates the number of delivery */
   shipmentId: String,
   /* Defines the order that will be updated */
   orderId: Option[String] = None,
+  /* Store Id */
+  storeId: Option[String] = None,
+  /* Defines company name that provide tracking of shipment */
+  shipmentProvider: Option[String] = None,
   /* Defines shipment's tracking numbers that have to be added</br> How set tracking numbers to appropriate carrier:<ul><li>tracking_numbers[]=a2c.demo1,a2c.demo2 - set default carrier</li><li>tracking_numbers[<b>carrier_id</b>]=a2c.demo - set appropriate carrier</li></ul>To get the list of carriers IDs that are available in your store, use the <a href = \"https://api2cart.com/docs/#/cart/CartInfo\">cart.info</a > method */
   trackingNumbers: Option[Seq[OrderShipmentAddTrackingNumbersInner]] = None,
-  /* Allows rewrite tracking numbers */
-  replace: Option[Boolean] = None,
-  /* Defines shipment's status */
-  isShipped: Option[Boolean] = None,
   /* Defines custom tracking link */
   trackingLink: Option[String] = None,
+  /* Defines shipment's status */
+  isShipped: Option[Boolean] = None,
   /* Defines the date of delivery */
   deliveredAt: Option[String] = None,
-  /* Defines company name that provide tracking of shipment */
-  shipmentProvider: Option[String] = None
+  /* Allows rewrite tracking numbers */
+  replace: Option[Boolean] = None
 ) extends ApiModel
 

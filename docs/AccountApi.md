@@ -132,19 +132,19 @@ object Example extends App {
 
     val apiInvoker = ApiInvoker()
     val apiInstance = AccountApi("https://api.api2cart.com/v1.1")
-    val params: String = url,store_key // String | Set this parameter in order to choose which entity fields you want to retrieve
+    val storeUrl: String = http://mystore.com // String | A web address of a store
 
-    val exclude: String = url,store_key // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
+    val storeKey: String = ab37fc230bc5df63a5be1b11220949be // String | Find store by store key
 
     val requestFromDate: String = 2010-07-29 // String | Retrieve entities from their creation date
 
     val requestToDate: String = 2100-08-29 // String | Retrieve entities to their creation date
 
-    val storeUrl: String = http://mystore.com // String | A web address of a store
+    val params: String = url,store_key // String | Set this parameter in order to choose which entity fields you want to retrieve
 
-    val storeKey: String = ab37fc230bc5df63a5be1b11220949be // String | Find store by store key
+    val exclude: String = url,store_key // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
     
-    val request = apiInstance.accountCartList(params, exclude, requestFromDate, requestToDate, storeUrl, storeKey)
+    val request = apiInstance.accountCartList(storeUrl, storeKey, requestFromDate, requestToDate, params, exclude)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -172,12 +172,12 @@ object Example extends App {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
- **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional]
- **requestFromDate** | **String**| Retrieve entities from their creation date | [optional]
- **requestToDate** | **String**| Retrieve entities to their creation date | [optional]
  **storeUrl** | **String**| A web address of a store | [optional]
  **storeKey** | **String**| Find store by store key | [optional]
+ **requestFromDate** | **String**| Retrieve entities from their creation date | [optional]
+ **requestToDate** | **String**| Retrieve entities to their creation date | [optional]
+ **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
+ **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional]
 
 ### Return type
 
@@ -351,6 +351,8 @@ object Example extends App {
 
     val shoplineAppSecret: String = 1701d123bb5cc14cd2732dcaed90638316c0a09 // String | Shopline App Secret
 
+    val shoplineSharedSecret: String = 1701d123bb5cc14cd2732dcaed90638316c0a09 // String | Shopline Shared Secret
+
     val shopifyAccessToken: String = igse8e4rdmzkxdi937qe69d59en1imw // String | Access token authorizing the app to access resources on behalf of a user
 
     val shopifyApiKey: String = bbca57d8ff3c3677128112c15556d9e3 // String | Shopify API Key
@@ -520,7 +522,7 @@ object Example extends App {
 
     val sallaAccessToken: String = oxy_rt_zxxxxiY2xxZWWxxxxlU-tROxxxxx2JzS2fwzxxxxxkU.p3xxxkCIyFexxxxP50WwZYfhw5_wg1xxxxV5F-8xxXc // String | Salla Access Token
     
-    val request = apiInstance.accountConfigUpdate(replaceParameters, newStoreUrl, newStoreKey, bridgeUrl, storeRoot, dbTablesPrefix, userAgent, `3dcartPrivateKey`, `3dcartAccessToken`, `3dcartapiApiKey`, amazonSpClientId, amazonSpClientSecret, amazonSpRefreshToken, amazonSpAwsRegion, amazonSpApiEnvironment, amazonSellerId, aspdotnetstorefrontApiUser, aspdotnetstorefrontApiPass, bigcommerceapiAdminAccount, bigcommerceapiApiPath, bigcommerceapiApiKey, bigcommerceapiClientId, bigcommerceapiAccessToken, bigcommerceapiContext, bolApiKey, bolApiSecret, bolRetailerId, demandwareClientId, demandwareApiPassword, demandwareUserName, demandwareUserPassword, ebayClientId, ebayClientSecret, ebayRuname, ebayAccessToken, ebayRefreshToken, ebayEnvironment, ebaySiteId, ecwidAcessToken, ecwidStoreId, lazadaAppId, lazadaAppSecret, lazadaRefreshToken, lazadaRegion, etsyKeystring, etsySharedSecret, etsyAccessToken, etsyTokenSecret, etsyClientId, etsyRefreshToken, facebookAppId, facebookAppSecret, facebookAccessToken, facebookBusinessId, netoApiKey, netoApiUsername, shoplineAccessToken, shoplineAppKey, shoplineAppSecret, shopifyAccessToken, shopifyApiKey, shopifyApiPassword, shopifySharedSecret, shoplazzaAccessToken, shoplazzaSharedSecret, mivaAccessToken, mivaSignature, shopwareAccessKey, shopwareApiKey, shopwareApiSecret, volusionLogin, volusionPassword, walmartClientId, walmartClientSecret, walmartEnvironment, walmartChannelType, walmartRegion, squareClientId, squareClientSecret, squareRefreshToken, squarespaceApiKey, squarespaceClientId, squarespaceClientSecret, squarespaceAccessToken, squarespaceRefreshToken, hybrisClientId, hybrisClientSecret, hybrisUsername, hybrisPassword, hybrisWebsites, lightspeedApiKey, lightspeedApiSecret, commercehqApiKey, commercehqApiPassword, wcConsumerKey, wcConsumerSecret, magentoConsumerKey, magentoConsumerSecret, magentoAccessToken, magentoTokenSecret, prestashopWebserviceKey, wixAppId, wixAppSecretKey, wixInstanceId, wixRefreshToken, mercadoLibreAppId, mercadoLibreAppSecretKey, mercadoLibreRefreshToken, zidClientId, zidClientSecret, zidAccessToken, zidAuthorization, zidRefreshToken, flipkartClientId, flipkartClientSecret, allegroClientId, allegroClientSecret, allegroAccessToken, allegroRefreshToken, allegroEnvironment, zohoClientId, zohoClientSecret, zohoRefreshToken, zohoRegion, tiendanubeUserId, tiendanubeAccessToken, tiendanubeClientSecret, ottoClientId, ottoClientSecret, ottoAppId, ottoRefreshToken, ottoEnvironment, ottoAccessToken, tiktokshopAppKey, tiktokshopAppSecret, tiktokshopRefreshToken, tiktokshopAccessToken, sallaClientId, sallaClientSecret, sallaRefreshToken, sallaAccessToken)
+    val request = apiInstance.accountConfigUpdate(replaceParameters, newStoreUrl, newStoreKey, bridgeUrl, storeRoot, dbTablesPrefix, userAgent, `3dcartPrivateKey`, `3dcartAccessToken`, `3dcartapiApiKey`, amazonSpClientId, amazonSpClientSecret, amazonSpRefreshToken, amazonSpAwsRegion, amazonSpApiEnvironment, amazonSellerId, aspdotnetstorefrontApiUser, aspdotnetstorefrontApiPass, bigcommerceapiAdminAccount, bigcommerceapiApiPath, bigcommerceapiApiKey, bigcommerceapiClientId, bigcommerceapiAccessToken, bigcommerceapiContext, bolApiKey, bolApiSecret, bolRetailerId, demandwareClientId, demandwareApiPassword, demandwareUserName, demandwareUserPassword, ebayClientId, ebayClientSecret, ebayRuname, ebayAccessToken, ebayRefreshToken, ebayEnvironment, ebaySiteId, ecwidAcessToken, ecwidStoreId, lazadaAppId, lazadaAppSecret, lazadaRefreshToken, lazadaRegion, etsyKeystring, etsySharedSecret, etsyAccessToken, etsyTokenSecret, etsyClientId, etsyRefreshToken, facebookAppId, facebookAppSecret, facebookAccessToken, facebookBusinessId, netoApiKey, netoApiUsername, shoplineAccessToken, shoplineAppKey, shoplineAppSecret, shoplineSharedSecret, shopifyAccessToken, shopifyApiKey, shopifyApiPassword, shopifySharedSecret, shoplazzaAccessToken, shoplazzaSharedSecret, mivaAccessToken, mivaSignature, shopwareAccessKey, shopwareApiKey, shopwareApiSecret, volusionLogin, volusionPassword, walmartClientId, walmartClientSecret, walmartEnvironment, walmartChannelType, walmartRegion, squareClientId, squareClientSecret, squareRefreshToken, squarespaceApiKey, squarespaceClientId, squarespaceClientSecret, squarespaceAccessToken, squarespaceRefreshToken, hybrisClientId, hybrisClientSecret, hybrisUsername, hybrisPassword, hybrisWebsites, lightspeedApiKey, lightspeedApiSecret, commercehqApiKey, commercehqApiPassword, wcConsumerKey, wcConsumerSecret, magentoConsumerKey, magentoConsumerSecret, magentoAccessToken, magentoTokenSecret, prestashopWebserviceKey, wixAppId, wixAppSecretKey, wixInstanceId, wixRefreshToken, mercadoLibreAppId, mercadoLibreAppSecretKey, mercadoLibreRefreshToken, zidClientId, zidClientSecret, zidAccessToken, zidAuthorization, zidRefreshToken, flipkartClientId, flipkartClientSecret, allegroClientId, allegroClientSecret, allegroAccessToken, allegroRefreshToken, allegroEnvironment, zohoClientId, zohoClientSecret, zohoRefreshToken, zohoRegion, tiendanubeUserId, tiendanubeAccessToken, tiendanubeClientSecret, ottoClientId, ottoClientSecret, ottoAppId, ottoRefreshToken, ottoEnvironment, ottoAccessToken, tiktokshopAppKey, tiktokshopAppSecret, tiktokshopRefreshToken, tiktokshopAccessToken, sallaClientId, sallaClientSecret, sallaRefreshToken, sallaAccessToken)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -607,6 +609,7 @@ Name | Type | Description  | Notes
  **shoplineAccessToken** | **String**| Shopline APP Key | [optional]
  **shoplineAppKey** | **String**| Shopline APP Key | [optional]
  **shoplineAppSecret** | **String**| Shopline App Secret | [optional]
+ **shoplineSharedSecret** | **String**| Shopline Shared Secret | [optional]
  **shopifyAccessToken** | **String**| Access token authorizing the app to access resources on behalf of a user | [optional]
  **shopifyApiKey** | **String**| Shopify API Key | [optional]
  **shopifyApiPassword** | **String**| Shopify API Password | [optional]
@@ -741,13 +744,13 @@ object Example extends App {
 
     val apiInvoker = ApiInvoker()
     val apiInstance = AccountApi("https://api.api2cart.com/v1.1")
-    val count: Int = 20 // Int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
-
     val start: Int = 0 // Int | This parameter sets the number from which you want to get entities
+
+    val count: Int = 20 // Int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
 
     val ids: String = 3,14,25 // String | List of сomma-separated webhook ids
     
-    val request = apiInstance.accountFailedWebhooks(count, start, ids)
+    val request = apiInstance.accountFailedWebhooks(start, count, ids)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -775,8 +778,8 @@ object Example extends App {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **count** | **Int**| This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional]
  **start** | **Int**| This parameter sets the number from which you want to get entities | [optional]
+ **count** | **Int**| This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional]
  **ids** | **String**| List of сomma-separated webhook ids | [optional]
 
 ### Return type

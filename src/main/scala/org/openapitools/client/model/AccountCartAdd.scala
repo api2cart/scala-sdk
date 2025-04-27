@@ -160,6 +160,8 @@ case class AccountCartAdd (
   shoplineAppKey: Option[String] = None,
   /* Shopline App Secret */
   shoplineAppSecret: Option[String] = None,
+  /* Shopline Shared Secret */
+  shoplineSharedSecret: Option[String] = None,
   /* Access token authorizing the app to access resources on behalf of a user */
   shopifyAccessToken: Option[String] = None,
   /* Shopify API Key */

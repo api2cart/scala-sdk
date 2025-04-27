@@ -71,8 +71,8 @@ class AttributeApi(baseUrl: String) {
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
       .withQueryParam("type", `type`)
-      .withQueryParam("code", code)
       .withQueryParam("name", name)
+      .withQueryParam("code", code)
       .withQueryParam("store_id", storeId)
       .withQueryParam("lang_id", langId)
       .withQueryParam("visible", visible)
@@ -154,19 +154,19 @@ class AttributeApi(baseUrl: String) {
    * 
    * @param start This parameter sets the number from which you want to get entities
    * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count=250
+   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
    * @param params Set this parameter in order to choose which entity fields you want to retrieve
    * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
-   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
    */
-  def attributeAttributesetList(start: Option[Int] = None, count: Option[Int] = None, params: Option[String] = None, exclude: Option[String] = None, responseFields: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseAttributeAttributesetList] =
+  def attributeAttributesetList(start: Option[Int] = None, count: Option[Int] = None, responseFields: Option[String] = None, params: Option[String] = None, exclude: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseAttributeAttributesetList] =
     ApiRequest[ModelResponseAttributeAttributesetList](ApiMethods.GET, baseUrl, "/attribute.attributeset.list.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
       .withQueryParam("start", start)
       .withQueryParam("count", count)
+      .withQueryParam("response_fields", responseFields)
       .withQueryParam("params", params)
       .withQueryParam("exclude", exclude)
-      .withQueryParam("response_fields", responseFields)
       .withSuccessResponse[ModelResponseAttributeAttributesetList](200)
       
 
@@ -219,8 +219,8 @@ class AttributeApi(baseUrl: String) {
     ApiRequest[AttributeDelete200Response](ApiMethods.DELETE, baseUrl, "/attribute.delete.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
-      .withQueryParam("store_id", storeId)
       .withQueryParam("id", id)
+      .withQueryParam("store_id", storeId)
       .withSuccessResponse[AttributeDelete200Response](200)
       
 
@@ -236,23 +236,23 @@ class AttributeApi(baseUrl: String) {
    * 
    * @param start This parameter sets the number from which you want to get entities
    * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count=250
+   * @param attributeSetId Attribute set id
    * @param langId Language id
+   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
    * @param params Set this parameter in order to choose which entity fields you want to retrieve
    * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
-   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
-   * @param attributeSetId Attribute set id
    */
-  def attributeGroupList(start: Option[Int] = None, count: Option[Int] = None, langId: Option[String] = None, params: Option[String] = None, exclude: Option[String] = None, responseFields: Option[String] = None, attributeSetId: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseAttributeGroupList] =
+  def attributeGroupList(start: Option[Int] = None, count: Option[Int] = None, attributeSetId: Option[String] = None, langId: Option[String] = None, responseFields: Option[String] = None, params: Option[String] = None, exclude: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseAttributeGroupList] =
     ApiRequest[ModelResponseAttributeGroupList](ApiMethods.GET, baseUrl, "/attribute.group.list.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
       .withQueryParam("start", start)
       .withQueryParam("count", count)
+      .withQueryParam("attribute_set_id", attributeSetId)
       .withQueryParam("lang_id", langId)
+      .withQueryParam("response_fields", responseFields)
       .withQueryParam("params", params)
       .withQueryParam("exclude", exclude)
-      .withQueryParam("response_fields", responseFields)
-      .withQueryParam("attribute_set_id", attributeSetId)
       .withSuccessResponse[ModelResponseAttributeGroupList](200)
       
 
@@ -270,11 +270,11 @@ class AttributeApi(baseUrl: String) {
    * @param attributeSetId Attribute set id
    * @param storeId Store Id
    * @param langId Language id
+   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
    * @param params Set this parameter in order to choose which entity fields you want to retrieve
    * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
-   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
    */
-  def attributeInfo(id: String, attributeSetId: Option[String] = None, storeId: Option[String] = None, langId: Option[String] = None, params: Option[String] = None, exclude: Option[String] = None, responseFields: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[AttributeInfo200Response] =
+  def attributeInfo(id: String, attributeSetId: Option[String] = None, storeId: Option[String] = None, langId: Option[String] = None, responseFields: Option[String] = None, params: Option[String] = None, exclude: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[AttributeInfo200Response] =
     ApiRequest[AttributeInfo200Response](ApiMethods.GET, baseUrl, "/attribute.info.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
@@ -282,9 +282,9 @@ class AttributeApi(baseUrl: String) {
       .withQueryParam("attribute_set_id", attributeSetId)
       .withQueryParam("store_id", storeId)
       .withQueryParam("lang_id", langId)
+      .withQueryParam("response_fields", responseFields)
       .withQueryParam("params", params)
       .withQueryParam("exclude", exclude)
-      .withQueryParam("response_fields", responseFields)
       .withSuccessResponse[AttributeInfo200Response](200)
       
 
@@ -300,35 +300,35 @@ class AttributeApi(baseUrl: String) {
    * 
    * @param start This parameter sets the number from which you want to get entities
    * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count=250
-   * @param `type` Defines attribute's type
    * @param attributeIds Filter attributes by ids
    * @param attributeSetId Filter items by attribute set id
    * @param storeId Store Id
    * @param langId Retrieves attributes on specified language id
-   * @param params Set this parameter in order to choose which entity fields you want to retrieve
-   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
-   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
+   * @param `type` Defines attribute's type
    * @param visible Filter items by visibility status
    * @param required Defines if the option is required
    * @param system True if attribute is system
+   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
+   * @param params Set this parameter in order to choose which entity fields you want to retrieve
+   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
    */
-  def attributeList(start: Option[Int] = None, count: Option[Int] = None, `type`: Option[String] = None, attributeIds: Option[String] = None, attributeSetId: Option[String] = None, storeId: Option[String] = None, langId: Option[String] = None, params: Option[String] = None, exclude: Option[String] = None, responseFields: Option[String] = None, visible: Option[Boolean] = None, required: Option[Boolean] = None, system: Option[Boolean] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseAttributeList] =
+  def attributeList(start: Option[Int] = None, count: Option[Int] = None, attributeIds: Option[String] = None, attributeSetId: Option[String] = None, storeId: Option[String] = None, langId: Option[String] = None, `type`: Option[String] = None, visible: Option[Boolean] = None, required: Option[Boolean] = None, system: Option[Boolean] = None, responseFields: Option[String] = None, params: Option[String] = None, exclude: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseAttributeList] =
     ApiRequest[ModelResponseAttributeList](ApiMethods.GET, baseUrl, "/attribute.list.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
       .withQueryParam("start", start)
       .withQueryParam("count", count)
-      .withQueryParam("type", `type`)
       .withQueryParam("attribute_ids", attributeIds)
       .withQueryParam("attribute_set_id", attributeSetId)
       .withQueryParam("store_id", storeId)
       .withQueryParam("lang_id", langId)
-      .withQueryParam("params", params)
-      .withQueryParam("exclude", exclude)
-      .withQueryParam("response_fields", responseFields)
+      .withQueryParam("type", `type`)
       .withQueryParam("visible", visible)
       .withQueryParam("required", required)
       .withQueryParam("system", system)
+      .withQueryParam("response_fields", responseFields)
+      .withQueryParam("params", params)
+      .withQueryParam("exclude", exclude)
       .withSuccessResponse[ModelResponseAttributeList](200)
       
 

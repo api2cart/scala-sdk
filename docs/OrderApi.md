@@ -87,35 +87,35 @@ object Example extends App {
 
     val apiInvoker = ApiInvoker()
     val apiInstance = OrderApi("https://api.api2cart.com/v1.1")
+    val start: Int = 0 // Int | This parameter sets the number from which you want to get entities
+
+    val count: Int = 20 // Int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
+
+    val pageCursor: String =  // String | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
+
     val customerId: String = 5 // String | Retrieves orders specified by customer id
 
     val customerEmail: String = jubari@hannsgroup.com // String | Retrieves orders specified by customer email
 
-    val createdTo: String = 2100-08-29 13:45:52 // String | Retrieve entities to their creation date
+    val storeId: String = 1 // String | Store Id
 
     val createdFrom: String = 2010-07-29 13:45:52 // String | Retrieve entities from their creation date
 
-    val modifiedTo: String = 2100-08-29 13:45:52 // String | Retrieve entities to their modification date
+    val createdTo: String = 2100-08-29 13:45:52 // String | Retrieve entities to their creation date
 
     val modifiedFrom: String = 2010-07-29 13:45:52 // String | Retrieve entities from their modification date
 
+    val modifiedTo: String = 2100-08-29 13:45:52 // String | Retrieve entities to their modification date
+
     val skipEmptyEmail: Boolean = true // Boolean | Filter empty emails
-
-    val storeId: String = 1 // String | Store Id
-
-    val pageCursor: String =  // String | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
-
-    val count: Int = 20 // Int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
-
-    val start: Int = 0 // Int | This parameter sets the number from which you want to get entities
-
-    val params: String = force_all // String | Set this parameter in order to choose which entity fields you want to retrieve
 
     val responseFields: String = {return_code,pagination,result{order{id,customer{email},created_at,totals{total},order_products}}} // String | Set this parameter in order to choose which entity fields you want to retrieve
 
+    val params: String = force_all // String | Set this parameter in order to choose which entity fields you want to retrieve
+
     val exclude: String = customer // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
     
-    val request = apiInstance.orderAbandonedList(customerId, customerEmail, createdTo, createdFrom, modifiedTo, modifiedFrom, skipEmptyEmail, storeId, pageCursor, count, start, params, responseFields, exclude)
+    val request = apiInstance.orderAbandonedList(start, count, pageCursor, customerId, customerEmail, storeId, createdFrom, createdTo, modifiedFrom, modifiedTo, skipEmptyEmail, responseFields, params, exclude)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -143,19 +143,19 @@ object Example extends App {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **start** | **Int**| This parameter sets the number from which you want to get entities | [optional]
+ **count** | **Int**| This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional]
+ **pageCursor** | **String**| Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional]
  **customerId** | **String**| Retrieves orders specified by customer id | [optional]
  **customerEmail** | **String**| Retrieves orders specified by customer email | [optional]
- **createdTo** | **String**| Retrieve entities to their creation date | [optional]
- **createdFrom** | **String**| Retrieve entities from their creation date | [optional]
- **modifiedTo** | **String**| Retrieve entities to their modification date | [optional]
- **modifiedFrom** | **String**| Retrieve entities from their modification date | [optional]
- **skipEmptyEmail** | **Boolean**| Filter empty emails | [optional]
  **storeId** | **String**| Store Id | [optional]
- **pageCursor** | **String**| Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional]
- **count** | **Int**| This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional]
- **start** | **Int**| This parameter sets the number from which you want to get entities | [optional]
- **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
+ **createdFrom** | **String**| Retrieve entities from their creation date | [optional]
+ **createdTo** | **String**| Retrieve entities to their creation date | [optional]
+ **modifiedFrom** | **String**| Retrieve entities from their modification date | [optional]
+ **modifiedTo** | **String**| Retrieve entities to their modification date | [optional]
+ **skipEmptyEmail** | **Boolean**| Filter empty emails | [optional]
  **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
+ **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
  **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional]
 
 ### Return type
@@ -299,27 +299,19 @@ object Example extends App {
 
     val apiInvoker = ApiInvoker()
     val apiInstance = OrderApi("https://api.api2cart.com/v1.1")
+    val orderIds: String = 24,25 // String | Counts orders specified by order ids
+
+    val ids: String = 24,25 // String | Counts orders specified by ids
+
     val customerId: String = 5 // String | Counts orders quantity specified by customer id
+
+    val storeId: String = 1 // String | Counts orders quantity specified by store id
 
     val customerEmail: String = jubari@hannsgroup.com // String | Counts orders quantity specified by customer email
 
     val orderStatus: String = Completed // String | Counts orders quantity specified by order status
 
     val orderStatusIds: Seq[String] =  // Seq[String] | Retrieves orders specified by order statuses
-
-    val createdTo: String = 2100-08-29 13:45:52 // String | Retrieve entities to their creation date
-
-    val createdFrom: String = 2010-07-29 13:45:52 // String | Retrieve entities from their creation date
-
-    val modifiedTo: String = 2100-08-29 13:45:52 // String | Retrieve entities to their modification date
-
-    val modifiedFrom: String = 2010-07-29 13:45:52 // String | Retrieve entities from their modification date
-
-    val storeId: String = 1 // String | Counts orders quantity specified by store id
-
-    val ids: String = 24,25 // String | Counts orders specified by ids
-
-    val orderIds: String = 24,25 // String | Counts orders specified by order ids
 
     val ebayOrderStatus: String = Active // String | Counts orders quantity specified by order status
 
@@ -338,8 +330,16 @@ object Example extends App {
     val tags: String = tag1,tag2 // String | Order tags
 
     val shipNodeType: String = SellerFulfilled // String | Retrieves order with ship node type
+
+    val createdFrom: String = 2010-07-29 13:45:52 // String | Retrieve entities from their creation date
+
+    val createdTo: String = 2100-08-29 13:45:52 // String | Retrieve entities to their creation date
+
+    val modifiedFrom: String = 2010-07-29 13:45:52 // String | Retrieve entities from their modification date
+
+    val modifiedTo: String = 2100-08-29 13:45:52 // String | Retrieve entities to their modification date
     
-    val request = apiInstance.orderCount(customerId, customerEmail, orderStatus, orderStatusIds, createdTo, createdFrom, modifiedTo, modifiedFrom, storeId, ids, orderIds, ebayOrderStatus, financialStatus, financialStatusIds, fulfillmentChannel, fulfillmentStatus, shippingMethod, deliveryMethod, tags, shipNodeType)
+    val request = apiInstance.orderCount(orderIds, ids, customerId, storeId, customerEmail, orderStatus, orderStatusIds, ebayOrderStatus, financialStatus, financialStatusIds, fulfillmentChannel, fulfillmentStatus, shippingMethod, deliveryMethod, tags, shipNodeType, createdFrom, createdTo, modifiedFrom, modifiedTo)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -367,17 +367,13 @@ object Example extends App {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **orderIds** | **String**| Counts orders specified by order ids | [optional]
+ **ids** | **String**| Counts orders specified by ids | [optional]
  **customerId** | **String**| Counts orders quantity specified by customer id | [optional]
+ **storeId** | **String**| Counts orders quantity specified by store id | [optional]
  **customerEmail** | **String**| Counts orders quantity specified by customer email | [optional]
  **orderStatus** | **String**| Counts orders quantity specified by order status | [optional]
  **orderStatusIds** | [**Seq[String]**](String.md)| Retrieves orders specified by order statuses | [optional]
- **createdTo** | **String**| Retrieve entities to their creation date | [optional]
- **createdFrom** | **String**| Retrieve entities from their creation date | [optional]
- **modifiedTo** | **String**| Retrieve entities to their modification date | [optional]
- **modifiedFrom** | **String**| Retrieve entities from their modification date | [optional]
- **storeId** | **String**| Counts orders quantity specified by store id | [optional]
- **ids** | **String**| Counts orders specified by ids | [optional]
- **orderIds** | **String**| Counts orders specified by order ids | [optional]
  **ebayOrderStatus** | **String**| Counts orders quantity specified by order status | [optional]
  **financialStatus** | **String**| Counts orders quantity specified by financial status | [optional]
  **financialStatusIds** | [**Seq[String]**](String.md)| Retrieves orders count specified by financial status ids | [optional]
@@ -387,6 +383,10 @@ Name | Type | Description  | Notes
  **deliveryMethod** | **String**| Retrieves order with delivery method | [optional]
  **tags** | **String**| Order tags | [optional]
  **shipNodeType** | **String**| Retrieves order with ship node type | [optional]
+ **createdFrom** | **String**| Retrieve entities from their creation date | [optional]
+ **createdTo** | **String**| Retrieve entities to their creation date | [optional]
+ **modifiedFrom** | **String**| Retrieve entities from their modification date | [optional]
+ **modifiedTo** | **String**| Retrieve entities to their modification date | [optional]
 
 ### Return type
 
@@ -523,19 +523,17 @@ object Example extends App {
 
     val apiInvoker = ApiInvoker()
     val apiInstance = OrderApi("https://api.api2cart.com/v1.1")
+    val start: Int = 0 // Int | This parameter sets the number from which you want to get entities
+
+    val count: Int = 20 // Int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
+
     val customerId: String = 5 // String | Retrieves orders specified by customer id
 
     val customerEmail: String = jubari@hannsgroup.com // String | Retrieves orders specified by customer email
 
     val orderStatus: String = Completed // String | Retrieves orders specified by order status
 
-    val start: Int = 0 // Int | This parameter sets the number from which you want to get entities
-
-    val count: Int = 20 // Int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
-
-    val params: String = order_id,totals,status // String | Set this parameter in order to choose which entity fields you want to retrieve
-
-    val exclude: String = order_id,totals,status // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
+    val financialStatus: String = paid // String | Retrieves orders specified by financial status
 
     val createdTo: String = 2100-08-29 13:45:52 // String | Retrieve entities to their creation date
 
@@ -545,9 +543,11 @@ object Example extends App {
 
     val modifiedFrom: String = 2010-07-29 13:45:52 // String | Retrieve entities from their modification date
 
-    val financialStatus: String = paid // String | Retrieves orders specified by financial status
+    val params: String = order_id,totals,status // String | Set this parameter in order to choose which entity fields you want to retrieve
+
+    val exclude: String = order_id,totals,status // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
     
-    val request = apiInstance.orderFind(customerId, customerEmail, orderStatus, start, count, params, exclude, createdTo, createdFrom, modifiedTo, modifiedFrom, financialStatus)
+    val request = apiInstance.orderFind(start, count, customerId, customerEmail, orderStatus, financialStatus, createdTo, createdFrom, modifiedTo, modifiedFrom, params, exclude)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -575,18 +575,18 @@ object Example extends App {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **start** | **Int**| This parameter sets the number from which you want to get entities | [optional]
+ **count** | **Int**| This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional]
  **customerId** | **String**| Retrieves orders specified by customer id | [optional]
  **customerEmail** | **String**| Retrieves orders specified by customer email | [optional]
  **orderStatus** | **String**| Retrieves orders specified by order status | [optional]
- **start** | **Int**| This parameter sets the number from which you want to get entities | [optional]
- **count** | **Int**| This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional]
- **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
- **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional]
+ **financialStatus** | **String**| Retrieves orders specified by financial status | [optional]
  **createdTo** | **String**| Retrieve entities to their creation date | [optional]
  **createdFrom** | **String**| Retrieve entities from their creation date | [optional]
  **modifiedTo** | **String**| Retrieve entities to their modification date | [optional]
  **modifiedFrom** | **String**| Retrieve entities from their modification date | [optional]
- **financialStatus** | **String**| Retrieves orders specified by financial status | [optional]
+ **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
+ **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional]
 
 ### Return type
 
@@ -728,9 +728,11 @@ object Example extends App {
 
     val apiInvoker = ApiInvoker()
     val apiInstance = OrderApi("https://api.api2cart.com/v1.1")
+    val id: String = 10 // String | Retrieves order info specified by id
+
     val orderId: String = 25 // String | Retrieves order’s info specified by order id
 
-    val id: String = 10 // String | Retrieves order info specified by id
+    val storeId: String = 1 // String | Defines store id where the order should be found
 
     val params: String = order_id,totals,status // String | Set this parameter in order to choose which entity fields you want to retrieve
 
@@ -738,13 +740,11 @@ object Example extends App {
 
     val exclude: String = order_id,totals,status // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
 
-    val storeId: String = 1 // String | Defines store id where the order should be found
-
     val enableCache: Boolean = true // Boolean | If the value is 'true' and order exist in our cache, we will return order.info response from cache
 
     val useLatestApiVersion: Boolean = true // Boolean | Use the latest platform API version
     
-    val request = apiInstance.orderInfo(orderId, id, params, responseFields, exclude, storeId, enableCache, useLatestApiVersion)
+    val request = apiInstance.orderInfo(id, orderId, storeId, params, responseFields, exclude, enableCache, useLatestApiVersion)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -772,12 +772,12 @@ object Example extends App {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **orderId** | **String**| Retrieves order’s info specified by order id | [optional]
  **id** | **String**| Retrieves order info specified by id | [optional]
+ **orderId** | **String**| Retrieves order’s info specified by order id | [optional]
+ **storeId** | **String**| Defines store id where the order should be found | [optional]
  **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
  **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
  **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional]
- **storeId** | **String**| Defines store id where the order should be found | [optional]
  **enableCache** | **Boolean**| If the value is &#39;true&#39; and order exist in our cache, we will return order.info response from cache | [optional]
  **useLatestApiVersion** | **Boolean**| Use the latest platform API version | [optional]
 
@@ -835,9 +835,27 @@ object Example extends App {
 
     val apiInvoker = ApiInvoker()
     val apiInstance = OrderApi("https://api.api2cart.com/v1.1")
+    val start: Int = 0 // Int | This parameter sets the number from which you want to get entities
+
+    val count: Int = 20 // Int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
+
+    val pageCursor: String =  // String | Used to retrieve orders via cursor-based pagination (it can't be used with any other filtering parameter)
+
+    val ids: String = 24,25 // String | Retrieves orders specified by ids
+
+    val orderIds: String = 24,25 // String | Retrieves orders specified by order ids
+
+    val sinceId: String = 56 // String | Retrieve entities starting from the specified id.
+
+    val storeId: String = 1 // String | Store Id
+
     val customerId: String = 5 // String | Retrieves orders specified by customer id
 
     val customerEmail: String = jubari@hannsgroup.com // String | Retrieves orders specified by customer email
+
+    val basketId: String = 1 // String | Retrieves order’s info specified by basket id.
+
+    val currencyId: String = usd // String | Currency Id
 
     val phone: String = 56686868654 // String | Filter orders by customer's phone number
 
@@ -845,11 +863,39 @@ object Example extends App {
 
     val orderStatusIds: Seq[String] =  // Seq[String] | Retrieves orders specified by order statuses
 
-    val start: Int = 0 // Int | This parameter sets the number from which you want to get entities
+    val ebayOrderStatus: String = Active // String | Retrieves orders specified by order status
 
-    val count: Int = 20 // Int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
+    val financialStatus: String = paid // String | Retrieves orders specified by financial status
 
-    val pageCursor: String =  // String | Used to retrieve orders via cursor-based pagination (it can't be used with any other filtering parameter)
+    val financialStatusIds: Seq[String] =  // Seq[String] | Retrieves orders specified by financial status ids
+
+    val fulfillmentStatus: String = fulfilled // String | Create order with fulfillment status
+
+    val returnStatus: String = RETURNED // String | Retrieves orders specified by return status
+
+    val fulfillmentChannel: String = local // String | Retrieves order with a fulfillment channel
+
+    val shippingMethod: String = flatrate_flatrate // String | Retrieve entities according to shipping method
+
+    val skipOrderIds: String = 24,25 // String | Skipped orders by ids
+
+    val isDeleted: Boolean = true // Boolean | Filter deleted orders
+
+    val shippingCountryIso3: String = DEU // String | Retrieve entities according to shipping country
+
+    val deliveryMethod: String = local // String | Retrieves order with delivery method
+
+    val shipNodeType: String = SellerFulfilled // String | Retrieves order with ship node type
+
+    val createdTo: String = 2100-08-29 13:45:52 // String | Retrieve entities to their creation date
+
+    val createdFrom: String = 2010-07-29 13:45:52 // String | Retrieve entities from their creation date
+
+    val modifiedTo: String = 2100-08-29 13:45:52 // String | Retrieve entities to their modification date
+
+    val modifiedFrom: String = 2010-07-29 13:45:52 // String | Retrieve entities from their modification date
+
+    val tags: String = tag1,tag2 // String | Order tags
 
     val sortBy: String = modified_at // String | Set field to sort by
 
@@ -861,57 +907,11 @@ object Example extends App {
 
     val exclude: String = order_id,totals,status // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
 
-    val createdTo: String = 2100-08-29 13:45:52 // String | Retrieve entities to their creation date
-
-    val createdFrom: String = 2010-07-29 13:45:52 // String | Retrieve entities from their creation date
-
-    val modifiedTo: String = 2100-08-29 13:45:52 // String | Retrieve entities to their modification date
-
-    val modifiedFrom: String = 2010-07-29 13:45:52 // String | Retrieve entities from their modification date
-
-    val storeId: String = 1 // String | Store Id
-
-    val ids: String = 24,25 // String | Retrieves orders specified by ids
-
-    val orderIds: String = 24,25 // String | Retrieves orders specified by order ids
-
-    val ebayOrderStatus: String = Active // String | Retrieves orders specified by order status
-
-    val basketId: String = 1 // String | Retrieves order’s info specified by basket id.
-
-    val financialStatus: String = paid // String | Retrieves orders specified by financial status
-
-    val financialStatusIds: Seq[String] =  // Seq[String] | Retrieves orders specified by financial status ids
-
-    val fulfillmentStatus: String = fulfilled // String | Create order with fulfillment status
-
-    val fulfillmentChannel: String = local // String | Retrieves order with a fulfillment channel
-
-    val shippingMethod: String = flatrate_flatrate // String | Retrieve entities according to shipping method
-
-    val skipOrderIds: String = 24,25 // String | Skipped orders by ids
-
-    val sinceId: String = 56 // String | Retrieve entities starting from the specified id.
-
-    val isDeleted: Boolean = true // Boolean | Filter deleted orders
-
-    val shippingCountryIso3: String = DEU // String | Retrieve entities according to shipping country
-
     val enableCache: Boolean = true // Boolean | If the value is 'true', we will cache orders for a 15 minutes in order to increase speed and reduce requests throttling for some methods and shoping platforms (for example order.shipment.add)
-
-    val deliveryMethod: String = local // String | Retrieves order with delivery method
-
-    val tags: String = tag1,tag2 // String | Order tags
-
-    val shipNodeType: String = SellerFulfilled // String | Retrieves order with ship node type
-
-    val currencyId: String = usd // String | Currency Id
-
-    val returnStatus: String = RETURNED // String | Retrieves orders specified by return status
 
     val useLatestApiVersion: Boolean = true // Boolean | Use the latest platform API version
     
-    val request = apiInstance.orderList(customerId, customerEmail, phone, orderStatus, orderStatusIds, start, count, pageCursor, sortBy, sortDirection, params, responseFields, exclude, createdTo, createdFrom, modifiedTo, modifiedFrom, storeId, ids, orderIds, ebayOrderStatus, basketId, financialStatus, financialStatusIds, fulfillmentStatus, fulfillmentChannel, shippingMethod, skipOrderIds, sinceId, isDeleted, shippingCountryIso3, enableCache, deliveryMethod, tags, shipNodeType, currencyId, returnStatus, useLatestApiVersion)
+    val request = apiInstance.orderList(start, count, pageCursor, ids, orderIds, sinceId, storeId, customerId, customerEmail, basketId, currencyId, phone, orderStatus, orderStatusIds, ebayOrderStatus, financialStatus, financialStatusIds, fulfillmentStatus, returnStatus, fulfillmentChannel, shippingMethod, skipOrderIds, isDeleted, shippingCountryIso3, deliveryMethod, shipNodeType, createdTo, createdFrom, modifiedTo, modifiedFrom, tags, sortBy, sortDirection, params, responseFields, exclude, enableCache, useLatestApiVersion)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -939,43 +939,43 @@ object Example extends App {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **customerId** | **String**| Retrieves orders specified by customer id | [optional]
- **customerEmail** | **String**| Retrieves orders specified by customer email | [optional]
- **phone** | **String**| Filter orders by customer&#39;s phone number | [optional]
- **orderStatus** | **String**| Retrieves orders specified by order status | [optional]
- **orderStatusIds** | [**Seq[String]**](String.md)| Retrieves orders specified by order statuses | [optional]
  **start** | **Int**| This parameter sets the number from which you want to get entities | [optional]
  **count** | **Int**| This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional]
  **pageCursor** | **String**| Used to retrieve orders via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional]
+ **ids** | **String**| Retrieves orders specified by ids | [optional]
+ **orderIds** | **String**| Retrieves orders specified by order ids | [optional]
+ **sinceId** | **String**| Retrieve entities starting from the specified id. | [optional]
+ **storeId** | **String**| Store Id | [optional]
+ **customerId** | **String**| Retrieves orders specified by customer id | [optional]
+ **customerEmail** | **String**| Retrieves orders specified by customer email | [optional]
+ **basketId** | **String**| Retrieves order’s info specified by basket id. | [optional]
+ **currencyId** | **String**| Currency Id | [optional]
+ **phone** | **String**| Filter orders by customer&#39;s phone number | [optional]
+ **orderStatus** | **String**| Retrieves orders specified by order status | [optional]
+ **orderStatusIds** | [**Seq[String]**](String.md)| Retrieves orders specified by order statuses | [optional]
+ **ebayOrderStatus** | **String**| Retrieves orders specified by order status | [optional]
+ **financialStatus** | **String**| Retrieves orders specified by financial status | [optional]
+ **financialStatusIds** | [**Seq[String]**](String.md)| Retrieves orders specified by financial status ids | [optional]
+ **fulfillmentStatus** | **String**| Create order with fulfillment status | [optional]
+ **returnStatus** | **String**| Retrieves orders specified by return status | [optional]
+ **fulfillmentChannel** | **String**| Retrieves order with a fulfillment channel | [optional]
+ **shippingMethod** | **String**| Retrieve entities according to shipping method | [optional]
+ **skipOrderIds** | **String**| Skipped orders by ids | [optional]
+ **isDeleted** | **Boolean**| Filter deleted orders | [optional]
+ **shippingCountryIso3** | **String**| Retrieve entities according to shipping country | [optional]
+ **deliveryMethod** | **String**| Retrieves order with delivery method | [optional]
+ **shipNodeType** | **String**| Retrieves order with ship node type | [optional]
+ **createdTo** | **String**| Retrieve entities to their creation date | [optional]
+ **createdFrom** | **String**| Retrieve entities from their creation date | [optional]
+ **modifiedTo** | **String**| Retrieve entities to their modification date | [optional]
+ **modifiedFrom** | **String**| Retrieve entities from their modification date | [optional]
+ **tags** | **String**| Order tags | [optional]
  **sortBy** | **String**| Set field to sort by | [optional]
  **sortDirection** | **String**| Set sorting direction | [optional]
  **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
  **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
  **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional]
- **createdTo** | **String**| Retrieve entities to their creation date | [optional]
- **createdFrom** | **String**| Retrieve entities from their creation date | [optional]
- **modifiedTo** | **String**| Retrieve entities to their modification date | [optional]
- **modifiedFrom** | **String**| Retrieve entities from their modification date | [optional]
- **storeId** | **String**| Store Id | [optional]
- **ids** | **String**| Retrieves orders specified by ids | [optional]
- **orderIds** | **String**| Retrieves orders specified by order ids | [optional]
- **ebayOrderStatus** | **String**| Retrieves orders specified by order status | [optional]
- **basketId** | **String**| Retrieves order’s info specified by basket id. | [optional]
- **financialStatus** | **String**| Retrieves orders specified by financial status | [optional]
- **financialStatusIds** | [**Seq[String]**](String.md)| Retrieves orders specified by financial status ids | [optional]
- **fulfillmentStatus** | **String**| Create order with fulfillment status | [optional]
- **fulfillmentChannel** | **String**| Retrieves order with a fulfillment channel | [optional]
- **shippingMethod** | **String**| Retrieve entities according to shipping method | [optional]
- **skipOrderIds** | **String**| Skipped orders by ids | [optional]
- **sinceId** | **String**| Retrieve entities starting from the specified id. | [optional]
- **isDeleted** | **Boolean**| Filter deleted orders | [optional]
- **shippingCountryIso3** | **String**| Retrieve entities according to shipping country | [optional]
  **enableCache** | **Boolean**| If the value is &#39;true&#39;, we will cache orders for a 15 minutes in order to increase speed and reduce requests throttling for some methods and shoping platforms (for example order.shipment.add) | [optional]
- **deliveryMethod** | **String**| Retrieves order with delivery method | [optional]
- **tags** | **String**| Order tags | [optional]
- **shipNodeType** | **String**| Retrieves order with ship node type | [optional]
- **currencyId** | **String**| Currency Id | [optional]
- **returnStatus** | **String**| Retrieves orders specified by return status | [optional]
  **useLatestApiVersion** | **Boolean**| Use the latest platform API version | [optional]
 
 ### Return type
@@ -1744,15 +1744,15 @@ object Example extends App {
 
     val start: Int = 0 // Int | This parameter sets the number from which you want to get entities
 
-    val params: String = id,model,price,images // String | Set this parameter in order to choose which entity fields you want to retrieve
+    val storeId: String = 1 // String | Store Id
 
     val responseFields: String = {result{id,order_id,shipment_provider,tracking_numbers{tracking_number},items{product_id,quantity}}} // String | Set this parameter in order to choose which entity fields you want to retrieve
 
-    val exclude: String = false // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
+    val params: String = id,model,price,images // String | Set this parameter in order to choose which entity fields you want to retrieve
 
-    val storeId: String = 1 // String | Store Id
+    val exclude: String = false // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
     
-    val request = apiInstance.orderShipmentInfo(id, orderId, start, params, responseFields, exclude, storeId)
+    val request = apiInstance.orderShipmentInfo(id, orderId, start, storeId, responseFields, params, exclude)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -1783,10 +1783,10 @@ Name | Type | Description  | Notes
  **id** | **String**| Entity id |
  **orderId** | **String**| Defines the order id |
  **start** | **Int**| This parameter sets the number from which you want to get entities | [optional]
- **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
- **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
- **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional]
  **storeId** | **String**| Store Id | [optional]
+ **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
+ **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
+ **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional]
 
 ### Return type
 
@@ -1844,17 +1844,13 @@ object Example extends App {
     val apiInstance = OrderApi("https://api.api2cart.com/v1.1")
     val orderId: String = 25 // String | Retrieves shipments specified by order id
 
-    val pageCursor: String =  // String | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
-
     val start: Int = 0 // Int | This parameter sets the number from which you want to get entities
 
     val count: Int = 20 // Int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
 
-    val params: String = id,model,price,images // String | Set this parameter in order to choose which entity fields you want to retrieve
+    val pageCursor: String =  // String | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
 
-    val responseFields: String = {status_code,pagination,result{shipment{id,order_id,shipment_provider,tracking_numbers{tracking_number},items{product_id,quantity}}}} // String | Set this parameter in order to choose which entity fields you want to retrieve
-
-    val exclude: String = false // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
+    val storeId: String = 1 // String | Store Id
 
     val createdFrom: String = 2010-07-29 13:45:52 // String | Retrieve entities from their creation date
 
@@ -1864,9 +1860,13 @@ object Example extends App {
 
     val modifiedTo: String = 2100-08-29 13:45:52 // String | Retrieve entities to their modification date
 
-    val storeId: String = 1 // String | Store Id
+    val responseFields: String = {status_code,pagination,result{shipment{id,order_id,shipment_provider,tracking_numbers{tracking_number},items{product_id,quantity}}}} // String | Set this parameter in order to choose which entity fields you want to retrieve
+
+    val params: String = id,model,price,images // String | Set this parameter in order to choose which entity fields you want to retrieve
+
+    val exclude: String = false // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
     
-    val request = apiInstance.orderShipmentList(orderId, pageCursor, start, count, params, responseFields, exclude, createdFrom, createdTo, modifiedFrom, modifiedTo, storeId)
+    val request = apiInstance.orderShipmentList(orderId, start, count, pageCursor, storeId, createdFrom, createdTo, modifiedFrom, modifiedTo, responseFields, params, exclude)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -1895,17 +1895,17 @@ object Example extends App {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **orderId** | **String**| Retrieves shipments specified by order id |
- **pageCursor** | **String**| Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional]
  **start** | **Int**| This parameter sets the number from which you want to get entities | [optional]
  **count** | **Int**| This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional]
- **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
- **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
- **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional]
+ **pageCursor** | **String**| Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional]
+ **storeId** | **String**| Store Id | [optional]
  **createdFrom** | **String**| Retrieve entities from their creation date | [optional]
  **createdTo** | **String**| Retrieve entities to their creation date | [optional]
  **modifiedFrom** | **String**| Retrieve entities from their modification date | [optional]
  **modifiedTo** | **String**| Retrieve entities to their modification date | [optional]
- **storeId** | **String**| Store Id | [optional]
+ **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
+ **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
+ **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional]
 
 ### Return type
 
@@ -2231,6 +2231,8 @@ object Example extends App {
 
     val count: Int = 20 // Int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
 
+    val pageCursor: String =  // String | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
+
     val storeId: String = 1 // String | Store Id
 
     val params: String = id,model,price,images // String | Set this parameter in order to choose which entity fields you want to retrieve
@@ -2238,10 +2240,8 @@ object Example extends App {
     val responseFields: String = {return_code,pagination,result{transactions_count,transactions{id,transaction_id,status,description,settlement_amount,gateway,card_brand,card_last_four}}} // String | Set this parameter in order to choose which entity fields you want to retrieve
 
     val exclude: String = false // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
-
-    val pageCursor: String =  // String | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
     
-    val request = apiInstance.orderTransactionList(orderIds, count, storeId, params, responseFields, exclude, pageCursor)
+    val request = apiInstance.orderTransactionList(orderIds, count, pageCursor, storeId, params, responseFields, exclude)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -2271,11 +2271,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **orderIds** | **String**| Retrieves order transactions specified by order ids |
  **count** | **Int**| This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional]
+ **pageCursor** | **String**| Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional]
  **storeId** | **String**| Store Id | [optional]
  **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
  **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
  **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional]
- **pageCursor** | **String**| Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional]
 
 ### Return type
 
@@ -2337,7 +2337,13 @@ object Example extends App {
 
     val orderStatus: String = Completed // String | Defines new order's status
 
+    val financialStatus: String = paid // String | Update order financial status to specified
+
+    val fulfillmentStatus: String = fulfilled // String | Create order with fulfillment status
+
     val cancellationReason: String = ORDER_UNPAID // String | Defines the cancellation reason when the order will be canceled
+
+    val orderPaymentMethod: String = PayPal // String | Defines order payment method.<br/>Setting order_payment_method on Shopify will also change financial_status field value to 'paid'
 
     val comment: String = This coole order // String | Specifies order comment
 
@@ -2345,25 +2351,19 @@ object Example extends App {
 
     val adminPrivateComment: String = Test admin private comment // String | Specifies private admin's order comment
 
+    val invoiceAdminComment: String = Test admin comment // String | Specifies admin's order invoice comment
+
     val dateModified: String = 2014-05-05 05:05:00 // String | Specifies order's  modification date
 
     val dateFinished: String = 2014-06-05 05:05:00 // String | Specifies order's  finished date
 
-    val financialStatus: String = paid // String | Update order financial status to specified
-
-    val fulfillmentStatus: String = fulfilled // String | Create order with fulfillment status
-
-    val orderPaymentMethod: String = PayPal // String | Defines order payment method.<br/>Setting order_payment_method on Shopify will also change financial_status field value to 'paid'
-
     val sendNotifications: Boolean = true // Boolean | Send notifications to customer after order was created
-
-    val origin: String = newsletter // String | The source of the order
 
     val createInvoice: Boolean = true // Boolean | Determines whether an invoice should be created if it has not already been created
 
-    val invoiceAdminComment: String = Test admin comment // String | Specifies admin's order invoice comment
+    val origin: String = newsletter // String | The source of the order
     
-    val request = apiInstance.orderUpdate(orderId, storeId, orderStatus, cancellationReason, comment, adminComment, adminPrivateComment, dateModified, dateFinished, financialStatus, fulfillmentStatus, orderPaymentMethod, sendNotifications, origin, createInvoice, invoiceAdminComment)
+    val request = apiInstance.orderUpdate(orderId, storeId, orderStatus, financialStatus, fulfillmentStatus, cancellationReason, orderPaymentMethod, comment, adminComment, adminPrivateComment, invoiceAdminComment, dateModified, dateFinished, sendNotifications, createInvoice, origin)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -2394,19 +2394,19 @@ Name | Type | Description  | Notes
  **orderId** | **String**| Defines the orders specified by order id |
  **storeId** | **String**| Defines store id where the order should be found | [optional]
  **orderStatus** | **String**| Defines new order&#39;s status | [optional]
+ **financialStatus** | **String**| Update order financial status to specified | [optional]
+ **fulfillmentStatus** | **String**| Create order with fulfillment status | [optional]
  **cancellationReason** | **String**| Defines the cancellation reason when the order will be canceled | [optional]
+ **orderPaymentMethod** | **String**| Defines order payment method.&lt;br/&gt;Setting order_payment_method on Shopify will also change financial_status field value to &#39;paid&#39; | [optional]
  **comment** | **String**| Specifies order comment | [optional]
  **adminComment** | **String**| Specifies admin&#39;s order comment | [optional]
  **adminPrivateComment** | **String**| Specifies private admin&#39;s order comment | [optional]
+ **invoiceAdminComment** | **String**| Specifies admin&#39;s order invoice comment | [optional]
  **dateModified** | **String**| Specifies order&#39;s  modification date | [optional]
  **dateFinished** | **String**| Specifies order&#39;s  finished date | [optional]
- **financialStatus** | **String**| Update order financial status to specified | [optional]
- **fulfillmentStatus** | **String**| Create order with fulfillment status | [optional]
- **orderPaymentMethod** | **String**| Defines order payment method.&lt;br/&gt;Setting order_payment_method on Shopify will also change financial_status field value to &#39;paid&#39; | [optional]
  **sendNotifications** | **Boolean**| Send notifications to customer after order was created | [optional]
- **origin** | **String**| The source of the order | [optional]
  **createInvoice** | **Boolean**| Determines whether an invoice should be created if it has not already been created | [optional]
- **invoiceAdminComment** | **String**| Specifies admin&#39;s order invoice comment | [optional]
+ **origin** | **String**| The source of the order | [optional]
 
 ### Return type
 

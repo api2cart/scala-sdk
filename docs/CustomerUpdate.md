@@ -20,9 +20,9 @@ Name | Type | Description | Notes
 **consents** | [**Seq&lt;CustomerAddConsentsInner&gt;**](CustomerAddConsentsInner.md) | Defines consents to notifications |  [optional]
 **tags** | **String** | Customer tags |  [optional]
 **gender** | **String** | Defines customer&#39;s gender |  [optional]
-**storeId** | **String** | Store Id |  [optional]
 **note** | **String** | The customer note. |  [optional]
 **status** | **String** | Defines customer&#39;s status |  [optional]
+**storeId** | **String** | Store Id |  [optional]
 **address** | [**Seq&lt;CustomerUpdateAddressInner&gt;**](CustomerUpdateAddressInner.md) |  |  [optional]
 
 
