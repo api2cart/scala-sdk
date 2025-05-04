@@ -40,6 +40,8 @@ case class OrderShipmentAdd (
   enableCache: Option[Boolean] = None,
   /* Disable or enable check process status. Please note that the response will be slower due to additional requests to the store. */
   checkProcessStatus: Option[Boolean] = None,
+  /* Defines name of the company which provides shipment tracking */
+  trackingProvider: Option[String] = None,
   /* Use the latest platform API version */
   useLatestApiVersion: Option[Boolean] = None
 ) extends ApiModel

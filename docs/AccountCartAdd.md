@@ -41,6 +41,8 @@ Name | Type | Description | Notes
 **bolApiKey** | **String** | Bol API Key |  [optional]
 **bolApiSecret** | **String** | Bol API Secret |  [optional]
 **bolRetailerId** | **Int** | Bol Retailer ID |  [optional]
+**bigcartelUserName** | **String** | Subdomain of store | 
+**bigcartelPassword** | **String** | BigCartel account password | 
 **demandwareClientId** | **String** | Demandware client id |  [optional]
 **demandwareApiPassword** | **String** | Demandware api password |  [optional]
 **demandwareUserName** | **String** | Demandware user name |  [optional]
@@ -159,7 +161,7 @@ Name | Type | Description | Notes
 
 
 ## Enum: CartId
-Allowed values: [3DCart, 3DCartApi, AceShop, AmazonSP, AspDotNetStorefront, BigcommerceApi, Bol, CommerceHQ, Creloaded, Cscart, Cubecart, Demandware, EBay, Ecwid, EtsyAPIv3, Flipkart, Gambio, Hybris, JooCart, Lazada, LightSpeed, Magento1212, Magento2Api, MercadoLibre, MijoShop, Miva, Neto, Opencart14, Oscmax2, Oscommerce22ms2, Otto, Oxid, Pinnacle, Prestashop, PrestashopApi, SSPremium, Salla, Shopify, Shoplazza, Shopline, Shopware, ShopwareApi, Square, Squarespace, Tiendanube, TikTokShop, Tomatocart, Ubercart, Virtuemart, Volusion, WPecommerce, Walmart, WebAsyst, Wix, Woocommerce, WoocommerceApi, Xcart, Xtcommerce, XtcommerceVeyton, Zencart137, Zid, Zoey, Zoho]
+Allowed values: [3DCart, 3DCartApi, AceShop, AmazonSP, AspDotNetStorefront, BigCartel, BigcommerceApi, Bol, CommerceHQ, Creloaded, Cscart, Cubecart, Demandware, EBay, Ecwid, EtsyAPIv3, Flipkart, Gambio, Hybris, JooCart, Lazada, LightSpeed, Magento1212, Magento2Api, MercadoLibre, MijoShop, Miva, Neto, Opencart14, Oscmax2, Oscommerce22ms2, Otto, Oxid, Pinnacle, Prestashop, PrestashopApi, SSPremium, Salla, Shopify, Shoplazza, Shopline, Shopware, ShopwareApi, Square, Squarespace, Tiendanube, TikTokShop, Tomatocart, Ubercart, Virtuemart, Volusion, WPecommerce, Walmart, WebAsyst, Wix, Woocommerce, WoocommerceApi, Xcart, Xtcommerce, XtcommerceVeyton, Zencart137, Zid, Zoey, Zoho]
 
 
 

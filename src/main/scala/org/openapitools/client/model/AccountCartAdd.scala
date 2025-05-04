@@ -82,6 +82,10 @@ case class AccountCartAdd (
   bolApiSecret: Option[String] = None,
   /* Bol Retailer ID */
   bolRetailerId: Option[Int] = None,
+  /* Subdomain of store */
+  bigcartelUserName: String,
+  /* BigCartel account password */
+  bigcartelPassword: String,
   /* Demandware client id */
   demandwareClientId: Option[String] = None,
   /* Demandware api password */
@@ -323,6 +327,7 @@ object AccountCartAddEnums {
     val AceShop = Value("AceShop")
     val AmazonSP = Value("AmazonSP")
     val AspDotNetStorefront = Value("AspDotNetStorefront")
+    val BigCartel = Value("BigCartel")
     val BigcommerceApi = Value("BigcommerceApi")
     val Bol = Value("Bol")
     val CommerceHQ = Value("CommerceHQ")

@@ -16,6 +16,9 @@ Name | Type | Description | Notes
 **isShipped** | **Boolean** | Defines shipment&#39;s status |  [optional]
 **deliveredAt** | **String** | Defines the date of delivery |  [optional]
 **replace** | **Boolean** | Allows rewrite tracking numbers |  [optional]
+**sendNotifications** | **Boolean** | Send notifications to customer after order was created |  [optional]
+**trackingProvider** | **String** | Defines name of the company which provides shipment tracking |  [optional]
+**items** | [**Seq&lt;OrderShipmentAddItemsInner&gt;**](OrderShipmentAddItemsInner.md) | Defines items in the order that will be shipped |  [optional]
 
 
 

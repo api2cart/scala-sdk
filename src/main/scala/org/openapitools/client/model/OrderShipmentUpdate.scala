@@ -31,6 +31,12 @@ case class OrderShipmentUpdate (
   /* Defines the date of delivery */
   deliveredAt: Option[String] = None,
   /* Allows rewrite tracking numbers */
-  replace: Option[Boolean] = None
+  replace: Option[Boolean] = None,
+  /* Send notifications to customer after order was created */
+  sendNotifications: Option[Boolean] = None,
+  /* Defines name of the company which provides shipment tracking */
+  trackingProvider: Option[String] = None,
+  /* Defines items in the order that will be shipped */
+  items: Option[Seq[OrderShipmentAddItemsInner]] = None
 ) extends ApiModel
 
