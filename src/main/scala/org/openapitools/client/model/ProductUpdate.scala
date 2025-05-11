@@ -176,6 +176,11 @@ case class ProductUpdate (
   /* Is cache clear required */
   clearCache: Option[Boolean] = None,
   /* Disable or enable check process status. Please note that the response will be slower due to additional requests to the store. */
-  checkProcessStatus: Option[Boolean] = None
+  checkProcessStatus: Option[Boolean] = None,
+  /* An array of Item Specific Name/Value pairs used by the seller to provide descriptive details of an item in a structured manner.         The list of possible specifications can be obtained using the category.info method (additional_fields->product_specifics).         <b>The structure of the parameter is different for specific platforms.</b> */
+  specifics: Option[Seq[ProductAddSpecificsInner]] = None,
+  /* Add Shop Section Id */
+  shopSectionId: Option[Int] = None,
+  personalizationDetails: Option[ProductAddPersonalizationDetails] = None
 ) extends ApiModel
 

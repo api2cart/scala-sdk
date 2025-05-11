@@ -233,6 +233,11 @@ case class ProductAdd (
   /* Specifies the number of product's reviews */
   viewedCount: Option[Int] = None,
   /* Defines how many times the product was ordered */
-  orderedCount: Option[Int] = None
+  orderedCount: Option[Int] = None,
+  /* Add Shop Section Id */
+  shopSectionId: Option[Int] = None,
+  /* Add Return Policy Id */
+  returnPolicyId: Option[Int] = None,
+  personalizationDetails: Option[ProductAddPersonalizationDetails] = None
 ) extends ApiModel
 

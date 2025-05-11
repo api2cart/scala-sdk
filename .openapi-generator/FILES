@@ -284,6 +284,7 @@ docs/ProductAddGroupPricesInner.md
 docs/ProductAddLogisticInfoInner.md
 docs/ProductAddManufacturerInfo.md
 docs/ProductAddPackageDetails.md
+docs/ProductAddPersonalizationDetails.md
 docs/ProductAddSalesTax.md
 docs/ProductAddSellerProfiles.md
 docs/ProductAddShippingDetailsInner.md
@@ -751,6 +752,7 @@ src/main/scala/org/openapitools/client/model/ProductAddGroupPricesInner.scala
 src/main/scala/org/openapitools/client/model/ProductAddLogisticInfoInner.scala
 src/main/scala/org/openapitools/client/model/ProductAddManufacturerInfo.scala
 src/main/scala/org/openapitools/client/model/ProductAddPackageDetails.scala
+src/main/scala/org/openapitools/client/model/ProductAddPersonalizationDetails.scala
 src/main/scala/org/openapitools/client/model/ProductAddSalesTax.scala
 src/main/scala/org/openapitools/client/model/ProductAddSellerProfiles.scala
 src/main/scala/org/openapitools/client/model/ProductAddShippingDetailsInner.scala
