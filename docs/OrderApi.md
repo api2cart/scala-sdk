@@ -2362,8 +2362,10 @@ object Example extends App {
     val createInvoice: Boolean = true // Boolean | Determines whether an invoice should be created if it has not already been created
 
     val origin: String = newsletter // String | The source of the order
+
+    val tags: String = tag1,tag2 // String | Order tags
     
-    val request = apiInstance.orderUpdate(orderId, storeId, orderStatus, financialStatus, fulfillmentStatus, cancellationReason, orderPaymentMethod, comment, adminComment, adminPrivateComment, invoiceAdminComment, dateModified, dateFinished, sendNotifications, createInvoice, origin)
+    val request = apiInstance.orderUpdate(orderId, storeId, orderStatus, financialStatus, fulfillmentStatus, cancellationReason, orderPaymentMethod, comment, adminComment, adminPrivateComment, invoiceAdminComment, dateModified, dateFinished, sendNotifications, createInvoice, origin, tags)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -2407,6 +2409,7 @@ Name | Type | Description  | Notes
  **sendNotifications** | **Boolean**| Send notifications to customer after order was created | [optional]
  **createInvoice** | **Boolean**| Determines whether an invoice should be created if it has not already been created | [optional]
  **origin** | **String**| The source of the order | [optional]
+ **tags** | **String**| Order tags | [optional]
 
 ### Return type
 
