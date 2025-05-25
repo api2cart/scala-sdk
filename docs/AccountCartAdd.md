@@ -87,6 +87,12 @@ Name | Type | Description | Notes
 **shopifyApiKey** | **String** | Shopify API Key |  [optional]
 **shopifyApiPassword** | **String** | Shopify API Password |  [optional]
 **shopifySharedSecret** | **String** | Shared secret |  [optional]
+**shopeePartnerId** | **String** | Shopee Partner ID |  [optional]
+**shopeePartnerKey** | **String** | Shopee Partner Key |  [optional]
+**shopeeShopId** | **String** | Shopee SHOP ID |  [optional]
+**shopeeRefreshToken** | **String** | Shopee Refresh Token |  [optional]
+**shopeeRegion** | **String** | Shopee API endpoint Region. Use for Chinese Mainland or Brazil. |  [optional]
+**shopeeEnvironment** | **String** | Shopee Environment |  [optional]
 **shoplazzaAccessToken** | **String** | Access token authorizing the app to access resources on behalf of a user |  [optional]
 **shoplazzaSharedSecret** | **String** | Shared secret |  [optional]
 **shopwareAccessKey** | **String** | Shopware access key |  [optional]
@@ -158,10 +164,14 @@ Name | Type | Description | Notes
 **sallaClientSecret** | **String** | Salla Client Secret |  [optional]
 **sallaRefreshToken** | **String** | Salla Refresh Token |  [optional]
 **sallaAccessToken** | **String** | Salla Access Token |  [optional]
+**temuAppKey** | **String** | Temu App Key |  [optional]
+**temuAppSecret** | **String** | Temu App Secret |  [optional]
+**temuAccessToken** | **String** | Temu Access Token | 
+**temuRegion** | **String** | Temu API endpoint Region. |  [optional]
 
 
 ## Enum: CartId
-Allowed values: [3DCart, 3DCartApi, AceShop, AmazonSP, AspDotNetStorefront, BigCartel, BigcommerceApi, Bol, CommerceHQ, Creloaded, Cscart, Cubecart, Demandware, EBay, Ecwid, EtsyAPIv3, Flipkart, Gambio, Hybris, JooCart, Lazada, LightSpeed, Magento1212, Magento2Api, MercadoLibre, MijoShop, Miva, Neto, Opencart14, Oscmax2, Oscommerce22ms2, Otto, Oxid, Pinnacle, Prestashop, PrestashopApi, SSPremium, Salla, Shopify, Shoplazza, Shopline, Shopware, ShopwareApi, Square, Squarespace, Tiendanube, TikTokShop, Tomatocart, Ubercart, Virtuemart, Volusion, WPecommerce, Walmart, WebAsyst, Wix, Woocommerce, WoocommerceApi, Xcart, Xtcommerce, XtcommerceVeyton, Zencart137, Zid, Zoey, Zoho]
+Allowed values: [3DCart, 3DCartApi, AceShop, AmazonSP, AspDotNetStorefront, BigCartel, BigcommerceApi, Bol, CommerceHQ, Creloaded, Cscart, Cubecart, Demandware, EBay, Ecwid, EtsyAPIv3, Flipkart, Gambio, Hybris, JooCart, Lazada, LightSpeed, Magento1212, Magento2Api, MercadoLibre, MijoShop, Miva, Neto, Opencart14, Oscmax2, Oscommerce22ms2, Otto, Oxid, Pinnacle, Prestashop, PrestashopApi, SSPremium, Salla, Shopify, Shopee, Shoplazza, Shopline, Shopware, ShopwareApi, Square, Squarespace, Tiendanube, TikTokShop, Tomatocart, Ubercart, Virtuemart, Volusion, WPecommerce, Walmart, WebAsyst, Wix, Woocommerce, WoocommerceApi, Xcart, Xtcommerce, XtcommerceVeyton, Zencart137, Zid, Zoey, Zoho]
 
 
 

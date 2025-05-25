@@ -174,6 +174,18 @@ case class AccountCartAdd (
   shopifyApiPassword: Option[String] = None,
   /* Shared secret */
   shopifySharedSecret: Option[String] = None,
+  /* Shopee Partner ID */
+  shopeePartnerId: Option[String] = None,
+  /* Shopee Partner Key */
+  shopeePartnerKey: Option[String] = None,
+  /* Shopee SHOP ID */
+  shopeeShopId: Option[String] = None,
+  /* Shopee Refresh Token */
+  shopeeRefreshToken: Option[String] = None,
+  /* Shopee API endpoint Region. Use for Chinese Mainland or Brazil. */
+  shopeeRegion: Option[String] = None,
+  /* Shopee Environment */
+  shopeeEnvironment: Option[String] = None,
   /* Access token authorizing the app to access resources on behalf of a user */
   shoplazzaAccessToken: Option[String] = None,
   /* Shared secret */
@@ -315,7 +327,15 @@ case class AccountCartAdd (
   /* Salla Refresh Token */
   sallaRefreshToken: Option[String] = None,
   /* Salla Access Token */
-  sallaAccessToken: Option[String] = None
+  sallaAccessToken: Option[String] = None,
+  /* Temu App Key */
+  temuAppKey: Option[String] = None,
+  /* Temu App Secret */
+  temuAppSecret: Option[String] = None,
+  /* Temu Access Token */
+  temuAccessToken: String,
+  /* Temu API endpoint Region. */
+  temuRegion: Option[String] = None
 ) extends ApiModel
 
 object AccountCartAddEnums {
@@ -361,6 +381,7 @@ object AccountCartAddEnums {
     val SSPremium = Value("SSPremium")
     val Salla = Value("Salla")
     val Shopify = Value("Shopify")
+    val Shopee = Value("Shopee")
     val Shoplazza = Value("Shoplazza")
     val Shopline = Value("Shopline")
     val Shopware = Value("Shopware")

@@ -361,6 +361,18 @@ object Example extends App {
 
     val shopifySharedSecret: String = gmz3iz45x2 // String | Shared secret
 
+    val shopeePartnerId: String = 1276777 // String | Shopee Partner ID
+
+    val shopeePartnerKey: String = 6a46494b4d746576554646626775617a577542774850636375464d6a736d5598 // String | Shopee Partner Key
+
+    val shopeeShopId: String = 137968 // String | Shopee SHOP ID
+
+    val shopeeRefreshToken: String = EAAPP06rM2n8BO4mZBuMPnu9zS0MaMbN7ue8aUkcxw4zewU987mVVb5br // String | Shopee Refresh Token
+
+    val shopeeRegion: String = CN // String | Shopee API endpoint Region. Use for Chinese Mainland or Brazil.
+
+    val shopeeEnvironment: String = sandbox // String | Shopee Environment
+
     val shoplazzaAccessToken: String = igse8e4rdmzkxdi937qe69d59en1imw // String | Access token authorizing the app to access resources on behalf of a user
 
     val shoplazzaSharedSecret: String = gmz3iz45x2 // String | Shared secret
@@ -525,8 +537,16 @@ object Example extends App {
     val sallaRefreshToken: String = oxy_rt_zxxxxiY2xxZWWxxxxlU-tROxxxxx2JzS2fwzxxxxxkU.p3xxxkCIyFexxxxP50WwZYfhw5_wg1xxxxV5F-8xxXc // String | Salla Refresh Token
 
     val sallaAccessToken: String = oxy_rt_zxxxxiY2xxZWWxxxxlU-tROxxxxx2JzS2fwzxxxxxkU.p3xxxkCIyFexxxxP50WwZYfhw5_wg1xxxxV5F-8xxXc // String | Salla Access Token
+
+    val temuAppKey: String = 4ebbc9190ae410443d65b4c2faca9811 // String | Temu App Key
+
+    val temuAppSecret: String = 4782d2d827276688bf4758bed55dbdd4bbe79a78 // String | Temu App Secret
+
+    val temuAccessToken: String = uplv3hfyt5kcwoymrgnajnbl1ow5qxlz4sqhev6hl3xosz5dejrtyl2jre6 // String | Temu Access Token
+
+    val temuRegion: String = US // String | Temu API endpoint Region.
     
-    val request = apiInstance.accountConfigUpdate(replaceParameters, newStoreUrl, newStoreKey, bridgeUrl, storeRoot, dbTablesPrefix, userAgent, `3dcartPrivateKey`, `3dcartAccessToken`, `3dcartapiApiKey`, amazonSpClientId, amazonSpClientSecret, amazonSpRefreshToken, amazonSpAwsRegion, amazonSpApiEnvironment, amazonSellerId, aspdotnetstorefrontApiUser, aspdotnetstorefrontApiPass, bigcommerceapiAdminAccount, bigcommerceapiApiPath, bigcommerceapiApiKey, bigcommerceapiClientId, bigcommerceapiAccessToken, bigcommerceapiContext, bolApiKey, bolApiSecret, bolRetailerId, demandwareClientId, demandwareApiPassword, demandwareUserName, demandwareUserPassword, ebayClientId, ebayClientSecret, ebayRuname, ebayAccessToken, ebayRefreshToken, ebayEnvironment, ebaySiteId, ecwidAcessToken, ecwidStoreId, lazadaAppId, lazadaAppSecret, lazadaRefreshToken, lazadaRegion, etsyKeystring, etsySharedSecret, etsyAccessToken, etsyTokenSecret, etsyClientId, etsyRefreshToken, facebookAppId, facebookAppSecret, facebookAccessToken, facebookBusinessId, netoApiKey, netoApiUsername, shoplineAccessToken, shoplineAppKey, shoplineAppSecret, shoplineSharedSecret, shopifyAccessToken, shopifyApiKey, shopifyApiPassword, shopifySharedSecret, shoplazzaAccessToken, shoplazzaSharedSecret, mivaAccessToken, mivaSignature, shopwareAccessKey, shopwareApiKey, shopwareApiSecret, bigcartelUserName, bigcartelPassword, volusionLogin, volusionPassword, walmartClientId, walmartClientSecret, walmartEnvironment, walmartChannelType, walmartRegion, squareClientId, squareClientSecret, squareRefreshToken, squarespaceApiKey, squarespaceClientId, squarespaceClientSecret, squarespaceAccessToken, squarespaceRefreshToken, hybrisClientId, hybrisClientSecret, hybrisUsername, hybrisPassword, hybrisWebsites, lightspeedApiKey, lightspeedApiSecret, commercehqApiKey, commercehqApiPassword, wcConsumerKey, wcConsumerSecret, magentoConsumerKey, magentoConsumerSecret, magentoAccessToken, magentoTokenSecret, prestashopWebserviceKey, wixAppId, wixAppSecretKey, wixInstanceId, wixRefreshToken, mercadoLibreAppId, mercadoLibreAppSecretKey, mercadoLibreRefreshToken, zidClientId, zidClientSecret, zidAccessToken, zidAuthorization, zidRefreshToken, flipkartClientId, flipkartClientSecret, allegroClientId, allegroClientSecret, allegroAccessToken, allegroRefreshToken, allegroEnvironment, zohoClientId, zohoClientSecret, zohoRefreshToken, zohoRegion, tiendanubeUserId, tiendanubeAccessToken, tiendanubeClientSecret, ottoClientId, ottoClientSecret, ottoAppId, ottoRefreshToken, ottoEnvironment, ottoAccessToken, tiktokshopAppKey, tiktokshopAppSecret, tiktokshopRefreshToken, tiktokshopAccessToken, sallaClientId, sallaClientSecret, sallaRefreshToken, sallaAccessToken)
+    val request = apiInstance.accountConfigUpdate(replaceParameters, newStoreUrl, newStoreKey, bridgeUrl, storeRoot, dbTablesPrefix, userAgent, `3dcartPrivateKey`, `3dcartAccessToken`, `3dcartapiApiKey`, amazonSpClientId, amazonSpClientSecret, amazonSpRefreshToken, amazonSpAwsRegion, amazonSpApiEnvironment, amazonSellerId, aspdotnetstorefrontApiUser, aspdotnetstorefrontApiPass, bigcommerceapiAdminAccount, bigcommerceapiApiPath, bigcommerceapiApiKey, bigcommerceapiClientId, bigcommerceapiAccessToken, bigcommerceapiContext, bolApiKey, bolApiSecret, bolRetailerId, demandwareClientId, demandwareApiPassword, demandwareUserName, demandwareUserPassword, ebayClientId, ebayClientSecret, ebayRuname, ebayAccessToken, ebayRefreshToken, ebayEnvironment, ebaySiteId, ecwidAcessToken, ecwidStoreId, lazadaAppId, lazadaAppSecret, lazadaRefreshToken, lazadaRegion, etsyKeystring, etsySharedSecret, etsyAccessToken, etsyTokenSecret, etsyClientId, etsyRefreshToken, facebookAppId, facebookAppSecret, facebookAccessToken, facebookBusinessId, netoApiKey, netoApiUsername, shoplineAccessToken, shoplineAppKey, shoplineAppSecret, shoplineSharedSecret, shopifyAccessToken, shopifyApiKey, shopifyApiPassword, shopifySharedSecret, shopeePartnerId, shopeePartnerKey, shopeeShopId, shopeeRefreshToken, shopeeRegion, shopeeEnvironment, shoplazzaAccessToken, shoplazzaSharedSecret, mivaAccessToken, mivaSignature, shopwareAccessKey, shopwareApiKey, shopwareApiSecret, bigcartelUserName, bigcartelPassword, volusionLogin, volusionPassword, walmartClientId, walmartClientSecret, walmartEnvironment, walmartChannelType, walmartRegion, squareClientId, squareClientSecret, squareRefreshToken, squarespaceApiKey, squarespaceClientId, squarespaceClientSecret, squarespaceAccessToken, squarespaceRefreshToken, hybrisClientId, hybrisClientSecret, hybrisUsername, hybrisPassword, hybrisWebsites, lightspeedApiKey, lightspeedApiSecret, commercehqApiKey, commercehqApiPassword, wcConsumerKey, wcConsumerSecret, magentoConsumerKey, magentoConsumerSecret, magentoAccessToken, magentoTokenSecret, prestashopWebserviceKey, wixAppId, wixAppSecretKey, wixInstanceId, wixRefreshToken, mercadoLibreAppId, mercadoLibreAppSecretKey, mercadoLibreRefreshToken, zidClientId, zidClientSecret, zidAccessToken, zidAuthorization, zidRefreshToken, flipkartClientId, flipkartClientSecret, allegroClientId, allegroClientSecret, allegroAccessToken, allegroRefreshToken, allegroEnvironment, zohoClientId, zohoClientSecret, zohoRefreshToken, zohoRegion, tiendanubeUserId, tiendanubeAccessToken, tiendanubeClientSecret, ottoClientId, ottoClientSecret, ottoAppId, ottoRefreshToken, ottoEnvironment, ottoAccessToken, tiktokshopAppKey, tiktokshopAppSecret, tiktokshopRefreshToken, tiktokshopAccessToken, sallaClientId, sallaClientSecret, sallaRefreshToken, sallaAccessToken, temuAppKey, temuAppSecret, temuAccessToken, temuRegion)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -618,6 +638,12 @@ Name | Type | Description  | Notes
  **shopifyApiKey** | **String**| Shopify API Key | [optional]
  **shopifyApiPassword** | **String**| Shopify API Password | [optional]
  **shopifySharedSecret** | **String**| Shared secret | [optional]
+ **shopeePartnerId** | **String**| Shopee Partner ID | [optional]
+ **shopeePartnerKey** | **String**| Shopee Partner Key | [optional]
+ **shopeeShopId** | **String**| Shopee SHOP ID | [optional]
+ **shopeeRefreshToken** | **String**| Shopee Refresh Token | [optional]
+ **shopeeRegion** | **String**| Shopee API endpoint Region. Use for Chinese Mainland or Brazil. | [optional]
+ **shopeeEnvironment** | **String**| Shopee Environment | [optional]
  **shoplazzaAccessToken** | **String**| Access token authorizing the app to access resources on behalf of a user | [optional]
  **shoplazzaSharedSecret** | **String**| Shared secret | [optional]
  **mivaAccessToken** | **String**| Miva access token | [optional]
@@ -698,6 +724,10 @@ Name | Type | Description  | Notes
  **sallaClientSecret** | **String**| Salla Client Secret | [optional]
  **sallaRefreshToken** | **String**| Salla Refresh Token | [optional]
  **sallaAccessToken** | **String**| Salla Access Token | [optional]
+ **temuAppKey** | **String**| Temu App Key | [optional]
+ **temuAppSecret** | **String**| Temu App Secret | [optional]
+ **temuAccessToken** | **String**| Temu Access Token | [optional]
+ **temuRegion** | **String**| Temu API endpoint Region. | [optional]
 
 ### Return type
 
