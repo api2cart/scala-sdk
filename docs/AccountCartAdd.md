@@ -167,11 +167,16 @@ Name | Type | Description | Notes
 **temuAppKey** | **String** | Temu App Key |  [optional]
 **temuAppSecret** | **String** | Temu App Secret |  [optional]
 **temuAccessToken** | **String** | Temu Access Token | 
-**temuRegion** | **String** | Temu API endpoint Region. |  [optional]
+**temuRegion** | [**TemuRegion**](#TemuRegion) | Temu API endpoint Region. | 
 
 
 ## Enum: CartId
 Allowed values: [3DCart, 3DCartApi, AceShop, AmazonSP, AspDotNetStorefront, BigCartel, BigcommerceApi, Bol, CommerceHQ, Creloaded, Cscart, Cubecart, Demandware, EBay, Ecwid, EtsyAPIv3, Flipkart, Gambio, Hybris, JooCart, Lazada, LightSpeed, Magento1212, Magento2Api, MercadoLibre, MijoShop, Miva, Neto, Opencart14, Oscmax2, Oscommerce22ms2, Otto, Oxid, Pinnacle, Prestashop, PrestashopApi, SSPremium, Salla, Shopify, Shopee, Shoplazza, Shopline, Shopware, ShopwareApi, Square, Squarespace, Tiendanube, TikTokShop, Tomatocart, Ubercart, Virtuemart, Volusion, WPecommerce, Walmart, WebAsyst, Wix, Woocommerce, WoocommerceApi, Xcart, Xtcommerce, XtcommerceVeyton, Zencart137, Zid, Zoey, Zoho]
+
+
+
+## Enum: TemuRegion
+Allowed values: [US, EU, GLOBAL]
 
 
 

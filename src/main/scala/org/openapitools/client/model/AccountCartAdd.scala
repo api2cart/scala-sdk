@@ -335,12 +335,13 @@ case class AccountCartAdd (
   /* Temu Access Token */
   temuAccessToken: String,
   /* Temu API endpoint Region. */
-  temuRegion: Option[String] = None
+  temuRegion: AccountCartAddEnums.TemuRegion
 ) extends ApiModel
 
 object AccountCartAddEnums {
 
   type CartId = CartId.Value
+  type TemuRegion = TemuRegion.Value
   object CartId extends Enumeration {
     val `3dCart` = Value("3DCart")
     val `3dCartApi` = Value("3DCartApi")
@@ -407,6 +408,12 @@ object AccountCartAddEnums {
     val Zid = Value("Zid")
     val Zoey = Value("Zoey")
     val Zoho = Value("Zoho")
+  }
+
+  object TemuRegion extends Enumeration {
+    val US = Value("US")
+    val EU = Value("EU")
+    val GLOBAL = Value("GLOBAL")
   }
 
 }
