@@ -157,9 +157,11 @@ object Example extends App {
 
     val active: Boolean = true // Boolean | Webhook status
 
+    val langId: String = 3 // String | Language id
+
     val storeId: String = 1 // String | Defines store id where the webhook should be assigned
     
-    val request = apiInstance.webhookCreate(entity, action, callback, label, fields, active, storeId)
+    val request = apiInstance.webhookCreate(entity, action, callback, label, fields, active, langId, storeId)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -193,6 +195,7 @@ Name | Type | Description  | Notes
  **label** | **String**| The name you give to the webhook | [optional]
  **fields** | **String**| Fields the webhook should send | [optional]
  **active** | **Boolean**| Webhook status | [optional]
+ **langId** | **String**| Language id | [optional]
  **storeId** | **String**| Defines store id where the webhook should be assigned | [optional]
 
 ### Return type
@@ -529,8 +532,10 @@ object Example extends App {
     val fields: String = id, name, description // String | Fields the webhook should send
 
     val active: Boolean = true // Boolean | Webhook status
+
+    val langId: String = 3 // String | Language id
     
-    val request = apiInstance.webhookUpdate(id, callback, label, fields, active)
+    val request = apiInstance.webhookUpdate(id, callback, label, fields, active, langId)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -563,6 +568,7 @@ Name | Type | Description  | Notes
  **label** | **String**| The name you give to the webhook | [optional]
  **fields** | **String**| Fields the webhook should send | [optional]
  **active** | **Boolean**| Webhook status | [optional]
+ **langId** | **String**| Language id | [optional]
 
 ### Return type
 

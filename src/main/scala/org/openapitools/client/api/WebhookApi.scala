@@ -68,9 +68,10 @@ class WebhookApi(baseUrl: String) {
    * @param label The name you give to the webhook
    * @param fields Fields the webhook should send
    * @param active Webhook status
+   * @param langId Language id
    * @param storeId Defines store id where the webhook should be assigned
    */
-  def webhookCreate(entity: String, action: String, callback: Option[String] = None, label: Option[String] = None, fields: Option[String] = None, active: Option[Boolean] = None, storeId: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[BasketLiveShippingServiceCreate200Response] =
+  def webhookCreate(entity: String, action: String, callback: Option[String] = None, label: Option[String] = None, fields: Option[String] = None, active: Option[Boolean] = None, langId: Option[String] = None, storeId: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[BasketLiveShippingServiceCreate200Response] =
     ApiRequest[BasketLiveShippingServiceCreate200Response](ApiMethods.POST, baseUrl, "/webhook.create.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
@@ -80,6 +81,7 @@ class WebhookApi(baseUrl: String) {
       .withQueryParam("label", label)
       .withQueryParam("fields", fields)
       .withQueryParam("active", active)
+      .withQueryParam("lang_id", langId)
       .withQueryParam("store_id", storeId)
       .withSuccessResponse[BasketLiveShippingServiceCreate200Response](200)
       
@@ -168,8 +170,9 @@ class WebhookApi(baseUrl: String) {
    * @param label The name you give to the webhook
    * @param fields Fields the webhook should send
    * @param active Webhook status
+   * @param langId Language id
    */
-  def webhookUpdate(id: String, callback: Option[String] = None, label: Option[String] = None, fields: Option[String] = None, active: Option[Boolean] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ProductImageUpdate200Response] =
+  def webhookUpdate(id: String, callback: Option[String] = None, label: Option[String] = None, fields: Option[String] = None, active: Option[Boolean] = None, langId: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ProductImageUpdate200Response] =
     ApiRequest[ProductImageUpdate200Response](ApiMethods.PUT, baseUrl, "/webhook.update.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
@@ -178,6 +181,7 @@ class WebhookApi(baseUrl: String) {
       .withQueryParam("label", label)
       .withQueryParam("fields", fields)
       .withQueryParam("active", active)
+      .withQueryParam("lang_id", langId)
       .withSuccessResponse[ProductImageUpdate200Response](200)
       
 

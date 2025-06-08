@@ -17,6 +17,7 @@ case class Webhook (
   id: Option[Int] = None,
   label: Option[String] = None,
   storeId: Option[String] = None,
+  langId: Option[String] = None,
   active: Option[Boolean] = None,
   callback: Option[String] = None,
   fields: Option[String] = None,
