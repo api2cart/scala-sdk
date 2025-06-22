@@ -155,13 +155,15 @@ object Example extends App {
 
     val fields: String = id, name, description // String | Fields the webhook should send
 
+    val responseFields: String = {result} // String | Set this parameter in order to choose which entity fields you want to retrieve
+
     val active: Boolean = true // Boolean | Webhook status
 
     val langId: String = 3 // String | Language id
 
     val storeId: String = 1 // String | Defines store id where the webhook should be assigned
     
-    val request = apiInstance.webhookCreate(entity, action, callback, label, fields, active, langId, storeId)
+    val request = apiInstance.webhookCreate(entity, action, callback, label, fields, responseFields, active, langId, storeId)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -194,6 +196,7 @@ Name | Type | Description  | Notes
  **callback** | **String**| Callback url that returns shipping rates. It should be able to accept POST requests with json data. | [optional]
  **label** | **String**| The name you give to the webhook | [optional]
  **fields** | **String**| Fields the webhook should send | [optional]
+ **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
  **active** | **Boolean**| Webhook status | [optional]
  **langId** | **String**| Language id | [optional]
  **storeId** | **String**| Defines store id where the webhook should be assigned | [optional]
@@ -531,11 +534,13 @@ object Example extends App {
 
     val fields: String = id, name, description // String | Fields the webhook should send
 
+    val responseFields: String = {result} // String | Set this parameter in order to choose which entity fields you want to retrieve
+
     val active: Boolean = true // Boolean | Webhook status
 
     val langId: String = 3 // String | Language id
     
-    val request = apiInstance.webhookUpdate(id, callback, label, fields, active, langId)
+    val request = apiInstance.webhookUpdate(id, callback, label, fields, responseFields, active, langId)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -567,6 +572,7 @@ Name | Type | Description  | Notes
  **callback** | **String**| Callback url that returns shipping rates. It should be able to accept POST requests with json data. | [optional]
  **label** | **String**| The name you give to the webhook | [optional]
  **fields** | **String**| Fields the webhook should send | [optional]
+ **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
  **active** | **Boolean**| Webhook status | [optional]
  **langId** | **String**| Language id | [optional]
 

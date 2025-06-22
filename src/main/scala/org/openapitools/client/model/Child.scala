@@ -42,6 +42,7 @@ case class Child (
   availForSale: Option[Boolean] = None,
   allowBackorders: Option[Boolean] = None,
   inStock: Option[Boolean] = None,
+  onSale: Option[Boolean] = None,
   manageStock: Option[Boolean] = None,
   inventoryLevel: Option[BigDecimal] = None,
   inventory: Option[Seq[ProductInventory]] = None,

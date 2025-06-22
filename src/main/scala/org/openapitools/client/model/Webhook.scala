@@ -21,6 +21,7 @@ case class Webhook (
   active: Option[Boolean] = None,
   callback: Option[String] = None,
   fields: Option[String] = None,
+  responseFields: Option[String] = None,
   createdAt: Option[String] = None,
   updatedAt: Option[String] = None,
   entity: Option[String] = None,
