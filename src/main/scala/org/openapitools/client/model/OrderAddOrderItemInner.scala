@@ -31,6 +31,8 @@ case class OrderAddOrderItemInner (
   orderItemVariantId: Option[String] = None,
   /* Percentage of tax for product order */
   orderItemTax: Option[BigDecimal] = None,
+  /* Id of the tax class of product. */
+  orderItemTaxClass: Option[String] = None,
   /* Defines if item price includes tax */
   orderItemPriceIncludesTax: Option[Boolean] = None,
   /* Index of the parent grouped/bundle product */

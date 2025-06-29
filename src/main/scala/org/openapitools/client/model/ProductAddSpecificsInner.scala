@@ -19,6 +19,7 @@ case class ProductAddSpecificsInner (
   values: Option[Seq[String]] = None,
   usedForVariations: Option[Boolean] = None,
   scaleId: Option[Int] = None,
+  inputValue: Option[String] = None,
   foodDetails: Option[ProductAddSpecificsInnerFoodDetails] = None,
   groupProductsDetails: Option[Seq[ProductAddSpecificsInnerGroupProductsDetailsInner]] = None,
   bookingDetails: Option[ProductAddSpecificsInnerBookingDetails] = None

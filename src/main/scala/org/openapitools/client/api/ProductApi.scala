@@ -432,6 +432,7 @@ class ProductApi(baseUrl: String) {
    * @param productAttributes Defines product attributes
    * @param status Defines product's status
    * @param `type` Defines products's type
+   * @param visible Filter items by visibility status
    * @param findValue Entity search that is specified by some value
    * @param findWhere Counts products that are searched specified by field
    * @param reportRequestId Report request id
@@ -439,7 +440,7 @@ class ProductApi(baseUrl: String) {
    * @param disableReportCache Disable report cache for current request
    * @param useLatestApiVersion Use the latest platform API version
    */
-  def productCount(productIds: Option[String] = None, sinceId: Option[String] = None, categoriesIds: Option[String] = None, categoryId: Option[String] = None, storeId: Option[String] = None, langId: Option[String] = None, availView: Option[Boolean] = None, availSale: Option[Boolean] = None, createdFrom: Option[String] = None, createdTo: Option[String] = None, modifiedFrom: Option[String] = None, modifiedTo: Option[String] = None, brandName: Option[String] = None, productAttributes: Seq[String], status: Option[String] = None, `type`: Option[String] = None, findValue: Option[String] = None, findWhere: Option[String] = None, reportRequestId: Option[String] = None, returnGlobal: Option[Boolean] = None, disableReportCache: Option[Boolean] = None, useLatestApiVersion: Option[Boolean] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ProductCount200Response] =
+  def productCount(productIds: Option[String] = None, sinceId: Option[String] = None, categoriesIds: Option[String] = None, categoryId: Option[String] = None, storeId: Option[String] = None, langId: Option[String] = None, availView: Option[Boolean] = None, availSale: Option[Boolean] = None, createdFrom: Option[String] = None, createdTo: Option[String] = None, modifiedFrom: Option[String] = None, modifiedTo: Option[String] = None, brandName: Option[String] = None, productAttributes: Seq[String], status: Option[String] = None, `type`: Option[String] = None, visible: Option[String] = None, findValue: Option[String] = None, findWhere: Option[String] = None, reportRequestId: Option[String] = None, returnGlobal: Option[Boolean] = None, disableReportCache: Option[Boolean] = None, useLatestApiVersion: Option[Boolean] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ProductCount200Response] =
     ApiRequest[ProductCount200Response](ApiMethods.GET, baseUrl, "/product.count.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
@@ -459,6 +460,7 @@ class ProductApi(baseUrl: String) {
       .withQueryParam("product_attributes", ArrayValues(productAttributes, MULTI))
       .withQueryParam("status", status)
       .withQueryParam("type", `type`)
+      .withQueryParam("visible", visible)
       .withQueryParam("find_value", findValue)
       .withQueryParam("find_where", findWhere)
       .withQueryParam("report_request_id", reportRequestId)
@@ -774,6 +776,7 @@ class ProductApi(baseUrl: String) {
    * @param productAttributes Defines product attributes
    * @param status Defines product's status
    * @param `type` Defines products's type
+   * @param visible Filter items by visibility status
    * @param findValue Entity search that is specified by some value
    * @param findWhere Product search that is specified by field
    * @param returnGlobal Determines the type of products to be returned. If set to 'true', only global products will be returned; if set to 'false', only local products will be returned.
@@ -787,7 +790,7 @@ class ProductApi(baseUrl: String) {
    * @param disableReportCache Disable report cache for current request
    * @param useLatestApiVersion Use the latest platform API version
    */
-  def productList(start: Option[Int] = None, count: Option[Int] = None, pageCursor: Option[String] = None, productIds: Option[String] = None, sinceId: Option[String] = None, categoriesIds: Option[String] = None, categoryId: Option[String] = None, storeId: Option[String] = None, langId: Option[String] = None, currencyId: Option[String] = None, availView: Option[Boolean] = None, availSale: Option[Boolean] = None, createdFrom: Option[String] = None, createdTo: Option[String] = None, modifiedFrom: Option[String] = None, modifiedTo: Option[String] = None, sku: Option[String] = None, brandName: Option[String] = None, productAttributes: Seq[String], status: Option[String] = None, `type`: Option[String] = None, findValue: Option[String] = None, findWhere: Option[String] = None, returnGlobal: Option[Boolean] = None, params: Option[String] = None, responseFields: Option[String] = None, exclude: Option[String] = None, sortBy: Option[String] = None, sortDirection: Option[String] = None, reportRequestId: Option[String] = None, disableCache: Option[Boolean] = None, disableReportCache: Option[Boolean] = None, useLatestApiVersion: Option[Boolean] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseProductList] =
+  def productList(start: Option[Int] = None, count: Option[Int] = None, pageCursor: Option[String] = None, productIds: Option[String] = None, sinceId: Option[String] = None, categoriesIds: Option[String] = None, categoryId: Option[String] = None, storeId: Option[String] = None, langId: Option[String] = None, currencyId: Option[String] = None, availView: Option[Boolean] = None, availSale: Option[Boolean] = None, createdFrom: Option[String] = None, createdTo: Option[String] = None, modifiedFrom: Option[String] = None, modifiedTo: Option[String] = None, sku: Option[String] = None, brandName: Option[String] = None, productAttributes: Seq[String], status: Option[String] = None, `type`: Option[String] = None, visible: Option[String] = None, findValue: Option[String] = None, findWhere: Option[String] = None, returnGlobal: Option[Boolean] = None, params: Option[String] = None, responseFields: Option[String] = None, exclude: Option[String] = None, sortBy: Option[String] = None, sortDirection: Option[String] = None, reportRequestId: Option[String] = None, disableCache: Option[Boolean] = None, disableReportCache: Option[Boolean] = None, useLatestApiVersion: Option[Boolean] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseProductList] =
     ApiRequest[ModelResponseProductList](ApiMethods.GET, baseUrl, "/product.list.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
@@ -812,6 +815,7 @@ class ProductApi(baseUrl: String) {
       .withQueryParam("product_attributes", ArrayValues(productAttributes, MULTI))
       .withQueryParam("status", status)
       .withQueryParam("type", `type`)
+      .withQueryParam("visible", visible)
       .withQueryParam("find_value", findValue)
       .withQueryParam("find_where", findWhere)
       .withQueryParam("return_global", returnGlobal)

@@ -48,7 +48,9 @@ case class CartCouponAdd (
   /* Indicates whether to apply a discount for taxes. */
   includeTax: Option[Boolean] = None,
   /* Store Id */
-  storeId: Option[String] = None
+  storeId: Option[String] = None,
+  /* Defines whether the coupon provides free cash on delivery */
+  freeCashOnDelivery: Option[Boolean] = None
 ) extends ApiModel
 
 object CartCouponAddEnums {

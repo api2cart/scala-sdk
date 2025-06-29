@@ -1814,7 +1814,7 @@ ApiRequest[[**OrderShipmentInfo200Response**](OrderShipmentInfo200Response.md)]
 
 order.shipment.list
 
-Get list of shipments by orders.
+Get list of shipments per order.
 
 ### Example
 

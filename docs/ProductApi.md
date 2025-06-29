@@ -1178,6 +1178,8 @@ object Example extends App {
 
     val `type`: String = simple // String | Defines products's type
 
+    val visible: String = everywhere // String | Filter items by visibility status
+
     val findValue: String = Phone // String | Entity search that is specified by some value
 
     val findWhere: String = name // String | Counts products that are searched specified by field
@@ -1190,7 +1192,7 @@ object Example extends App {
 
     val useLatestApiVersion: Boolean = true // Boolean | Use the latest platform API version
     
-    val request = apiInstance.productCount(productIds, sinceId, categoriesIds, categoryId, storeId, langId, availView, availSale, createdFrom, createdTo, modifiedFrom, modifiedTo, brandName, productAttributes, status, `type`, findValue, findWhere, reportRequestId, returnGlobal, disableReportCache, useLatestApiVersion)
+    val request = apiInstance.productCount(productIds, sinceId, categoriesIds, categoryId, storeId, langId, availView, availSale, createdFrom, createdTo, modifiedFrom, modifiedTo, brandName, productAttributes, status, `type`, visible, findValue, findWhere, reportRequestId, returnGlobal, disableReportCache, useLatestApiVersion)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -1234,6 +1236,7 @@ Name | Type | Description  | Notes
  **productAttributes** | [**Seq[String]**](String.md)| Defines product attributes | [optional]
  **status** | **String**| Defines product&#39;s status | [optional]
  **`type`** | **String**| Defines products&#39;s type | [optional]
+ **visible** | **String**| Filter items by visibility status | [optional]
  **findValue** | **String**| Entity search that is specified by some value | [optional]
  **findWhere** | **String**| Counts products that are searched specified by field | [optional]
  **reportRequestId** | **String**| Report request id | [optional]
@@ -2312,6 +2315,8 @@ object Example extends App {
 
     val `type`: String = simple // String | Defines products's type
 
+    val visible: String = everywhere // String | Filter items by visibility status
+
     val findValue: String = Phone // String | Entity search that is specified by some value
 
     val findWhere: String = name // String | Product search that is specified by field
@@ -2336,7 +2341,7 @@ object Example extends App {
 
     val useLatestApiVersion: Boolean = true // Boolean | Use the latest platform API version
     
-    val request = apiInstance.productList(start, count, pageCursor, productIds, sinceId, categoriesIds, categoryId, storeId, langId, currencyId, availView, availSale, createdFrom, createdTo, modifiedFrom, modifiedTo, sku, brandName, productAttributes, status, `type`, findValue, findWhere, returnGlobal, params, responseFields, exclude, sortBy, sortDirection, reportRequestId, disableCache, disableReportCache, useLatestApiVersion)
+    val request = apiInstance.productList(start, count, pageCursor, productIds, sinceId, categoriesIds, categoryId, storeId, langId, currencyId, availView, availSale, createdFrom, createdTo, modifiedFrom, modifiedTo, sku, brandName, productAttributes, status, `type`, visible, findValue, findWhere, returnGlobal, params, responseFields, exclude, sortBy, sortDirection, reportRequestId, disableCache, disableReportCache, useLatestApiVersion)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -2385,6 +2390,7 @@ Name | Type | Description  | Notes
  **productAttributes** | [**Seq[String]**](String.md)| Defines product attributes | [optional]
  **status** | **String**| Defines product&#39;s status | [optional]
  **`type`** | **String**| Defines products&#39;s type | [optional]
+ **visible** | **String**| Filter items by visibility status | [optional]
  **findValue** | **String**| Entity search that is specified by some value | [optional]
  **findWhere** | **String**| Product search that is specified by field | [optional]
  **returnGlobal** | **Boolean**| Determines the type of products to be returned. If set to &#39;true&#39;, only global products will be returned; if set to &#39;false&#39;, only local products will be returned. | [optional]

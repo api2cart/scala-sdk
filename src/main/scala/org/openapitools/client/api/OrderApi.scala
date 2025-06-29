@@ -584,7 +584,7 @@ class OrderApi(baseUrl: String) {
       
 
   /**
-   * Get list of shipments by orders.
+   * Get list of shipments per order.
    * 
    * Expected answers:
    *   code 200 : ModelResponseOrderShipmentList (successful operation)

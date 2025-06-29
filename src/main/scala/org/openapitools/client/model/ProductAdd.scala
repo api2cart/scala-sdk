@@ -218,6 +218,8 @@ case class ProductAdd (
   listingDuration: Option[String] = None,
   /* Indicates the selling format of the marketplace listing. */
   listingType: Option[String] = None,
+  /* Specifies the type of category (e.g., apparel or other) for the product being added. */
+  categoryType: Option[String] = None,
   /* Indicates whether the seller allows the buyer to return the item. */
   returnAccepted: Option[Boolean] = None,
   sellerProfiles: Option[ProductAddSellerProfiles] = None,
