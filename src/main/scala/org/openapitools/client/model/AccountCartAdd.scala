@@ -389,6 +389,7 @@ object AccountCartAddEnums {
     val ShopwareApi = Value("ShopwareApi")
     val Square = Value("Square")
     val Squarespace = Value("Squarespace")
+    val Temu = Value("Temu")
     val Tiendanube = Value("Tiendanube")
     val TikTokShop = Value("TikTokShop")
     val Tomatocart = Value("Tomatocart")

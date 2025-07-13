@@ -26,6 +26,7 @@ case class Customer (
   lastLogin: Option[A2CDateTime] = None,
   birthDay: Option[A2CDateTime] = None,
   status: Option[String] = None,
+  isGuest: Option[Boolean] = None,
   newsLetterSubscription: Option[Boolean] = None,
   consents: Option[Seq[CustomerConsent]] = None,
   gender: Option[String] = None,

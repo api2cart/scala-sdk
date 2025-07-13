@@ -127,6 +127,7 @@ class CustomerApi(baseUrl: String) {
    * @param groupId Customer group_id
    * @param storeId Counts customer specified by store id
    * @param avail Defines category's visibility status
+   * @param includeGuests Indicates whether to include guest customers in the total count.
    * @param findValue Entity search that is specified by some value
    * @param findWhere Counts customers that are searched specified by field
    * @param createdFrom Retrieve entities from their creation date
@@ -134,7 +135,7 @@ class CustomerApi(baseUrl: String) {
    * @param modifiedFrom Retrieve entities from their modification date
    * @param modifiedTo Retrieve entities to their modification date
    */
-  def customerCount(ids: Option[String] = None, sinceId: Option[String] = None, customerListId: Option[String] = None, groupId: Option[String] = None, storeId: Option[String] = None, avail: Option[Boolean] = None, findValue: Option[String] = None, findWhere: Option[String] = None, createdFrom: Option[String] = None, createdTo: Option[String] = None, modifiedFrom: Option[String] = None, modifiedTo: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[CustomerCount200Response] =
+  def customerCount(ids: Option[String] = None, sinceId: Option[String] = None, customerListId: Option[String] = None, groupId: Option[String] = None, storeId: Option[String] = None, avail: Option[Boolean] = None, includeGuests: Option[Boolean] = None, findValue: Option[String] = None, findWhere: Option[String] = None, createdFrom: Option[String] = None, createdTo: Option[String] = None, modifiedFrom: Option[String] = None, modifiedTo: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[CustomerCount200Response] =
     ApiRequest[CustomerCount200Response](ApiMethods.GET, baseUrl, "/customer.count.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
@@ -144,6 +145,7 @@ class CustomerApi(baseUrl: String) {
       .withQueryParam("group_id", groupId)
       .withQueryParam("store_id", storeId)
       .withQueryParam("avail", avail)
+      .withQueryParam("include_guests", includeGuests)
       .withQueryParam("find_value", findValue)
       .withQueryParam("find_where", findWhere)
       .withQueryParam("created_from", createdFrom)
@@ -187,8 +189,9 @@ class CustomerApi(baseUrl: String) {
    * @param findWhere Entity search that is specified by the comma-separated unique fields
    * @param findParams Entity search that is specified by comma-separated parameters
    * @param storeId Store Id
+   * @param includeGuests Indicates whether to search among guest customers when looking up a customer.
    */
-  def customerFind(findValue: String, findWhere: Option[String] = None, findParams: Option[String] = None, storeId: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[CustomerFind200Response] =
+  def customerFind(findValue: String, findWhere: Option[String] = None, findParams: Option[String] = None, storeId: Option[String] = None, includeGuests: Option[Boolean] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[CustomerFind200Response] =
     ApiRequest[CustomerFind200Response](ApiMethods.GET, baseUrl, "/customer.find.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
@@ -196,6 +199,7 @@ class CustomerApi(baseUrl: String) {
       .withQueryParam("find_where", findWhere)
       .withQueryParam("find_params", findParams)
       .withQueryParam("store_id", storeId)
+      .withQueryParam("include_guests", includeGuests)
       .withSuccessResponse[CustomerFind200Response](200)
       
 
@@ -308,6 +312,7 @@ class CustomerApi(baseUrl: String) {
    * @param groupId Customer group_id
    * @param storeId Retrieves customers specified by store id
    * @param avail Defines category's visibility status
+   * @param includeGuests Indicates whether to include guest customers in the list results.
    * @param findValue Entity search that is specified by some value
    * @param findWhere Customer search that is specified by field
    * @param createdFrom Retrieve entities from their creation date
@@ -320,7 +325,7 @@ class CustomerApi(baseUrl: String) {
    * @param params Set this parameter in order to choose which entity fields you want to retrieve
    * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
    */
-  def customerList(start: Option[Int] = None, count: Option[Int] = None, pageCursor: Option[String] = None, ids: Option[String] = None, sinceId: Option[String] = None, customerListId: Option[String] = None, groupId: Option[String] = None, storeId: Option[String] = None, avail: Option[Boolean] = None, findValue: Option[String] = None, findWhere: Option[String] = None, createdFrom: Option[String] = None, createdTo: Option[String] = None, modifiedFrom: Option[String] = None, modifiedTo: Option[String] = None, sortBy: Option[String] = None, sortDirection: Option[String] = None, responseFields: Option[String] = None, params: Option[String] = None, exclude: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseCustomerList] =
+  def customerList(start: Option[Int] = None, count: Option[Int] = None, pageCursor: Option[String] = None, ids: Option[String] = None, sinceId: Option[String] = None, customerListId: Option[String] = None, groupId: Option[String] = None, storeId: Option[String] = None, avail: Option[Boolean] = None, includeGuests: Option[Boolean] = None, findValue: Option[String] = None, findWhere: Option[String] = None, createdFrom: Option[String] = None, createdTo: Option[String] = None, modifiedFrom: Option[String] = None, modifiedTo: Option[String] = None, sortBy: Option[String] = None, sortDirection: Option[String] = None, responseFields: Option[String] = None, params: Option[String] = None, exclude: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseCustomerList] =
     ApiRequest[ModelResponseCustomerList](ApiMethods.GET, baseUrl, "/customer.list.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
@@ -333,6 +338,7 @@ class CustomerApi(baseUrl: String) {
       .withQueryParam("group_id", groupId)
       .withQueryParam("store_id", storeId)
       .withQueryParam("avail", avail)
+      .withQueryParam("include_guests", includeGuests)
       .withQueryParam("find_value", findValue)
       .withQueryParam("find_where", findWhere)
       .withQueryParam("created_from", createdFrom)

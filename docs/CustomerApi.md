@@ -358,6 +358,8 @@ object Example extends App {
 
     val avail: Boolean = false // Boolean | Defines category's visibility status
 
+    val includeGuests: Boolean = true // Boolean | Indicates whether to include guest customers in the total count.
+
     val findValue: String = mail@gmail.com // String | Entity search that is specified by some value
 
     val findWhere: String = email // String | Counts customers that are searched specified by field
@@ -370,7 +372,7 @@ object Example extends App {
 
     val modifiedTo: String = 2100-08-29 13:45:52 // String | Retrieve entities to their modification date
     
-    val request = apiInstance.customerCount(ids, sinceId, customerListId, groupId, storeId, avail, findValue, findWhere, createdFrom, createdTo, modifiedFrom, modifiedTo)
+    val request = apiInstance.customerCount(ids, sinceId, customerListId, groupId, storeId, avail, includeGuests, findValue, findWhere, createdFrom, createdTo, modifiedFrom, modifiedTo)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -404,6 +406,7 @@ Name | Type | Description  | Notes
  **groupId** | **String**| Customer group_id | [optional]
  **storeId** | **String**| Counts customer specified by store id | [optional]
  **avail** | **Boolean**| Defines category&#39;s visibility status | [optional]
+ **includeGuests** | **Boolean**| Indicates whether to include guest customers in the total count. | [optional]
  **findValue** | **String**| Entity search that is specified by some value | [optional]
  **findWhere** | **String**| Counts customers that are searched specified by field | [optional]
  **createdFrom** | **String**| Retrieve entities from their creation date | [optional]
@@ -558,8 +561,10 @@ object Example extends App {
     val findParams: String = regex // String | Entity search that is specified by comma-separated parameters
 
     val storeId: String = 1 // String | Store Id
+
+    val includeGuests: Boolean = true // Boolean | Indicates whether to search among guest customers when looking up a customer.
     
-    val request = apiInstance.customerFind(findValue, findWhere, findParams, storeId)
+    val request = apiInstance.customerFind(findValue, findWhere, findParams, storeId, includeGuests)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -591,6 +596,7 @@ Name | Type | Description  | Notes
  **findWhere** | **String**| Entity search that is specified by the comma-separated unique fields | [optional]
  **findParams** | **String**| Entity search that is specified by comma-separated parameters | [optional]
  **storeId** | **String**| Store Id | [optional]
+ **includeGuests** | **Boolean**| Indicates whether to search among guest customers when looking up a customer. | [optional]
 
 ### Return type
 
@@ -967,6 +973,8 @@ object Example extends App {
 
     val avail: Boolean = false // Boolean | Defines category's visibility status
 
+    val includeGuests: Boolean = true // Boolean | Indicates whether to include guest customers in the list results.
+
     val findValue: String = mail@gmail.com // String | Entity search that is specified by some value
 
     val findWhere: String = email // String | Customer search that is specified by field
@@ -989,7 +997,7 @@ object Example extends App {
 
     val exclude: String = id,email // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
     
-    val request = apiInstance.customerList(start, count, pageCursor, ids, sinceId, customerListId, groupId, storeId, avail, findValue, findWhere, createdFrom, createdTo, modifiedFrom, modifiedTo, sortBy, sortDirection, responseFields, params, exclude)
+    val request = apiInstance.customerList(start, count, pageCursor, ids, sinceId, customerListId, groupId, storeId, avail, includeGuests, findValue, findWhere, createdFrom, createdTo, modifiedFrom, modifiedTo, sortBy, sortDirection, responseFields, params, exclude)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -1026,6 +1034,7 @@ Name | Type | Description  | Notes
  **groupId** | **String**| Customer group_id | [optional]
  **storeId** | **String**| Retrieves customers specified by store id | [optional]
  **avail** | **Boolean**| Defines category&#39;s visibility status | [optional]
+ **includeGuests** | **Boolean**| Indicates whether to include guest customers in the list results. | [optional]
  **findValue** | **String**| Entity search that is specified by some value | [optional]
  **findWhere** | **String**| Customer search that is specified by field | [optional]
  **createdFrom** | **String**| Retrieve entities from their creation date | [optional]
