@@ -1,6 +1,6 @@
 # OrderApi
 
-All URIs are relative to *https://api.api2cart.com/v1.1*
+All URIs are relative to *https://api.api2cart.local.com/v1.1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -12,8 +12,6 @@ Method | HTTP request | Description
 [**orderCountWithHttpInfo**](OrderApi.md#orderCountWithHttpInfo) | **GET** /order.count.json | order.count
 [**orderFinancialStatusList**](OrderApi.md#orderFinancialStatusList) | **GET** /order.financial_status.list.json | order.financial_status.list
 [**orderFinancialStatusListWithHttpInfo**](OrderApi.md#orderFinancialStatusListWithHttpInfo) | **GET** /order.financial_status.list.json | order.financial_status.list
-[**orderFind**](OrderApi.md#orderFind) | **GET** /order.find.json | order.find
-[**orderFindWithHttpInfo**](OrderApi.md#orderFindWithHttpInfo) | **GET** /order.find.json | order.find
 [**orderFulfillmentStatusList**](OrderApi.md#orderFulfillmentStatusList) | **GET** /order.fulfillment_status.list.json | order.fulfillment_status.list
 [**orderFulfillmentStatusListWithHttpInfo**](OrderApi.md#orderFulfillmentStatusListWithHttpInfo) | **GET** /order.fulfillment_status.list.json | order.fulfillment_status.list
 [**orderInfo**](OrderApi.md#orderInfo) | **GET** /order.info.json | order.info
@@ -86,7 +84,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = OrderApi("https://api.api2cart.com/v1.1")
+    val apiInstance = OrderApi("https://api.api2cart.local.com/v1.1")
     val start: Int = 0 // Int | This parameter sets the number from which you want to get entities
 
     val count: Int = 20 // Int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
@@ -212,7 +210,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = OrderApi("https://api.api2cart.com/v1.1")
+    val apiInstance = OrderApi("https://api.api2cart.local.com/v1.1")
     val orderAdd: OrderAdd =  // OrderAdd | 
     
     val request = apiInstance.orderAdd(orderAdd)
@@ -298,7 +296,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = OrderApi("https://api.api2cart.com/v1.1")
+    val apiInstance = OrderApi("https://api.api2cart.local.com/v1.1")
     val orderIds: String = 24,25 // String | Counts orders specified by order ids
 
     val ids: String = 24,25 // String | Counts orders specified by ids
@@ -441,7 +439,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = OrderApi("https://api.api2cart.com/v1.1")    
+    val apiInstance = OrderApi("https://api.api2cart.local.com/v1.1")    
     val request = apiInstance.orderFinancialStatusList()
     val response = apiInvoker.execute(request)
 
@@ -472,125 +470,6 @@ This endpoint does not need any parameter.
 ### Return type
 
 ApiRequest[[**OrderFinancialStatusList200Response**](OrderFinancialStatusList200Response.md)]
-
-
-### Authorization
-
-[StoreKeyAuth](../README.md#StoreKeyAuth), [ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | successful operation |  -  |
-
-
-## orderFind
-
-> orderFind(orderFindRequest): ApiRequest[OrderFind200Response]
-
-order.find
-
-This method is deprecated and won&#39;t be supported in the future. Please use \&quot;order.list\&quot; instead.
-
-### Example
-
-```scala
-// Import classes:
-import 
-import org.openapitools.client.core._
-import org.openapitools.client.core.CollectionFormats._
-import org.openapitools.client.core.ApiKeyLocations._
-
-import akka.actor.ActorSystem
-import scala.concurrent.Future
-import scala.util.{Failure, Success}
-
-object Example extends App {
-    
-    implicit val system: ActorSystem = ActorSystem()
-    import system.dispatcher
-    
-    // Configure API key authorization: StoreKeyAuth
-    implicit val StoreKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
-
-    // Configure API key authorization: ApiKeyAuth
-    implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
-
-    val apiInvoker = ApiInvoker()
-    val apiInstance = OrderApi("https://api.api2cart.com/v1.1")
-    val start: Int = 0 // Int | This parameter sets the number from which you want to get entities
-
-    val count: Int = 20 // Int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
-
-    val customerId: String = 5 // String | Retrieves orders specified by customer id
-
-    val customerEmail: String = jubari@hannsgroup.com // String | Retrieves orders specified by customer email
-
-    val orderStatus: String = Completed // String | Retrieves orders specified by order status
-
-    val financialStatus: String = paid // String | Retrieves orders specified by financial status
-
-    val createdTo: String = 2100-08-29 13:45:52 // String | Retrieve entities to their creation date
-
-    val createdFrom: String = 2010-07-29 13:45:52 // String | Retrieve entities from their creation date
-
-    val modifiedTo: String = 2100-08-29 13:45:52 // String | Retrieve entities to their modification date
-
-    val modifiedFrom: String = 2010-07-29 13:45:52 // String | Retrieve entities from their modification date
-
-    val params: String = order_id,totals,status // String | Set this parameter in order to choose which entity fields you want to retrieve
-
-    val exclude: String = order_id,totals,status // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
-    
-    val request = apiInstance.orderFind(start, count, customerId, customerEmail, orderStatus, financialStatus, createdTo, createdFrom, modifiedTo, modifiedFrom, params, exclude)
-    val response = apiInvoker.execute(request)
-
-    response.onComplete {
-        case Success(ApiResponse(code, content, headers)) =>
-            System.out.println(s"Status code: $code}")
-            System.out.println(s"Response headers: ${headers.mkString(", ")}")
-            System.out.println(s"Response body: $content")
-        
-        case Failure(error @ ApiError(code, message, responseContent, cause, headers)) =>
-            System.err.println("Exception when calling OrderApi#orderFind")
-            System.err.println(s"Status code: $code}")
-            System.err.println(s"Reason: $responseContent")
-            System.err.println(s"Response headers: ${headers.mkString(", ")}")
-            error.printStackTrace();
-
-        case Failure(exception) => 
-            System.err.println("Exception when calling OrderApi#orderFind")
-            exception.printStackTrace();
-    }
-}
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **start** | **Int**| This parameter sets the number from which you want to get entities | [optional]
- **count** | **Int**| This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional]
- **customerId** | **String**| Retrieves orders specified by customer id | [optional]
- **customerEmail** | **String**| Retrieves orders specified by customer email | [optional]
- **orderStatus** | **String**| Retrieves orders specified by order status | [optional]
- **financialStatus** | **String**| Retrieves orders specified by financial status | [optional]
- **createdTo** | **String**| Retrieve entities to their creation date | [optional]
- **createdFrom** | **String**| Retrieve entities from their creation date | [optional]
- **modifiedTo** | **String**| Retrieve entities to their modification date | [optional]
- **modifiedFrom** | **String**| Retrieve entities from their modification date | [optional]
- **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
- **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional]
-
-### Return type
-
-ApiRequest[[**OrderFind200Response**](OrderFind200Response.md)]
 
 
 ### Authorization
@@ -641,7 +520,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = OrderApi("https://api.api2cart.com/v1.1")
+    val apiInstance = OrderApi("https://api.api2cart.local.com/v1.1")
     val action: String = add // String | Available statuses for the specified action.
     
     val request = apiInstance.orderFulfillmentStatusList(action)
@@ -727,7 +606,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = OrderApi("https://api.api2cart.com/v1.1")
+    val apiInstance = OrderApi("https://api.api2cart.local.com/v1.1")
     val id: String = 10 // String | Retrieves order info specified by id
 
     val orderId: String = 25 // String | Retrieves order’s info specified by order id
@@ -834,7 +713,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = OrderApi("https://api.api2cart.com/v1.1")
+    val apiInstance = OrderApi("https://api.api2cart.local.com/v1.1")
     val start: Int = 0 // Int | This parameter sets the number from which you want to get entities
 
     val count: Int = 20 // Int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
@@ -1032,7 +911,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = OrderApi("https://api.api2cart.com/v1.1")
+    val apiInstance = OrderApi("https://api.api2cart.local.com/v1.1")
     val orderPreestimateShippingList: OrderPreestimateShippingList =  // OrderPreestimateShippingList | 
     
     val request = apiInstance.orderPreestimateShippingList(orderPreestimateShippingList)
@@ -1119,7 +998,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = OrderApi("https://api.api2cart.com/v1.1")
+    val apiInstance = OrderApi("https://api.api2cart.local.com/v1.1")
     val orderRefundAdd: OrderRefundAdd =  // OrderRefundAdd | 
     
     val request = apiInstance.orderRefundAdd(orderRefundAdd)
@@ -1206,7 +1085,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = OrderApi("https://api.api2cart.com/v1.1")
+    val apiInstance = OrderApi("https://api.api2cart.local.com/v1.1")
     val orderReturnAdd: OrderReturnAdd =  // OrderReturnAdd | 
     
     val request = apiInstance.orderReturnAdd(orderReturnAdd)
@@ -1292,7 +1171,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = OrderApi("https://api.api2cart.com/v1.1")
+    val apiInstance = OrderApi("https://api.api2cart.local.com/v1.1")
     val returnId: String = 200000002 // String | Return ID
 
     val orderId: String = 25 // String | Defines the order id
@@ -1385,7 +1264,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = OrderApi("https://api.api2cart.com/v1.1")
+    val apiInstance = OrderApi("https://api.api2cart.local.com/v1.1")
     val orderReturnUpdate: OrderReturnUpdate =  // OrderReturnUpdate | 
     
     val request = apiInstance.orderReturnUpdate(orderReturnUpdate)
@@ -1472,7 +1351,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = OrderApi("https://api.api2cart.com/v1.1")
+    val apiInstance = OrderApi("https://api.api2cart.local.com/v1.1")
     val orderShipmentAdd: OrderShipmentAdd =  // OrderShipmentAdd | 
     
     val request = apiInstance.orderShipmentAdd(orderShipmentAdd)
@@ -1559,7 +1438,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = OrderApi("https://api.api2cart.com/v1.1")
+    val apiInstance = OrderApi("https://api.api2cart.local.com/v1.1")
     val orderShipmentAddBatch: OrderShipmentAddBatch =  // OrderShipmentAddBatch | 
     
     val request = apiInstance.orderShipmentAddBatch(orderShipmentAddBatch)
@@ -1645,7 +1524,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = OrderApi("https://api.api2cart.com/v1.1")
+    val apiInstance = OrderApi("https://api.api2cart.local.com/v1.1")
     val shipmentId: String = 200000002 // String | Shipment id indicates the number of delivery
 
     val orderId: String = 25 // String | Defines the order for which the shipment will be deleted
@@ -1737,7 +1616,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = OrderApi("https://api.api2cart.com/v1.1")
+    val apiInstance = OrderApi("https://api.api2cart.local.com/v1.1")
     val id: String = 10 // String | Entity id
 
     val orderId: String = 25 // String | Defines the order id
@@ -1841,7 +1720,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = OrderApi("https://api.api2cart.com/v1.1")
+    val apiInstance = OrderApi("https://api.api2cart.local.com/v1.1")
     val orderId: String = 25 // String | Retrieves shipments specified by order id
 
     val start: Int = 0 // Int | This parameter sets the number from which you want to get entities
@@ -1961,7 +1840,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = OrderApi("https://api.api2cart.com/v1.1")
+    val apiInstance = OrderApi("https://api.api2cart.local.com/v1.1")
     val orderShipmentTrackingAdd: OrderShipmentTrackingAdd =  // OrderShipmentTrackingAdd | 
     
     val request = apiInstance.orderShipmentTrackingAdd(orderShipmentTrackingAdd)
@@ -2048,7 +1927,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = OrderApi("https://api.api2cart.com/v1.1")
+    val apiInstance = OrderApi("https://api.api2cart.local.com/v1.1")
     val orderShipmentUpdate: OrderShipmentUpdate =  // OrderShipmentUpdate | 
     
     val request = apiInstance.orderShipmentUpdate(orderShipmentUpdate)
@@ -2134,7 +2013,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = OrderApi("https://api.api2cart.com/v1.1")
+    val apiInstance = OrderApi("https://api.api2cart.local.com/v1.1")
     val storeId: String = 1 // String | Store Id
 
     val action: String = add // String | Available statuses for the specified action.
@@ -2226,7 +2105,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = OrderApi("https://api.api2cart.com/v1.1")
+    val apiInstance = OrderApi("https://api.api2cart.local.com/v1.1")
     val orderIds: String = 24,25 // String | Retrieves order transactions specified by order ids
 
     val count: Int = 20 // Int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
@@ -2330,7 +2209,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = OrderApi("https://api.api2cart.com/v1.1")
+    val apiInstance = OrderApi("https://api.api2cart.local.com/v1.1")
     val orderId: String = 25 // String | Defines the orders specified by order id
 
     val storeId: String = 1 // String | Defines store id where the order should be found

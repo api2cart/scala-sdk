@@ -32,7 +32,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object CustomerApi {
 
-  def apply(baseUrl: String = "https://api.api2cart.com/v1.1") = new CustomerApi(baseUrl)
+  def apply(baseUrl: String = "https://api.api2cart.local.com/v1.1") = new CustomerApi(baseUrl)
 }
 
 class CustomerApi(baseUrl: String) {

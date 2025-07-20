@@ -1,6 +1,6 @@
 # CustomerApi
 
-All URIs are relative to *https://api.api2cart.com/v1.1*
+All URIs are relative to *https://api.api2cart.local.com/v1.1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -65,7 +65,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = CustomerApi("https://api.api2cart.com/v1.1")
+    val apiInstance = CustomerApi("https://api.api2cart.local.com/v1.1")
     val customerAdd: CustomerAdd =  // CustomerAdd | 
     
     val request = apiInstance.customerAdd(customerAdd)
@@ -152,7 +152,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = CustomerApi("https://api.api2cart.com/v1.1")
+    val apiInstance = CustomerApi("https://api.api2cart.local.com/v1.1")
     val customerAddressAdd: CustomerAddressAdd =  // CustomerAddressAdd | 
     
     val request = apiInstance.customerAddressAdd(customerAddressAdd)
@@ -238,7 +238,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = CustomerApi("https://api.api2cart.com/v1.1")
+    val apiInstance = CustomerApi("https://api.api2cart.local.com/v1.1")
     val customerId: String = 5 // String | Retrieves orders specified by customer id
 
     val count: Int = 20 // Int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
@@ -345,7 +345,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = CustomerApi("https://api.api2cart.com/v1.1")
+    val apiInstance = CustomerApi("https://api.api2cart.local.com/v1.1")
     val ids: String = 24,25 // String | Counts customers specified by ids
 
     val sinceId: String = 56 // String | Retrieve entities starting from the specified id.
@@ -467,7 +467,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = CustomerApi("https://api.api2cart.com/v1.1")
+    val apiInstance = CustomerApi("https://api.api2cart.local.com/v1.1")
     val id: String = 10 // String | Identifies customer specified by the id
     
     val request = apiInstance.customerDelete(id)
@@ -553,7 +553,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = CustomerApi("https://api.api2cart.com/v1.1")
+    val apiInstance = CustomerApi("https://api.api2cart.local.com/v1.1")
     val findValue: String = mail@gmail.com // String | Entity search that is specified by some value
 
     val findWhere: String = email // String | Entity search that is specified by the comma-separated unique fields
@@ -651,7 +651,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = CustomerApi("https://api.api2cart.com/v1.1")
+    val apiInstance = CustomerApi("https://api.api2cart.local.com/v1.1")
     val name: String = new_group // String | Customer group name
 
     val storeId: String = 1 // String | Store Id
@@ -743,7 +743,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = CustomerApi("https://api.api2cart.com/v1.1")
+    val apiInstance = CustomerApi("https://api.api2cart.local.com/v1.1")
     val start: Int = 0 // Int | This parameter sets the number from which you want to get entities
 
     val count: Int = 20 // Int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
@@ -856,7 +856,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = CustomerApi("https://api.api2cart.com/v1.1")
+    val apiInstance = CustomerApi("https://api.api2cart.local.com/v1.1")
     val id: String = 10 // String | Retrieves customer's info specified by customer id
 
     val storeId: String = 1 // String | Retrieves customer info specified by store id
@@ -954,7 +954,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = CustomerApi("https://api.api2cart.com/v1.1")
+    val apiInstance = CustomerApi("https://api.api2cart.local.com/v1.1")
     val start: Int = 0 // Int | This parameter sets the number from which you want to get entities
 
     val count: Int = 20 // Int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
@@ -1101,7 +1101,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = CustomerApi("https://api.api2cart.com/v1.1")
+    val apiInstance = CustomerApi("https://api.api2cart.local.com/v1.1")
     val customerUpdate: CustomerUpdate =  // CustomerUpdate | 
     
     val request = apiInstance.customerUpdate(customerUpdate)
@@ -1187,7 +1187,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = CustomerApi("https://api.api2cart.com/v1.1")
+    val apiInstance = CustomerApi("https://api.api2cart.local.com/v1.1")
     val customerId: String = 5 // String | Retrieves orders specified by customer id
 
     val start: Int = 0 // Int | This parameter sets the number from which you want to get entities

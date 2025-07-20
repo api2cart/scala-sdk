@@ -1,6 +1,6 @@
 # ReturnApi
 
-All URIs are relative to *https://api.api2cart.com/v1.1*
+All URIs are relative to *https://api.api2cart.local.com/v1.1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -52,7 +52,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = ReturnApi("https://api.api2cart.com/v1.1")    
+    val apiInstance = ReturnApi("https://api.api2cart.local.com/v1.1")    
     val request = apiInstance.returnActionList()
     val response = apiInvoker.execute(request)
 
@@ -133,7 +133,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = ReturnApi("https://api.api2cart.com/v1.1")
+    val apiInstance = ReturnApi("https://api.api2cart.local.com/v1.1")
     val orderIds: String = 24,25 // String | Counts return requests specified by order ids
 
     val customerId: String = 5 // String | Counts return requests quantity specified by customer id
@@ -249,7 +249,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = ReturnApi("https://api.api2cart.com/v1.1")
+    val apiInstance = ReturnApi("https://api.api2cart.local.com/v1.1")
     val id: String = 10 // String | Entity id
 
     val orderId: String = 25 // String | Defines the order id
@@ -350,7 +350,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = ReturnApi("https://api.api2cart.com/v1.1")
+    val apiInstance = ReturnApi("https://api.api2cart.local.com/v1.1")
     val start: Int = 0 // Int | This parameter sets the number from which you want to get entities
 
     val count: Int = 20 // Int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
@@ -487,7 +487,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = ReturnApi("https://api.api2cart.com/v1.1")
+    val apiInstance = ReturnApi("https://api.api2cart.local.com/v1.1")
     val storeId: String = 1 // String | Store Id
     
     val request = apiInstance.returnReasonList(storeId)
@@ -573,7 +573,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = ReturnApi("https://api.api2cart.com/v1.1")    
+    val apiInstance = ReturnApi("https://api.api2cart.local.com/v1.1")    
     val request = apiInstance.returnStatusList()
     val response = apiInvoker.execute(request)
 

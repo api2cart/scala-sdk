@@ -1,6 +1,6 @@
 # BasketApi
 
-All URIs are relative to *https://api.api2cart.com/v1.1*
+All URIs are relative to *https://api.api2cart.local.com/v1.1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -50,7 +50,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = BasketApi("https://api.api2cart.com/v1.1")
+    val apiInstance = BasketApi("https://api.api2cart.local.com/v1.1")
     val id: String = 10 // String | Entity id
 
     val storeId: String = 1 // String | Store Id
@@ -149,7 +149,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = BasketApi("https://api.api2cart.com/v1.1")
+    val apiInstance = BasketApi("https://api.api2cart.local.com/v1.1")
     val customerId: String = 5 // String | Retrieves orders specified by customer id
 
     val productId: String = 10 // String | Defines id of the product which should be added to the basket
@@ -247,7 +247,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = BasketApi("https://api.api2cart.com/v1.1")
+    val apiInstance = BasketApi("https://api.api2cart.local.com/v1.1")
     val name: String = BestDelivery // String | Shipping Service Name
 
     val callback: String = https://example.com/callback // String | Callback url that returns shipping rates. It should be able to accept POST requests with json data.
@@ -339,7 +339,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = BasketApi("https://api.api2cart.com/v1.1")
+    val apiInstance = BasketApi("https://api.api2cart.local.com/v1.1")
     val id: Int = 5 // Int | Entity id
     
     val request = apiInstance.basketLiveShippingServiceDelete(id)
@@ -425,7 +425,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = BasketApi("https://api.api2cart.com/v1.1")
+    val apiInstance = BasketApi("https://api.api2cart.local.com/v1.1")
     val start: Int = 0 // Int | This parameter sets the number from which you want to get entities
 
     val count: Int = 20 // Int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250

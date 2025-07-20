@@ -19,7 +19,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object BatchApi {
 
-  def apply(baseUrl: String = "https://api.api2cart.com/v1.1") = new BatchApi(baseUrl)
+  def apply(baseUrl: String = "https://api.api2cart.local.com/v1.1") = new BatchApi(baseUrl)
 }
 
 class BatchApi(baseUrl: String) {

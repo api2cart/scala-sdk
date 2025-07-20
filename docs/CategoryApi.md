@@ -1,6 +1,6 @@
 # CategoryApi
 
-All URIs are relative to *https://api.api2cart.com/v1.1*
+All URIs are relative to *https://api.api2cart.local.com/v1.1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -64,7 +64,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = CategoryApi("https://api.api2cart.com/v1.1")
+    val apiInstance = CategoryApi("https://api.api2cart.local.com/v1.1")
     val name: String = Shoes // String | Defines category's name that has to be added
 
     val description: String = Test category // String | Defines category's description
@@ -193,7 +193,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = CategoryApi("https://api.api2cart.com/v1.1")
+    val apiInstance = CategoryApi("https://api.api2cart.local.com/v1.1")
     val categoryAddBatch: CategoryAddBatch =  // CategoryAddBatch | 
     
     val request = apiInstance.categoryAddBatch(categoryAddBatch)
@@ -248,7 +248,7 @@ ApiRequest[[**CategoryAddBatch200Response**](CategoryAddBatch200Response.md)]
 
 ## categoryAssign
 
-> categoryAssign(categoryAssignRequest): ApiRequest[CartConfigUpdate200Response]
+> categoryAssign(categoryAssignRequest): ApiRequest[CategoryAssign200Response]
 
 category.assign
 
@@ -279,7 +279,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = CategoryApi("https://api.api2cart.com/v1.1")
+    val apiInstance = CategoryApi("https://api.api2cart.local.com/v1.1")
     val categoryId: String = 6 // String | Defines category assign, specified by category id
 
     val productId: String = 10 // String | Defines category assign to the product, specified by product id
@@ -320,7 +320,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-ApiRequest[[**CartConfigUpdate200Response**](CartConfigUpdate200Response.md)]
+ApiRequest[[**CategoryAssign200Response**](CategoryAssign200Response.md)]
 
 
 ### Authorization
@@ -371,7 +371,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = CategoryApi("https://api.api2cart.com/v1.1")
+    val apiInstance = CategoryApi("https://api.api2cart.local.com/v1.1")
     val parentId: String = 6 // String | Counts categories specified by parent id
 
     val storeId: String = 1 // String | Counts category specified by store id
@@ -493,7 +493,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = CategoryApi("https://api.api2cart.com/v1.1")
+    val apiInstance = CategoryApi("https://api.api2cart.local.com/v1.1")
     val id: String = 10 // String | Defines category removal, specified by category id
 
     val storeId: String = 1 // String | Store Id
@@ -582,7 +582,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = CategoryApi("https://api.api2cart.com/v1.1")
+    val apiInstance = CategoryApi("https://api.api2cart.local.com/v1.1")
     val findValue: String = Demo category 1 // String | Entity search that is specified by some value
 
     val findWhere: String = name // String | Entity search that is specified by the comma-separated unique fields
@@ -680,7 +680,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = CategoryApi("https://api.api2cart.com/v1.1")
+    val apiInstance = CategoryApi("https://api.api2cart.local.com/v1.1")
     val categoryId: String = 6 // String | Defines category id where the image should be added
 
     val imageName: String = bag-gray.png // String | Defines image's name
@@ -787,7 +787,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = CategoryApi("https://api.api2cart.com/v1.1")
+    val apiInstance = CategoryApi("https://api.api2cart.local.com/v1.1")
     val categoryId: String = 6 // String | Defines category id where the image should be deleted
 
     val imageId: String = 82950b84f468edff480680f99cedbe0d // String | Define image id
@@ -879,7 +879,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = CategoryApi("https://api.api2cart.com/v1.1")
+    val apiInstance = CategoryApi("https://api.api2cart.local.com/v1.1")
     val id: String = 10 // String | Retrieves category's info specified by category id
 
     val storeId: String = 1 // String | Retrieves category info  specified by store id
@@ -989,7 +989,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = CategoryApi("https://api.api2cart.com/v1.1")
+    val apiInstance = CategoryApi("https://api.api2cart.local.com/v1.1")
     val start: Int = 0 // Int | This parameter sets the number from which you want to get entities
 
     val count: Int = 20 // Int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
@@ -1101,7 +1101,7 @@ ApiRequest[[**ModelResponseCategoryList**](ModelResponseCategoryList.md)]
 
 ## categoryUnassign
 
-> categoryUnassign(categoryUnassignRequest): ApiRequest[CartConfigUpdate200Response]
+> categoryUnassign(categoryUnassignRequest): ApiRequest[CategoryAssign200Response]
 
 category.unassign
 
@@ -1132,7 +1132,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = CategoryApi("https://api.api2cart.com/v1.1")
+    val apiInstance = CategoryApi("https://api.api2cart.local.com/v1.1")
     val categoryId: String = 6 // String | Defines category unassign, specified by category id
 
     val productId: String = 10 // String | Defines category unassign to the product, specified by product id
@@ -1173,7 +1173,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-ApiRequest[[**CartConfigUpdate200Response**](CartConfigUpdate200Response.md)]
+ApiRequest[[**CategoryAssign200Response**](CategoryAssign200Response.md)]
 
 
 ### Authorization
@@ -1224,7 +1224,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = CategoryApi("https://api.api2cart.com/v1.1")
+    val apiInstance = CategoryApi("https://api.api2cart.local.com/v1.1")
     val id: String = 10 // String | Defines category update specified by category id
 
     val name: String = NEW Shoes // String | Defines new category’s name

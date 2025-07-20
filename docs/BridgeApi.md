@@ -1,6 +1,6 @@
 # BridgeApi
 
-All URIs are relative to *https://api.api2cart.com/v1.1*
+All URIs are relative to *https://api.api2cart.local.com/v1.1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -46,7 +46,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = BridgeApi("https://api.api2cart.com/v1.1")    
+    val apiInstance = BridgeApi("https://api.api2cart.local.com/v1.1")    
     val request = apiInstance.bridgeDelete()
     val response = apiInvoker.execute(request)
 
@@ -127,7 +127,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = BridgeApi("https://api.api2cart.com/v1.1")
+    val apiInstance = BridgeApi("https://api.api2cart.local.com/v1.1")
     val whitelabel: Boolean = true // Boolean | Identifies if there is a necessity to download whitelabel bridge.
     
     val request = apiInstance.bridgeDownload(whitelabel)
@@ -213,7 +213,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = BridgeApi("https://api.api2cart.com/v1.1")    
+    val apiInstance = BridgeApi("https://api.api2cart.local.com/v1.1")    
     val request = apiInstance.bridgeUpdate()
     val response = apiInvoker.execute(request)
 

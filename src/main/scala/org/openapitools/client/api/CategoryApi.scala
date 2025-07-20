@@ -13,10 +13,10 @@ package org.openapitools.client.api
 
 import org.openapitools.client.model.AccountConfigUpdate200Response
 import org.openapitools.client.model.AttributeDelete200Response
-import org.openapitools.client.model.CartConfigUpdate200Response
 import org.openapitools.client.model.CategoryAdd200Response
 import org.openapitools.client.model.CategoryAddBatch
 import org.openapitools.client.model.CategoryAddBatch200Response
+import org.openapitools.client.model.CategoryAssign200Response
 import org.openapitools.client.model.CategoryCount200Response
 import org.openapitools.client.model.CategoryDelete200Response
 import org.openapitools.client.model.CategoryFind200Response
@@ -29,7 +29,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object CategoryApi {
 
-  def apply(baseUrl: String = "https://api.api2cart.com/v1.1") = new CategoryApi(baseUrl)
+  def apply(baseUrl: String = "https://api.api2cart.local.com/v1.1") = new CategoryApi(baseUrl)
 }
 
 class CategoryApi(baseUrl: String) {
@@ -106,7 +106,7 @@ class CategoryApi(baseUrl: String) {
    * Assign category to product
    * 
    * Expected answers:
-   *   code 200 : CartConfigUpdate200Response (successful operation)
+   *   code 200 : CategoryAssign200Response (successful operation)
    * 
    * Available security schemes:
    *   StoreKeyAuth (apiKey)
@@ -116,14 +116,14 @@ class CategoryApi(baseUrl: String) {
    * @param productId Defines category assign to the product, specified by product id
    * @param storeId Store Id
    */
-  def categoryAssign(categoryId: String, productId: String, storeId: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[CartConfigUpdate200Response] =
-    ApiRequest[CartConfigUpdate200Response](ApiMethods.POST, baseUrl, "/category.assign.json", "application/json")
+  def categoryAssign(categoryId: String, productId: String, storeId: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[CategoryAssign200Response] =
+    ApiRequest[CategoryAssign200Response](ApiMethods.POST, baseUrl, "/category.assign.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
       .withQueryParam("category_id", categoryId)
       .withQueryParam("product_id", productId)
       .withQueryParam("store_id", storeId)
-      .withSuccessResponse[CartConfigUpdate200Response](200)
+      .withSuccessResponse[CategoryAssign200Response](200)
       
 
   /**
@@ -376,7 +376,7 @@ class CategoryApi(baseUrl: String) {
    * Unassign category to product
    * 
    * Expected answers:
-   *   code 200 : CartConfigUpdate200Response (successful operation)
+   *   code 200 : CategoryAssign200Response (successful operation)
    * 
    * Available security schemes:
    *   StoreKeyAuth (apiKey)
@@ -386,14 +386,14 @@ class CategoryApi(baseUrl: String) {
    * @param productId Defines category unassign to the product, specified by product id
    * @param storeId Store Id
    */
-  def categoryUnassign(categoryId: String, productId: String, storeId: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[CartConfigUpdate200Response] =
-    ApiRequest[CartConfigUpdate200Response](ApiMethods.POST, baseUrl, "/category.unassign.json", "application/json")
+  def categoryUnassign(categoryId: String, productId: String, storeId: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[CategoryAssign200Response] =
+    ApiRequest[CategoryAssign200Response](ApiMethods.POST, baseUrl, "/category.unassign.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
       .withQueryParam("category_id", categoryId)
       .withQueryParam("product_id", productId)
       .withQueryParam("store_id", storeId)
-      .withSuccessResponse[CartConfigUpdate200Response](200)
+      .withSuccessResponse[CategoryAssign200Response](200)
       
 
   /**

@@ -1,6 +1,6 @@
 # TaxApi
 
-All URIs are relative to *https://api.api2cart.com/v1.1*
+All URIs are relative to *https://api.api2cart.local.com/v1.1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -44,7 +44,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = TaxApi("https://api.api2cart.com/v1.1")
+    val apiInstance = TaxApi("https://api.api2cart.local.com/v1.1")
     val taxClassId: String = 9 // String | Retrieves taxes specified by class id
 
     val storeId: String = 1 // String | Store Id
@@ -145,7 +145,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = TaxApi("https://api.api2cart.com/v1.1")
+    val apiInstance = TaxApi("https://api.api2cart.local.com/v1.1")
     val count: Int = 20 // Int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
 
     val pageCursor: String =  // String | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)

@@ -23,7 +23,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object ReturnApi {
 
-  def apply(baseUrl: String = "https://api.api2cart.com/v1.1") = new ReturnApi(baseUrl)
+  def apply(baseUrl: String = "https://api.api2cart.local.com/v1.1") = new ReturnApi(baseUrl)
 }
 
 class ReturnApi(baseUrl: String) {

@@ -24,7 +24,6 @@ import org.openapitools.client.model.OrderAdd
 import org.openapitools.client.model.OrderAdd200Response
 import org.openapitools.client.model.OrderCount200Response
 import org.openapitools.client.model.OrderFinancialStatusList200Response
-import org.openapitools.client.model.OrderFind200Response
 import org.openapitools.client.model.OrderFulfillmentStatusList200Response
 import org.openapitools.client.model.OrderInfo200Response
 import org.openapitools.client.model.OrderPreestimateShippingList
@@ -47,7 +46,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object OrderApi {
 
-  def apply(baseUrl: String = "https://api.api2cart.com/v1.1") = new OrderApi(baseUrl)
+  def apply(baseUrl: String = "https://api.api2cart.local.com/v1.1") = new OrderApi(baseUrl)
 }
 
 class OrderApi(baseUrl: String) {
@@ -191,48 +190,6 @@ class OrderApi(baseUrl: String) {
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
       .withSuccessResponse[OrderFinancialStatusList200Response](200)
-      
-
-  /**
-   * This method is deprecated and won't be supported in the future. Please use \"order.list\" instead.
-   * 
-   * Expected answers:
-   *   code 200 : OrderFind200Response (successful operation)
-   * 
-   * Available security schemes:
-   *   StoreKeyAuth (apiKey)
-   *   ApiKeyAuth (apiKey)
-   * 
-   * @param start This parameter sets the number from which you want to get entities
-   * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count=250
-   * @param customerId Retrieves orders specified by customer id
-   * @param customerEmail Retrieves orders specified by customer email
-   * @param orderStatus Retrieves orders specified by order status
-   * @param financialStatus Retrieves orders specified by financial status
-   * @param createdTo Retrieve entities to their creation date
-   * @param createdFrom Retrieve entities from their creation date
-   * @param modifiedTo Retrieve entities to their modification date
-   * @param modifiedFrom Retrieve entities from their modification date
-   * @param params Set this parameter in order to choose which entity fields you want to retrieve
-   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
-   */
-  def orderFind(start: Option[Int] = None, count: Option[Int] = None, customerId: Option[String] = None, customerEmail: Option[String] = None, orderStatus: Option[String] = None, financialStatus: Option[String] = None, createdTo: Option[String] = None, createdFrom: Option[String] = None, modifiedTo: Option[String] = None, modifiedFrom: Option[String] = None, params: Option[String] = None, exclude: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[OrderFind200Response] =
-    ApiRequest[OrderFind200Response](ApiMethods.GET, baseUrl, "/order.find.json", "application/json")
-      .withApiKey(apiKey, "x-store-key", HEADER)
-      .withApiKey(apiKey, "x-api-key", HEADER)
-      .withQueryParam("start", start)
-      .withQueryParam("count", count)
-      .withQueryParam("customer_id", customerId)
-      .withQueryParam("customer_email", customerEmail)
-      .withQueryParam("order_status", orderStatus)
-      .withQueryParam("financial_status", financialStatus)
-      .withQueryParam("created_to", createdTo)
-      .withQueryParam("created_from", createdFrom)
-      .withQueryParam("modified_to", modifiedTo)
-      .withQueryParam("modified_from", modifiedFrom)
-      .withQueryParam("params", params)
-      .withQueryParam("exclude", exclude)
-      .withSuccessResponse[OrderFind200Response](200)
       
 
   /**

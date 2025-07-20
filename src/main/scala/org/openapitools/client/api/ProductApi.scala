@@ -15,7 +15,6 @@ import org.openapitools.client.model.AccountConfigUpdate200Response
 import org.openapitools.client.model.AttributeDelete200Response
 import org.openapitools.client.model.AttributeValueDelete200Response
 import java.math.BigDecimal
-import org.openapitools.client.model.CartConfigUpdate200Response
 import org.openapitools.client.model.CartValidate200Response
 import org.openapitools.client.model.CategoryAddBatch200Response
 import org.openapitools.client.model.CustomerDelete200Response
@@ -56,11 +55,9 @@ import org.openapitools.client.model.ProductUpdateBatch
 import org.openapitools.client.model.ProductVariantAdd
 import org.openapitools.client.model.ProductVariantAdd200Response
 import org.openapitools.client.model.ProductVariantAddBatch
-import org.openapitools.client.model.ProductVariantCount200Response
 import org.openapitools.client.model.ProductVariantDeleteBatch
 import org.openapitools.client.model.ProductVariantImageAdd
 import org.openapitools.client.model.ProductVariantImageAdd200Response
-import org.openapitools.client.model.ProductVariantList200Response
 import org.openapitools.client.model.ProductVariantPriceAdd
 import org.openapitools.client.model.ProductVariantPriceUpdate
 import org.openapitools.client.model.ProductVariantUpdate
@@ -71,7 +68,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object ProductApi {
 
-  def apply(baseUrl: String = "https://api.api2cart.com/v1.1") = new ProductApi(baseUrl)
+  def apply(baseUrl: String = "https://api.api2cart.local.com/v1.1") = new ProductApi(baseUrl)
 }
 
 class ProductApi(baseUrl: String) {
@@ -576,23 +573,6 @@ class ProductApi(baseUrl: String) {
       .withApiKey(apiKey, "x-api-key", HEADER)
       .withBody(productDeleteBatch)
       .withSuccessResponse[CategoryAddBatch200Response](200)
-      
-
-  /**
-   * Retrieve all available fields for product item in store.
-   * 
-   * Expected answers:
-   *   code 200 : CartConfigUpdate200Response (successful operation)
-   * 
-   * Available security schemes:
-   *   StoreKeyAuth (apiKey)
-   *   ApiKeyAuth (apiKey)
-   */
-  def productFields()(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[CartConfigUpdate200Response] =
-    ApiRequest[CartConfigUpdate200Response](ApiMethods.GET, baseUrl, "/product.fields.json", "application/json")
-      .withApiKey(apiKey, "x-store-key", HEADER)
-      .withApiKey(apiKey, "x-api-key", HEADER)
-      .withSuccessResponse[CartConfigUpdate200Response](200)
       
 
   /**
@@ -1304,38 +1284,6 @@ class ProductApi(baseUrl: String) {
       
 
   /**
-   * Get count variants.
-   * 
-   * Expected answers:
-   *   code 200 : ProductVariantCount200Response (successful operation)
-   * 
-   * Available security schemes:
-   *   StoreKeyAuth (apiKey)
-   *   ApiKeyAuth (apiKey)
-   * 
-   * @param productId Retrieves products' variants specified by product id
-   * @param categoryId Counts products’ variants specified by category id
-   * @param storeId Retrieves variants specified by store id
-   * @param createdFrom Retrieve entities from their creation date
-   * @param createdTo Retrieve entities to their creation date
-   * @param modifiedFrom Retrieve entities from their modification date
-   * @param modifiedTo Retrieve entities to their modification date
-   */
-  def productVariantCount(productId: String, categoryId: Option[String] = None, storeId: Option[String] = None, createdFrom: Option[String] = None, createdTo: Option[String] = None, modifiedFrom: Option[String] = None, modifiedTo: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ProductVariantCount200Response] =
-    ApiRequest[ProductVariantCount200Response](ApiMethods.GET, baseUrl, "/product.variant.count.json", "application/json")
-      .withApiKey(apiKey, "x-store-key", HEADER)
-      .withApiKey(apiKey, "x-api-key", HEADER)
-      .withQueryParam("product_id", productId)
-      .withQueryParam("category_id", categoryId)
-      .withQueryParam("store_id", storeId)
-      .withQueryParam("created_from", createdFrom)
-      .withQueryParam("created_to", createdTo)
-      .withQueryParam("modified_from", modifiedFrom)
-      .withQueryParam("modified_to", modifiedTo)
-      .withSuccessResponse[ProductVariantCount200Response](200)
-      
-
-  /**
    * Delete variant.
    * 
    * Expected answers:
@@ -1423,72 +1371,6 @@ class ProductApi(baseUrl: String) {
       .withQueryParam("id", id)
       .withQueryParam("store_id", storeId)
       .withSuccessResponse[AttributeDelete200Response](200)
-      
-
-  /**
-   * Get variant info. This method is deprecated, and its development is stopped. Please use \"product.child_item.info\" instead.
-   * 
-   * Expected answers:
-   *   code 200 : ProductInfo200Response (successful operation)
-   * 
-   * Available security schemes:
-   *   StoreKeyAuth (apiKey)
-   *   ApiKeyAuth (apiKey)
-   * 
-   * @param id Retrieves variant's info specified by variant id
-   * @param storeId Retrieves variant info specified by store id
-   * @param params Set this parameter in order to choose which entity fields you want to retrieve
-   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
-   */
-  def productVariantInfo(id: String, storeId: Option[String] = None, params: Option[String] = None, exclude: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ProductInfo200Response] =
-    ApiRequest[ProductInfo200Response](ApiMethods.GET, baseUrl, "/product.variant.info.json", "application/json")
-      .withApiKey(apiKey, "x-store-key", HEADER)
-      .withApiKey(apiKey, "x-api-key", HEADER)
-      .withQueryParam("id", id)
-      .withQueryParam("store_id", storeId)
-      .withQueryParam("params", params)
-      .withQueryParam("exclude", exclude)
-      .withSuccessResponse[ProductInfo200Response](200)
-      
-
-  /**
-   * Get a list of variants. This method is deprecated, and its development is stopped. Please use \"product.child_item.list\" instead.
-   * 
-   * Expected answers:
-   *   code 200 : ProductVariantList200Response (successful operation)
-   * 
-   * Available security schemes:
-   *   StoreKeyAuth (apiKey)
-   *   ApiKeyAuth (apiKey)
-   * 
-   * @param start This parameter sets the number from which you want to get entities
-   * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count=250
-   * @param productId Retrieves products' variants specified by product id
-   * @param categoryId Retrieves products’ variants specified by category id
-   * @param storeId Retrieves variants specified by store id
-   * @param createdFrom Retrieve entities from their creation date
-   * @param createdTo Retrieve entities to their creation date
-   * @param modifiedFrom Retrieve entities from their modification date
-   * @param modifiedTo Retrieve entities to their modification date
-   * @param params Set this parameter in order to choose which entity fields you want to retrieve
-   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
-   */
-  def productVariantList(start: Option[Int] = None, count: Option[Int] = None, productId: Option[String] = None, categoryId: Option[String] = None, storeId: Option[String] = None, createdFrom: Option[String] = None, createdTo: Option[String] = None, modifiedFrom: Option[String] = None, modifiedTo: Option[String] = None, params: Option[String] = None, exclude: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ProductVariantList200Response] =
-    ApiRequest[ProductVariantList200Response](ApiMethods.GET, baseUrl, "/product.variant.list.json", "application/json")
-      .withApiKey(apiKey, "x-store-key", HEADER)
-      .withApiKey(apiKey, "x-api-key", HEADER)
-      .withQueryParam("start", start)
-      .withQueryParam("count", count)
-      .withQueryParam("product_id", productId)
-      .withQueryParam("category_id", categoryId)
-      .withQueryParam("store_id", storeId)
-      .withQueryParam("created_from", createdFrom)
-      .withQueryParam("created_to", createdTo)
-      .withQueryParam("modified_from", modifiedFrom)
-      .withQueryParam("modified_to", modifiedTo)
-      .withQueryParam("params", params)
-      .withQueryParam("exclude", exclude)
-      .withSuccessResponse[ProductVariantList200Response](200)
       
 
   /**

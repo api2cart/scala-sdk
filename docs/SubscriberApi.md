@@ -1,6 +1,6 @@
 # SubscriberApi
 
-All URIs are relative to *https://api.api2cart.com/v1.1*
+All URIs are relative to *https://api.api2cart.local.com/v1.1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -42,7 +42,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = SubscriberApi("https://api.api2cart.com/v1.1")
+    val apiInstance = SubscriberApi("https://api.api2cart.local.com/v1.1")
     val ids: String = 24,25 // String | Retrieves subscribers specified by ids
 
     val start: Int = 0 // Int | This parameter sets the number from which you want to get entities

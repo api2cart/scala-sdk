@@ -29,7 +29,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object AttributeApi {
 
-  def apply(baseUrl: String = "https://api.api2cart.com/v1.1") = new AttributeApi(baseUrl)
+  def apply(baseUrl: String = "https://api.api2cart.local.com/v1.1") = new AttributeApi(baseUrl)
 }
 
 class AttributeApi(baseUrl: String) {

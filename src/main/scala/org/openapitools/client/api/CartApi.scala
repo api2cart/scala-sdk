@@ -11,27 +11,18 @@
  */
 package org.openapitools.client.api
 
-import org.openapitools.client.model.AccountCartAdd200Response
 import org.openapitools.client.model.AttributeAdd200Response
 import org.openapitools.client.model.AttributeDelete200Response
 import org.openapitools.client.model.BasketLiveShippingServiceDelete200Response
 import java.math.BigDecimal
-import org.openapitools.client.model.CartBridge200Response
 import org.openapitools.client.model.CartCatalogPriceRulesCount200Response
-import org.openapitools.client.model.CartClearCache200Response
-import org.openapitools.client.model.CartConfig200Response
-import org.openapitools.client.model.CartConfigUpdate
-import org.openapitools.client.model.CartConfigUpdate200Response
 import org.openapitools.client.model.CartCouponAdd
 import org.openapitools.client.model.CartCouponAdd200Response
 import org.openapitools.client.model.CartCouponCount200Response
-import org.openapitools.client.model.CartCreate
 import org.openapitools.client.model.CartDelete200Response
-import org.openapitools.client.model.CartDisconnect200Response
 import org.openapitools.client.model.CartGiftcardAdd200Response
 import org.openapitools.client.model.CartGiftcardCount200Response
 import org.openapitools.client.model.CartInfo200Response
-import org.openapitools.client.model.CartList200Response
 import org.openapitools.client.model.CartMethods200Response
 import org.openapitools.client.model.CartPluginList200Response
 import org.openapitools.client.model.CartScriptAdd200Response
@@ -48,25 +39,10 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object CartApi {
 
-  def apply(baseUrl: String = "https://api.api2cart.com/v1.1") = new CartApi(baseUrl)
+  def apply(baseUrl: String = "https://api.api2cart.local.com/v1.1") = new CartApi(baseUrl)
 }
 
 class CartApi(baseUrl: String) {
-
-  /**
-   * Get bridge key and store key
-   * 
-   * Expected answers:
-   *   code 200 : CartBridge200Response (successful operation)
-   * 
-   * Available security schemes:
-   *   ApiKeyAuth (apiKey)
-   */
-  def cartBridge()(implicit apiKey: ApiKeyValue): ApiRequest[CartBridge200Response] =
-    ApiRequest[CartBridge200Response](ApiMethods.GET, baseUrl, "/cart.bridge.json", "application/json")
-      .withApiKey(apiKey, "x-api-key", HEADER)
-      .withSuccessResponse[CartBridge200Response](200)
-      
 
   /**
    * Get count of cart catalog price rules discounts.
@@ -115,68 +91,6 @@ class CartApi(baseUrl: String) {
       .withQueryParam("params", params)
       .withQueryParam("exclude", exclude)
       .withSuccessResponse[ModelResponseCartCatalogPriceRulesList](200)
-      
-
-  /**
-   * Clear cache on store.
-   * 
-   * Expected answers:
-   *   code 200 : CartClearCache200Response (successful operation)
-   * 
-   * Available security schemes:
-   *   StoreKeyAuth (apiKey)
-   *   ApiKeyAuth (apiKey)
-   * 
-   * @param cacheType Defines which cache should be cleared.
-   */
-  def cartClearCache(cacheType: String)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[CartClearCache200Response] =
-    ApiRequest[CartClearCache200Response](ApiMethods.POST, baseUrl, "/cart.clear_cache.json", "application/json")
-      .withApiKey(apiKey, "x-store-key", HEADER)
-      .withApiKey(apiKey, "x-api-key", HEADER)
-      .withQueryParam("cache_type", cacheType)
-      .withSuccessResponse[CartClearCache200Response](200)
-      
-
-  /**
-   * Get list of cart configs
-   * 
-   * Expected answers:
-   *   code 200 : CartConfig200Response (successful operation)
-   * 
-   * Available security schemes:
-   *   StoreKeyAuth (apiKey)
-   *   ApiKeyAuth (apiKey)
-   * 
-   * @param params Set this parameter in order to choose which entity fields you want to retrieve
-   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
-   */
-  def cartConfig(params: Option[String] = None, exclude: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[CartConfig200Response] =
-    ApiRequest[CartConfig200Response](ApiMethods.GET, baseUrl, "/cart.config.json", "application/json")
-      .withApiKey(apiKey, "x-store-key", HEADER)
-      .withApiKey(apiKey, "x-api-key", HEADER)
-      .withQueryParam("params", params)
-      .withQueryParam("exclude", exclude)
-      .withSuccessResponse[CartConfig200Response](200)
-      
-
-  /**
-   * Use this API method to update custom data in client database.
-   * 
-   * Expected answers:
-   *   code 200 : CartConfigUpdate200Response (successful operation)
-   * 
-   * Available security schemes:
-   *   StoreKeyAuth (apiKey)
-   *   ApiKeyAuth (apiKey)
-   * 
-   * @param cartConfigUpdate 
-   */
-  def cartConfigUpdate(cartConfigUpdate: CartConfigUpdate)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[CartConfigUpdate200Response] =
-    ApiRequest[CartConfigUpdate200Response](ApiMethods.PUT, baseUrl, "/cart.config.update.json", "application/json")
-      .withApiKey(apiKey, "x-store-key", HEADER)
-      .withApiKey(apiKey, "x-api-key", HEADER)
-      .withBody(cartConfigUpdate)
-      .withSuccessResponse[CartConfigUpdate200Response](200)
       
 
   /**
@@ -334,24 +248,6 @@ class CartApi(baseUrl: String) {
       
 
   /**
-   * Add store to the account
-   * 
-   * Expected answers:
-   *   code 200 : AccountCartAdd200Response (successful operation)
-   * 
-   * Available security schemes:
-   *   ApiKeyAuth (apiKey)
-   * 
-   * @param cartCreate 
-   */
-  def cartCreate(cartCreate: CartCreate)(implicit apiKey: ApiKeyValue): ApiRequest[AccountCartAdd200Response] =
-    ApiRequest[AccountCartAdd200Response](ApiMethods.POST, baseUrl, "/cart.create.json", "application/json")
-      .withApiKey(apiKey, "x-api-key", HEADER)
-      .withBody(cartCreate)
-      .withSuccessResponse[AccountCartAdd200Response](200)
-      
-
-  /**
    * Remove store from API2Cart
    * 
    * Expected answers:
@@ -369,26 +265,6 @@ class CartApi(baseUrl: String) {
       .withApiKey(apiKey, "x-api-key", HEADER)
       .withQueryParam("delete_bridge", deleteBridge)
       .withSuccessResponse[CartDelete200Response](200)
-      
-
-  /**
-   * Disconnect with the store and clear store session data.
-   * 
-   * Expected answers:
-   *   code 200 : CartDisconnect200Response (successful operation)
-   * 
-   * Available security schemes:
-   *   StoreKeyAuth (apiKey)
-   *   ApiKeyAuth (apiKey)
-   * 
-   * @param deleteBridge Identifies if there is a necessity to delete bridge
-   */
-  def cartDisconnect(deleteBridge: Option[Boolean] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[CartDisconnect200Response] =
-    ApiRequest[CartDisconnect200Response](ApiMethods.GET, baseUrl, "/cart.disconnect.json", "application/json")
-      .withApiKey(apiKey, "x-store-key", HEADER)
-      .withApiKey(apiKey, "x-api-key", HEADER)
-      .withQueryParam("delete_bridge", deleteBridge)
-      .withSuccessResponse[CartDisconnect200Response](200)
       
 
   /**
@@ -517,21 +393,6 @@ class CartApi(baseUrl: String) {
       .withQueryParam("params", params)
       .withQueryParam("exclude", exclude)
       .withSuccessResponse[CartInfo200Response](200)
-      
-
-  /**
-   * Get list of supported carts
-   * 
-   * Expected answers:
-   *   code 200 : CartList200Response (successful operation)
-   * 
-   * Available security schemes:
-   *   ApiKeyAuth (apiKey)
-   */
-  def cartList()(implicit apiKey: ApiKeyValue): ApiRequest[CartList200Response] =
-    ApiRequest[CartList200Response](ApiMethods.GET, baseUrl, "/cart.list.json", "application/json")
-      .withApiKey(apiKey, "x-api-key", HEADER)
-      .withSuccessResponse[CartList200Response](200)
       
 
   /**

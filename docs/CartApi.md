@@ -1,21 +1,13 @@
 # CartApi
 
-All URIs are relative to *https://api.api2cart.com/v1.1*
+All URIs are relative to *https://api.api2cart.local.com/v1.1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**cartBridge**](CartApi.md#cartBridge) | **GET** /cart.bridge.json | cart.bridge
-[**cartBridgeWithHttpInfo**](CartApi.md#cartBridgeWithHttpInfo) | **GET** /cart.bridge.json | cart.bridge
 [**cartCatalogPriceRulesCount**](CartApi.md#cartCatalogPriceRulesCount) | **GET** /cart.catalog_price_rules.count.json | cart.catalog_price_rules.count
 [**cartCatalogPriceRulesCountWithHttpInfo**](CartApi.md#cartCatalogPriceRulesCountWithHttpInfo) | **GET** /cart.catalog_price_rules.count.json | cart.catalog_price_rules.count
 [**cartCatalogPriceRulesList**](CartApi.md#cartCatalogPriceRulesList) | **GET** /cart.catalog_price_rules.list.json | cart.catalog_price_rules.list
 [**cartCatalogPriceRulesListWithHttpInfo**](CartApi.md#cartCatalogPriceRulesListWithHttpInfo) | **GET** /cart.catalog_price_rules.list.json | cart.catalog_price_rules.list
-[**cartClearCache**](CartApi.md#cartClearCache) | **POST** /cart.clear_cache.json | cart.clear_cache
-[**cartClearCacheWithHttpInfo**](CartApi.md#cartClearCacheWithHttpInfo) | **POST** /cart.clear_cache.json | cart.clear_cache
-[**cartConfig**](CartApi.md#cartConfig) | **GET** /cart.config.json | cart.config
-[**cartConfigWithHttpInfo**](CartApi.md#cartConfigWithHttpInfo) | **GET** /cart.config.json | cart.config
-[**cartConfigUpdate**](CartApi.md#cartConfigUpdate) | **PUT** /cart.config.update.json | cart.config.update
-[**cartConfigUpdateWithHttpInfo**](CartApi.md#cartConfigUpdateWithHttpInfo) | **PUT** /cart.config.update.json | cart.config.update
 [**cartCouponAdd**](CartApi.md#cartCouponAdd) | **POST** /cart.coupon.add.json | cart.coupon.add
 [**cartCouponAddWithHttpInfo**](CartApi.md#cartCouponAddWithHttpInfo) | **POST** /cart.coupon.add.json | cart.coupon.add
 [**cartCouponConditionAdd**](CartApi.md#cartCouponConditionAdd) | **POST** /cart.coupon.condition.add.json | cart.coupon.condition.add
@@ -26,12 +18,8 @@ Method | HTTP request | Description
 [**cartCouponDeleteWithHttpInfo**](CartApi.md#cartCouponDeleteWithHttpInfo) | **DELETE** /cart.coupon.delete.json | cart.coupon.delete
 [**cartCouponList**](CartApi.md#cartCouponList) | **GET** /cart.coupon.list.json | cart.coupon.list
 [**cartCouponListWithHttpInfo**](CartApi.md#cartCouponListWithHttpInfo) | **GET** /cart.coupon.list.json | cart.coupon.list
-[**cartCreate**](CartApi.md#cartCreate) | **POST** /cart.create.json | cart.create
-[**cartCreateWithHttpInfo**](CartApi.md#cartCreateWithHttpInfo) | **POST** /cart.create.json | cart.create
 [**cartDelete**](CartApi.md#cartDelete) | **DELETE** /cart.delete.json | cart.delete
 [**cartDeleteWithHttpInfo**](CartApi.md#cartDeleteWithHttpInfo) | **DELETE** /cart.delete.json | cart.delete
-[**cartDisconnect**](CartApi.md#cartDisconnect) | **GET** /cart.disconnect.json | cart.disconnect
-[**cartDisconnectWithHttpInfo**](CartApi.md#cartDisconnectWithHttpInfo) | **GET** /cart.disconnect.json | cart.disconnect
 [**cartGiftcardAdd**](CartApi.md#cartGiftcardAdd) | **POST** /cart.giftcard.add.json | cart.giftcard.add
 [**cartGiftcardAddWithHttpInfo**](CartApi.md#cartGiftcardAddWithHttpInfo) | **POST** /cart.giftcard.add.json | cart.giftcard.add
 [**cartGiftcardCount**](CartApi.md#cartGiftcardCount) | **GET** /cart.giftcard.count.json | cart.giftcard.count
@@ -42,8 +30,6 @@ Method | HTTP request | Description
 [**cartGiftcardListWithHttpInfo**](CartApi.md#cartGiftcardListWithHttpInfo) | **GET** /cart.giftcard.list.json | cart.giftcard.list
 [**cartInfo**](CartApi.md#cartInfo) | **GET** /cart.info.json | cart.info
 [**cartInfoWithHttpInfo**](CartApi.md#cartInfoWithHttpInfo) | **GET** /cart.info.json | cart.info
-[**cartList**](CartApi.md#cartList) | **GET** /cart.list.json | cart.list
-[**cartListWithHttpInfo**](CartApi.md#cartListWithHttpInfo) | **GET** /cart.list.json | cart.list
 [**cartMetaDataList**](CartApi.md#cartMetaDataList) | **GET** /cart.meta_data.list.json | cart.meta_data.list
 [**cartMetaDataListWithHttpInfo**](CartApi.md#cartMetaDataListWithHttpInfo) | **GET** /cart.meta_data.list.json | cart.meta_data.list
 [**cartMetaDataSet**](CartApi.md#cartMetaDataSet) | **POST** /cart.meta_data.set.json | cart.meta_data.set
@@ -65,84 +51,6 @@ Method | HTTP request | Description
 [**cartValidate**](CartApi.md#cartValidate) | **GET** /cart.validate.json | cart.validate
 [**cartValidateWithHttpInfo**](CartApi.md#cartValidateWithHttpInfo) | **GET** /cart.validate.json | cart.validate
 
-
-
-## cartBridge
-
-> cartBridge(): ApiRequest[CartBridge200Response]
-
-cart.bridge
-
-Get bridge key and store key
-
-### Example
-
-```scala
-// Import classes:
-import 
-import org.openapitools.client.core._
-import org.openapitools.client.core.CollectionFormats._
-import org.openapitools.client.core.ApiKeyLocations._
-
-import akka.actor.ActorSystem
-import scala.concurrent.Future
-import scala.util.{Failure, Success}
-
-object Example extends App {
-    
-    implicit val system: ActorSystem = ActorSystem()
-    import system.dispatcher
-    
-    // Configure API key authorization: ApiKeyAuth
-    implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
-
-    val apiInvoker = ApiInvoker()
-    val apiInstance = CartApi("https://api.api2cart.com/v1.1")    
-    val request = apiInstance.cartBridge()
-    val response = apiInvoker.execute(request)
-
-    response.onComplete {
-        case Success(ApiResponse(code, content, headers)) =>
-            System.out.println(s"Status code: $code}")
-            System.out.println(s"Response headers: ${headers.mkString(", ")}")
-            System.out.println(s"Response body: $content")
-        
-        case Failure(error @ ApiError(code, message, responseContent, cause, headers)) =>
-            System.err.println("Exception when calling CartApi#cartBridge")
-            System.err.println(s"Status code: $code}")
-            System.err.println(s"Reason: $responseContent")
-            System.err.println(s"Response headers: ${headers.mkString(", ")}")
-            error.printStackTrace();
-
-        case Failure(exception) => 
-            System.err.println("Exception when calling CartApi#cartBridge")
-            exception.printStackTrace();
-    }
-}
-```
-
-### Parameters
-
-This endpoint does not need any parameter.
-
-### Return type
-
-ApiRequest[[**CartBridge200Response**](CartBridge200Response.md)]
-
-
-### Authorization
-
-[ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | successful operation |  -  |
 
 
 ## cartCatalogPriceRulesCount
@@ -178,7 +86,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = CartApi("https://api.api2cart.com/v1.1")    
+    val apiInstance = CartApi("https://api.api2cart.local.com/v1.1")    
     val request = apiInstance.cartCatalogPriceRulesCount()
     val response = apiInvoker.execute(request)
 
@@ -259,7 +167,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = CartApi("https://api.api2cart.com/v1.1")
+    val apiInstance = CartApi("https://api.api2cart.local.com/v1.1")
     val start: Int = 0 // Int | This parameter sets the number from which you want to get entities
 
     val count: Int = 20 // Int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
@@ -330,268 +238,6 @@ ApiRequest[[**ModelResponseCartCatalogPriceRulesList**](ModelResponseCartCatalog
 | **200** | successful operation |  -  |
 
 
-## cartClearCache
-
-> cartClearCache(cartClearCacheRequest): ApiRequest[CartClearCache200Response]
-
-cart.clear_cache
-
-Clear cache on store.
-
-### Example
-
-```scala
-// Import classes:
-import 
-import org.openapitools.client.core._
-import org.openapitools.client.core.CollectionFormats._
-import org.openapitools.client.core.ApiKeyLocations._
-
-import akka.actor.ActorSystem
-import scala.concurrent.Future
-import scala.util.{Failure, Success}
-
-object Example extends App {
-    
-    implicit val system: ActorSystem = ActorSystem()
-    import system.dispatcher
-    
-    // Configure API key authorization: StoreKeyAuth
-    implicit val StoreKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
-
-    // Configure API key authorization: ApiKeyAuth
-    implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
-
-    val apiInvoker = ApiInvoker()
-    val apiInstance = CartApi("https://api.api2cart.com/v1.1")
-    val cacheType: String = storage_cache // String | Defines which cache should be cleared.
-    
-    val request = apiInstance.cartClearCache(cacheType)
-    val response = apiInvoker.execute(request)
-
-    response.onComplete {
-        case Success(ApiResponse(code, content, headers)) =>
-            System.out.println(s"Status code: $code}")
-            System.out.println(s"Response headers: ${headers.mkString(", ")}")
-            System.out.println(s"Response body: $content")
-        
-        case Failure(error @ ApiError(code, message, responseContent, cause, headers)) =>
-            System.err.println("Exception when calling CartApi#cartClearCache")
-            System.err.println(s"Status code: $code}")
-            System.err.println(s"Reason: $responseContent")
-            System.err.println(s"Response headers: ${headers.mkString(", ")}")
-            error.printStackTrace();
-
-        case Failure(exception) => 
-            System.err.println("Exception when calling CartApi#cartClearCache")
-            exception.printStackTrace();
-    }
-}
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **cacheType** | **String**| Defines which cache should be cleared. |
-
-### Return type
-
-ApiRequest[[**CartClearCache200Response**](CartClearCache200Response.md)]
-
-
-### Authorization
-
-[StoreKeyAuth](../README.md#StoreKeyAuth), [ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | successful operation |  -  |
-
-
-## cartConfig
-
-> cartConfig(cartConfigRequest): ApiRequest[CartConfig200Response]
-
-cart.config
-
-Get list of cart configs
-
-### Example
-
-```scala
-// Import classes:
-import 
-import org.openapitools.client.core._
-import org.openapitools.client.core.CollectionFormats._
-import org.openapitools.client.core.ApiKeyLocations._
-
-import akka.actor.ActorSystem
-import scala.concurrent.Future
-import scala.util.{Failure, Success}
-
-object Example extends App {
-    
-    implicit val system: ActorSystem = ActorSystem()
-    import system.dispatcher
-    
-    // Configure API key authorization: StoreKeyAuth
-    implicit val StoreKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
-
-    // Configure API key authorization: ApiKeyAuth
-    implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
-
-    val apiInvoker = ApiInvoker()
-    val apiInstance = CartApi("https://api.api2cart.com/v1.1")
-    val params: String = store_name,store_url,db_prefix // String | Set this parameter in order to choose which entity fields you want to retrieve
-
-    val exclude: String = store_name,store_url,db_prefix // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
-    
-    val request = apiInstance.cartConfig(params, exclude)
-    val response = apiInvoker.execute(request)
-
-    response.onComplete {
-        case Success(ApiResponse(code, content, headers)) =>
-            System.out.println(s"Status code: $code}")
-            System.out.println(s"Response headers: ${headers.mkString(", ")}")
-            System.out.println(s"Response body: $content")
-        
-        case Failure(error @ ApiError(code, message, responseContent, cause, headers)) =>
-            System.err.println("Exception when calling CartApi#cartConfig")
-            System.err.println(s"Status code: $code}")
-            System.err.println(s"Reason: $responseContent")
-            System.err.println(s"Response headers: ${headers.mkString(", ")}")
-            error.printStackTrace();
-
-        case Failure(exception) => 
-            System.err.println("Exception when calling CartApi#cartConfig")
-            exception.printStackTrace();
-    }
-}
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
- **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional]
-
-### Return type
-
-ApiRequest[[**CartConfig200Response**](CartConfig200Response.md)]
-
-
-### Authorization
-
-[StoreKeyAuth](../README.md#StoreKeyAuth), [ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | successful operation |  -  |
-
-
-## cartConfigUpdate
-
-> cartConfigUpdate(cartConfigUpdateRequest): ApiRequest[CartConfigUpdate200Response]
-
-cart.config.update
-
-Use this API method to update custom data in client database.
-
-### Example
-
-```scala
-// Import classes:
-import 
-import 
-import org.openapitools.client.core._
-import org.openapitools.client.core.CollectionFormats._
-import org.openapitools.client.core.ApiKeyLocations._
-
-import akka.actor.ActorSystem
-import scala.concurrent.Future
-import scala.util.{Failure, Success}
-
-object Example extends App {
-    
-    implicit val system: ActorSystem = ActorSystem()
-    import system.dispatcher
-    
-    // Configure API key authorization: StoreKeyAuth
-    implicit val StoreKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
-
-    // Configure API key authorization: ApiKeyAuth
-    implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
-
-    val apiInvoker = ApiInvoker()
-    val apiInstance = CartApi("https://api.api2cart.com/v1.1")
-    val cartConfigUpdate: CartConfigUpdate =  // CartConfigUpdate | 
-    
-    val request = apiInstance.cartConfigUpdate(cartConfigUpdate)
-    val response = apiInvoker.execute(request)
-
-    response.onComplete {
-        case Success(ApiResponse(code, content, headers)) =>
-            System.out.println(s"Status code: $code}")
-            System.out.println(s"Response headers: ${headers.mkString(", ")}")
-            System.out.println(s"Response body: $content")
-        
-        case Failure(error @ ApiError(code, message, responseContent, cause, headers)) =>
-            System.err.println("Exception when calling CartApi#cartConfigUpdate")
-            System.err.println(s"Status code: $code}")
-            System.err.println(s"Reason: $responseContent")
-            System.err.println(s"Response headers: ${headers.mkString(", ")}")
-            error.printStackTrace();
-
-        case Failure(exception) => 
-            System.err.println("Exception when calling CartApi#cartConfigUpdate")
-            exception.printStackTrace();
-    }
-}
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **cartConfigUpdate** | [**CartConfigUpdate**](CartConfigUpdate.md)|  |
-
-### Return type
-
-ApiRequest[[**CartConfigUpdate200Response**](CartConfigUpdate200Response.md)]
-
-
-### Authorization
-
-[StoreKeyAuth](../README.md#StoreKeyAuth), [ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | successful operation |  -  |
-
-
 ## cartCouponAdd
 
 > cartCouponAdd(cartCouponAddRequest): ApiRequest[CartCouponAdd200Response]
@@ -626,7 +272,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = CartApi("https://api.api2cart.com/v1.1")
+    val apiInstance = CartApi("https://api.api2cart.local.com/v1.1")
     val cartCouponAdd: CartCouponAdd =  // CartCouponAdd | 
     
     val request = apiInstance.cartCouponAdd(cartCouponAdd)
@@ -712,7 +358,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = CartApi("https://api.api2cart.com/v1.1")
+    val apiInstance = CartApi("https://api.api2cart.local.com/v1.1")
     val couponId: String = 45845 // String | Coupon Id
 
     val entity: String = order // String | Defines condition entity type
@@ -822,7 +468,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = CartApi("https://api.api2cart.com/v1.1")
+    val apiInstance = CartApi("https://api.api2cart.local.com/v1.1")
     val storeId: String = 1 // String | Store Id
 
     val avail: Boolean = false // Boolean | Defines category's visibility status
@@ -923,7 +569,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = CartApi("https://api.api2cart.com/v1.1")
+    val apiInstance = CartApi("https://api.api2cart.local.com/v1.1")
     val id: String = 10 // String | Entity id
 
     val storeId: String = 1 // String | Store Id
@@ -1012,7 +658,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = CartApi("https://api.api2cart.com/v1.1")
+    val apiInstance = CartApi("https://api.api2cart.local.com/v1.1")
     val start: Int = 0 // Int | This parameter sets the number from which you want to get entities
 
     val count: Int = 20 // Int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
@@ -1104,90 +750,6 @@ ApiRequest[[**ModelResponseCartCouponList**](ModelResponseCartCouponList.md)]
 | **200** | successful operation |  -  |
 
 
-## cartCreate
-
-> cartCreate(cartCreateRequest): ApiRequest[AccountCartAdd200Response]
-
-cart.create
-
-Add store to the account
-
-### Example
-
-```scala
-// Import classes:
-import 
-import 
-import org.openapitools.client.core._
-import org.openapitools.client.core.CollectionFormats._
-import org.openapitools.client.core.ApiKeyLocations._
-
-import akka.actor.ActorSystem
-import scala.concurrent.Future
-import scala.util.{Failure, Success}
-
-object Example extends App {
-    
-    implicit val system: ActorSystem = ActorSystem()
-    import system.dispatcher
-    
-    // Configure API key authorization: ApiKeyAuth
-    implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
-
-    val apiInvoker = ApiInvoker()
-    val apiInstance = CartApi("https://api.api2cart.com/v1.1")
-    val cartCreate: CartCreate =  // CartCreate | 
-    
-    val request = apiInstance.cartCreate(cartCreate)
-    val response = apiInvoker.execute(request)
-
-    response.onComplete {
-        case Success(ApiResponse(code, content, headers)) =>
-            System.out.println(s"Status code: $code}")
-            System.out.println(s"Response headers: ${headers.mkString(", ")}")
-            System.out.println(s"Response body: $content")
-        
-        case Failure(error @ ApiError(code, message, responseContent, cause, headers)) =>
-            System.err.println("Exception when calling CartApi#cartCreate")
-            System.err.println(s"Status code: $code}")
-            System.err.println(s"Reason: $responseContent")
-            System.err.println(s"Response headers: ${headers.mkString(", ")}")
-            error.printStackTrace();
-
-        case Failure(exception) => 
-            System.err.println("Exception when calling CartApi#cartCreate")
-            exception.printStackTrace();
-    }
-}
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **cartCreate** | [**CartCreate**](CartCreate.md)|  |
-
-### Return type
-
-ApiRequest[[**AccountCartAdd200Response**](AccountCartAdd200Response.md)]
-
-
-### Authorization
-
-[ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | successful operation |  -  |
-
-
 ## cartDelete
 
 > cartDelete(cartDeleteRequest): ApiRequest[CartDelete200Response]
@@ -1221,7 +783,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = CartApi("https://api.api2cart.com/v1.1")
+    val apiInstance = CartApi("https://api.api2cart.local.com/v1.1")
     val deleteBridge: Boolean = true // Boolean | Identifies if there is a necessity to delete bridge
     
     val request = apiInstance.cartDelete(deleteBridge)
@@ -1274,92 +836,6 @@ ApiRequest[[**CartDelete200Response**](CartDelete200Response.md)]
 | **200** | successful operation |  -  |
 
 
-## cartDisconnect
-
-> cartDisconnect(cartDisconnectRequest): ApiRequest[CartDisconnect200Response]
-
-cart.disconnect
-
-Disconnect with the store and clear store session data.
-
-### Example
-
-```scala
-// Import classes:
-import 
-import org.openapitools.client.core._
-import org.openapitools.client.core.CollectionFormats._
-import org.openapitools.client.core.ApiKeyLocations._
-
-import akka.actor.ActorSystem
-import scala.concurrent.Future
-import scala.util.{Failure, Success}
-
-object Example extends App {
-    
-    implicit val system: ActorSystem = ActorSystem()
-    import system.dispatcher
-    
-    // Configure API key authorization: StoreKeyAuth
-    implicit val StoreKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
-
-    // Configure API key authorization: ApiKeyAuth
-    implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
-
-    val apiInvoker = ApiInvoker()
-    val apiInstance = CartApi("https://api.api2cart.com/v1.1")
-    val deleteBridge: Boolean = true // Boolean | Identifies if there is a necessity to delete bridge
-    
-    val request = apiInstance.cartDisconnect(deleteBridge)
-    val response = apiInvoker.execute(request)
-
-    response.onComplete {
-        case Success(ApiResponse(code, content, headers)) =>
-            System.out.println(s"Status code: $code}")
-            System.out.println(s"Response headers: ${headers.mkString(", ")}")
-            System.out.println(s"Response body: $content")
-        
-        case Failure(error @ ApiError(code, message, responseContent, cause, headers)) =>
-            System.err.println("Exception when calling CartApi#cartDisconnect")
-            System.err.println(s"Status code: $code}")
-            System.err.println(s"Reason: $responseContent")
-            System.err.println(s"Response headers: ${headers.mkString(", ")}")
-            error.printStackTrace();
-
-        case Failure(exception) => 
-            System.err.println("Exception when calling CartApi#cartDisconnect")
-            exception.printStackTrace();
-    }
-}
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **deleteBridge** | **Boolean**| Identifies if there is a necessity to delete bridge | [optional]
-
-### Return type
-
-ApiRequest[[**CartDisconnect200Response**](CartDisconnect200Response.md)]
-
-
-### Authorization
-
-[StoreKeyAuth](../README.md#StoreKeyAuth), [ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | successful operation |  -  |
-
-
 ## cartGiftcardAdd
 
 > cartGiftcardAdd(cartGiftcardAddRequest): ApiRequest[CartGiftcardAdd200Response]
@@ -1394,7 +870,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = CartApi("https://api.api2cart.com/v1.1")
+    val apiInstance = CartApi("https://api.api2cart.local.com/v1.1")
     val amount: BigDecimal = 15.5 // BigDecimal | Defines the gift card amount value.
 
     val code: String = GFT1 A4S5 AA11 RD61 // String | Gift card code
@@ -1495,7 +971,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = CartApi("https://api.api2cart.com/v1.1")
+    val apiInstance = CartApi("https://api.api2cart.local.com/v1.1")
     val storeId: String = 1 // String | Store Id
     
     val request = apiInstance.cartGiftcardCount(storeId)
@@ -1581,7 +1057,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = CartApi("https://api.api2cart.com/v1.1")
+    val apiInstance = CartApi("https://api.api2cart.local.com/v1.1")
     val id: String = 10 // String | Entity id
     
     val request = apiInstance.cartGiftcardDelete(id)
@@ -1667,7 +1143,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = CartApi("https://api.api2cart.com/v1.1")
+    val apiInstance = CartApi("https://api.api2cart.local.com/v1.1")
     val start: Int = 0 // Int | This parameter sets the number from which you want to get entities
 
     val count: Int = 20 // Int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
@@ -1771,7 +1247,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = CartApi("https://api.api2cart.com/v1.1")
+    val apiInstance = CartApi("https://api.api2cart.local.com/v1.1")
     val storeId: String = 1 // String | Store Id
 
     val responseFields: String = {result{name,url,stores_info{store_id,name,currency{id,iso3},store_owner_info}}} // String | Set this parameter in order to choose which entity fields you want to retrieve
@@ -1833,84 +1309,6 @@ ApiRequest[[**CartInfo200Response**](CartInfo200Response.md)]
 | **200** | successful operation |  -  |
 
 
-## cartList
-
-> cartList(): ApiRequest[CartList200Response]
-
-cart.list
-
-Get list of supported carts
-
-### Example
-
-```scala
-// Import classes:
-import 
-import org.openapitools.client.core._
-import org.openapitools.client.core.CollectionFormats._
-import org.openapitools.client.core.ApiKeyLocations._
-
-import akka.actor.ActorSystem
-import scala.concurrent.Future
-import scala.util.{Failure, Success}
-
-object Example extends App {
-    
-    implicit val system: ActorSystem = ActorSystem()
-    import system.dispatcher
-    
-    // Configure API key authorization: ApiKeyAuth
-    implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
-
-    val apiInvoker = ApiInvoker()
-    val apiInstance = CartApi("https://api.api2cart.com/v1.1")    
-    val request = apiInstance.cartList()
-    val response = apiInvoker.execute(request)
-
-    response.onComplete {
-        case Success(ApiResponse(code, content, headers)) =>
-            System.out.println(s"Status code: $code}")
-            System.out.println(s"Response headers: ${headers.mkString(", ")}")
-            System.out.println(s"Response body: $content")
-        
-        case Failure(error @ ApiError(code, message, responseContent, cause, headers)) =>
-            System.err.println("Exception when calling CartApi#cartList")
-            System.err.println(s"Status code: $code}")
-            System.err.println(s"Reason: $responseContent")
-            System.err.println(s"Response headers: ${headers.mkString(", ")}")
-            error.printStackTrace();
-
-        case Failure(exception) => 
-            System.err.println("Exception when calling CartApi#cartList")
-            exception.printStackTrace();
-    }
-}
-```
-
-### Parameters
-
-This endpoint does not need any parameter.
-
-### Return type
-
-ApiRequest[[**CartList200Response**](CartList200Response.md)]
-
-
-### Authorization
-
-[ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | successful operation |  -  |
-
-
 ## cartMetaDataList
 
 > cartMetaDataList(cartMetaDataListRequest): ApiRequest[ModelResponseCartMetaDataList]
@@ -1944,7 +1342,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = CartApi("https://api.api2cart.com/v1.1")
+    val apiInstance = CartApi("https://api.api2cart.local.com/v1.1")
     val entityId: String = 1 // String | Entity Id
 
     val count: Int = 20 // Int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
@@ -2057,7 +1455,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = CartApi("https://api.api2cart.com/v1.1")
+    val apiInstance = CartApi("https://api.api2cart.local.com/v1.1")
     val entityId: String = 1 // String | Entity Id
 
     val key: String = subtotal // String | Key
@@ -2161,7 +1559,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = CartApi("https://api.api2cart.com/v1.1")
+    val apiInstance = CartApi("https://api.api2cart.local.com/v1.1")
     val entityId: String = 1 // String | Entity Id
 
     val key: String = subtotal // String | Key
@@ -2259,7 +1657,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = CartApi("https://api.api2cart.com/v1.1")    
+    val apiInstance = CartApi("https://api.api2cart.local.com/v1.1")    
     val request = apiInstance.cartMethods()
     val response = apiInvoker.execute(request)
 
@@ -2340,7 +1738,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = CartApi("https://api.api2cart.com/v1.1")
+    val apiInstance = CartApi("https://api.api2cart.local.com/v1.1")
     val start: Int = 0 // Int | This parameter sets the number from which you want to get entities
 
     val count: Int = 20 // Int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
@@ -2432,7 +1830,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = CartApi("https://api.api2cart.com/v1.1")
+    val apiInstance = CartApi("https://api.api2cart.local.com/v1.1")
     val name: String = jQuery Minimized // String | The user-friendly script name
 
     val description: String = The Write Less, Do More, JavaScript Library // String | The user-friendly description
@@ -2539,7 +1937,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = CartApi("https://api.api2cart.com/v1.1")
+    val apiInstance = CartApi("https://api.api2cart.local.com/v1.1")
     val id: String = 10 // String | Entity id
 
     val storeId: String = 1 // String | Store Id
@@ -2628,7 +2026,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = CartApi("https://api.api2cart.com/v1.1")
+    val apiInstance = CartApi("https://api.api2cart.local.com/v1.1")
     val start: Int = 0 // Int | This parameter sets the number from which you want to get entities
 
     val count: Int = 20 // Int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
@@ -2747,7 +2145,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = CartApi("https://api.api2cart.com/v1.1")
+    val apiInstance = CartApi("https://api.api2cart.local.com/v1.1")
     val start: Int = 0 // Int | This parameter sets the number from which you want to get entities
 
     val count: Int = 20 // Int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
@@ -2848,7 +2246,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = CartApi("https://api.api2cart.com/v1.1")
+    val apiInstance = CartApi("https://api.api2cart.local.com/v1.1")
     val validateVersion: Boolean = true // Boolean | Specify if api2cart should validate cart version
     
     val request = apiInstance.cartValidate(validateVersion)

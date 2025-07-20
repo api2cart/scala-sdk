@@ -1,6 +1,6 @@
 # AttributeApi
 
-All URIs are relative to *https://api.api2cart.com/v1.1*
+All URIs are relative to *https://api.api2cart.local.com/v1.1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -72,7 +72,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = AttributeApi("https://api.api2cart.com/v1.1")
+    val apiInstance = AttributeApi("https://api.api2cart.local.com/v1.1")
     val `type`: String = text // String | Defines attribute's type
 
     val name: String = Specification // String | Defines attributes's name
@@ -218,7 +218,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = AttributeApi("https://api.api2cart.com/v1.1")
+    val apiInstance = AttributeApi("https://api.api2cart.local.com/v1.1")
     val id: String = 10 // String | Entity id
 
     val groupId: String = 3 // String | Attribute group_id
@@ -310,7 +310,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = AttributeApi("https://api.api2cart.com/v1.1")
+    val apiInstance = AttributeApi("https://api.api2cart.local.com/v1.1")
     val id: String = 10 // String | Entity id
 
     val attributeSetId: String = 4 // String | Attribute set id
@@ -402,7 +402,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = AttributeApi("https://api.api2cart.com/v1.1")
+    val apiInstance = AttributeApi("https://api.api2cart.local.com/v1.1")
     val start: Int = 0 // Int | This parameter sets the number from which you want to get entities
 
     val count: Int = 20 // Int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
@@ -500,7 +500,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = AttributeApi("https://api.api2cart.com/v1.1")
+    val apiInstance = AttributeApi("https://api.api2cart.local.com/v1.1")
     val `type`: String = text // String | Defines attribute's type
 
     val attributeSetId: String = 4 // String | Filter items by attribute set id
@@ -604,7 +604,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = AttributeApi("https://api.api2cart.com/v1.1")
+    val apiInstance = AttributeApi("https://api.api2cart.local.com/v1.1")
     val id: String = 10 // String | Entity id
 
     val storeId: String = 1 // String | Store Id
@@ -693,7 +693,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = AttributeApi("https://api.api2cart.com/v1.1")
+    val apiInstance = AttributeApi("https://api.api2cart.local.com/v1.1")
     val start: Int = 0 // Int | This parameter sets the number from which you want to get entities
 
     val count: Int = 20 // Int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
@@ -797,7 +797,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = AttributeApi("https://api.api2cart.com/v1.1")
+    val apiInstance = AttributeApi("https://api.api2cart.local.com/v1.1")
     val id: String = 10 // String | Entity id
 
     val attributeSetId: String = 4 // String | Attribute set id
@@ -901,7 +901,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = AttributeApi("https://api.api2cart.com/v1.1")
+    val apiInstance = AttributeApi("https://api.api2cart.local.com/v1.1")
     val start: Int = 0 // Int | This parameter sets the number from which you want to get entities
 
     val count: Int = 20 // Int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
@@ -1023,7 +1023,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = AttributeApi("https://api.api2cart.com/v1.1")    
+    val apiInstance = AttributeApi("https://api.api2cart.local.com/v1.1")    
     val request = apiInstance.attributeTypeList()
     val response = apiInvoker.execute(request)
 
@@ -1104,7 +1104,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = AttributeApi("https://api.api2cart.com/v1.1")
+    val apiInstance = AttributeApi("https://api.api2cart.local.com/v1.1")
     val id: String = 10 // String | Entity id
 
     val groupId: String = 3 // String | Customer group_id
@@ -1193,7 +1193,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = AttributeApi("https://api.api2cart.com/v1.1")
+    val apiInstance = AttributeApi("https://api.api2cart.local.com/v1.1")
     val id: String = 10 // String | Entity id
 
     val attributeSetId: String = 4 // String | Attribute set id
@@ -1282,7 +1282,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = AttributeApi("https://api.api2cart.com/v1.1")
+    val apiInstance = AttributeApi("https://api.api2cart.local.com/v1.1")
     val id: String = 10 // String | Entity id
 
     val name: String = Test name // String | Defines new attributes's name
@@ -1377,7 +1377,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = AttributeApi("https://api.api2cart.com/v1.1")
+    val apiInstance = AttributeApi("https://api.api2cart.local.com/v1.1")
     val attributeId: String = 156 // String | Attribute Id
 
     val name: String = Test name // String | Defines attribute value's name
@@ -1478,7 +1478,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = AttributeApi("https://api.api2cart.com/v1.1")
+    val apiInstance = AttributeApi("https://api.api2cart.local.com/v1.1")
     val id: String = 10 // String | Entity id
 
     val attributeId: String = 156 // String | Attribute Id
@@ -1570,7 +1570,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = AttributeApi("https://api.api2cart.com/v1.1")
+    val apiInstance = AttributeApi("https://api.api2cart.local.com/v1.1")
     val id: String = 10 // String | Defines attribute value's id
 
     val attributeId: String = 156 // String | Attribute Id

@@ -20,7 +20,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object BridgeApi {
 
-  def apply(baseUrl: String = "https://api.api2cart.com/v1.1") = new BridgeApi(baseUrl)
+  def apply(baseUrl: String = "https://api.api2cart.local.com/v1.1") = new BridgeApi(baseUrl)
 }
 
 class BridgeApi(baseUrl: String) {

@@ -1,6 +1,6 @@
 # ProductApi
 
-All URIs are relative to *https://api.api2cart.com/v1.1*
+All URIs are relative to *https://api.api2cart.local.com/v1.1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -32,8 +32,6 @@ Method | HTTP request | Description
 [**productDeleteWithHttpInfo**](ProductApi.md#productDeleteWithHttpInfo) | **DELETE** /product.delete.json | product.delete
 [**productDeleteBatch**](ProductApi.md#productDeleteBatch) | **POST** /product.delete.batch.json | product.delete.batch
 [**productDeleteBatchWithHttpInfo**](ProductApi.md#productDeleteBatchWithHttpInfo) | **POST** /product.delete.batch.json | product.delete.batch
-[**productFields**](ProductApi.md#productFields) | **GET** /product.fields.json | product.fields
-[**productFieldsWithHttpInfo**](ProductApi.md#productFieldsWithHttpInfo) | **GET** /product.fields.json | product.fields
 [**productFind**](ProductApi.md#productFind) | **GET** /product.find.json | product.find
 [**productFindWithHttpInfo**](ProductApi.md#productFindWithHttpInfo) | **GET** /product.find.json | product.find
 [**productImageAdd**](ProductApi.md#productImageAdd) | **POST** /product.image.add.json | product.image.add
@@ -84,8 +82,6 @@ Method | HTTP request | Description
 [**productVariantAddWithHttpInfo**](ProductApi.md#productVariantAddWithHttpInfo) | **POST** /product.variant.add.json | product.variant.add
 [**productVariantAddBatch**](ProductApi.md#productVariantAddBatch) | **POST** /product.variant.add.batch.json | product.variant.add.batch
 [**productVariantAddBatchWithHttpInfo**](ProductApi.md#productVariantAddBatchWithHttpInfo) | **POST** /product.variant.add.batch.json | product.variant.add.batch
-[**productVariantCount**](ProductApi.md#productVariantCount) | **GET** /product.variant.count.json | product.variant.count
-[**productVariantCountWithHttpInfo**](ProductApi.md#productVariantCountWithHttpInfo) | **GET** /product.variant.count.json | product.variant.count
 [**productVariantDelete**](ProductApi.md#productVariantDelete) | **DELETE** /product.variant.delete.json | product.variant.delete
 [**productVariantDeleteWithHttpInfo**](ProductApi.md#productVariantDeleteWithHttpInfo) | **DELETE** /product.variant.delete.json | product.variant.delete
 [**productVariantDeleteBatch**](ProductApi.md#productVariantDeleteBatch) | **POST** /product.variant.delete.batch.json | product.variant.delete.batch
@@ -94,10 +90,6 @@ Method | HTTP request | Description
 [**productVariantImageAddWithHttpInfo**](ProductApi.md#productVariantImageAddWithHttpInfo) | **POST** /product.variant.image.add.json | product.variant.image.add
 [**productVariantImageDelete**](ProductApi.md#productVariantImageDelete) | **DELETE** /product.variant.image.delete.json | product.variant.image.delete
 [**productVariantImageDeleteWithHttpInfo**](ProductApi.md#productVariantImageDeleteWithHttpInfo) | **DELETE** /product.variant.image.delete.json | product.variant.image.delete
-[**productVariantInfo**](ProductApi.md#productVariantInfo) | **GET** /product.variant.info.json | product.variant.info
-[**productVariantInfoWithHttpInfo**](ProductApi.md#productVariantInfoWithHttpInfo) | **GET** /product.variant.info.json | product.variant.info
-[**productVariantList**](ProductApi.md#productVariantList) | **GET** /product.variant.list.json | product.variant.list
-[**productVariantListWithHttpInfo**](ProductApi.md#productVariantListWithHttpInfo) | **GET** /product.variant.list.json | product.variant.list
 [**productVariantPriceAdd**](ProductApi.md#productVariantPriceAdd) | **POST** /product.variant.price.add.json | product.variant.price.add
 [**productVariantPriceAddWithHttpInfo**](ProductApi.md#productVariantPriceAddWithHttpInfo) | **POST** /product.variant.price.add.json | product.variant.price.add
 [**productVariantPriceDelete**](ProductApi.md#productVariantPriceDelete) | **DELETE** /product.variant.price.delete.json | product.variant.price.delete
@@ -145,7 +137,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = ProductApi("https://api.api2cart.com/v1.1")
+    val apiInstance = ProductApi("https://api.api2cart.local.com/v1.1")
     val productAdd: ProductAdd =  // ProductAdd | 
     
     val request = apiInstance.productAdd(productAdd)
@@ -232,7 +224,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = ProductApi("https://api.api2cart.com/v1.1")
+    val apiInstance = ProductApi("https://api.api2cart.local.com/v1.1")
     val productAddBatch: ProductAddBatch =  // ProductAddBatch | 
     
     val request = apiInstance.productAddBatch(productAddBatch)
@@ -318,7 +310,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = ProductApi("https://api.api2cart.com/v1.1")
+    val apiInstance = ProductApi("https://api.api2cart.local.com/v1.1")
     val productId: String = 10 // String | Retrieves attributes specified by product id
 
     val start: Int = 0 // Int | This parameter sets the number from which you want to get entities
@@ -446,7 +438,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = ProductApi("https://api.api2cart.com/v1.1")
+    val apiInstance = ProductApi("https://api.api2cart.local.com/v1.1")
     val productId: String = 10 // String | Defines product id where the attribute should be added
 
     val attributeId: String = 156 // String | Filter by attribute_id
@@ -553,7 +545,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = ProductApi("https://api.api2cart.com/v1.1")
+    val apiInstance = ProductApi("https://api.api2cart.local.com/v1.1")
     val productId: String = 10 // String | Product id
 
     val attributeId: String = 156 // String | Attribute Id
@@ -654,7 +646,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = ProductApi("https://api.api2cart.com/v1.1")
+    val apiInstance = ProductApi("https://api.api2cart.local.com/v1.1")
     val start: Int = 0 // Int | This parameter sets the number from which you want to get entities
 
     val count: Int = 20 // Int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
@@ -788,7 +780,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = ProductApi("https://api.api2cart.com/v1.1")
+    val apiInstance = ProductApi("https://api.api2cart.local.com/v1.1")
     val findValue: String = bundled-item-123- // String | Entity search that is specified by some value
 
     val findWhere: String = sku // String | Entity search that is specified by the comma-separated unique fields
@@ -883,7 +875,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = ProductApi("https://api.api2cart.com/v1.1")
+    val apiInstance = ProductApi("https://api.api2cart.local.com/v1.1")
     val productId: String = 10 // String | Filter by parent product id
 
     val id: String = 10 // String | Entity id
@@ -993,7 +985,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = ProductApi("https://api.api2cart.com/v1.1")
+    val apiInstance = ProductApi("https://api.api2cart.local.com/v1.1")
     val start: Int = 0 // Int | This parameter sets the number from which you want to get entities
 
     val count: Int = 20 // Int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
@@ -1145,7 +1137,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = ProductApi("https://api.api2cart.com/v1.1")
+    val apiInstance = ProductApi("https://api.api2cart.local.com/v1.1")
     val productIds: String = 4,5 // String | Counts products specified by product ids
 
     val sinceId: String = 56 // String | Retrieve entities starting from the specified id.
@@ -1298,7 +1290,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = ProductApi("https://api.api2cart.com/v1.1")
+    val apiInstance = ProductApi("https://api.api2cart.local.com/v1.1")
     val iso3: String = USD // String | Specifies standardized currency code
 
     val rate: BigDecimal = 1 // BigDecimal | Defines the numerical identifier against to the major currency
@@ -1402,7 +1394,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = ProductApi("https://api.api2cart.com/v1.1")
+    val apiInstance = ProductApi("https://api.api2cart.local.com/v1.1")
     val start: Int = 0 // Int | This parameter sets the number from which you want to get entities
 
     val count: Int = 20 // Int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
@@ -1509,7 +1501,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = ProductApi("https://api.api2cart.com/v1.1")
+    val apiInstance = ProductApi("https://api.api2cart.local.com/v1.1")
     val id: String = 10 // String | Product id that will be removed
 
     val storeId: String = 1 // String | Store Id
@@ -1599,7 +1591,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = ProductApi("https://api.api2cart.com/v1.1")
+    val apiInstance = ProductApi("https://api.api2cart.local.com/v1.1")
     val productDeleteBatch: ProductDeleteBatch =  // ProductDeleteBatch | 
     
     val request = apiInstance.productDeleteBatch(productDeleteBatch)
@@ -1652,87 +1644,6 @@ ApiRequest[[**CategoryAddBatch200Response**](CategoryAddBatch200Response.md)]
 | **200** | successful operation |  -  |
 
 
-## productFields
-
-> productFields(): ApiRequest[CartConfigUpdate200Response]
-
-product.fields
-
-Retrieve all available fields for product item in store.
-
-### Example
-
-```scala
-// Import classes:
-import 
-import org.openapitools.client.core._
-import org.openapitools.client.core.CollectionFormats._
-import org.openapitools.client.core.ApiKeyLocations._
-
-import akka.actor.ActorSystem
-import scala.concurrent.Future
-import scala.util.{Failure, Success}
-
-object Example extends App {
-    
-    implicit val system: ActorSystem = ActorSystem()
-    import system.dispatcher
-    
-    // Configure API key authorization: StoreKeyAuth
-    implicit val StoreKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
-
-    // Configure API key authorization: ApiKeyAuth
-    implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
-
-    val apiInvoker = ApiInvoker()
-    val apiInstance = ProductApi("https://api.api2cart.com/v1.1")    
-    val request = apiInstance.productFields()
-    val response = apiInvoker.execute(request)
-
-    response.onComplete {
-        case Success(ApiResponse(code, content, headers)) =>
-            System.out.println(s"Status code: $code}")
-            System.out.println(s"Response headers: ${headers.mkString(", ")}")
-            System.out.println(s"Response body: $content")
-        
-        case Failure(error @ ApiError(code, message, responseContent, cause, headers)) =>
-            System.err.println("Exception when calling ProductApi#productFields")
-            System.err.println(s"Status code: $code}")
-            System.err.println(s"Reason: $responseContent")
-            System.err.println(s"Response headers: ${headers.mkString(", ")}")
-            error.printStackTrace();
-
-        case Failure(exception) => 
-            System.err.println("Exception when calling ProductApi#productFields")
-            exception.printStackTrace();
-    }
-}
-```
-
-### Parameters
-
-This endpoint does not need any parameter.
-
-### Return type
-
-ApiRequest[[**CartConfigUpdate200Response**](CartConfigUpdate200Response.md)]
-
-
-### Authorization
-
-[StoreKeyAuth](../README.md#StoreKeyAuth), [ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | successful operation |  -  |
-
-
 ## productFind
 
 > productFind(productFindRequest): ApiRequest[ProductFind200Response]
@@ -1766,7 +1677,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = ProductApi("https://api.api2cart.com/v1.1")
+    val apiInstance = ProductApi("https://api.api2cart.local.com/v1.1")
     val findValue: String = Simple // String | Entity search that is specified by some value
 
     val findWhere: String = name // String | Entity search that is specified by the comma-separated unique fields
@@ -1868,7 +1779,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = ProductApi("https://api.api2cart.com/v1.1")
+    val apiInstance = ProductApi("https://api.api2cart.local.com/v1.1")
     val productImageAdd: ProductImageAdd =  // ProductImageAdd | 
     
     val request = apiInstance.productImageAdd(productImageAdd)
@@ -1954,7 +1865,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = ProductApi("https://api.api2cart.com/v1.1")
+    val apiInstance = ProductApi("https://api.api2cart.local.com/v1.1")
     val productId: String = 10 // String | Defines product id where the image should be deleted
 
     val id: String = 10 // String | Entity id
@@ -2046,7 +1957,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = ProductApi("https://api.api2cart.com/v1.1")
+    val apiInstance = ProductApi("https://api.api2cart.local.com/v1.1")
     val productId: String = 10 // String | Defines product id where the image should be updated
 
     val id: String = 10 // String | Defines image update specified by image id
@@ -2159,7 +2070,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = ProductApi("https://api.api2cart.com/v1.1")
+    val apiInstance = ProductApi("https://api.api2cart.local.com/v1.1")
     val id: String = 10 // String | Retrieves product's info specified by product id
 
     val storeId: String = 1 // String | Retrieves product info specified by store id
@@ -2272,7 +2183,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = ProductApi("https://api.api2cart.com/v1.1")
+    val apiInstance = ProductApi("https://api.api2cart.local.com/v1.1")
     val start: Int = 0 // Int | This parameter sets the number from which you want to get entities
 
     val count: Int = 20 // Int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
@@ -2457,7 +2368,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = ProductApi("https://api.api2cart.com/v1.1")
+    val apiInstance = ProductApi("https://api.api2cart.local.com/v1.1")
     val productId: String = 10 // String | Defines products specified by product id
 
     val manufacturer: String = Samsung // String | Defines product’s manufacturer's name
@@ -2550,7 +2461,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = ProductApi("https://api.api2cart.com/v1.1")
+    val apiInstance = ProductApi("https://api.api2cart.local.com/v1.1")
     val productOptionAdd: ProductOptionAdd =  // ProductOptionAdd | 
     
     val request = apiInstance.productOptionAdd(productOptionAdd)
@@ -2636,7 +2547,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = ProductApi("https://api.api2cart.com/v1.1")
+    val apiInstance = ProductApi("https://api.api2cart.local.com/v1.1")
     val productId: String = 10 // String | Defines product id where the option should be assigned
 
     val optionId: String = 5 // String | Defines option id which has to be assigned
@@ -2737,7 +2648,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = ProductApi("https://api.api2cart.com/v1.1")
+    val apiInstance = ProductApi("https://api.api2cart.local.com/v1.1")
     val optionId: String = 5 // String | Defines option id that should be deleted
 
     val productId: String = 10 // String | Defines product id where the option should be deleted
@@ -2829,7 +2740,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = ProductApi("https://api.api2cart.com/v1.1")
+    val apiInstance = ProductApi("https://api.api2cart.local.com/v1.1")
     val start: Int = 0 // Int | This parameter sets the number from which you want to get entities
 
     val count: Int = 20 // Int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
@@ -2936,7 +2847,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = ProductApi("https://api.api2cart.com/v1.1")
+    val apiInstance = ProductApi("https://api.api2cart.local.com/v1.1")
     val productId: String = 10 // String | Defines product id where the option value should be added
 
     val optionId: String = 5 // String | Defines option id where the value has to be added
@@ -3040,7 +2951,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = ProductApi("https://api.api2cart.com/v1.1")
+    val apiInstance = ProductApi("https://api.api2cart.local.com/v1.1")
     val productOptionId: Int = 5 // Int | Defines product's option id where the value has to be assigned
 
     val optionValueId: String = 45 // String | Defines value id that has to be assigned
@@ -3132,7 +3043,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = ProductApi("https://api.api2cart.com/v1.1")
+    val apiInstance = ProductApi("https://api.api2cart.local.com/v1.1")
     val optionId: String = 5 // String | Defines option id where the value should be deleted
 
     val optionValueId: String = 45 // String | Defines option value id that should be deleted
@@ -3228,7 +3139,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = ProductApi("https://api.api2cart.com/v1.1")
+    val apiInstance = ProductApi("https://api.api2cart.local.com/v1.1")
     val productId: String = 10 // String | Defines product id where the option value should be updated
 
     val optionId: String = 5 // String | Defines option id where the value has to be updated
@@ -3336,7 +3247,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = ProductApi("https://api.api2cart.com/v1.1")
+    val apiInstance = ProductApi("https://api.api2cart.local.com/v1.1")
     val productPriceAdd: ProductPriceAdd =  // ProductPriceAdd | 
     
     val request = apiInstance.productPriceAdd(productPriceAdd)
@@ -3422,7 +3333,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = ProductApi("https://api.api2cart.com/v1.1")
+    val apiInstance = ProductApi("https://api.api2cart.local.com/v1.1")
     val productId: String = 10 // String | Defines the product where the price has to be deleted
 
     val groupPrices: String = group_prices=5,8,9 // String | Defines product's group prices
@@ -3515,7 +3426,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = ProductApi("https://api.api2cart.com/v1.1")
+    val apiInstance = ProductApi("https://api.api2cart.local.com/v1.1")
     val productPriceUpdate: ProductPriceUpdate =  // ProductPriceUpdate | 
     
     val request = apiInstance.productPriceUpdate(productPriceUpdate)
@@ -3601,7 +3512,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = ProductApi("https://api.api2cart.com/v1.1")
+    val apiInstance = ProductApi("https://api.api2cart.local.com/v1.1")
     val productId: String = 10 // String | Product id
 
     val start: Int = 0 // Int | This parameter sets the number from which you want to get entities
@@ -3714,7 +3625,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = ProductApi("https://api.api2cart.com/v1.1")
+    val apiInstance = ProductApi("https://api.api2cart.local.com/v1.1")
     val productId: String = 10 // String | Defines id of the product which should be assigned to a store
 
     val storeId: String = 1 // String | Defines id of the store product should be assigned to
@@ -3804,7 +3715,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = ProductApi("https://api.api2cart.com/v1.1")
+    val apiInstance = ProductApi("https://api.api2cart.local.com/v1.1")
     val productTaxAdd: ProductTaxAdd =  // ProductTaxAdd | 
     
     val request = apiInstance.productTaxAdd(productTaxAdd)
@@ -3891,7 +3802,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = ProductApi("https://api.api2cart.com/v1.1")
+    val apiInstance = ProductApi("https://api.api2cart.local.com/v1.1")
     val productUpdate: ProductUpdate =  // ProductUpdate | 
     
     val request = apiInstance.productUpdate(productUpdate)
@@ -3978,7 +3889,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = ProductApi("https://api.api2cart.com/v1.1")
+    val apiInstance = ProductApi("https://api.api2cart.local.com/v1.1")
     val productUpdateBatch: ProductUpdateBatch =  // ProductUpdateBatch | 
     
     val request = apiInstance.productUpdateBatch(productUpdateBatch)
@@ -4065,7 +3976,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = ProductApi("https://api.api2cart.com/v1.1")
+    val apiInstance = ProductApi("https://api.api2cart.local.com/v1.1")
     val productVariantAdd: ProductVariantAdd =  // ProductVariantAdd | 
     
     val request = apiInstance.productVariantAdd(productVariantAdd)
@@ -4152,7 +4063,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = ProductApi("https://api.api2cart.com/v1.1")
+    val apiInstance = ProductApi("https://api.api2cart.local.com/v1.1")
     val productVariantAddBatch: ProductVariantAddBatch =  // ProductVariantAddBatch | 
     
     val request = apiInstance.productVariantAddBatch(productVariantAddBatch)
@@ -4205,110 +4116,6 @@ ApiRequest[[**CategoryAddBatch200Response**](CategoryAddBatch200Response.md)]
 | **200** | successful operation |  -  |
 
 
-## productVariantCount
-
-> productVariantCount(productVariantCountRequest): ApiRequest[ProductVariantCount200Response]
-
-product.variant.count
-
-Get count variants.
-
-### Example
-
-```scala
-// Import classes:
-import 
-import org.openapitools.client.core._
-import org.openapitools.client.core.CollectionFormats._
-import org.openapitools.client.core.ApiKeyLocations._
-
-import akka.actor.ActorSystem
-import scala.concurrent.Future
-import scala.util.{Failure, Success}
-
-object Example extends App {
-    
-    implicit val system: ActorSystem = ActorSystem()
-    import system.dispatcher
-    
-    // Configure API key authorization: StoreKeyAuth
-    implicit val StoreKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
-
-    // Configure API key authorization: ApiKeyAuth
-    implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
-
-    val apiInvoker = ApiInvoker()
-    val apiInstance = ProductApi("https://api.api2cart.com/v1.1")
-    val productId: String = 10 // String | Retrieves products' variants specified by product id
-
-    val categoryId: String = 6 // String | Counts products’ variants specified by category id
-
-    val storeId: String = 1 // String | Retrieves variants specified by store id
-
-    val createdFrom: String = 2010-07-29 13:45:52 // String | Retrieve entities from their creation date
-
-    val createdTo: String = 2100-08-29 13:45:52 // String | Retrieve entities to their creation date
-
-    val modifiedFrom: String = 2010-07-29 13:45:52 // String | Retrieve entities from their modification date
-
-    val modifiedTo: String = 2100-08-29 13:45:52 // String | Retrieve entities to their modification date
-    
-    val request = apiInstance.productVariantCount(productId, categoryId, storeId, createdFrom, createdTo, modifiedFrom, modifiedTo)
-    val response = apiInvoker.execute(request)
-
-    response.onComplete {
-        case Success(ApiResponse(code, content, headers)) =>
-            System.out.println(s"Status code: $code}")
-            System.out.println(s"Response headers: ${headers.mkString(", ")}")
-            System.out.println(s"Response body: $content")
-        
-        case Failure(error @ ApiError(code, message, responseContent, cause, headers)) =>
-            System.err.println("Exception when calling ProductApi#productVariantCount")
-            System.err.println(s"Status code: $code}")
-            System.err.println(s"Reason: $responseContent")
-            System.err.println(s"Response headers: ${headers.mkString(", ")}")
-            error.printStackTrace();
-
-        case Failure(exception) => 
-            System.err.println("Exception when calling ProductApi#productVariantCount")
-            exception.printStackTrace();
-    }
-}
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **productId** | **String**| Retrieves products&#39; variants specified by product id |
- **categoryId** | **String**| Counts products’ variants specified by category id | [optional]
- **storeId** | **String**| Retrieves variants specified by store id | [optional]
- **createdFrom** | **String**| Retrieve entities from their creation date | [optional]
- **createdTo** | **String**| Retrieve entities to their creation date | [optional]
- **modifiedFrom** | **String**| Retrieve entities from their modification date | [optional]
- **modifiedTo** | **String**| Retrieve entities to their modification date | [optional]
-
-### Return type
-
-ApiRequest[[**ProductVariantCount200Response**](ProductVariantCount200Response.md)]
-
-
-### Authorization
-
-[StoreKeyAuth](../README.md#StoreKeyAuth), [ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | successful operation |  -  |
-
-
 ## productVariantDelete
 
 > productVariantDelete(productVariantDeleteRequest): ApiRequest[AttributeValueDelete200Response]
@@ -4342,7 +4149,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = ProductApi("https://api.api2cart.com/v1.1")
+    val apiInstance = ProductApi("https://api.api2cart.local.com/v1.1")
     val id: String = 10 // String | Defines variant removal, specified by variant id
 
     val productId: String = 10 // String | Defines product's id where the variant has to be deleted
@@ -4435,7 +4242,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = ProductApi("https://api.api2cart.com/v1.1")
+    val apiInstance = ProductApi("https://api.api2cart.local.com/v1.1")
     val productVariantDeleteBatch: ProductVariantDeleteBatch =  // ProductVariantDeleteBatch | 
     
     val request = apiInstance.productVariantDeleteBatch(productVariantDeleteBatch)
@@ -4522,7 +4329,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = ProductApi("https://api.api2cart.com/v1.1")
+    val apiInstance = ProductApi("https://api.api2cart.local.com/v1.1")
     val productVariantImageAdd: ProductVariantImageAdd =  // ProductVariantImageAdd | 
     
     val request = apiInstance.productVariantImageAdd(productVariantImageAdd)
@@ -4608,7 +4415,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = ProductApi("https://api.api2cart.com/v1.1")
+    val apiInstance = ProductApi("https://api.api2cart.local.com/v1.1")
     val productId: String = 10 // String | Defines product id where the variant image should be deleted
 
     val productVariantId: String = 45 // String | Defines product's variants specified by variant id
@@ -4670,217 +4477,6 @@ ApiRequest[[**AttributeDelete200Response**](AttributeDelete200Response.md)]
 | **200** | successful operation |  -  |
 
 
-## productVariantInfo
-
-> productVariantInfo(productVariantInfoRequest): ApiRequest[ProductInfo200Response]
-
-product.variant.info
-
-Get variant info. This method is deprecated, and its development is stopped. Please use \&quot;product.child_item.info\&quot; instead.
-
-### Example
-
-```scala
-// Import classes:
-import 
-import org.openapitools.client.core._
-import org.openapitools.client.core.CollectionFormats._
-import org.openapitools.client.core.ApiKeyLocations._
-
-import akka.actor.ActorSystem
-import scala.concurrent.Future
-import scala.util.{Failure, Success}
-
-object Example extends App {
-    
-    implicit val system: ActorSystem = ActorSystem()
-    import system.dispatcher
-    
-    // Configure API key authorization: StoreKeyAuth
-    implicit val StoreKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
-
-    // Configure API key authorization: ApiKeyAuth
-    implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
-
-    val apiInvoker = ApiInvoker()
-    val apiInstance = ProductApi("https://api.api2cart.com/v1.1")
-    val id: String = 10 // String | Retrieves variant's info specified by variant id
-
-    val storeId: String = 1 // String | Retrieves variant info specified by store id
-
-    val params: String = id,model,price,images // String | Set this parameter in order to choose which entity fields you want to retrieve
-
-    val exclude: String = false // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
-    
-    val request = apiInstance.productVariantInfo(id, storeId, params, exclude)
-    val response = apiInvoker.execute(request)
-
-    response.onComplete {
-        case Success(ApiResponse(code, content, headers)) =>
-            System.out.println(s"Status code: $code}")
-            System.out.println(s"Response headers: ${headers.mkString(", ")}")
-            System.out.println(s"Response body: $content")
-        
-        case Failure(error @ ApiError(code, message, responseContent, cause, headers)) =>
-            System.err.println("Exception when calling ProductApi#productVariantInfo")
-            System.err.println(s"Status code: $code}")
-            System.err.println(s"Reason: $responseContent")
-            System.err.println(s"Response headers: ${headers.mkString(", ")}")
-            error.printStackTrace();
-
-        case Failure(exception) => 
-            System.err.println("Exception when calling ProductApi#productVariantInfo")
-            exception.printStackTrace();
-    }
-}
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **String**| Retrieves variant&#39;s info specified by variant id |
- **storeId** | **String**| Retrieves variant info specified by store id | [optional]
- **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
- **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional]
-
-### Return type
-
-ApiRequest[[**ProductInfo200Response**](ProductInfo200Response.md)]
-
-
-### Authorization
-
-[StoreKeyAuth](../README.md#StoreKeyAuth), [ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | successful operation |  -  |
-
-
-## productVariantList
-
-> productVariantList(productVariantListRequest): ApiRequest[ProductVariantList200Response]
-
-product.variant.list
-
-Get a list of variants. This method is deprecated, and its development is stopped. Please use \&quot;product.child_item.list\&quot; instead.
-
-### Example
-
-```scala
-// Import classes:
-import 
-import org.openapitools.client.core._
-import org.openapitools.client.core.CollectionFormats._
-import org.openapitools.client.core.ApiKeyLocations._
-
-import akka.actor.ActorSystem
-import scala.concurrent.Future
-import scala.util.{Failure, Success}
-
-object Example extends App {
-    
-    implicit val system: ActorSystem = ActorSystem()
-    import system.dispatcher
-    
-    // Configure API key authorization: StoreKeyAuth
-    implicit val StoreKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
-
-    // Configure API key authorization: ApiKeyAuth
-    implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
-
-    val apiInvoker = ApiInvoker()
-    val apiInstance = ProductApi("https://api.api2cart.com/v1.1")
-    val start: Int = 0 // Int | This parameter sets the number from which you want to get entities
-
-    val count: Int = 20 // Int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
-
-    val productId: String = 10 // String | Retrieves products' variants specified by product id
-
-    val categoryId: String = 6 // String | Retrieves products’ variants specified by category id
-
-    val storeId: String = 1 // String | Retrieves variants specified by store id
-
-    val createdFrom: String = 2010-07-29 13:45:52 // String | Retrieve entities from their creation date
-
-    val createdTo: String = 2100-08-29 13:45:52 // String | Retrieve entities to their creation date
-
-    val modifiedFrom: String = 2010-07-29 13:45:52 // String | Retrieve entities from their modification date
-
-    val modifiedTo: String = 2100-08-29 13:45:52 // String | Retrieve entities to their modification date
-
-    val params: String = id,model,price,images // String | Set this parameter in order to choose which entity fields you want to retrieve
-
-    val exclude: String = false // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
-    
-    val request = apiInstance.productVariantList(start, count, productId, categoryId, storeId, createdFrom, createdTo, modifiedFrom, modifiedTo, params, exclude)
-    val response = apiInvoker.execute(request)
-
-    response.onComplete {
-        case Success(ApiResponse(code, content, headers)) =>
-            System.out.println(s"Status code: $code}")
-            System.out.println(s"Response headers: ${headers.mkString(", ")}")
-            System.out.println(s"Response body: $content")
-        
-        case Failure(error @ ApiError(code, message, responseContent, cause, headers)) =>
-            System.err.println("Exception when calling ProductApi#productVariantList")
-            System.err.println(s"Status code: $code}")
-            System.err.println(s"Reason: $responseContent")
-            System.err.println(s"Response headers: ${headers.mkString(", ")}")
-            error.printStackTrace();
-
-        case Failure(exception) => 
-            System.err.println("Exception when calling ProductApi#productVariantList")
-            exception.printStackTrace();
-    }
-}
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **start** | **Int**| This parameter sets the number from which you want to get entities | [optional]
- **count** | **Int**| This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional]
- **productId** | **String**| Retrieves products&#39; variants specified by product id | [optional]
- **categoryId** | **String**| Retrieves products’ variants specified by category id | [optional]
- **storeId** | **String**| Retrieves variants specified by store id | [optional]
- **createdFrom** | **String**| Retrieve entities from their creation date | [optional]
- **createdTo** | **String**| Retrieve entities to their creation date | [optional]
- **modifiedFrom** | **String**| Retrieve entities from their modification date | [optional]
- **modifiedTo** | **String**| Retrieve entities to their modification date | [optional]
- **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
- **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional]
-
-### Return type
-
-ApiRequest[[**ProductVariantList200Response**](ProductVariantList200Response.md)]
-
-
-### Authorization
-
-[StoreKeyAuth](../README.md#StoreKeyAuth), [ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | successful operation |  -  |
-
-
 ## productVariantPriceAdd
 
 > productVariantPriceAdd(productVariantPriceAddRequest): ApiRequest[CartValidate200Response]
@@ -4915,7 +4511,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = ProductApi("https://api.api2cart.com/v1.1")
+    val apiInstance = ProductApi("https://api.api2cart.local.com/v1.1")
     val productVariantPriceAdd: ProductVariantPriceAdd =  // ProductVariantPriceAdd | 
     
     val request = apiInstance.productVariantPriceAdd(productVariantPriceAdd)
@@ -5001,7 +4597,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = ProductApi("https://api.api2cart.com/v1.1")
+    val apiInstance = ProductApi("https://api.api2cart.local.com/v1.1")
     val id: String = 10 // String | Defines the variant where the price has to be deleted
 
     val productId: String = 10 // String | Product id
@@ -5097,7 +4693,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = ProductApi("https://api.api2cart.com/v1.1")
+    val apiInstance = ProductApi("https://api.api2cart.local.com/v1.1")
     val productVariantPriceUpdate: ProductVariantPriceUpdate =  // ProductVariantPriceUpdate | 
     
     val request = apiInstance.productVariantPriceUpdate(productVariantPriceUpdate)
@@ -5184,7 +4780,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = ProductApi("https://api.api2cart.com/v1.1")
+    val apiInstance = ProductApi("https://api.api2cart.local.com/v1.1")
     val productVariantUpdate: ProductVariantUpdate =  // ProductVariantUpdate | 
     
     val request = apiInstance.productVariantUpdate(productVariantUpdate)
@@ -5271,7 +4867,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = ProductApi("https://api.api2cart.com/v1.1")
+    val apiInstance = ProductApi("https://api.api2cart.local.com/v1.1")
     val productVariantUpdateBatch: ProductVariantUpdateBatch =  // ProductVariantUpdateBatch | 
     
     val request = apiInstance.productVariantUpdateBatch(productVariantUpdateBatch)

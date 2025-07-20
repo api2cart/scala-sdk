@@ -1,6 +1,6 @@
 # WebhookApi
 
-All URIs are relative to *https://api.api2cart.com/v1.1*
+All URIs are relative to *https://api.api2cart.local.com/v1.1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -52,7 +52,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = WebhookApi("https://api.api2cart.com/v1.1")
+    val apiInstance = WebhookApi("https://api.api2cart.local.com/v1.1")
     val entity: String = product // String | The entity you want to filter webhooks by (e.g. order or product)
 
     val action: String = add // String | The action you want to filter webhooks by (e.g. order or product)
@@ -144,7 +144,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = WebhookApi("https://api.api2cart.com/v1.1")
+    val apiInstance = WebhookApi("https://api.api2cart.local.com/v1.1")
     val entity: String = product // String | Specify the entity that you want to enable webhooks for (e.g product, order, customer, category)
 
     val action: String = add // String | Specify what action (event) will trigger the webhook (e.g add, delete, or update)
@@ -254,7 +254,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = WebhookApi("https://api.api2cart.com/v1.1")
+    val apiInstance = WebhookApi("https://api.api2cart.local.com/v1.1")
     val id: String = 25 // String | Webhook id
     
     val request = apiInstance.webhookDelete(id)
@@ -340,7 +340,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = WebhookApi("https://api.api2cart.com/v1.1")    
+    val apiInstance = WebhookApi("https://api.api2cart.local.com/v1.1")    
     val request = apiInstance.webhookEvents()
     val response = apiInvoker.execute(request)
 
@@ -421,7 +421,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = WebhookApi("https://api.api2cart.com/v1.1")
+    val apiInstance = WebhookApi("https://api.api2cart.local.com/v1.1")
     val start: Int = 0 // Int | This parameter sets the number from which you want to get entities
 
     val count: Int = 20 // Int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
@@ -525,7 +525,7 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = WebhookApi("https://api.api2cart.com/v1.1")
+    val apiInstance = WebhookApi("https://api.api2cart.local.com/v1.1")
     val id: String = 25 // String | Webhook id
 
     val callback: String = https://example.com/callback // String | Callback url that returns shipping rates. It should be able to accept POST requests with json data.

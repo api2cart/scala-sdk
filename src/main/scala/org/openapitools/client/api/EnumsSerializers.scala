@@ -23,7 +23,6 @@ object EnumsSerializers {
     new EnumNameSerializer(CartCouponAddEnums.ActionType) :+
     new EnumNameSerializer(CartCouponAddEnums.ActionApplyTo) :+
     new EnumNameSerializer(CartCouponAddEnums.ActionScope) :+
-    new EnumNameSerializer(CartCreateEnums.CartId) :+
     new EnumNameSerializer(CustomerAddConsentsInnerEnums.`Type`) :+
     new EnumNameSerializer(ProductAddBatchEnums.NestedItemsUpdateBehaviour) :+
     new EnumNameSerializer(ProductAddSpecificsInnerBookingDetailsEnums.`Type`) :+

@@ -86,6 +86,14 @@ case class AccountCartAdd (
   bigcartelUserName: String,
   /* BigCartel account password */
   bigcartelPassword: String,
+  /* Bricklink Consumer Key */
+  bricklinkConsumerKey: String,
+  /* Bricklink Consumer Secret */
+  bricklinkConsumerSecret: String,
+  /* Bricklink Access Token */
+  bricklinkToken: String,
+  /* Bricklink Access Token Secret */
+  bricklinkTokenSecret: String,
   /* Demandware client id */
   demandwareClientId: Option[String] = None,
   /* Demandware api password */
