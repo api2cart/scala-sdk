@@ -89,6 +89,8 @@ case class ProductUpdate (
   increaseQuantity: Option[BigDecimal] = None,
   /* Defines the decrement changes in product quantity */
   reduceQuantity: Option[BigDecimal] = None,
+  /* Specify the quantity threshold below which the product is considered low in stock */
+  lowStockThreshold: Option[BigDecimal] = None,
   /* This parameter is used for selecting a warehouse where you need to set/modify a product quantity. */
   warehouseId: Option[String] = None,
   /* Weight */

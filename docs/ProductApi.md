@@ -2251,8 +2251,10 @@ object Example extends App {
     val disableReportCache: Boolean = false // Boolean | Disable report cache for current request
 
     val useLatestApiVersion: Boolean = true // Boolean | Use the latest platform API version
+
+    val productType: String = BICYCLE // String | A categorization for the product
     
-    val request = apiInstance.productList(start, count, pageCursor, productIds, sinceId, categoriesIds, categoryId, storeId, langId, currencyId, availView, availSale, createdFrom, createdTo, modifiedFrom, modifiedTo, sku, brandName, productAttributes, status, `type`, visible, findValue, findWhere, returnGlobal, params, responseFields, exclude, sortBy, sortDirection, reportRequestId, disableCache, disableReportCache, useLatestApiVersion)
+    val request = apiInstance.productList(start, count, pageCursor, productIds, sinceId, categoriesIds, categoryId, storeId, langId, currencyId, availView, availSale, createdFrom, createdTo, modifiedFrom, modifiedTo, sku, brandName, productAttributes, status, `type`, visible, findValue, findWhere, returnGlobal, params, responseFields, exclude, sortBy, sortDirection, reportRequestId, disableCache, disableReportCache, useLatestApiVersion, productType)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -2314,6 +2316,7 @@ Name | Type | Description  | Notes
  **disableCache** | **Boolean**| Disable cache for current request | [optional]
  **disableReportCache** | **Boolean**| Disable report cache for current request | [optional]
  **useLatestApiVersion** | **Boolean**| Use the latest platform API version | [optional]
+ **productType** | **String**| A categorization for the product | [optional]
 
 ### Return type
 

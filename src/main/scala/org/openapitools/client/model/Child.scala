@@ -47,6 +47,7 @@ case class Child (
   inventoryLevel: Option[BigDecimal] = None,
   inventory: Option[Seq[ProductInventory]] = None,
   minQuantity: Option[BigDecimal] = None,
+  lowStockThreshold: Option[BigDecimal] = None,
   defaultQtyInPack: Option[BigDecimal] = None,
   isQtyInPackFixed: Option[Boolean] = None,
   weightUnit: Option[String] = None,

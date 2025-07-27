@@ -769,8 +769,9 @@ class ProductApi(baseUrl: String) {
    * @param disableCache Disable cache for current request
    * @param disableReportCache Disable report cache for current request
    * @param useLatestApiVersion Use the latest platform API version
+   * @param productType A categorization for the product
    */
-  def productList(start: Option[Int] = None, count: Option[Int] = None, pageCursor: Option[String] = None, productIds: Option[String] = None, sinceId: Option[String] = None, categoriesIds: Option[String] = None, categoryId: Option[String] = None, storeId: Option[String] = None, langId: Option[String] = None, currencyId: Option[String] = None, availView: Option[Boolean] = None, availSale: Option[Boolean] = None, createdFrom: Option[String] = None, createdTo: Option[String] = None, modifiedFrom: Option[String] = None, modifiedTo: Option[String] = None, sku: Option[String] = None, brandName: Option[String] = None, productAttributes: Seq[String], status: Option[String] = None, `type`: Option[String] = None, visible: Option[String] = None, findValue: Option[String] = None, findWhere: Option[String] = None, returnGlobal: Option[Boolean] = None, params: Option[String] = None, responseFields: Option[String] = None, exclude: Option[String] = None, sortBy: Option[String] = None, sortDirection: Option[String] = None, reportRequestId: Option[String] = None, disableCache: Option[Boolean] = None, disableReportCache: Option[Boolean] = None, useLatestApiVersion: Option[Boolean] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseProductList] =
+  def productList(start: Option[Int] = None, count: Option[Int] = None, pageCursor: Option[String] = None, productIds: Option[String] = None, sinceId: Option[String] = None, categoriesIds: Option[String] = None, categoryId: Option[String] = None, storeId: Option[String] = None, langId: Option[String] = None, currencyId: Option[String] = None, availView: Option[Boolean] = None, availSale: Option[Boolean] = None, createdFrom: Option[String] = None, createdTo: Option[String] = None, modifiedFrom: Option[String] = None, modifiedTo: Option[String] = None, sku: Option[String] = None, brandName: Option[String] = None, productAttributes: Seq[String], status: Option[String] = None, `type`: Option[String] = None, visible: Option[String] = None, findValue: Option[String] = None, findWhere: Option[String] = None, returnGlobal: Option[Boolean] = None, params: Option[String] = None, responseFields: Option[String] = None, exclude: Option[String] = None, sortBy: Option[String] = None, sortDirection: Option[String] = None, reportRequestId: Option[String] = None, disableCache: Option[Boolean] = None, disableReportCache: Option[Boolean] = None, useLatestApiVersion: Option[Boolean] = None, productType: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseProductList] =
     ApiRequest[ModelResponseProductList](ApiMethods.GET, baseUrl, "/product.list.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
@@ -808,6 +809,7 @@ class ProductApi(baseUrl: String) {
       .withQueryParam("disable_cache", disableCache)
       .withQueryParam("disable_report_cache", disableReportCache)
       .withQueryParam("use_latest_api_version", useLatestApiVersion)
+      .withQueryParam("product_type", productType)
       .withSuccessResponse[ModelResponseProductList](200)
       
 

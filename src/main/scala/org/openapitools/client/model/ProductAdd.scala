@@ -90,6 +90,8 @@ case class ProductAdd (
   minOrderQuantity: Option[BigDecimal] = None,
   /* The maximum quantity an order can contain when purchasing the product. */
   maxOrderQuantity: Option[BigDecimal] = None,
+  /* Specify the quantity threshold below which the product is considered low in stock */
+  lowStockThreshold: Option[BigDecimal] = None,
   /* Weight */
   weight: Option[BigDecimal] = None,
   /* Weight Unit */

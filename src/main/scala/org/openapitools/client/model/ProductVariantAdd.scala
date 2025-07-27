@@ -67,6 +67,8 @@ case class ProductVariantAdd (
   backorderStatus: Option[String] = None,
   /* Defines inventory tracking for product variant */
   manageStock: Option[Boolean] = None,
+  /* Specify the quantity threshold below which the product is considered low in stock */
+  lowStockThreshold: Option[BigDecimal] = None,
   /* Weight */
   weight: Option[BigDecimal] = None,
   /* Defines product's width */

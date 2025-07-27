@@ -33,6 +33,7 @@ Name | Type | Description | Notes
 **inStock** | **Boolean** | Set stock status |  [optional]
 **backorderStatus** | **String** | Set backorder status |  [optional]
 **manageStock** | **Boolean** | Defines inventory tracking for product variant |  [optional]
+**lowStockThreshold** | **BigDecimal** | Specify the quantity threshold below which the product is considered low in stock |  [optional]
 **weight** | **BigDecimal** | Weight |  [optional]
 **width** | **BigDecimal** | Defines product&#39;s width |  [optional]
 **height** | **BigDecimal** | Defines product&#39;s height |  [optional]

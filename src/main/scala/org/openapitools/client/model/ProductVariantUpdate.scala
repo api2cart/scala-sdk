@@ -41,6 +41,8 @@ case class ProductVariantUpdate (
   status: Option[String] = None,
   /* Set backorder status */
   backorderStatus: Option[String] = None,
+  /* Specify the quantity threshold below which the product is considered low in stock */
+  lowStockThreshold: Option[BigDecimal] = None,
   /* Specifies the set of visible/invisible product's variants for sale */
   availableForSale: Option[Boolean] = None,
   /* Defines category's visibility status */

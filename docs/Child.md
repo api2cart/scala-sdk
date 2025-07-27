@@ -39,6 +39,7 @@ Name | Type | Description | Notes
 **inventoryLevel** | **BigDecimal** |  |  [optional]
 **inventory** | [**Seq&lt;ProductInventory&gt;**](ProductInventory.md) |  |  [optional]
 **minQuantity** | **BigDecimal** |  |  [optional]
+**lowStockThreshold** | **BigDecimal** |  |  [optional]
 **defaultQtyInPack** | **BigDecimal** |  |  [optional]
 **isQtyInPackFixed** | **Boolean** |  |  [optional]
 **weightUnit** | **String** |  |  [optional]

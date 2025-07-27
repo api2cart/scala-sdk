@@ -44,6 +44,7 @@ Name | Type | Description | Notes
 **backorderStatus** | **String** | Set backorder status |  [optional]
 **increaseQuantity** | **BigDecimal** | Defines the incremental changes in product quantity |  [optional]
 **reduceQuantity** | **BigDecimal** | Defines the decrement changes in product quantity |  [optional]
+**lowStockThreshold** | **BigDecimal** | Specify the quantity threshold below which the product is considered low in stock |  [optional]
 **warehouseId** | **String** | This parameter is used for selecting a warehouse where you need to set/modify a product quantity. |  [optional]
 **weight** | **BigDecimal** | Weight |  [optional]
 **weightUnit** | **String** | Weight Unit |  [optional]
