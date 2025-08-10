@@ -17,6 +17,7 @@ case class Cart (
   name: Option[String] = None,
   url: Option[String] = None,
   version: Option[String] = None,
+  bridgeVersion: Option[String] = None,
   dbPrefix: Option[String] = None,
   storesInfo: Option[Seq[CartStoreInfo]] = None,
   warehouses: Option[Seq[CartWarehouse]] = None,

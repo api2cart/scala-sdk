@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **name** | **String** |  |  [optional]
 **url** | **String** |  |  [optional]
 **version** | **String** |  |  [optional]
+**bridgeVersion** | **String** |  |  [optional]
 **dbPrefix** | **String** |  |  [optional]
 **storesInfo** | [**Seq&lt;CartStoreInfo&gt;**](CartStoreInfo.md) |  |  [optional]
 **warehouses** | [**Seq&lt;CartWarehouse&gt;**](CartWarehouse.md) |  |  [optional]

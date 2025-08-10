@@ -19,7 +19,6 @@ object EnumsSerializers {
 
   def all: Seq[Serializer[_]] = Seq[Serializer[_]]() :+
     new EnumNameSerializer(AccountCartAddEnums.CartId) :+
-    new EnumNameSerializer(AccountCartAddEnums.TemuRegion) :+
     new EnumNameSerializer(CartCouponAddEnums.ActionType) :+
     new EnumNameSerializer(CartCouponAddEnums.ActionApplyTo) :+
     new EnumNameSerializer(CartCouponAddEnums.ActionScope) :+

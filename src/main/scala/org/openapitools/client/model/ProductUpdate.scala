@@ -183,6 +183,10 @@ case class ProductUpdate (
   specifics: Option[Seq[ProductAddSpecificsInner]] = None,
   /* Add Shop Section Id */
   shopSectionId: Option[Int] = None,
-  personalizationDetails: Option[ProductAddPersonalizationDetails] = None
+  personalizationDetails: Option[ProductAddPersonalizationDetails] = None,
+  /* String containing the JSON representation of the supplied data */
+  marketplaceItemProperties: Option[String] = None,
+  /* The minimum quantity an order must contain, to be eligible to purchase this product. */
+  minOrderQuantity: Option[BigDecimal] = None
 ) extends ApiModel
 

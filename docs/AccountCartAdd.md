@@ -41,12 +41,12 @@ Name | Type | Description | Notes
 **bolApiKey** | **String** | Bol API Key |  [optional]
 **bolApiSecret** | **String** | Bol API Secret |  [optional]
 **bolRetailerId** | **Int** | Bol Retailer ID |  [optional]
-**bigcartelUserName** | **String** | Subdomain of store | 
-**bigcartelPassword** | **String** | BigCartel account password | 
-**bricklinkConsumerKey** | **String** | Bricklink Consumer Key | 
-**bricklinkConsumerSecret** | **String** | Bricklink Consumer Secret | 
-**bricklinkToken** | **String** | Bricklink Access Token | 
-**bricklinkTokenSecret** | **String** | Bricklink Access Token Secret | 
+**bigcartelUserName** | **String** | Subdomain of store |  [optional]
+**bigcartelPassword** | **String** | BigCartel account password |  [optional]
+**bricklinkConsumerKey** | **String** | Bricklink Consumer Key |  [optional]
+**bricklinkConsumerSecret** | **String** | Bricklink Consumer Secret |  [optional]
+**bricklinkToken** | **String** | Bricklink Access Token |  [optional]
+**bricklinkTokenSecret** | **String** | Bricklink Access Token Secret |  [optional]
 **demandwareClientId** | **String** | Demandware client id |  [optional]
 **demandwareApiPassword** | **String** | Demandware api password |  [optional]
 **demandwareUserName** | **String** | Demandware user name |  [optional]
@@ -131,8 +131,8 @@ Name | Type | Description | Notes
 **magentoAccessToken** | **String** | Magento Access Token |  [optional]
 **magentoTokenSecret** | **String** | Magento Token Secret |  [optional]
 **prestashopWebserviceKey** | **String** | Prestashop webservice key |  [optional]
-**wixAppId** | **String** | Wix App ID | 
-**wixAppSecretKey** | **String** | Wix App Secret Key | 
+**wixAppId** | **String** | Wix App ID |  [optional]
+**wixAppSecretKey** | **String** | Wix App Secret Key |  [optional]
 **wixInstanceId** | **String** | Wix Instance ID |  [optional]
 **wixRefreshToken** | **String** | Wix refresh token |  [optional]
 **mercadoLibreAppId** | **String** | Mercado Libre App ID |  [optional]
@@ -170,17 +170,12 @@ Name | Type | Description | Notes
 **sallaAccessToken** | **String** | Salla Access Token |  [optional]
 **temuAppKey** | **String** | Temu App Key |  [optional]
 **temuAppSecret** | **String** | Temu App Secret |  [optional]
-**temuAccessToken** | **String** | Temu Access Token | 
-**temuRegion** | [**TemuRegion**](#TemuRegion) | Temu API endpoint Region. | 
+**temuAccessToken** | **String** | Temu Access Token |  [optional]
+**temuRegion** | **String** | Temu API endpoint Region. |  [optional]
 
 
 ## Enum: CartId
 Allowed values: [3DCart, 3DCartApi, AceShop, AmazonSP, AspDotNetStorefront, BigCartel, BigcommerceApi, Bol, CommerceHQ, Creloaded, Cscart, Cubecart, Demandware, EBay, Ecwid, EtsyAPIv3, Flipkart, Gambio, Hybris, JooCart, Lazada, LightSpeed, Magento1212, Magento2Api, MercadoLibre, MijoShop, Miva, Neto, Opencart14, Oscmax2, Oscommerce22ms2, Otto, Oxid, Pinnacle, Prestashop, PrestashopApi, SSPremium, Salla, Shopify, Shopee, Shoplazza, Shopline, Shopware, ShopwareApi, Square, Squarespace, Temu, Tiendanube, TikTokShop, Tomatocart, Ubercart, Virtuemart, Volusion, WPecommerce, Walmart, WebAsyst, Wix, Woocommerce, WoocommerceApi, Xcart, Xtcommerce, XtcommerceVeyton, Zencart137, Zid, Zoey, Zoho]
-
-
-
-## Enum: TemuRegion
-Allowed values: [US, EU, GLOBAL]
 
 
 

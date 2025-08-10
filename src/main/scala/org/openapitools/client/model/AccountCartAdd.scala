@@ -83,17 +83,17 @@ case class AccountCartAdd (
   /* Bol Retailer ID */
   bolRetailerId: Option[Int] = None,
   /* Subdomain of store */
-  bigcartelUserName: String,
+  bigcartelUserName: Option[String] = None,
   /* BigCartel account password */
-  bigcartelPassword: String,
+  bigcartelPassword: Option[String] = None,
   /* Bricklink Consumer Key */
-  bricklinkConsumerKey: String,
+  bricklinkConsumerKey: Option[String] = None,
   /* Bricklink Consumer Secret */
-  bricklinkConsumerSecret: String,
+  bricklinkConsumerSecret: Option[String] = None,
   /* Bricklink Access Token */
-  bricklinkToken: String,
+  bricklinkToken: Option[String] = None,
   /* Bricklink Access Token Secret */
-  bricklinkTokenSecret: String,
+  bricklinkTokenSecret: Option[String] = None,
   /* Demandware client id */
   demandwareClientId: Option[String] = None,
   /* Demandware api password */
@@ -263,9 +263,9 @@ case class AccountCartAdd (
   /* Prestashop webservice key */
   prestashopWebserviceKey: Option[String] = None,
   /* Wix App ID */
-  wixAppId: String,
+  wixAppId: Option[String] = None,
   /* Wix App Secret Key */
-  wixAppSecretKey: String,
+  wixAppSecretKey: Option[String] = None,
   /* Wix Instance ID */
   wixInstanceId: Option[String] = None,
   /* Wix refresh token */
@@ -341,15 +341,14 @@ case class AccountCartAdd (
   /* Temu App Secret */
   temuAppSecret: Option[String] = None,
   /* Temu Access Token */
-  temuAccessToken: String,
+  temuAccessToken: Option[String] = None,
   /* Temu API endpoint Region. */
-  temuRegion: AccountCartAddEnums.TemuRegion
+  temuRegion: Option[String] = None
 ) extends ApiModel
 
 object AccountCartAddEnums {
 
   type CartId = CartId.Value
-  type TemuRegion = TemuRegion.Value
   object CartId extends Enumeration {
     val `3dCart` = Value("3DCart")
     val `3dCartApi` = Value("3DCartApi")
@@ -417,12 +416,6 @@ object AccountCartAddEnums {
     val Zid = Value("Zid")
     val Zoey = Value("Zoey")
     val Zoho = Value("Zoho")
-  }
-
-  object TemuRegion extends Enumeration {
-    val US = Value("US")
-    val EU = Value("EU")
-    val GLOBAL = Value("GLOBAL")
   }
 
 }

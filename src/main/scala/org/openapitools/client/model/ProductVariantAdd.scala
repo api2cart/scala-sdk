@@ -31,6 +31,8 @@ case class ProductVariantAdd (
   availableForView: Option[Boolean] = None,
   /* Specifies the set of visible/invisible product's variants for sale */
   availableForSale: Option[Boolean] = None,
+  /* Defines status */
+  status: Option[String] = None,
   /* Defines whether the product is virtual */
   isVirtual: Option[Boolean] = None,
   /* Defines as a default variant */
@@ -93,6 +95,8 @@ case class ProductVariantAdd (
   mpn: Option[String] = None,
   /* International Standard Book Number. An ISBN is a unique identifier for books. */
   isbn: Option[String] = None,
+  /* Defines unique URL for SEO */
+  seoUrl: Option[String] = None,
   /* Specifies the product variant's manufacturer */
   manufacturer: Option[String] = None,
   /* Defines the date of entity creation */
