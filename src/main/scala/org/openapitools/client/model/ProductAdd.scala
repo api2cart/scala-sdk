@@ -120,6 +120,8 @@ case class ProductAdd (
   asin: Option[String] = None,
   /* Groups all variations, that you want to combine into one product. */
   productReference: Option[String] = None,
+  /* External product link */
+  externalProductLink: Option[String] = None,
   /* Harmonized System Code. An HSC is a 6-digit identifier that allows participating countries to classify traded goods on a common basis for customs purposes */
   harmonizedSystemCode: Option[String] = None,
   /* The country where the inventory item was made */

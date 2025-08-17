@@ -356,6 +356,7 @@ object AccountCartAddEnums {
     val AmazonSP = Value("AmazonSP")
     val AspDotNetStorefront = Value("AspDotNetStorefront")
     val BigCartel = Value("BigCartel")
+    val Bricklink = Value("Bricklink")
     val BigcommerceApi = Value("BigcommerceApi")
     val Bol = Value("Bol")
     val CommerceHQ = Value("CommerceHQ")

@@ -25,6 +25,7 @@ Name | Type | Description | Notes
 **includeTax** | **Boolean** | Indicates whether to apply a discount for taxes. |  [optional]
 **storeId** | **String** | Store Id |  [optional]
 **freeCashOnDelivery** | **Boolean** | Defines whether the coupon provides free cash on delivery |  [optional]
+**customerId** | **String** | Retrieves orders specified by customer id |  [optional]
 
 
 ## Enum: ActionType

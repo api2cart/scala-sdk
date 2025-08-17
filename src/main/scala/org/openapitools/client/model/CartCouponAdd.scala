@@ -50,7 +50,9 @@ case class CartCouponAdd (
   /* Store Id */
   storeId: Option[String] = None,
   /* Defines whether the coupon provides free cash on delivery */
-  freeCashOnDelivery: Option[Boolean] = None
+  freeCashOnDelivery: Option[Boolean] = None,
+  /* Retrieves orders specified by customer id */
+  customerId: Option[String] = None
 ) extends ApiModel
 
 object CartCouponAddEnums {

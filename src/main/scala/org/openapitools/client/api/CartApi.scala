@@ -218,6 +218,7 @@ class CartApi(baseUrl: String) {
    * @param storeId Filter coupons by store id
    * @param langId Language id
    * @param avail Filter coupons by avail status
+   * @param status Defines coupon's status
    * @param dateStartFrom Filter entity by date_start (greater or equal)
    * @param dateStartTo Filter entity by date_start (less or equal)
    * @param dateEndFrom Filter entity by date_end (greater or equal)
@@ -226,7 +227,7 @@ class CartApi(baseUrl: String) {
    * @param params Set this parameter in order to choose which entity fields you want to retrieve
    * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
    */
-  def cartCouponList(start: Option[Int] = None, count: Option[Int] = None, pageCursor: Option[String] = None, couponsIds: Option[String] = None, storeId: Option[String] = None, langId: Option[String] = None, avail: Option[Boolean] = None, dateStartFrom: Option[String] = None, dateStartTo: Option[String] = None, dateEndFrom: Option[String] = None, dateEndTo: Option[String] = None, responseFields: Option[String] = None, params: Option[String] = None, exclude: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseCartCouponList] =
+  def cartCouponList(start: Option[Int] = None, count: Option[Int] = None, pageCursor: Option[String] = None, couponsIds: Option[String] = None, storeId: Option[String] = None, langId: Option[String] = None, avail: Option[Boolean] = None, status: Option[String] = None, dateStartFrom: Option[String] = None, dateStartTo: Option[String] = None, dateEndFrom: Option[String] = None, dateEndTo: Option[String] = None, responseFields: Option[String] = None, params: Option[String] = None, exclude: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseCartCouponList] =
     ApiRequest[ModelResponseCartCouponList](ApiMethods.GET, baseUrl, "/cart.coupon.list.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
@@ -237,6 +238,7 @@ class CartApi(baseUrl: String) {
       .withQueryParam("store_id", storeId)
       .withQueryParam("lang_id", langId)
       .withQueryParam("avail", avail)
+      .withQueryParam("status", status)
       .withQueryParam("date_start_from", dateStartFrom)
       .withQueryParam("date_start_to", dateStartTo)
       .withQueryParam("date_end_from", dateEndFrom)

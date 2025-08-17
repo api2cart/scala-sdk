@@ -673,6 +673,8 @@ object Example extends App {
 
     val avail: Boolean = false // Boolean | Filter coupons by avail status
 
+    val status: String = disabled // String | Defines coupon's status
+
     val dateStartFrom: String = 2016-12-29 16:44:30 // String | Filter entity by date_start (greater or equal)
 
     val dateStartTo: String = 2016-12-29 16:44:30 // String | Filter entity by date_start (less or equal)
@@ -687,7 +689,7 @@ object Example extends App {
 
     val exclude: String = usage_history,type // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
     
-    val request = apiInstance.cartCouponList(start, count, pageCursor, couponsIds, storeId, langId, avail, dateStartFrom, dateStartTo, dateEndFrom, dateEndTo, responseFields, params, exclude)
+    val request = apiInstance.cartCouponList(start, count, pageCursor, couponsIds, storeId, langId, avail, status, dateStartFrom, dateStartTo, dateEndFrom, dateEndTo, responseFields, params, exclude)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -722,6 +724,7 @@ Name | Type | Description  | Notes
  **storeId** | **String**| Filter coupons by store id | [optional]
  **langId** | **String**| Language id | [optional]
  **avail** | **Boolean**| Filter coupons by avail status | [optional]
+ **status** | **String**| Defines coupon&#39;s status | [optional]
  **dateStartFrom** | **String**| Filter entity by date_start (greater or equal) | [optional]
  **dateStartTo** | **String**| Filter entity by date_start (less or equal) | [optional]
  **dateEndFrom** | **String**| Filter entity by date_end (greater or equal) | [optional]
