@@ -24,6 +24,8 @@ case class CustomerAdd (
   password: Option[String] = None,
   /* Defines the group where the customer */
   group: Option[String] = None,
+  /* Customer group_id */
+  groupId: Option[String] = None,
   /* Groups that will be assigned to a customer */
   groupIds: Option[String] = None,
   /* Defines customer's status */

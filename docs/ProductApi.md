@@ -2377,8 +2377,20 @@ object Example extends App {
     val manufacturer: String = Samsung // String | Defines product’s manufacturer's name
 
     val storeId: String = 1 // String | Store Id
+
+    val metaTitle: String = category,test // String | Defines unique meta title for each entity
+
+    val metaKeywords: String = category,test // String | Defines unique meta keywords for each entity
+
+    val metaDescription: String = category,test // String | Defines unique meta description of a entity
+
+    val searchKeywords: String = key1,key2,key3 // String | Defines unique search keywords
+
+    val imageUrl: String = https://docs.api2cart.com/img/logo.png // String | Image Url
+
+    val seoUrl: String = some seo url // String | Defines unique URL for SEO
     
-    val request = apiInstance.productManufacturerAdd(productId, manufacturer, storeId)
+    val request = apiInstance.productManufacturerAdd(productId, manufacturer, storeId, metaTitle, metaKeywords, metaDescription, searchKeywords, imageUrl, seoUrl)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -2409,6 +2421,12 @@ Name | Type | Description  | Notes
  **productId** | **String**| Defines products specified by product id |
  **manufacturer** | **String**| Defines product’s manufacturer&#39;s name |
  **storeId** | **String**| Store Id | [optional]
+ **metaTitle** | **String**| Defines unique meta title for each entity | [optional]
+ **metaKeywords** | **String**| Defines unique meta keywords for each entity | [optional]
+ **metaDescription** | **String**| Defines unique meta description of a entity | [optional]
+ **searchKeywords** | **String**| Defines unique search keywords | [optional]
+ **imageUrl** | **String**| Image Url | [optional]
+ **seoUrl** | **String**| Defines unique URL for SEO | [optional]
 
 ### Return type
 
@@ -3528,7 +3546,19 @@ object Example extends App {
 
     val storeId: String = 1 // String | Store Id
 
+    val langId: String = 3 // String | Language id
+
     val status: String = disabled // String | Defines status
+
+    val createdFrom: String = 2010-07-29 13:45:52 // String | Retrieve entities from their creation date
+
+    val createdTo: String = 2100-08-29 13:45:52 // String | Retrieve entities to their creation date
+
+    val customerId: String = 5 // String | Retrieves orders specified by customer id
+
+    val sortBy: String = value_id // String | Set field to sort by
+
+    val sortDirection: String = asc // String | Set sorting direction
 
     val responseFields: String = {return_code,return_message,pagination,result} // String | Set this parameter in order to choose which entity fields you want to retrieve
 
@@ -3536,7 +3566,7 @@ object Example extends App {
 
     val exclude: String = false // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
     
-    val request = apiInstance.productReviewList(productId, start, count, pageCursor, ids, storeId, status, responseFields, params, exclude)
+    val request = apiInstance.productReviewList(productId, start, count, pageCursor, ids, storeId, langId, status, createdFrom, createdTo, customerId, sortBy, sortDirection, responseFields, params, exclude)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -3570,7 +3600,13 @@ Name | Type | Description  | Notes
  **pageCursor** | **String**| Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional]
  **ids** | **String**| Retrieves reviews specified by ids | [optional]
  **storeId** | **String**| Store Id | [optional]
+ **langId** | **String**| Language id | [optional]
  **status** | **String**| Defines status | [optional]
+ **createdFrom** | **String**| Retrieve entities from their creation date | [optional]
+ **createdTo** | **String**| Retrieve entities to their creation date | [optional]
+ **customerId** | **String**| Retrieves orders specified by customer id | [optional]
+ **sortBy** | **String**| Set field to sort by | [optional]
+ **sortDirection** | **String**| Set sorting direction | [optional]
  **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
  **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
  **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional]

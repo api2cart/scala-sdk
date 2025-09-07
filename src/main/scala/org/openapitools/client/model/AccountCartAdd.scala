@@ -367,6 +367,7 @@ object AccountCartAddEnums {
     val EBay = Value("EBay")
     val Ecwid = Value("Ecwid")
     val EtsyAPIv3 = Value("EtsyAPIv3")
+    val Facebook = Value("Facebook")
     val Flipkart = Value("Flipkart")
     val Gambio = Value("Gambio")
     val Hybris = Value("Hybris")

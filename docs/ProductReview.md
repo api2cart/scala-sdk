@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **ratings** | [**Seq&lt;ProductReviewRating&gt;**](ProductReviewRating.md) |  |  [optional]
 **status** | **String** |  |  [optional]
 **createdTime** | [**A2CDateTime**](A2CDateTime.md) |  |  [optional]
+**modifiedTime** | [**A2CDateTime**](A2CDateTime.md) |  |  [optional]
 **medias** | [**Seq&lt;Media&gt;**](Media.md) |  |  [optional]
 **additionalFields** | **Any** |  |  [optional]
 **customFields** | **Any** |  |  [optional]

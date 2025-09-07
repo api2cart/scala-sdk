@@ -8,6 +8,8 @@ Method | HTTP request | Description
 [**orderAbandonedListWithHttpInfo**](OrderApi.md#orderAbandonedListWithHttpInfo) | **GET** /order.abandoned.list.json | order.abandoned.list
 [**orderAdd**](OrderApi.md#orderAdd) | **POST** /order.add.json | order.add
 [**orderAddWithHttpInfo**](OrderApi.md#orderAddWithHttpInfo) | **POST** /order.add.json | order.add
+[**orderCalculate**](OrderApi.md#orderCalculate) | **POST** /order.calculate.json | order.calculate
+[**orderCalculateWithHttpInfo**](OrderApi.md#orderCalculateWithHttpInfo) | **POST** /order.calculate.json | order.calculate
 [**orderCount**](OrderApi.md#orderCount) | **GET** /order.count.json | order.count
 [**orderCountWithHttpInfo**](OrderApi.md#orderCountWithHttpInfo) | **GET** /order.count.json | order.count
 [**orderFinancialStatusList**](OrderApi.md#orderFinancialStatusList) | **GET** /order.financial_status.list.json | order.financial_status.list
@@ -246,6 +248,93 @@ Name | Type | Description  | Notes
 ### Return type
 
 ApiRequest[[**OrderAdd200Response**](OrderAdd200Response.md)]
+
+
+### Authorization
+
+[StoreKeyAuth](../README.md#StoreKeyAuth), [ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | successful operation |  -  |
+
+
+## orderCalculate
+
+> orderCalculate(orderCalculateRequest): ApiRequest[OrderCalculate200Response]
+
+order.calculate
+
+&lt;p&gt;Calculates the total cost of an order for a given customer and a set of products, as well as the available shipping methods based on the specified address. The calculation takes into account store product prices, discounts, taxes, shipping costs, and other store settings. The result includes a detailed breakdown of the final order cost by its components.&lt;/p&gt; &lt;p&gt;Note that the final totals, taxes, and other amounts must include the corresponding values for the selected shipping method.&lt;/p&gt;&lt;p&gt;The result of this method can be used when creating an order using the &lt;strong&gt;order.add&lt;/strong&gt; method.&lt;/p&gt;
+
+### Example
+
+```scala
+// Import classes:
+import 
+import 
+import org.openapitools.client.core._
+import org.openapitools.client.core.CollectionFormats._
+import org.openapitools.client.core.ApiKeyLocations._
+
+import akka.actor.ActorSystem
+import scala.concurrent.Future
+import scala.util.{Failure, Success}
+
+object Example extends App {
+    
+    implicit val system: ActorSystem = ActorSystem()
+    import system.dispatcher
+    
+    // Configure API key authorization: StoreKeyAuth
+    implicit val StoreKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
+
+    // Configure API key authorization: ApiKeyAuth
+    implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
+
+    val apiInvoker = ApiInvoker()
+    val apiInstance = OrderApi("https://api.api2cart.local.com/v1.1")
+    val orderCalculate: OrderCalculate =  // OrderCalculate | 
+    
+    val request = apiInstance.orderCalculate(orderCalculate)
+    val response = apiInvoker.execute(request)
+
+    response.onComplete {
+        case Success(ApiResponse(code, content, headers)) =>
+            System.out.println(s"Status code: $code}")
+            System.out.println(s"Response headers: ${headers.mkString(", ")}")
+            System.out.println(s"Response body: $content")
+        
+        case Failure(error @ ApiError(code, message, responseContent, cause, headers)) =>
+            System.err.println("Exception when calling OrderApi#orderCalculate")
+            System.err.println(s"Status code: $code}")
+            System.err.println(s"Reason: $responseContent")
+            System.err.println(s"Response headers: ${headers.mkString(", ")}")
+            error.printStackTrace();
+
+        case Failure(exception) => 
+            System.err.println("Exception when calling OrderApi#orderCalculate")
+            exception.printStackTrace();
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **orderCalculate** | [**OrderCalculate**](OrderCalculate.md)|  |
+
+### Return type
+
+ApiRequest[[**OrderCalculate200Response**](OrderCalculate200Response.md)]
 
 
 ### Authorization

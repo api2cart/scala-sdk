@@ -14,20 +14,20 @@ package org.openapitools.client.model
 import java.math.BigDecimal
 import org.openapitools.client.core.ApiModel
 
-case class ProductReview (
-  id: Option[String] = None,
+case class OrderCalculateItem (
   productId: Option[String] = None,
-  customerId: Option[String] = None,
-  nickName: Option[String] = None,
-  email: Option[String] = None,
-  summary: Option[String] = None,
-  message: Option[String] = None,
-  rating: Option[BigDecimal] = None,
-  ratings: Option[Seq[ProductReviewRating]] = None,
-  status: Option[String] = None,
-  createdTime: Option[A2CDateTime] = None,
-  modifiedTime: Option[A2CDateTime] = None,
-  medias: Option[Seq[Media]] = None,
+  sku: Option[String] = None,
+  name: Option[String] = None,
+  quantity: Option[Int] = None,
+  price: Option[BigDecimal] = None,
+  priceIncTax: Option[BigDecimal] = None,
+  taxRate: Option[BigDecimal] = None,
+  unitDiscount: Option[BigDecimal] = None,
+  weight: Option[BigDecimal] = None,
+  weightUnit: Option[String] = None,
+  barcode: Option[String] = None,
+  variantId: Option[String] = None,
+  options: Option[Seq[OrderItemOption]] = None,
   additionalFields: Option[Any] = None,
   customFields: Option[Any] = None
 ) extends ApiModel

@@ -22,6 +22,8 @@ import org.openapitools.client.model.ModelResponseOrderStatusList
 import org.openapitools.client.model.ModelResponseOrderTransactionList
 import org.openapitools.client.model.OrderAdd
 import org.openapitools.client.model.OrderAdd200Response
+import org.openapitools.client.model.OrderCalculate
+import org.openapitools.client.model.OrderCalculate200Response
 import org.openapitools.client.model.OrderCount200Response
 import org.openapitools.client.model.OrderFinancialStatusList200Response
 import org.openapitools.client.model.OrderFulfillmentStatusList200Response
@@ -115,6 +117,26 @@ class OrderApi(baseUrl: String) {
       .withApiKey(apiKey, "x-api-key", HEADER)
       .withBody(orderAdd)
       .withSuccessResponse[OrderAdd200Response](200)
+      
+
+  /**
+   * <p>Calculates the total cost of an order for a given customer and a set of products, as well as the available shipping methods based on the specified address. The calculation takes into account store product prices, discounts, taxes, shipping costs, and other store settings. The result includes a detailed breakdown of the final order cost by its components.</p> <p>Note that the final totals, taxes, and other amounts must include the corresponding values for the selected shipping method.</p><p>The result of this method can be used when creating an order using the <strong>order.add</strong> method.</p>
+   * 
+   * Expected answers:
+   *   code 200 : OrderCalculate200Response (successful operation)
+   * 
+   * Available security schemes:
+   *   StoreKeyAuth (apiKey)
+   *   ApiKeyAuth (apiKey)
+   * 
+   * @param orderCalculate 
+   */
+  def orderCalculate(orderCalculate: OrderCalculate)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[OrderCalculate200Response] =
+    ApiRequest[OrderCalculate200Response](ApiMethods.POST, baseUrl, "/order.calculate.json", "application/json")
+      .withApiKey(apiKey, "x-store-key", HEADER)
+      .withApiKey(apiKey, "x-api-key", HEADER)
+      .withBody(orderCalculate)
+      .withSuccessResponse[OrderCalculate200Response](200)
       
 
   /**

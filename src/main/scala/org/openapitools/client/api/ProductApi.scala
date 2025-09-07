@@ -826,14 +826,26 @@ class ProductApi(baseUrl: String) {
    * @param productId Defines products specified by product id
    * @param manufacturer Defines product’s manufacturer's name
    * @param storeId Store Id
+   * @param metaTitle Defines unique meta title for each entity
+   * @param metaKeywords Defines unique meta keywords for each entity
+   * @param metaDescription Defines unique meta description of a entity
+   * @param searchKeywords Defines unique search keywords
+   * @param imageUrl Image Url
+   * @param seoUrl Defines unique URL for SEO
    */
-  def productManufacturerAdd(productId: String, manufacturer: String, storeId: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ProductManufacturerAdd200Response] =
+  def productManufacturerAdd(productId: String, manufacturer: String, storeId: Option[String] = None, metaTitle: Option[String] = None, metaKeywords: Option[String] = None, metaDescription: Option[String] = None, searchKeywords: Option[String] = None, imageUrl: Option[String] = None, seoUrl: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ProductManufacturerAdd200Response] =
     ApiRequest[ProductManufacturerAdd200Response](ApiMethods.POST, baseUrl, "/product.manufacturer.add.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
       .withQueryParam("product_id", productId)
       .withQueryParam("manufacturer", manufacturer)
       .withQueryParam("store_id", storeId)
+      .withQueryParam("meta_title", metaTitle)
+      .withQueryParam("meta_keywords", metaKeywords)
+      .withQueryParam("meta_description", metaDescription)
+      .withQueryParam("search_keywords", searchKeywords)
+      .withQueryParam("image_url", imageUrl)
+      .withQueryParam("seo_url", seoUrl)
       .withSuccessResponse[ProductManufacturerAdd200Response](200)
       
 
@@ -1141,12 +1153,18 @@ class ProductApi(baseUrl: String) {
    * @param pageCursor Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
    * @param ids Retrieves reviews specified by ids
    * @param storeId Store Id
+   * @param langId Language id
    * @param status Defines status
+   * @param createdFrom Retrieve entities from their creation date
+   * @param createdTo Retrieve entities to their creation date
+   * @param customerId Retrieves orders specified by customer id
+   * @param sortBy Set field to sort by
+   * @param sortDirection Set sorting direction
    * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
    * @param params Set this parameter in order to choose which entity fields you want to retrieve
    * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
    */
-  def productReviewList(productId: String, start: Option[Int] = None, count: Option[Int] = None, pageCursor: Option[String] = None, ids: Option[String] = None, storeId: Option[String] = None, status: Option[String] = None, responseFields: Option[String] = None, params: Option[String] = None, exclude: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseProductReviewList] =
+  def productReviewList(productId: String, start: Option[Int] = None, count: Option[Int] = None, pageCursor: Option[String] = None, ids: Option[String] = None, storeId: Option[String] = None, langId: Option[String] = None, status: Option[String] = None, createdFrom: Option[String] = None, createdTo: Option[String] = None, customerId: Option[String] = None, sortBy: Option[String] = None, sortDirection: Option[String] = None, responseFields: Option[String] = None, params: Option[String] = None, exclude: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseProductReviewList] =
     ApiRequest[ModelResponseProductReviewList](ApiMethods.GET, baseUrl, "/product.review.list.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
@@ -1156,7 +1174,13 @@ class ProductApi(baseUrl: String) {
       .withQueryParam("product_id", productId)
       .withQueryParam("ids", ids)
       .withQueryParam("store_id", storeId)
+      .withQueryParam("lang_id", langId)
       .withQueryParam("status", status)
+      .withQueryParam("created_from", createdFrom)
+      .withQueryParam("created_to", createdTo)
+      .withQueryParam("customer_id", customerId)
+      .withQueryParam("sort_by", sortBy)
+      .withQueryParam("sort_direction", sortDirection)
       .withQueryParam("response_fields", responseFields)
       .withQueryParam("params", params)
       .withQueryParam("exclude", exclude)
