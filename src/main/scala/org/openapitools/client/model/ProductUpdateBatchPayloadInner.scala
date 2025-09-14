@@ -39,6 +39,7 @@ case class ProductUpdateBatchPayloadInner (
   status: Option[String] = None,
   `type`: Option[String] = None,
   condition: Option[String] = None,
+  conditionDescription: Option[String] = None,
   visible: Option[String] = None,
   availableForView: Option[Boolean] = None,
   availableForSale: Option[Boolean] = None,

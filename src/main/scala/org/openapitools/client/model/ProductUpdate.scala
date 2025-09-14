@@ -69,6 +69,8 @@ case class ProductUpdate (
   availFrom: Option[String] = None,
   /* A categorization for the product */
   productClass: Option[String] = None,
+  /* Retrieves brands specified by brand name */
+  brandName: Option[String] = None,
   /* Specifies the set of visible/invisible products for users */
   availableForView: Option[Boolean] = None,
   /* Assign product to the stores that is specified by comma-separated stores' id */

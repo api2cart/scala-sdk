@@ -34,6 +34,7 @@ Name | Type | Description | Notes
 **avail** | **Boolean** | Defines category&#39;s visibility status |  [optional]
 **availFrom** | **String** | Allows to schedule a time in the future that the item becomes available. The value should be greater than the current date and time. |  [optional]
 **productClass** | **String** | A categorization for the product |  [optional]
+**brandName** | **String** | Retrieves brands specified by brand name |  [optional]
 **availableForView** | **Boolean** | Specifies the set of visible/invisible products for users |  [optional]
 **storesIds** | **String** | Assign product to the stores that is specified by comma-separated stores&#39; id |  [optional]
 **storeId** | **String** | Defines store id where the product should be found |  [optional]
