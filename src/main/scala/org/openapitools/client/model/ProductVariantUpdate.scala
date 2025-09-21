@@ -119,6 +119,8 @@ case class ProductVariantUpdate (
   metaDescription: Option[String] = None,
   /* Defines unique meta keywords for each entity */
   metaKeywords: Option[String] = None,
+  /* Specifies the product variant's manufacturer */
+  manufacturer: Option[String] = None,
   /* Is reindex required */
   reindex: Option[Boolean] = None,
   /* Is cache clear required */

@@ -59,6 +59,7 @@ Name | Type | Description | Notes
 **metaTitle** | **String** | Defines unique meta title for each entity |  [optional]
 **metaDescription** | **String** | Defines unique meta description of a entity |  [optional]
 **metaKeywords** | **String** | Defines unique meta keywords for each entity |  [optional]
+**manufacturer** | **String** | Specifies the product variant&#39;s manufacturer |  [optional]
 **reindex** | **Boolean** | Is reindex required |  [optional]
 **clearCache** | **Boolean** | Is cache clear required |  [optional]
 

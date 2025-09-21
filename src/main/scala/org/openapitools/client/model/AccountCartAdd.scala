@@ -200,6 +200,8 @@ case class AccountCartAdd (
   shoplazzaSharedSecret: Option[String] = None,
   /* Shopware access key */
   shopwareAccessKey: Option[String] = None,
+  /* UNAS API Key */
+  unasApiKey: Option[String] = None,
   /* Shopware api key */
   shopwareApiKey: Option[String] = None,
   /* Shopware client secret access key */
