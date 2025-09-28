@@ -20,6 +20,10 @@ case class OrderCalculateOrderItemInner (
   orderItemQuantity: Int,
   /* Ordered product variant. Where x is order item ID */
   orderItemVariantId: Option[String] = None,
+  /* Index of the parent grouped/bundle product */
+  orderItemParent: Option[Int] = None,
+  /* Option name of the parent grouped/bundle product */
+  orderItemParentOptionName: Option[String] = None,
   orderItemOption: Option[Seq[OrderCalculateOrderItemInnerOrderItemOptionInner]] = None
 ) extends ApiModel
 

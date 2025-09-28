@@ -14,7 +14,7 @@ package org.openapitools.client.model
 import java.math.BigDecimal
 import org.openapitools.client.core.ApiModel
 
-case class OrderCalculateItem (
+case class OrderCalculateBundle (
   productId: Option[String] = None,
   sku: Option[String] = None,
   name: Option[String] = None,
@@ -27,7 +27,6 @@ case class OrderCalculateItem (
   weightUnit: Option[String] = None,
   barcode: Option[String] = None,
   variantId: Option[String] = None,
-  bundleProductId: Option[String] = None,
   options: Option[Seq[OrderItemOption]] = None,
   additionalFields: Option[Any] = None,
   customFields: Option[Any] = None

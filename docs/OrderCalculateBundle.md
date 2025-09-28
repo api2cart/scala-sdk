@@ -1,6 +1,6 @@
 
 
-# OrderCalculateItem
+# OrderCalculateBundle
 
 
 ## Properties
@@ -19,7 +19,6 @@ Name | Type | Description | Notes
 **weightUnit** | **String** |  |  [optional]
 **barcode** | **String** |  |  [optional]
 **variantId** | **String** |  |  [optional]
-**bundleProductId** | **String** |  |  [optional]
 **options** | [**Seq&lt;OrderItemOption&gt;**](OrderItemOption.md) |  |  [optional]
 **additionalFields** | **Any** |  |  [optional]
 **customFields** | **Any** |  |  [optional]
