@@ -405,6 +405,7 @@ object AccountCartAddEnums {
     val TikTokShop = Value("TikTokShop")
     val Tomatocart = Value("Tomatocart")
     val Ubercart = Value("Ubercart")
+    val Unas = Value("Unas")
     val Virtuemart = Value("Virtuemart")
     val Volusion = Value("Volusion")
     val WPecommerce = Value("WPecommerce")
