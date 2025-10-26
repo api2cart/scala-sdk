@@ -252,8 +252,9 @@ class OrderApi(baseUrl: String) {
    * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
    * @param enableCache If the value is 'true' and order exist in our cache, we will return order.info response from cache
    * @param useLatestApiVersion Use the latest platform API version
+   * @param roundingPrecision <p>Specifies the rounding precision for fractional numeric values (such as prices, taxes, and weights).</p> <p>Supported values range from <b>1</b> to <b>6</b>.</p> <p>The default rounding precision may vary depending on the platform. You can retrieve the default value using the <strong>cart.info</strong> method in the <code>default_rounding_precision</code> field. </p><p>Values are rounded to the nearest number at the specified precision. Fractions of .5 or higher are rounded up, while fractions lower than .5 are rounded down.</p>
    */
-  def orderInfo(id: Option[String] = None, orderId: Option[String] = None, storeId: Option[String] = None, params: Option[String] = None, responseFields: Option[String] = None, exclude: Option[String] = None, enableCache: Option[Boolean] = None, useLatestApiVersion: Option[Boolean] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[OrderInfo200Response] =
+  def orderInfo(id: Option[String] = None, orderId: Option[String] = None, storeId: Option[String] = None, params: Option[String] = None, responseFields: Option[String] = None, exclude: Option[String] = None, enableCache: Option[Boolean] = None, useLatestApiVersion: Option[Boolean] = None, roundingPrecision: Option[Int] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[OrderInfo200Response] =
     ApiRequest[OrderInfo200Response](ApiMethods.GET, baseUrl, "/order.info.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
@@ -265,6 +266,7 @@ class OrderApi(baseUrl: String) {
       .withQueryParam("exclude", exclude)
       .withQueryParam("enable_cache", enableCache)
       .withQueryParam("use_latest_api_version", useLatestApiVersion)
+      .withQueryParam("rounding_precision", roundingPrecision)
       .withSuccessResponse[OrderInfo200Response](200)
       
 
@@ -316,8 +318,9 @@ class OrderApi(baseUrl: String) {
    * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
    * @param enableCache If the value is 'true', we will cache orders for a 15 minutes in order to increase speed and reduce requests throttling for some methods and shoping platforms (for example order.shipment.add)
    * @param useLatestApiVersion Use the latest platform API version
+   * @param roundingPrecision <p>Specifies the rounding precision for fractional numeric values (such as prices, taxes, and weights).</p> <p>Supported values range from <b>1</b> to <b>6</b>.</p> <p>The default rounding precision may vary depending on the platform. You can retrieve the default value using the <strong>cart.info</strong> method in the <code>default_rounding_precision</code> field. </p><p>Values are rounded to the nearest number at the specified precision. Fractions of .5 or higher are rounded up, while fractions lower than .5 are rounded down.</p>
    */
-  def orderList(start: Option[Int] = None, count: Option[Int] = None, pageCursor: Option[String] = None, ids: Option[String] = None, orderIds: Option[String] = None, sinceId: Option[String] = None, storeId: Option[String] = None, customerId: Option[String] = None, customerEmail: Option[String] = None, basketId: Option[String] = None, currencyId: Option[String] = None, phone: Option[String] = None, orderStatus: Option[String] = None, orderStatusIds: Seq[String], ebayOrderStatus: Option[String] = None, financialStatus: Option[String] = None, financialStatusIds: Seq[String], fulfillmentStatus: Option[String] = None, returnStatus: Option[String] = None, fulfillmentChannel: Option[String] = None, shippingMethod: Option[String] = None, skipOrderIds: Option[String] = None, isDeleted: Option[Boolean] = None, shippingCountryIso3: Option[String] = None, deliveryMethod: Option[String] = None, shipNodeType: Option[String] = None, createdTo: Option[String] = None, createdFrom: Option[String] = None, modifiedTo: Option[String] = None, modifiedFrom: Option[String] = None, tags: Option[String] = None, sortBy: Option[String] = None, sortDirection: Option[String] = None, params: Option[String] = None, responseFields: Option[String] = None, exclude: Option[String] = None, enableCache: Option[Boolean] = None, useLatestApiVersion: Option[Boolean] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseOrderList] =
+  def orderList(start: Option[Int] = None, count: Option[Int] = None, pageCursor: Option[String] = None, ids: Option[String] = None, orderIds: Option[String] = None, sinceId: Option[String] = None, storeId: Option[String] = None, customerId: Option[String] = None, customerEmail: Option[String] = None, basketId: Option[String] = None, currencyId: Option[String] = None, phone: Option[String] = None, orderStatus: Option[String] = None, orderStatusIds: Seq[String], ebayOrderStatus: Option[String] = None, financialStatus: Option[String] = None, financialStatusIds: Seq[String], fulfillmentStatus: Option[String] = None, returnStatus: Option[String] = None, fulfillmentChannel: Option[String] = None, shippingMethod: Option[String] = None, skipOrderIds: Option[String] = None, isDeleted: Option[Boolean] = None, shippingCountryIso3: Option[String] = None, deliveryMethod: Option[String] = None, shipNodeType: Option[String] = None, createdTo: Option[String] = None, createdFrom: Option[String] = None, modifiedTo: Option[String] = None, modifiedFrom: Option[String] = None, tags: Option[String] = None, sortBy: Option[String] = None, sortDirection: Option[String] = None, params: Option[String] = None, responseFields: Option[String] = None, exclude: Option[String] = None, enableCache: Option[Boolean] = None, useLatestApiVersion: Option[Boolean] = None, roundingPrecision: Option[Int] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseOrderList] =
     ApiRequest[ModelResponseOrderList](ApiMethods.GET, baseUrl, "/order.list.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
@@ -359,6 +362,7 @@ class OrderApi(baseUrl: String) {
       .withQueryParam("exclude", exclude)
       .withQueryParam("enable_cache", enableCache)
       .withQueryParam("use_latest_api_version", useLatestApiVersion)
+      .withQueryParam("rounding_precision", roundingPrecision)
       .withSuccessResponse[ModelResponseOrderList](200)
       
 

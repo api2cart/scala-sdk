@@ -78,6 +78,7 @@ Name | Type | Description | Notes
 **countryOfOrigin** | **String** | The country where the inventory item was made |  [optional]
 **harmonizedSystemCode** | **String** | Harmonized System Code. An HSC is a 6-digit identifier that allows participating countries to classify traded goods on a common basis for customs purposes |  [optional]
 **shippingTemplateId** | **Int** | The numeric ID of the shipping template associated with the products in Etsy. You can find possible values in the \&quot;cart.info\&quot; API method response, in the field shipping_zones[]-&gt;id. |  [optional]
+**processingProfileId** | **Int** | The numeric ID of the processing profile (readiness state) for physical products in Etsy. You can find possible values in the \&quot;cart.info\&quot; API method response, in the field processing_profiles[]-&gt;readiness_state_id. |  [optional]
 **whenMade** | **String** | An enumerated string for the era in which the maker made the product. |  [optional]
 **isSupply** | **Boolean** | If true, it indicates the product as a supply, otherwise it indicates that it is a finished product. |  [optional]
 **downloadable** | **Boolean** | Defines whether the product is downloadable |  [optional]

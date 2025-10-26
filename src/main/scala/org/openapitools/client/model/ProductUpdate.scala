@@ -156,6 +156,8 @@ case class ProductUpdate (
   harmonizedSystemCode: Option[String] = None,
   /* The numeric ID of the shipping template associated with the products in Etsy. You can find possible values in the \"cart.info\" API method response, in the field shipping_zones[]->id. */
   shippingTemplateId: Option[Int] = None,
+  /* The numeric ID of the processing profile (readiness state) for physical products in Etsy. You can find possible values in the \"cart.info\" API method response, in the field processing_profiles[]->readiness_state_id. */
+  processingProfileId: Option[Int] = None,
   /* An enumerated string for the era in which the maker made the product. */
   whenMade: Option[String] = None,
   /* If true, it indicates the product as a supply, otherwise it indicates that it is a finished product. */
