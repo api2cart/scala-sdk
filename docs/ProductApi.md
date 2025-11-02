@@ -1138,6 +1138,8 @@ object Example extends App {
 
     val apiInvoker = ApiInvoker()
     val apiInstance = ProductApi("https://api.api2cart.local.com/v1.1")
+    val sku: String = bag_01 // String | Filter by product's sku
+
     val productIds: String = 4,5 // String | Counts products specified by product ids
 
     val sinceId: String = 56 // String | Retrieve entities starting from the specified id.
@@ -1164,6 +1166,8 @@ object Example extends App {
 
     val brandName: String = Abidas // String | Retrieves brands specified by brand name
 
+    val manufacturerId: String = 1 // String | Defines product's manufacturer by manufacturer_id
+
     val productAttributes: Seq[String] = product_attributes[0][attribute_id]=132&product_attributes[0][values][0]=custom value 1&product_attributes[0][values][1]=custom value 2 // Seq[String] | Defines product attributes
 
     val status: String = disabled // String | Defines product's status
@@ -1184,7 +1188,7 @@ object Example extends App {
 
     val useLatestApiVersion: Boolean = true // Boolean | Use the latest platform API version
     
-    val request = apiInstance.productCount(productIds, sinceId, categoriesIds, categoryId, storeId, langId, availView, availSale, createdFrom, createdTo, modifiedFrom, modifiedTo, brandName, productAttributes, status, `type`, visible, findValue, findWhere, reportRequestId, returnGlobal, disableReportCache, useLatestApiVersion)
+    val request = apiInstance.productCount(sku, productIds, sinceId, categoriesIds, categoryId, storeId, langId, availView, availSale, createdFrom, createdTo, modifiedFrom, modifiedTo, brandName, manufacturerId, productAttributes, status, `type`, visible, findValue, findWhere, reportRequestId, returnGlobal, disableReportCache, useLatestApiVersion)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -1212,6 +1216,7 @@ object Example extends App {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **sku** | **String**| Filter by product&#39;s sku | [optional]
  **productIds** | **String**| Counts products specified by product ids | [optional]
  **sinceId** | **String**| Retrieve entities starting from the specified id. | [optional]
  **categoriesIds** | **String**| Defines product add that is specified by comma-separated categories id | [optional]
@@ -1225,6 +1230,7 @@ Name | Type | Description  | Notes
  **modifiedFrom** | **String**| Retrieve entities from their modification date | [optional]
  **modifiedTo** | **String**| Retrieve entities to their modification date | [optional]
  **brandName** | **String**| Retrieves brands specified by brand name | [optional]
+ **manufacturerId** | **String**| Defines product&#39;s manufacturer by manufacturer_id | [optional]
  **productAttributes** | [**Seq[String]**](String.md)| Defines product attributes | [optional]
  **status** | **String**| Defines product&#39;s status | [optional]
  **`type`** | **String**| Defines products&#39;s type | [optional]
@@ -2222,6 +2228,8 @@ object Example extends App {
 
     val productAttributes: Seq[String] = product_attributes[0][attribute_id]=132&product_attributes[0][values][0]=custom value 1&product_attributes[0][values][1]=custom value 2 // Seq[String] | Defines product attributes
 
+    val manufacturerId: String = 1 // String | Defines product's manufacturer by manufacturer_id
+
     val status: String = disabled // String | Defines product's status
 
     val `type`: String = simple // String | Defines products's type
@@ -2254,7 +2262,7 @@ object Example extends App {
 
     val productType: String = BICYCLE // String | A categorization for the product
     
-    val request = apiInstance.productList(start, count, pageCursor, productIds, sinceId, categoriesIds, categoryId, storeId, langId, currencyId, availView, availSale, createdFrom, createdTo, modifiedFrom, modifiedTo, sku, brandName, productAttributes, status, `type`, visible, findValue, findWhere, returnGlobal, params, responseFields, exclude, sortBy, sortDirection, reportRequestId, disableCache, disableReportCache, useLatestApiVersion, productType)
+    val request = apiInstance.productList(start, count, pageCursor, productIds, sinceId, categoriesIds, categoryId, storeId, langId, currencyId, availView, availSale, createdFrom, createdTo, modifiedFrom, modifiedTo, sku, brandName, productAttributes, manufacturerId, status, `type`, visible, findValue, findWhere, returnGlobal, params, responseFields, exclude, sortBy, sortDirection, reportRequestId, disableCache, disableReportCache, useLatestApiVersion, productType)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -2301,6 +2309,7 @@ Name | Type | Description  | Notes
  **sku** | **String**| Filter by product&#39;s sku | [optional]
  **brandName** | **String**| Retrieves brands specified by brand name | [optional]
  **productAttributes** | [**Seq[String]**](String.md)| Defines product attributes | [optional]
+ **manufacturerId** | **String**| Defines product&#39;s manufacturer by manufacturer_id | [optional]
  **status** | **String**| Defines product&#39;s status | [optional]
  **`type`** | **String**| Defines products&#39;s type | [optional]
  **visible** | **String**| Filter items by visibility status | [optional]

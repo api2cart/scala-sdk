@@ -76,6 +76,7 @@ Name | Type | Description | Notes
 **noteAttributes** | [**Seq&lt;OrderAddNoteAttributesInner&gt;**](OrderAddNoteAttributesInner.md) | Defines note attributes |  [optional]
 **clearCache** | **Boolean** | Is cache clear required |  [optional]
 **origin** | **String** | The source of the order |  [optional]
+**feePrice** | **BigDecimal** | Specifies refund&#39;s fee price |  [optional]
 **orderItem** | [**Seq&lt;OrderAddOrderItemInner&gt;**](OrderAddOrderItemInner.md) |  | 
 
 

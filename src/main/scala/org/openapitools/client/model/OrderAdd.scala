@@ -153,6 +153,8 @@ case class OrderAdd (
   clearCache: Option[Boolean] = None,
   /* The source of the order */
   origin: Option[String] = None,
+  /* Specifies refund's fee price */
+  feePrice: Option[BigDecimal] = None,
   orderItem: Seq[OrderAddOrderItemInner]
 ) extends ApiModel
 
