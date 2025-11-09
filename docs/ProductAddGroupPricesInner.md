@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **groupId** | **String** |  |  [optional]
 **price** | **BigDecimal** |  |  [optional]
+**qty** | **Int** |  |  [optional]
 
 
 

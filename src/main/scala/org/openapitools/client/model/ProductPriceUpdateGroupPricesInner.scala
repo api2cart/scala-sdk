@@ -17,6 +17,7 @@ import org.openapitools.client.core.ApiModel
 case class ProductPriceUpdateGroupPricesInner (
   id: Option[Int] = None,
   groupId: Option[String] = None,
-  price: Option[BigDecimal] = None
+  price: Option[BigDecimal] = None,
+  qty: Option[Int] = None
 ) extends ApiModel
 

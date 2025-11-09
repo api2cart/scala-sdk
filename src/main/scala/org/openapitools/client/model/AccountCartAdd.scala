@@ -64,6 +64,14 @@ case class AccountCartAdd (
   aspdotnetstorefrontApiUser: Option[String] = None,
   /* AspDotNetStorefront API Password */
   aspdotnetstorefrontApiPass: Option[String] = None,
+  /* Americommerce App ID */
+  americommerceAppId: Option[String] = None,
+  /* Americommerce App Secret */
+  americommerceAppSecret: Option[String] = None,
+  /* Americommerce Access Token */
+  americommerceAccessToken: Option[String] = None,
+  /* Americommerce Refresh Token */
+  americommerceRefreshToken: Option[String] = None,
   /* It's a BigCommerce account for which API is enabled */
   bigcommerceapiAdminAccount: Option[String] = None,
   /* BigCommerce API URL */
@@ -356,6 +364,7 @@ object AccountCartAddEnums {
     val `3dCartApi` = Value("3DCartApi")
     val AceShop = Value("AceShop")
     val AmazonSP = Value("AmazonSP")
+    val Americommerce = Value("Americommerce")
     val AspDotNetStorefront = Value("AspDotNetStorefront")
     val BigCartel = Value("BigCartel")
     val Bricklink = Value("Bricklink")

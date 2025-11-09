@@ -32,6 +32,10 @@ Name | Type | Description | Notes
 **amazonSellerId** | **String** | Amazon Seller ID (Merchant token) |  [optional]
 **aspdotnetstorefrontApiUser** | **String** | It&#39;s a AspDotNetStorefront account for which API is available |  [optional]
 **aspdotnetstorefrontApiPass** | **String** | AspDotNetStorefront API Password |  [optional]
+**americommerceAppId** | **String** | Americommerce App ID |  [optional]
+**americommerceAppSecret** | **String** | Americommerce App Secret |  [optional]
+**americommerceAccessToken** | **String** | Americommerce Access Token |  [optional]
+**americommerceRefreshToken** | **String** | Americommerce Refresh Token |  [optional]
 **bigcommerceapiAdminAccount** | **String** | It&#39;s a BigCommerce account for which API is enabled |  [optional]
 **bigcommerceapiApiPath** | **String** | BigCommerce API URL |  [optional]
 **bigcommerceapiApiKey** | **String** | Bigcommerce API Key |  [optional]
@@ -176,7 +180,7 @@ Name | Type | Description | Notes
 
 
 ## Enum: CartId
-Allowed values: [3DCart, 3DCartApi, AceShop, AmazonSP, AspDotNetStorefront, BigCartel, Bricklink, BigcommerceApi, Bol, CommerceHQ, Creloaded, Cscart, Cubecart, Demandware, EBay, Ecwid, EtsyAPIv3, Facebook, Flipkart, Gambio, Hybris, JooCart, Lazada, LightSpeed, Magento1212, Magento2Api, MercadoLibre, MijoShop, Miva, Neto, Opencart14, Oscmax2, Oscommerce22ms2, Otto, Oxid, Pinnacle, Prestashop, PrestashopApi, SSPremium, Salla, Shopify, Shopee, Shoplazza, Shopline, Shopware, ShopwareApi, Square, Squarespace, Temu, Tiendanube, TikTokShop, Tomatocart, Ubercart, Unas, Virtuemart, Volusion, WPecommerce, Walmart, WebAsyst, Wix, Woocommerce, WoocommerceApi, Xcart, Xtcommerce, XtcommerceVeyton, Zencart137, Zid, Zoey, Zoho]
+Allowed values: [3DCart, 3DCartApi, AceShop, AmazonSP, Americommerce, AspDotNetStorefront, BigCartel, Bricklink, BigcommerceApi, Bol, CommerceHQ, Creloaded, Cscart, Cubecart, Demandware, EBay, Ecwid, EtsyAPIv3, Facebook, Flipkart, Gambio, Hybris, JooCart, Lazada, LightSpeed, Magento1212, Magento2Api, MercadoLibre, MijoShop, Miva, Neto, Opencart14, Oscmax2, Oscommerce22ms2, Otto, Oxid, Pinnacle, Prestashop, PrestashopApi, SSPremium, Salla, Shopify, Shopee, Shoplazza, Shopline, Shopware, ShopwareApi, Square, Squarespace, Temu, Tiendanube, TikTokShop, Tomatocart, Ubercart, Unas, Virtuemart, Volusion, WPecommerce, Walmart, WebAsyst, Wix, Woocommerce, WoocommerceApi, Xcart, Xtcommerce, XtcommerceVeyton, Zencart137, Zid, Zoey, Zoho]
 
 
 
