@@ -43,6 +43,8 @@ case class OrderAdd (
   customerBirthday: Option[String] = None,
   /* Specifies customer’s fax */
   customerFax: Option[String] = None,
+  /* Indicates whether the customer is a guest customer */
+  isGuest: Option[Boolean] = None,
   /* Defines order payment method.<br/>Setting order_payment_method on Shopify will also change financial_status field value to 'paid' */
   orderPaymentMethod: Option[String] = None,
   /* Payment transaction id */

@@ -353,7 +353,17 @@ case class AccountCartAdd (
   /* Temu Access Token */
   temuAccessToken: Option[String] = None,
   /* Temu API endpoint Region. */
-  temuRegion: Option[String] = None
+  temuRegion: Option[String] = None,
+  /* Salesforce Commerce API Client ID */
+  scapiClientId: Option[String] = None,
+  /* Salesforce Commerce API Client Secret */
+  scapiClientSecret: Option[String] = None,
+  /* Salesforce Commerce Organization ID */
+  scapiOrganizationId: Option[String] = None,
+  /* Salesforce Commerce Short Code */
+  scapiShortCode: Option[String] = None,
+  /* Salesforce Commerce API Scopes */
+  scapiScopes: Option[String] = None
 ) extends ApiModel
 
 object AccountCartAddEnums {
