@@ -124,6 +124,8 @@ case class ProductVariantUpdate (
   /* Is reindex required */
   reindex: Option[Boolean] = None,
   /* Is cache clear required */
-  clearCache: Option[Boolean] = None
+  clearCache: Option[Boolean] = None,
+  /* The numeric ID of the processing profile (readiness state) for physical products in Etsy. You can find possible values in the \"cart.info\" API method response, in the field processing_profiles[]->readiness_state_id. */
+  processingProfileId: Option[Int] = None
 ) extends ApiModel
 
