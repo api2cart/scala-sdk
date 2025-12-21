@@ -184,6 +184,8 @@ case class AccountCartAdd (
   shoplineSharedSecret: Option[String] = None,
   /* Access token authorizing the app to access resources on behalf of a user */
   shopifyAccessToken: Option[String] = None,
+  /* Shopify Client ID */
+  shopifyClientId: Option[String] = None,
   /* Shopify API Key */
   shopifyApiKey: Option[String] = None,
   /* Shopify API Password */
