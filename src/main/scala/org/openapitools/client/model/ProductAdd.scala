@@ -62,7 +62,7 @@ case class ProductAdd (
   oldPrice: Option[BigDecimal] = None,
   /* Defines product's model that has to be added */
   specialPrice: Option[BigDecimal] = None,
-  /* Defines product's sale price */
+  /* This parameter is deprecated. Please use the <strong>old_price</strong> parameter instead. */
   wholesalePrice: Option[BigDecimal] = None,
   /* Defines new product's cost price */
   costPrice: Option[BigDecimal] = None,

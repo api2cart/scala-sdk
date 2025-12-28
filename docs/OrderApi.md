@@ -713,8 +713,10 @@ object Example extends App {
     val useLatestApiVersion: Boolean = true // Boolean | Use the latest platform API version
 
     val roundingPrecision: Int = 3 // Int | <p>Specifies the rounding precision for fractional numeric values (such as prices, taxes, and weights).</p> <p>Supported values range from <b>1</b> to <b>6</b>.</p> <p>The default rounding precision may vary depending on the platform. You can retrieve the default value using the <strong>cart.info</strong> method in the <code>default_rounding_precision</code> field. </p><p>Values are rounded to the nearest number at the specified precision. Fractions of .5 or higher are rounded up, while fractions lower than .5 are rounded down.</p>
+
+    val allowUserDefinedOrderStatuses: Boolean = true // Boolean | Indicates whether custom (user-defined) order statuses should be included in the response.
     
-    val request = apiInstance.orderInfo(id, orderId, storeId, params, responseFields, exclude, enableCache, useLatestApiVersion, roundingPrecision)
+    val request = apiInstance.orderInfo(id, orderId, storeId, params, responseFields, exclude, enableCache, useLatestApiVersion, roundingPrecision, allowUserDefinedOrderStatuses)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -751,6 +753,7 @@ Name | Type | Description  | Notes
  **enableCache** | **Boolean**| If the value is &#39;true&#39; and order exist in our cache, we will return order.info response from cache | [optional]
  **useLatestApiVersion** | **Boolean**| Use the latest platform API version | [optional]
  **roundingPrecision** | **Int**| &lt;p&gt;Specifies the rounding precision for fractional numeric values (such as prices, taxes, and weights).&lt;/p&gt; &lt;p&gt;Supported values range from &lt;b&gt;1&lt;/b&gt; to &lt;b&gt;6&lt;/b&gt;.&lt;/p&gt; &lt;p&gt;The default rounding precision may vary depending on the platform. You can retrieve the default value using the &lt;strong&gt;cart.info&lt;/strong&gt; method in the &lt;code&gt;default_rounding_precision&lt;/code&gt; field. &lt;/p&gt;&lt;p&gt;Values are rounded to the nearest number at the specified precision. Fractions of .5 or higher are rounded up, while fractions lower than .5 are rounded down.&lt;/p&gt; | [optional]
+ **allowUserDefinedOrderStatuses** | **Boolean**| Indicates whether custom (user-defined) order statuses should be included in the response. | [optional]
 
 ### Return type
 
@@ -883,8 +886,10 @@ object Example extends App {
     val useLatestApiVersion: Boolean = true // Boolean | Use the latest platform API version
 
     val roundingPrecision: Int = 3 // Int | <p>Specifies the rounding precision for fractional numeric values (such as prices, taxes, and weights).</p> <p>Supported values range from <b>1</b> to <b>6</b>.</p> <p>The default rounding precision may vary depending on the platform. You can retrieve the default value using the <strong>cart.info</strong> method in the <code>default_rounding_precision</code> field. </p><p>Values are rounded to the nearest number at the specified precision. Fractions of .5 or higher are rounded up, while fractions lower than .5 are rounded down.</p>
+
+    val allowUserDefinedOrderStatuses: Boolean = true // Boolean | Indicates whether custom (user-defined) order statuses should be included in the response.
     
-    val request = apiInstance.orderList(start, count, pageCursor, ids, orderIds, sinceId, storeId, customerId, customerEmail, basketId, currencyId, phone, orderStatus, orderStatusIds, ebayOrderStatus, financialStatus, financialStatusIds, fulfillmentStatus, returnStatus, fulfillmentChannel, shippingMethod, skipOrderIds, isDeleted, shippingCountryIso3, deliveryMethod, shipNodeType, createdTo, createdFrom, modifiedTo, modifiedFrom, tags, sortBy, sortDirection, params, responseFields, exclude, enableCache, useLatestApiVersion, roundingPrecision)
+    val request = apiInstance.orderList(start, count, pageCursor, ids, orderIds, sinceId, storeId, customerId, customerEmail, basketId, currencyId, phone, orderStatus, orderStatusIds, ebayOrderStatus, financialStatus, financialStatusIds, fulfillmentStatus, returnStatus, fulfillmentChannel, shippingMethod, skipOrderIds, isDeleted, shippingCountryIso3, deliveryMethod, shipNodeType, createdTo, createdFrom, modifiedTo, modifiedFrom, tags, sortBy, sortDirection, params, responseFields, exclude, enableCache, useLatestApiVersion, roundingPrecision, allowUserDefinedOrderStatuses)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -951,6 +956,7 @@ Name | Type | Description  | Notes
  **enableCache** | **Boolean**| If the value is &#39;true&#39;, we will cache orders for a 15 minutes in order to increase speed and reduce requests throttling for some methods and shoping platforms (for example order.shipment.add) | [optional]
  **useLatestApiVersion** | **Boolean**| Use the latest platform API version | [optional]
  **roundingPrecision** | **Int**| &lt;p&gt;Specifies the rounding precision for fractional numeric values (such as prices, taxes, and weights).&lt;/p&gt; &lt;p&gt;Supported values range from &lt;b&gt;1&lt;/b&gt; to &lt;b&gt;6&lt;/b&gt;.&lt;/p&gt; &lt;p&gt;The default rounding precision may vary depending on the platform. You can retrieve the default value using the &lt;strong&gt;cart.info&lt;/strong&gt; method in the &lt;code&gt;default_rounding_precision&lt;/code&gt; field. &lt;/p&gt;&lt;p&gt;Values are rounded to the nearest number at the specified precision. Fractions of .5 or higher are rounded up, while fractions lower than .5 are rounded down.&lt;/p&gt; | [optional]
+ **allowUserDefinedOrderStatuses** | **Boolean**| Indicates whether custom (user-defined) order statuses should be included in the response. | [optional]
 
 ### Return type
 
@@ -2113,9 +2119,11 @@ object Example extends App {
 
     val action: String = add // String | Available statuses for the specified action.
 
+    val allowUserDefinedOrderStatuses: Boolean = true // Boolean | Indicates whether custom (user-defined) order statuses should be included in the response.
+
     val responseFields: String = {return_code,return_message,result} // String | Set this parameter in order to choose which entity fields you want to retrieve
     
-    val request = apiInstance.orderStatusList(storeId, action, responseFields)
+    val request = apiInstance.orderStatusList(storeId, action, allowUserDefinedOrderStatuses, responseFields)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -2145,6 +2153,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **storeId** | **String**| Store Id | [optional]
  **action** | **String**| Available statuses for the specified action. | [optional]
+ **allowUserDefinedOrderStatuses** | **Boolean**| Indicates whether custom (user-defined) order statuses should be included in the response. | [optional]
  **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
 
 ### Return type

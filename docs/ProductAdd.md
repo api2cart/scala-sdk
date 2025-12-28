@@ -30,7 +30,7 @@ Name | Type | Description | Notes
 **langId** | **String** | Language id |  [optional]
 **oldPrice** | **BigDecimal** | Defines product&#39;s old price |  [optional]
 **specialPrice** | **BigDecimal** | Defines product&#39;s model that has to be added |  [optional]
-**wholesalePrice** | **BigDecimal** | Defines product&#39;s sale price |  [optional]
+**wholesalePrice** | **BigDecimal** | This parameter is deprecated. Please use the &lt;strong&gt;old_price&lt;/strong&gt; parameter instead. |  [optional]
 **costPrice** | **BigDecimal** | Defines new product&#39;s cost price |  [optional]
 **fixedCostShippingPrice** | **BigDecimal** | Specifies product&#39;s fixed cost shipping price |  [optional]
 **tierPrices** | [**Seq&lt;ProductAddTierPricesInner&gt;**](ProductAddTierPricesInner.md) | Defines product&#39;s tier prices |  [optional]
