@@ -35,6 +35,8 @@ case class Child (
   combination: Option[Seq[ProductChildItemCombination]] = None,
   defaultPrice: Option[BigDecimal] = None,
   costPrice: Option[BigDecimal] = None,
+  unitPrice: Option[BigDecimal] = None,
+  measureUnit: Option[String] = None,
   listPrice: Option[BigDecimal] = None,
   wholesalePrice: Option[BigDecimal] = None,
   advancedPrice: Option[Seq[ProductAdvancedPrice]] = None,

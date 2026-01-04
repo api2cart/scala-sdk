@@ -17,6 +17,8 @@ Name | Type | Description | Notes
 **price** | **BigDecimal** |  |  [optional]
 **advancedPrice** | [**Seq&lt;ProductAdvancedPrice&gt;**](ProductAdvancedPrice.md) |  |  [optional]
 **costPrice** | **BigDecimal** |  |  [optional]
+**unitPrice** | **BigDecimal** |  |  [optional]
+**measureUnit** | **String** |  |  [optional]
 **quantity** | **BigDecimal** |  |  [optional]
 **inventory** | [**Seq&lt;ProductInventory&gt;**](ProductInventory.md) |  |  [optional]
 **groupItems** | [**Seq&lt;ProductGroupItem&gt;**](ProductGroupItem.md) |  |  [optional]

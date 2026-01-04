@@ -87,6 +87,10 @@ case class ProductVariantUpdate (
   spriceCreate: Option[String] = None,
   /* Defines the term of special price offer duration */
   spriceExpire: Option[String] = None,
+  /* Unit for the price per unit. Must be in allowed list */
+  measureUnit: Option[String] = None,
+  /* Defines new product's unit price */
+  unitPrice: Option[BigDecimal] = None,
   /* Weight */
   weight: Option[BigDecimal] = None,
   /* A barcode is a unique code composed of numbers used as a product identifier. */

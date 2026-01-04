@@ -59,6 +59,10 @@ case class ProductVariantAdd (
   spriceExpire: Option[String] = None,
   /* Defines product's tier prices */
   tierPrices: Option[Seq[ProductAddTierPricesInner]] = None,
+  /* Unit for the price per unit. Must be in allowed list */
+  measureUnit: Option[String] = None,
+  /* Defines new product's unit price */
+  unitPrice: Option[BigDecimal] = None,
   /* Defines product variant's quantity that has to be added */
   quantity: Option[BigDecimal] = None,
   /* This parameter is used for selecting a warehouse where you need to set/modify a product quantity. */

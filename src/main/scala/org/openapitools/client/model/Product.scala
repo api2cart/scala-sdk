@@ -25,6 +25,8 @@ case class Product (
   price: Option[BigDecimal] = None,
   advancedPrice: Option[Seq[ProductAdvancedPrice]] = None,
   costPrice: Option[BigDecimal] = None,
+  unitPrice: Option[BigDecimal] = None,
+  measureUnit: Option[String] = None,
   quantity: Option[BigDecimal] = None,
   inventory: Option[Seq[ProductInventory]] = None,
   groupItems: Option[Seq[ProductGroupItem]] = None,

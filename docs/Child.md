@@ -27,6 +27,8 @@ Name | Type | Description | Notes
 **combination** | [**Seq&lt;ProductChildItemCombination&gt;**](ProductChildItemCombination.md) |  |  [optional]
 **defaultPrice** | **BigDecimal** |  |  [optional]
 **costPrice** | **BigDecimal** |  |  [optional]
+**unitPrice** | **BigDecimal** |  |  [optional]
+**measureUnit** | **String** |  |  [optional]
 **listPrice** | **BigDecimal** |  |  [optional]
 **wholesalePrice** | **BigDecimal** |  |  [optional]
 **advancedPrice** | [**Seq&lt;ProductAdvancedPrice&gt;**](ProductAdvancedPrice.md) |  |  [optional]

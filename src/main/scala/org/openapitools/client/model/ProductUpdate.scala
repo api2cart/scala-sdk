@@ -73,6 +73,10 @@ case class ProductUpdate (
   brandName: Option[String] = None,
   /* Specifies the set of visible/invisible products for users */
   availableForView: Option[Boolean] = None,
+  /* Unit for the price per unit. Must be in allowed list */
+  measureUnit: Option[String] = None,
+  /* Defines new product's unit price */
+  unitPrice: Option[BigDecimal] = None,
   /* Assign product to the stores that is specified by comma-separated stores' id */
   storesIds: Option[String] = None,
   /* Defines store id where the product should be found */
