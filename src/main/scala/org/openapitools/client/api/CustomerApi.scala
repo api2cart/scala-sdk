@@ -166,12 +166,14 @@ class CustomerApi(baseUrl: String) {
    *   ApiKeyAuth (apiKey)
    * 
    * @param id Identifies customer specified by the id
+   * @param storeId Store Id
    */
-  def customerDelete(id: String)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[CustomerDelete200Response] =
+  def customerDelete(id: String, storeId: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[CustomerDelete200Response] =
     ApiRequest[CustomerDelete200Response](ApiMethods.DELETE, baseUrl, "/customer.delete.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
       .withQueryParam("id", id)
+      .withQueryParam("store_id", storeId)
       .withSuccessResponse[CustomerDelete200Response](200)
       
 
@@ -216,14 +218,16 @@ class CustomerApi(baseUrl: String) {
    * @param name Customer group name
    * @param storeId Store Id
    * @param storesIds Assign customer group to the stores that is specified by comma-separated stores' id
+   * @param idempotencyKey A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong>
    */
-  def customerGroupAdd(name: String, storeId: Option[String] = None, storesIds: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[CustomerGroupAdd200Response] =
+  def customerGroupAdd(name: String, storeId: Option[String] = None, storesIds: Option[String] = None, idempotencyKey: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[CustomerGroupAdd200Response] =
     ApiRequest[CustomerGroupAdd200Response](ApiMethods.POST, baseUrl, "/customer.group.add.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
       .withQueryParam("name", name)
       .withQueryParam("store_id", storeId)
       .withQueryParam("stores_ids", storesIds)
+      .withQueryParam("idempotency_key", idempotencyKey)
       .withSuccessResponse[CustomerGroupAdd200Response](200)
       
 

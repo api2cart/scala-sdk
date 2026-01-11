@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **comment** | **String** | Specifies return comment |  [optional]
 **sendNotifications** | **Boolean** | Send notifications to customer after order was created |  [optional]
 **rejectReason** | **String** | Defines return reject reason |  [optional]
+**idempotencyKey** | **String** | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; |  [optional]
 **orderProducts** | [**Seq&lt;OrderReturnUpdateOrderProductsInner&gt;**](OrderReturnUpdateOrderProductsInner.md) |  | 
 
 

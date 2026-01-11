@@ -52,7 +52,9 @@ case class CartCouponAdd (
   /* Defines whether the coupon provides free cash on delivery */
   freeCashOnDelivery: Option[Boolean] = None,
   /* Retrieves orders specified by customer id */
-  customerId: Option[String] = None
+  customerId: Option[String] = None,
+  /* A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong> */
+  idempotencyKey: Option[String] = None
 ) extends ApiModel
 
 object CartCouponAddEnums {

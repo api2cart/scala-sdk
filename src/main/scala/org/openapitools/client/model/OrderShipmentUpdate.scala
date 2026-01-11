@@ -37,6 +37,8 @@ case class OrderShipmentUpdate (
   /* Defines name of the company which provides shipment tracking */
   trackingProvider: Option[String] = None,
   /* Defines items in the order that will be shipped */
-  items: Option[Seq[OrderShipmentAddItemsInner]] = None
+  items: Option[Seq[OrderShipmentAddItemsInner]] = None,
+  /* A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong> */
+  idempotencyKey: Option[String] = None
 ) extends ApiModel
 

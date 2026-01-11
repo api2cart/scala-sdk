@@ -35,7 +35,9 @@ case class ProductOptionAdd (
   /* An array of option values.</b> */
   values: Option[Seq[ProductOptionAddValuesInner]] = None,
   /* Is cache clear required */
-  clearCache: Option[Boolean] = None
+  clearCache: Option[Boolean] = None,
+  /* A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong> */
+  idempotencyKey: Option[String] = None
 ) extends ApiModel
 
 object ProductOptionAddEnums {

@@ -179,8 +179,9 @@ class ProductApi(baseUrl: String) {
    * @param valueId Define attribute value id
    * @param langId Language id
    * @param storeId Store Id
+   * @param idempotencyKey A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong>
    */
-  def productAttributeValueSet(productId: String, attributeId: Option[String] = None, attributeGroupId: Option[String] = None, attributeName: Option[String] = None, value: Option[String] = None, valueId: Option[Int] = None, langId: Option[String] = None, storeId: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ProductAttributeValueSet200Response] =
+  def productAttributeValueSet(productId: String, attributeId: Option[String] = None, attributeGroupId: Option[String] = None, attributeName: Option[String] = None, value: Option[String] = None, valueId: Option[Int] = None, langId: Option[String] = None, storeId: Option[String] = None, idempotencyKey: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ProductAttributeValueSet200Response] =
     ApiRequest[ProductAttributeValueSet200Response](ApiMethods.POST, baseUrl, "/product.attribute.value.set.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
@@ -192,6 +193,7 @@ class ProductApi(baseUrl: String) {
       .withQueryParam("value_id", valueId)
       .withQueryParam("lang_id", langId)
       .withQueryParam("store_id", storeId)
+      .withQueryParam("idempotency_key", idempotencyKey)
       .withSuccessResponse[ProductAttributeValueSet200Response](200)
       
 
@@ -211,8 +213,9 @@ class ProductApi(baseUrl: String) {
    * @param includeDefault Boolean, whether or not to unset default value of the attribute, if applicable
    * @param reindex Is reindex required
    * @param clearCache Is cache clear required
+   * @param idempotencyKey A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong>
    */
-  def productAttributeValueUnset(productId: String, attributeId: String, storeId: Option[String] = None, includeDefault: Option[Boolean] = None, reindex: Option[Boolean] = None, clearCache: Option[Boolean] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ProductAttributeValueUnset200Response] =
+  def productAttributeValueUnset(productId: String, attributeId: String, storeId: Option[String] = None, includeDefault: Option[Boolean] = None, reindex: Option[Boolean] = None, clearCache: Option[Boolean] = None, idempotencyKey: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ProductAttributeValueUnset200Response] =
     ApiRequest[ProductAttributeValueUnset200Response](ApiMethods.POST, baseUrl, "/product.attribute.value.unset.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
@@ -222,6 +225,7 @@ class ProductApi(baseUrl: String) {
       .withQueryParam("include_default", includeDefault)
       .withQueryParam("reindex", reindex)
       .withQueryParam("clear_cache", clearCache)
+      .withQueryParam("idempotency_key", idempotencyKey)
       .withSuccessResponse[ProductAttributeValueUnset200Response](200)
       
 
@@ -488,8 +492,9 @@ class ProductApi(baseUrl: String) {
    * @param symbolLeft Defines the symbol that is located before the currency
    * @param symbolRight Defines the symbol that is located after the currency
    * @param default Specifies currency's default meaning
+   * @param idempotencyKey A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong>
    */
-  def productCurrencyAdd(iso3: String, rate: BigDecimal, name: Option[String] = None, avail: Option[Boolean] = None, symbolLeft: Option[String] = None, symbolRight: Option[String] = None, default: Option[Boolean] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ProductCurrencyAdd200Response] =
+  def productCurrencyAdd(iso3: String, rate: BigDecimal, name: Option[String] = None, avail: Option[Boolean] = None, symbolLeft: Option[String] = None, symbolRight: Option[String] = None, default: Option[Boolean] = None, idempotencyKey: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ProductCurrencyAdd200Response] =
     ApiRequest[ProductCurrencyAdd200Response](ApiMethods.POST, baseUrl, "/product.currency.add.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
@@ -500,6 +505,7 @@ class ProductApi(baseUrl: String) {
       .withQueryParam("symbol_left", symbolLeft)
       .withQueryParam("symbol_right", symbolRight)
       .withQueryParam("default", default)
+      .withQueryParam("idempotency_key", idempotencyKey)
       .withSuccessResponse[ProductCurrencyAdd200Response](200)
       
 
@@ -673,8 +679,9 @@ class ProductApi(baseUrl: String) {
    * @param label Defines alternative text that has to be attached to the picture
    * @param position Defines image’s position in the list
    * @param hidden Define is hide image
+   * @param idempotencyKey A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong>
    */
-  def productImageUpdate(productId: String, id: String, variantIds: Option[String] = None, storeId: Option[String] = None, langId: Option[String] = None, imageName: Option[String] = None, `type`: Option[String] = None, label: Option[String] = None, position: Option[Int] = None, hidden: Option[Boolean] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ProductImageUpdate200Response] =
+  def productImageUpdate(productId: String, id: String, variantIds: Option[String] = None, storeId: Option[String] = None, langId: Option[String] = None, imageName: Option[String] = None, `type`: Option[String] = None, label: Option[String] = None, position: Option[Int] = None, hidden: Option[Boolean] = None, idempotencyKey: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ProductImageUpdate200Response] =
     ApiRequest[ProductImageUpdate200Response](ApiMethods.PUT, baseUrl, "/product.image.update.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
@@ -688,6 +695,7 @@ class ProductApi(baseUrl: String) {
       .withQueryParam("label", label)
       .withQueryParam("position", position)
       .withQueryParam("hidden", hidden)
+      .withQueryParam("idempotency_key", idempotencyKey)
       .withSuccessResponse[ProductImageUpdate200Response](200)
       
 
@@ -838,8 +846,9 @@ class ProductApi(baseUrl: String) {
    * @param searchKeywords Defines unique search keywords
    * @param imageUrl Image Url
    * @param seoUrl Defines unique URL for SEO
+   * @param idempotencyKey A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong>
    */
-  def productManufacturerAdd(productId: String, manufacturer: String, storeId: Option[String] = None, metaTitle: Option[String] = None, metaKeywords: Option[String] = None, metaDescription: Option[String] = None, searchKeywords: Option[String] = None, imageUrl: Option[String] = None, seoUrl: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ProductManufacturerAdd200Response] =
+  def productManufacturerAdd(productId: String, manufacturer: String, storeId: Option[String] = None, metaTitle: Option[String] = None, metaKeywords: Option[String] = None, metaDescription: Option[String] = None, searchKeywords: Option[String] = None, imageUrl: Option[String] = None, seoUrl: Option[String] = None, idempotencyKey: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ProductManufacturerAdd200Response] =
     ApiRequest[ProductManufacturerAdd200Response](ApiMethods.POST, baseUrl, "/product.manufacturer.add.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
@@ -852,6 +861,7 @@ class ProductApi(baseUrl: String) {
       .withQueryParam("search_keywords", searchKeywords)
       .withQueryParam("image_url", imageUrl)
       .withQueryParam("seo_url", seoUrl)
+      .withQueryParam("idempotency_key", idempotencyKey)
       .withSuccessResponse[ProductManufacturerAdd200Response](200)
       
 
@@ -891,8 +901,9 @@ class ProductApi(baseUrl: String) {
    * @param sortOrder Sort number in the list
    * @param optionValues Defines option values that has to be assigned
    * @param clearCache Is cache clear required
+   * @param idempotencyKey A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong>
    */
-  def productOptionAssign(productId: String, optionId: String, required: Option[Boolean] = None, sortOrder: Option[Int] = None, optionValues: Option[String] = None, clearCache: Option[Boolean] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ProductOptionAssign200Response] =
+  def productOptionAssign(productId: String, optionId: String, required: Option[Boolean] = None, sortOrder: Option[Int] = None, optionValues: Option[String] = None, clearCache: Option[Boolean] = None, idempotencyKey: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ProductOptionAssign200Response] =
     ApiRequest[ProductOptionAssign200Response](ApiMethods.POST, baseUrl, "/product.option.assign.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
@@ -902,6 +913,7 @@ class ProductApi(baseUrl: String) {
       .withQueryParam("sort_order", sortOrder)
       .withQueryParam("option_values", optionValues)
       .withQueryParam("clear_cache", clearCache)
+      .withQueryParam("idempotency_key", idempotencyKey)
       .withSuccessResponse[ProductOptionAssign200Response](200)
       
 
@@ -980,8 +992,9 @@ class ProductApi(baseUrl: String) {
    * @param displayValue Defines the value that will be displayed for the option value
    * @param isDefault Defines as a default
    * @param clearCache Is cache clear required
+   * @param idempotencyKey A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong>
    */
-  def productOptionValueAdd(productId: String, optionId: String, optionValue: Option[String] = None, sortOrder: Option[Int] = None, displayValue: Option[String] = None, isDefault: Option[Boolean] = None, clearCache: Option[Boolean] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ProductOptionValueAdd200Response] =
+  def productOptionValueAdd(productId: String, optionId: String, optionValue: Option[String] = None, sortOrder: Option[Int] = None, displayValue: Option[String] = None, isDefault: Option[Boolean] = None, clearCache: Option[Boolean] = None, idempotencyKey: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ProductOptionValueAdd200Response] =
     ApiRequest[ProductOptionValueAdd200Response](ApiMethods.POST, baseUrl, "/product.option.value.add.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
@@ -992,6 +1005,7 @@ class ProductApi(baseUrl: String) {
       .withQueryParam("display_value", displayValue)
       .withQueryParam("is_default", isDefault)
       .withQueryParam("clear_cache", clearCache)
+      .withQueryParam("idempotency_key", idempotencyKey)
       .withSuccessResponse[ProductOptionValueAdd200Response](200)
       
 
@@ -1008,14 +1022,16 @@ class ProductApi(baseUrl: String) {
    * @param productOptionId Defines product's option id where the value has to be assigned
    * @param optionValueId Defines value id that has to be assigned
    * @param clearCache Is cache clear required
+   * @param idempotencyKey A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong>
    */
-  def productOptionValueAssign(productOptionId: Int, optionValueId: String, clearCache: Option[Boolean] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ProductOptionValueAssign200Response] =
+  def productOptionValueAssign(productOptionId: Int, optionValueId: String, clearCache: Option[Boolean] = None, idempotencyKey: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ProductOptionValueAssign200Response] =
     ApiRequest[ProductOptionValueAssign200Response](ApiMethods.POST, baseUrl, "/product.option.value.assign.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
       .withQueryParam("product_option_id", productOptionId)
       .withQueryParam("option_value_id", optionValueId)
       .withQueryParam("clear_cache", clearCache)
+      .withQueryParam("idempotency_key", idempotencyKey)
       .withSuccessResponse[ProductOptionValueAssign200Response](200)
       
 
@@ -1063,8 +1079,9 @@ class ProductApi(baseUrl: String) {
    * @param quantity Defines new products' options quantity
    * @param displayValue Defines the value that will be displayed for the option value
    * @param clearCache Is cache clear required
+   * @param idempotencyKey A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong>
    */
-  def productOptionValueUpdate(productId: String, optionId: String, optionValueId: String, optionValue: Option[String] = None, price: Option[BigDecimal] = None, quantity: Option[BigDecimal] = None, displayValue: Option[String] = None, clearCache: Option[Boolean] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[AccountConfigUpdate200Response] =
+  def productOptionValueUpdate(productId: String, optionId: String, optionValueId: String, optionValue: Option[String] = None, price: Option[BigDecimal] = None, quantity: Option[BigDecimal] = None, displayValue: Option[String] = None, clearCache: Option[Boolean] = None, idempotencyKey: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[AccountConfigUpdate200Response] =
     ApiRequest[AccountConfigUpdate200Response](ApiMethods.PUT, baseUrl, "/product.option.value.update.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
@@ -1076,6 +1093,7 @@ class ProductApi(baseUrl: String) {
       .withQueryParam("quantity", quantity)
       .withQueryParam("display_value", displayValue)
       .withQueryParam("clear_cache", clearCache)
+      .withQueryParam("idempotency_key", idempotencyKey)
       .withSuccessResponse[AccountConfigUpdate200Response](200)
       
 
@@ -1205,13 +1223,15 @@ class ProductApi(baseUrl: String) {
    * 
    * @param productId Defines id of the product which should be assigned to a store
    * @param storeId Defines id of the store product should be assigned to
+   * @param idempotencyKey A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong>
    */
-  def productStoreAssign(productId: String, storeId: String)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[AccountConfigUpdate200Response] =
+  def productStoreAssign(productId: String, storeId: String, idempotencyKey: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[AccountConfigUpdate200Response] =
     ApiRequest[AccountConfigUpdate200Response](ApiMethods.POST, baseUrl, "/product.store.assign.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
       .withQueryParam("product_id", productId)
       .withQueryParam("store_id", storeId)
+      .withQueryParam("idempotency_key", idempotencyKey)
       .withSuccessResponse[AccountConfigUpdate200Response](200)
       
 

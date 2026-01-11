@@ -15,6 +15,8 @@ import org.openapitools.client.core.ApiModel
 
 case class CategoryAddBatch (
   /* Contains an array of categories objects. The list of properties may vary depending on the specific platform. */
-  payload: Seq[CategoryAddBatchPayloadInner]
+  payload: Seq[CategoryAddBatchPayloadInner],
+  /* A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong> */
+  idempotencyKey: Option[String] = None
 ) extends ApiModel
 

@@ -71,8 +71,9 @@ class WebhookApi(baseUrl: String) {
    * @param active Webhook status
    * @param langId Language id
    * @param storeId Defines store id where the webhook should be assigned
+   * @param idempotencyKey A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong>
    */
-  def webhookCreate(entity: String, action: String, callback: Option[String] = None, label: Option[String] = None, fields: Option[String] = None, responseFields: Option[String] = None, active: Option[Boolean] = None, langId: Option[String] = None, storeId: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[BasketLiveShippingServiceCreate200Response] =
+  def webhookCreate(entity: String, action: String, callback: Option[String] = None, label: Option[String] = None, fields: Option[String] = None, responseFields: Option[String] = None, active: Option[Boolean] = None, langId: Option[String] = None, storeId: Option[String] = None, idempotencyKey: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[BasketLiveShippingServiceCreate200Response] =
     ApiRequest[BasketLiveShippingServiceCreate200Response](ApiMethods.POST, baseUrl, "/webhook.create.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
@@ -85,6 +86,7 @@ class WebhookApi(baseUrl: String) {
       .withQueryParam("active", active)
       .withQueryParam("lang_id", langId)
       .withQueryParam("store_id", storeId)
+      .withQueryParam("idempotency_key", idempotencyKey)
       .withSuccessResponse[BasketLiveShippingServiceCreate200Response](200)
       
 
@@ -174,8 +176,9 @@ class WebhookApi(baseUrl: String) {
    * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
    * @param active Webhook status
    * @param langId Language id
+   * @param idempotencyKey A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong>
    */
-  def webhookUpdate(id: String, callback: Option[String] = None, label: Option[String] = None, fields: Option[String] = None, responseFields: Option[String] = None, active: Option[Boolean] = None, langId: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ProductImageUpdate200Response] =
+  def webhookUpdate(id: String, callback: Option[String] = None, label: Option[String] = None, fields: Option[String] = None, responseFields: Option[String] = None, active: Option[Boolean] = None, langId: Option[String] = None, idempotencyKey: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ProductImageUpdate200Response] =
     ApiRequest[ProductImageUpdate200Response](ApiMethods.PUT, baseUrl, "/webhook.update.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
@@ -186,6 +189,7 @@ class WebhookApi(baseUrl: String) {
       .withQueryParam("response_fields", responseFields)
       .withQueryParam("active", active)
       .withQueryParam("lang_id", langId)
+      .withQueryParam("idempotency_key", idempotencyKey)
       .withSuccessResponse[ProductImageUpdate200Response](200)
       
 

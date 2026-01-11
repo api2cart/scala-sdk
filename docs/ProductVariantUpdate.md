@@ -65,6 +65,7 @@ Name | Type | Description | Notes
 **reindex** | **Boolean** | Is reindex required |  [optional]
 **clearCache** | **Boolean** | Is cache clear required |  [optional]
 **processingProfileId** | **Int** | The numeric ID of the processing profile (readiness state) for physical products in Etsy. You can find possible values in the \&quot;cart.info\&quot; API method response, in the field processing_profiles[]-&gt;readiness_state_id. |  [optional]
+**idempotencyKey** | **String** | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; |  [optional]
 
 
 

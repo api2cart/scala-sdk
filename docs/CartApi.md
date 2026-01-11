@@ -376,8 +376,10 @@ object Example extends App {
     val includeShipping: Boolean = true // Boolean | Indicates whether to apply a discount for shipping.
 
     val storeId: String = 1 // String | Store Id
+
+    val idempotencyKey: String = 098f6bcd4621d373cade4e832627b4f6 // String | A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong>
     
-    val request = apiInstance.cartCouponConditionAdd(couponId, entity, key, operator, value, target, includeTax, includeShipping, storeId)
+    val request = apiInstance.cartCouponConditionAdd(couponId, entity, key, operator, value, target, includeTax, includeShipping, storeId, idempotencyKey)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -414,6 +416,7 @@ Name | Type | Description  | Notes
  **includeTax** | **Boolean**| Indicates whether to apply a discount for taxes. | [optional]
  **includeShipping** | **Boolean**| Indicates whether to apply a discount for shipping. | [optional]
  **storeId** | **String**| Store Id | [optional]
+ **idempotencyKey** | **String**| A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [optional]
 
 ### Return type
 
@@ -885,8 +888,10 @@ object Example extends App {
     val recipientName: String = John Doe // String | Gift card recipient name
 
     val ownerName: String = John Doe // String | Gift card owner name
+
+    val idempotencyKey: String = 098f6bcd4621d373cade4e832627b4f6 // String | A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong>
     
-    val request = apiInstance.cartGiftcardAdd(amount, code, ownerEmail, recipientEmail, recipientName, ownerName)
+    val request = apiInstance.cartGiftcardAdd(amount, code, ownerEmail, recipientEmail, recipientName, ownerName, idempotencyKey)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -920,6 +925,7 @@ Name | Type | Description  | Notes
  **recipientEmail** | **String**| Gift card recipient email | [optional]
  **recipientName** | **String**| Gift card recipient name | [optional]
  **ownerName** | **String**| Gift card owner name | [optional]
+ **idempotencyKey** | **String**| A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [optional]
 
 ### Return type
 
@@ -1472,8 +1478,10 @@ object Example extends App {
     val storeId: String = 1 // String | Store Id
 
     val langId: String = 3 // String | Language id
+
+    val idempotencyKey: String = 098f6bcd4621d373cade4e832627b4f6 // String | A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong>
     
-    val request = apiInstance.cartMetaDataSet(entityId, key, value, namespace, entity, storeId, langId)
+    val request = apiInstance.cartMetaDataSet(entityId, key, value, namespace, entity, storeId, langId, idempotencyKey)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -1508,6 +1516,7 @@ Name | Type | Description  | Notes
  **entity** | **String**| Entity | [optional]
  **storeId** | **String**| Store Id | [optional]
  **langId** | **String**| Language id | [optional]
+ **idempotencyKey** | **String**| A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [optional]
 
 ### Return type
 
@@ -1849,8 +1858,10 @@ object Example extends App {
     val events: String = purchase_event // String | Event for run scripts
 
     val storeId: String = 1 // String | Store Id
+
+    val idempotencyKey: String = 098f6bcd4621d373cade4e832627b4f6 // String | A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong>
     
-    val request = apiInstance.cartScriptAdd(name, description, html, src, loadMethod, scope, events, storeId)
+    val request = apiInstance.cartScriptAdd(name, description, html, src, loadMethod, scope, events, storeId, idempotencyKey)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -1886,6 +1897,7 @@ Name | Type | Description  | Notes
  **scope** | **String**| The page or pages on the online store where the script should be included | [optional]
  **events** | **String**| Event for run scripts | [optional]
  **storeId** | **String**| Store Id | [optional]
+ **idempotencyKey** | **String**| A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [optional]
 
 ### Return type
 

@@ -159,8 +159,10 @@ object Example extends App {
     val quantity: BigDecimal = 6 // BigDecimal | Defines new items quantity
 
     val storeId: String = 1 // String | Store Id
+
+    val idempotencyKey: String = 098f6bcd4621d373cade4e832627b4f6 // String | A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong>
     
-    val request = apiInstance.basketItemAdd(customerId, productId, variantId, quantity, storeId)
+    val request = apiInstance.basketItemAdd(customerId, productId, variantId, quantity, storeId, idempotencyKey)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -193,6 +195,7 @@ Name | Type | Description  | Notes
  **variantId** | **String**| Defines product&#39;s variants specified by variant id | [optional]
  **quantity** | **BigDecimal**| Defines new items quantity | [optional]
  **storeId** | **String**| Store Id | [optional]
+ **idempotencyKey** | **String**| A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [optional]
 
 ### Return type
 
@@ -253,8 +256,10 @@ object Example extends App {
     val callback: String = https://example.com/callback // String | Callback url that returns shipping rates. It should be able to accept POST requests with json data.
 
     val storeId: String = 1 // String | Store Id
+
+    val idempotencyKey: String = 098f6bcd4621d373cade4e832627b4f6 // String | A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong>
     
-    val request = apiInstance.basketLiveShippingServiceCreate(name, callback, storeId)
+    val request = apiInstance.basketLiveShippingServiceCreate(name, callback, storeId, idempotencyKey)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -285,6 +290,7 @@ Name | Type | Description  | Notes
  **name** | **String**| Shipping Service Name |
  **callback** | **String**| Callback url that returns shipping rates. It should be able to accept POST requests with json data. |
  **storeId** | **String**| Store Id | [optional]
+ **idempotencyKey** | **String**| A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [optional]
 
 ### Return type
 

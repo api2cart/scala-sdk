@@ -14,6 +14,8 @@ Method | HTTP request | Description
 [**categoryCountWithHttpInfo**](CategoryApi.md#categoryCountWithHttpInfo) | **GET** /category.count.json | category.count
 [**categoryDelete**](CategoryApi.md#categoryDelete) | **DELETE** /category.delete.json | category.delete
 [**categoryDeleteWithHttpInfo**](CategoryApi.md#categoryDeleteWithHttpInfo) | **DELETE** /category.delete.json | category.delete
+[**categoryDeleteBatch**](CategoryApi.md#categoryDeleteBatch) | **POST** /category.delete.batch.json | category.delete.batch
+[**categoryDeleteBatchWithHttpInfo**](CategoryApi.md#categoryDeleteBatchWithHttpInfo) | **POST** /category.delete.batch.json | category.delete.batch
 [**categoryFind**](CategoryApi.md#categoryFind) | **GET** /category.find.json | category.find
 [**categoryFindWithHttpInfo**](CategoryApi.md#categoryFindWithHttpInfo) | **GET** /category.find.json | category.find
 [**categoryImageAdd**](CategoryApi.md#categoryImageAdd) | **POST** /category.image.add.json | category.image.add
@@ -94,8 +96,10 @@ object Example extends App {
     val storesIds: String = 1,2 // String | Create category in the stores that is specified by comma-separated stores' id
 
     val langId: String = 3 // String | Language id
+
+    val idempotencyKey: String = 098f6bcd4621d373cade4e832627b4f6 // String | A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong>
     
-    val request = apiInstance.categoryAdd(name, description, shortDescription, parentId, avail, createdTime, modifiedTime, sortOrder, metaTitle, metaDescription, metaKeywords, seoUrl, storeId, storesIds, langId)
+    val request = apiInstance.categoryAdd(name, description, shortDescription, parentId, avail, createdTime, modifiedTime, sortOrder, metaTitle, metaDescription, metaKeywords, seoUrl, storeId, storesIds, langId, idempotencyKey)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -138,6 +142,7 @@ Name | Type | Description  | Notes
  **storeId** | **String**| Store Id | [optional]
  **storesIds** | **String**| Create category in the stores that is specified by comma-separated stores&#39; id | [optional]
  **langId** | **String**| Language id | [optional]
+ **idempotencyKey** | **String**| A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [optional]
 
 ### Return type
 
@@ -285,8 +290,10 @@ object Example extends App {
     val productId: String = 10 // String | Defines category assign to the product, specified by product id
 
     val storeId: String = 1 // String | Store Id
+
+    val idempotencyKey: String = 098f6bcd4621d373cade4e832627b4f6 // String | A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong>
     
-    val request = apiInstance.categoryAssign(categoryId, productId, storeId)
+    val request = apiInstance.categoryAssign(categoryId, productId, storeId, idempotencyKey)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -317,6 +324,7 @@ Name | Type | Description  | Notes
  **categoryId** | **String**| Defines category assign, specified by category id |
  **productId** | **String**| Defines category assign to the product, specified by product id |
  **storeId** | **String**| Store Id | [optional]
+ **idempotencyKey** | **String**| A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [optional]
 
 ### Return type
 
@@ -549,6 +557,93 @@ ApiRequest[[**CategoryDelete200Response**](CategoryDelete200Response.md)]
 | **200** | successful operation |  -  |
 
 
+## categoryDeleteBatch
+
+> categoryDeleteBatch(categoryDeleteBatchRequest): ApiRequest[CategoryAddBatch200Response]
+
+category.delete.batch
+
+Delete categories from the store.
+
+### Example
+
+```scala
+// Import classes:
+import 
+import 
+import org.openapitools.client.core._
+import org.openapitools.client.core.CollectionFormats._
+import org.openapitools.client.core.ApiKeyLocations._
+
+import akka.actor.ActorSystem
+import scala.concurrent.Future
+import scala.util.{Failure, Success}
+
+object Example extends App {
+    
+    implicit val system: ActorSystem = ActorSystem()
+    import system.dispatcher
+    
+    // Configure API key authorization: StoreKeyAuth
+    implicit val StoreKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
+
+    // Configure API key authorization: ApiKeyAuth
+    implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
+
+    val apiInvoker = ApiInvoker()
+    val apiInstance = CategoryApi("https://api.api2cart.local.com/v1.1")
+    val categoryDeleteBatch: CategoryDeleteBatch =  // CategoryDeleteBatch | 
+    
+    val request = apiInstance.categoryDeleteBatch(categoryDeleteBatch)
+    val response = apiInvoker.execute(request)
+
+    response.onComplete {
+        case Success(ApiResponse(code, content, headers)) =>
+            System.out.println(s"Status code: $code}")
+            System.out.println(s"Response headers: ${headers.mkString(", ")}")
+            System.out.println(s"Response body: $content")
+        
+        case Failure(error @ ApiError(code, message, responseContent, cause, headers)) =>
+            System.err.println("Exception when calling CategoryApi#categoryDeleteBatch")
+            System.err.println(s"Status code: $code}")
+            System.err.println(s"Reason: $responseContent")
+            System.err.println(s"Response headers: ${headers.mkString(", ")}")
+            error.printStackTrace();
+
+        case Failure(exception) => 
+            System.err.println("Exception when calling CategoryApi#categoryDeleteBatch")
+            exception.printStackTrace();
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **categoryDeleteBatch** | [**CategoryDeleteBatch**](CategoryDeleteBatch.md)|  |
+
+### Return type
+
+ApiRequest[[**CategoryAddBatch200Response**](CategoryAddBatch200Response.md)]
+
+
+### Authorization
+
+[StoreKeyAuth](../README.md#StoreKeyAuth), [ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | successful operation |  -  |
+
+
 ## categoryFind
 
 > categoryFind(categoryFindRequest): ApiRequest[CategoryFind200Response]
@@ -696,8 +791,10 @@ object Example extends App {
     val mime: String = image/jpeg // String | Mime type of image http://en.wikipedia.org/wiki/Internet_media_type.
 
     val position: Int = 5 // Int | Defines image’s position in the list
+
+    val idempotencyKey: String = 098f6bcd4621d373cade4e832627b4f6 // String | A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong>
     
-    val request = apiInstance.categoryImageAdd(categoryId, imageName, url, `type`, storeId, label, mime, position)
+    val request = apiInstance.categoryImageAdd(categoryId, imageName, url, `type`, storeId, label, mime, position, idempotencyKey)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -733,6 +830,7 @@ Name | Type | Description  | Notes
  **label** | **String**| Defines alternative text that has to be attached to the picture | [optional]
  **mime** | **String**| Mime type of image http://en.wikipedia.org/wiki/Internet_media_type. | [optional]
  **position** | **Int**| Defines image’s position in the list | [optional]
+ **idempotencyKey** | **String**| A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [optional]
 
 ### Return type
 
@@ -1138,8 +1236,10 @@ object Example extends App {
     val productId: String = 10 // String | Defines category unassign to the product, specified by product id
 
     val storeId: String = 1 // String | Store Id
+
+    val idempotencyKey: String = 098f6bcd4621d373cade4e832627b4f6 // String | A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong>
     
-    val request = apiInstance.categoryUnassign(categoryId, productId, storeId)
+    val request = apiInstance.categoryUnassign(categoryId, productId, storeId, idempotencyKey)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -1170,6 +1270,7 @@ Name | Type | Description  | Notes
  **categoryId** | **String**| Defines category unassign, specified by category id |
  **productId** | **String**| Defines category unassign to the product, specified by product id |
  **storeId** | **String**| Store Id | [optional]
+ **idempotencyKey** | **String**| A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [optional]
 
 ### Return type
 
@@ -1254,8 +1355,10 @@ object Example extends App {
     val storesIds: String = 1,2 // String | Update category in the stores that is specified by comma-separated stores' id
 
     val langId: String = 3 // String | Language id
+
+    val idempotencyKey: String = 098f6bcd4621d373cade4e832627b4f6 // String | A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong>
     
-    val request = apiInstance.categoryUpdate(id, name, description, shortDescription, parentId, avail, sortOrder, modifiedTime, metaTitle, metaDescription, metaKeywords, seoUrl, storeId, storesIds, langId)
+    val request = apiInstance.categoryUpdate(id, name, description, shortDescription, parentId, avail, sortOrder, modifiedTime, metaTitle, metaDescription, metaKeywords, seoUrl, storeId, storesIds, langId, idempotencyKey)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -1298,6 +1401,7 @@ Name | Type | Description  | Notes
  **storeId** | **String**| Store Id | [optional]
  **storesIds** | **String**| Update category in the stores that is specified by comma-separated stores&#39; id | [optional]
  **langId** | **String**| Language id | [optional]
+ **idempotencyKey** | **String**| A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [optional]
 
 ### Return type
 

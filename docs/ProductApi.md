@@ -454,8 +454,10 @@ object Example extends App {
     val langId: String = 3 // String | Language id
 
     val storeId: String = 1 // String | Store Id
+
+    val idempotencyKey: String = 098f6bcd4621d373cade4e832627b4f6 // String | A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong>
     
-    val request = apiInstance.productAttributeValueSet(productId, attributeId, attributeGroupId, attributeName, value, valueId, langId, storeId)
+    val request = apiInstance.productAttributeValueSet(productId, attributeId, attributeGroupId, attributeName, value, valueId, langId, storeId, idempotencyKey)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -491,6 +493,7 @@ Name | Type | Description  | Notes
  **valueId** | **Int**| Define attribute value id | [optional]
  **langId** | **String**| Language id | [optional]
  **storeId** | **String**| Store Id | [optional]
+ **idempotencyKey** | **String**| A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [optional]
 
 ### Return type
 
@@ -557,8 +560,10 @@ object Example extends App {
     val reindex: Boolean = false // Boolean | Is reindex required
 
     val clearCache: Boolean = false // Boolean | Is cache clear required
+
+    val idempotencyKey: String = 098f6bcd4621d373cade4e832627b4f6 // String | A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong>
     
-    val request = apiInstance.productAttributeValueUnset(productId, attributeId, storeId, includeDefault, reindex, clearCache)
+    val request = apiInstance.productAttributeValueUnset(productId, attributeId, storeId, includeDefault, reindex, clearCache, idempotencyKey)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -592,6 +597,7 @@ Name | Type | Description  | Notes
  **includeDefault** | **Boolean**| Boolean, whether or not to unset default value of the attribute, if applicable | [optional]
  **reindex** | **Boolean**| Is reindex required | [optional]
  **clearCache** | **Boolean**| Is cache clear required | [optional]
+ **idempotencyKey** | **String**| A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [optional]
 
 ### Return type
 
@@ -1310,8 +1316,10 @@ object Example extends App {
     val symbolRight: String = грн // String | Defines the symbol that is located after the currency
 
     val default: Boolean = true // Boolean | Specifies currency's default meaning
+
+    val idempotencyKey: String = 098f6bcd4621d373cade4e832627b4f6 // String | A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong>
     
-    val request = apiInstance.productCurrencyAdd(iso3, rate, name, avail, symbolLeft, symbolRight, default)
+    val request = apiInstance.productCurrencyAdd(iso3, rate, name, avail, symbolLeft, symbolRight, default, idempotencyKey)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -1346,6 +1354,7 @@ Name | Type | Description  | Notes
  **symbolLeft** | **String**| Defines the symbol that is located before the currency | [optional]
  **symbolRight** | **String**| Defines the symbol that is located after the currency | [optional]
  **default** | **Boolean**| Specifies currency&#39;s default meaning | [optional]
+ **idempotencyKey** | **String**| A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [optional]
 
 ### Return type
 
@@ -1983,8 +1992,10 @@ object Example extends App {
     val position: Int = 5 // Int | Defines image’s position in the list
 
     val hidden: Boolean = true // Boolean | Define is hide image
+
+    val idempotencyKey: String = 098f6bcd4621d373cade4e832627b4f6 // String | A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong>
     
-    val request = apiInstance.productImageUpdate(productId, id, variantIds, storeId, langId, imageName, `type`, label, position, hidden)
+    val request = apiInstance.productImageUpdate(productId, id, variantIds, storeId, langId, imageName, `type`, label, position, hidden, idempotencyKey)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -2022,6 +2033,7 @@ Name | Type | Description  | Notes
  **label** | **String**| Defines alternative text that has to be attached to the picture | [optional]
  **position** | **Int**| Defines image’s position in the list | [optional]
  **hidden** | **Boolean**| Define is hide image | [optional]
+ **idempotencyKey** | **String**| A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [optional]
 
 ### Return type
 
@@ -2398,8 +2410,10 @@ object Example extends App {
     val imageUrl: String = https://docs.api2cart.com/img/logo.png // String | Image Url
 
     val seoUrl: String = some seo url // String | Defines unique URL for SEO
+
+    val idempotencyKey: String = 098f6bcd4621d373cade4e832627b4f6 // String | A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong>
     
-    val request = apiInstance.productManufacturerAdd(productId, manufacturer, storeId, metaTitle, metaKeywords, metaDescription, searchKeywords, imageUrl, seoUrl)
+    val request = apiInstance.productManufacturerAdd(productId, manufacturer, storeId, metaTitle, metaKeywords, metaDescription, searchKeywords, imageUrl, seoUrl, idempotencyKey)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -2436,6 +2450,7 @@ Name | Type | Description  | Notes
  **searchKeywords** | **String**| Defines unique search keywords | [optional]
  **imageUrl** | **String**| Image Url | [optional]
  **seoUrl** | **String**| Defines unique URL for SEO | [optional]
+ **idempotencyKey** | **String**| A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [optional]
 
 ### Return type
 
@@ -2589,8 +2604,10 @@ object Example extends App {
     val optionValues: String = green,black,yellow // String | Defines option values that has to be assigned
 
     val clearCache: Boolean = false // Boolean | Is cache clear required
+
+    val idempotencyKey: String = 098f6bcd4621d373cade4e832627b4f6 // String | A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong>
     
-    val request = apiInstance.productOptionAssign(productId, optionId, required, sortOrder, optionValues, clearCache)
+    val request = apiInstance.productOptionAssign(productId, optionId, required, sortOrder, optionValues, clearCache, idempotencyKey)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -2624,6 +2641,7 @@ Name | Type | Description  | Notes
  **sortOrder** | **Int**| Sort number in the list | [optional]
  **optionValues** | **String**| Defines option values that has to be assigned | [optional]
  **clearCache** | **Boolean**| Is cache clear required | [optional]
+ **idempotencyKey** | **String**| A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [optional]
 
 ### Return type
 
@@ -2891,8 +2909,10 @@ object Example extends App {
     val isDefault: Boolean = true // Boolean | Defines as a default
 
     val clearCache: Boolean = false // Boolean | Is cache clear required
+
+    val idempotencyKey: String = 098f6bcd4621d373cade4e832627b4f6 // String | A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong>
     
-    val request = apiInstance.productOptionValueAdd(productId, optionId, optionValue, sortOrder, displayValue, isDefault, clearCache)
+    val request = apiInstance.productOptionValueAdd(productId, optionId, optionValue, sortOrder, displayValue, isDefault, clearCache, idempotencyKey)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -2927,6 +2947,7 @@ Name | Type | Description  | Notes
  **displayValue** | **String**| Defines the value that will be displayed for the option value | [optional]
  **isDefault** | **Boolean**| Defines as a default | [optional]
  **clearCache** | **Boolean**| Is cache clear required | [optional]
+ **idempotencyKey** | **String**| A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [optional]
 
 ### Return type
 
@@ -2987,8 +3008,10 @@ object Example extends App {
     val optionValueId: String = 45 // String | Defines value id that has to be assigned
 
     val clearCache: Boolean = false // Boolean | Is cache clear required
+
+    val idempotencyKey: String = 098f6bcd4621d373cade4e832627b4f6 // String | A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong>
     
-    val request = apiInstance.productOptionValueAssign(productOptionId, optionValueId, clearCache)
+    val request = apiInstance.productOptionValueAssign(productOptionId, optionValueId, clearCache, idempotencyKey)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -3019,6 +3042,7 @@ Name | Type | Description  | Notes
  **productOptionId** | **Int**| Defines product&#39;s option id where the value has to be assigned |
  **optionValueId** | **String**| Defines value id that has to be assigned |
  **clearCache** | **Boolean**| Is cache clear required | [optional]
+ **idempotencyKey** | **String**| A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [optional]
 
 ### Return type
 
@@ -3185,8 +3209,10 @@ object Example extends App {
     val displayValue: String = value // String | Defines the value that will be displayed for the option value
 
     val clearCache: Boolean = false // Boolean | Is cache clear required
+
+    val idempotencyKey: String = 098f6bcd4621d373cade4e832627b4f6 // String | A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong>
     
-    val request = apiInstance.productOptionValueUpdate(productId, optionId, optionValueId, optionValue, price, quantity, displayValue, clearCache)
+    val request = apiInstance.productOptionValueUpdate(productId, optionId, optionValueId, optionValue, price, quantity, displayValue, clearCache, idempotencyKey)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -3222,6 +3248,7 @@ Name | Type | Description  | Notes
  **quantity** | **BigDecimal**| Defines new products&#39; options quantity | [optional]
  **displayValue** | **String**| Defines the value that will be displayed for the option value | [optional]
  **clearCache** | **Boolean**| Is cache clear required | [optional]
+ **idempotencyKey** | **String**| A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [optional]
 
 ### Return type
 
@@ -3677,8 +3704,10 @@ object Example extends App {
     val productId: String = 10 // String | Defines id of the product which should be assigned to a store
 
     val storeId: String = 1 // String | Defines id of the store product should be assigned to
+
+    val idempotencyKey: String = 098f6bcd4621d373cade4e832627b4f6 // String | A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong>
     
-    val request = apiInstance.productStoreAssign(productId, storeId)
+    val request = apiInstance.productStoreAssign(productId, storeId, idempotencyKey)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -3708,6 +3737,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **productId** | **String**| Defines id of the product which should be assigned to a store |
  **storeId** | **String**| Defines id of the store product should be assigned to |
+ **idempotencyKey** | **String**| A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [optional]
 
 ### Return type
 

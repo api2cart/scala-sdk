@@ -55,6 +55,8 @@ case class CustomerAddressAdd (
   /* Add Tax Id */
   taxId: Option[String] = None,
   /* Specifies customer's alias in the address book */
-  alias: Option[String] = None
+  alias: Option[String] = None,
+  /* A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong> */
+  idempotencyKey: Option[String] = None
 ) extends ApiModel
 

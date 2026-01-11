@@ -29,6 +29,8 @@ case class OrderShipmentTrackingAdd (
   /* Defines custom tracking link */
   trackingLink: Option[String] = None,
   /* Send notifications to customer after tracking was created */
-  sendNotifications: Option[Boolean] = None
+  sendNotifications: Option[Boolean] = None,
+  /* A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong> */
+  idempotencyKey: Option[String] = None
 ) extends ApiModel
 

@@ -2347,8 +2347,10 @@ object Example extends App {
     val origin: String = newsletter // String | The source of the order
 
     val tags: String = tag1,tag2 // String | Order tags
+
+    val idempotencyKey: String = 098f6bcd4621d373cade4e832627b4f6 // String | A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong>
     
-    val request = apiInstance.orderUpdate(orderId, storeId, orderStatus, financialStatus, fulfillmentStatus, cancellationReason, orderPaymentMethod, comment, adminComment, adminPrivateComment, invoiceAdminComment, dateModified, dateFinished, sendNotifications, createInvoice, origin, tags)
+    val request = apiInstance.orderUpdate(orderId, storeId, orderStatus, financialStatus, fulfillmentStatus, cancellationReason, orderPaymentMethod, comment, adminComment, adminPrivateComment, invoiceAdminComment, dateModified, dateFinished, sendNotifications, createInvoice, origin, tags, idempotencyKey)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -2393,6 +2395,7 @@ Name | Type | Description  | Notes
  **createInvoice** | **Boolean**| Determines whether an invoice should be created if it has not already been created | [optional]
  **origin** | **String**| The source of the order | [optional]
  **tags** | **String**| Order tags | [optional]
+ **idempotencyKey** | **String**| A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [optional]
 
 ### Return type
 

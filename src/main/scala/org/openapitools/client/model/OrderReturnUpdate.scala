@@ -32,6 +32,8 @@ case class OrderReturnUpdate (
   sendNotifications: Option[Boolean] = None,
   /* Defines return reject reason */
   rejectReason: Option[String] = None,
+  /* A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong> */
+  idempotencyKey: Option[String] = None,
   orderProducts: Seq[OrderReturnUpdateOrderProductsInner]
 ) extends ApiModel
 

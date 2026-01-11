@@ -36,6 +36,8 @@ case class OrderPreestimateShippingList (
   params: Option[String] = None,
   /* Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all */
   exclude: Option[String] = None,
+  /* A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong> */
+  idempotencyKey: Option[String] = None,
   orderItem: Seq[OrderPreestimateShippingListOrderItemInner]
 ) extends ApiModel
 

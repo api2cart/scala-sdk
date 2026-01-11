@@ -19,6 +19,8 @@ case class ProductTaxAdd (
   /* Defines tax class name where tax has to be added */
   name: String,
   /* Defines tax rates of specified tax classes */
-  taxRates: Seq[ProductTaxAddTaxRatesInner]
+  taxRates: Seq[ProductTaxAddTaxRatesInner],
+  /* A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong> */
+  idempotencyKey: Option[String] = None
 ) extends ApiModel
 

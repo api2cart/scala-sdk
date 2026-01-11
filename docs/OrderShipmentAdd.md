@@ -22,6 +22,7 @@ Name | Type | Description | Notes
 **checkProcessStatus** | **Boolean** | Disable or enable check process status. Please note that the response will be slower due to additional requests to the store. |  [optional]
 **trackingProvider** | **String** | Defines name of the company which provides shipment tracking |  [optional]
 **useLatestApiVersion** | **Boolean** | Use the latest platform API version |  [optional]
+**idempotencyKey** | **String** | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; |  [optional]
 
 
 

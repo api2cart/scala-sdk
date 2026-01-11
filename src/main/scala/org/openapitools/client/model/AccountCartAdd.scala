@@ -413,6 +413,7 @@ object AccountCartAddEnums {
     val PrestashopApi = Value("PrestashopApi")
     val SSPremium = Value("SSPremium")
     val Salla = Value("Salla")
+    val SCAPI = Value("SCAPI")
     val Shopify = Value("Shopify")
     val Shopee = Value("Shopee")
     val Shoplazza = Value("Shoplazza")

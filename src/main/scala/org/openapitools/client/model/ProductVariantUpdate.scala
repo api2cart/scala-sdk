@@ -130,6 +130,8 @@ case class ProductVariantUpdate (
   /* Is cache clear required */
   clearCache: Option[Boolean] = None,
   /* The numeric ID of the processing profile (readiness state) for physical products in Etsy. You can find possible values in the \"cart.info\" API method response, in the field processing_profiles[]->readiness_state_id. */
-  processingProfileId: Option[Int] = None
+  processingProfileId: Option[Int] = None,
+  /* A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong> */
+  idempotencyKey: Option[String] = None
 ) extends ApiModel
 

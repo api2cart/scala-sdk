@@ -108,6 +108,8 @@ docs/CategoryCount200Response.md
 docs/CategoryCount200ResponseResult.md
 docs/CategoryDelete200Response.md
 docs/CategoryDelete200ResponseResult.md
+docs/CategoryDeleteBatch.md
+docs/CategoryDeleteBatchPayloadInner.md
 docs/CategoryFind200Response.md
 docs/CategoryFind200ResponseResult.md
 docs/CategoryFind200ResponseResultCategoryInner.md
@@ -570,6 +572,8 @@ src/main/scala/org/openapitools/client/model/CategoryCount200Response.scala
 src/main/scala/org/openapitools/client/model/CategoryCount200ResponseResult.scala
 src/main/scala/org/openapitools/client/model/CategoryDelete200Response.scala
 src/main/scala/org/openapitools/client/model/CategoryDelete200ResponseResult.scala
+src/main/scala/org/openapitools/client/model/CategoryDeleteBatch.scala
+src/main/scala/org/openapitools/client/model/CategoryDeleteBatchPayloadInner.scala
 src/main/scala/org/openapitools/client/model/CategoryFind200Response.scala
 src/main/scala/org/openapitools/client/model/CategoryFind200ResponseResult.scala
 src/main/scala/org/openapitools/client/model/CategoryFind200ResponseResultCategoryInner.scala

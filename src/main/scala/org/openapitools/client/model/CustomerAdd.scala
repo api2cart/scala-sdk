@@ -60,6 +60,8 @@ case class CustomerAdd (
   country: Option[String] = None,
   /* Store Id */
   storeId: Option[String] = None,
+  /* A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong> */
+  idempotencyKey: Option[String] = None,
   address: Option[Seq[CustomerAddAddressInner]] = None
 ) extends ApiModel
 

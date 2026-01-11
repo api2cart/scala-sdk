@@ -71,8 +71,9 @@ class BasketApi(baseUrl: String) {
    * @param variantId Defines product's variants specified by variant id
    * @param quantity Defines new items quantity
    * @param storeId Store Id
+   * @param idempotencyKey A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong>
    */
-  def basketItemAdd(customerId: String, productId: String, variantId: Option[String] = None, quantity: Option[BigDecimal] = None, storeId: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[BasketItemAdd200Response] =
+  def basketItemAdd(customerId: String, productId: String, variantId: Option[String] = None, quantity: Option[BigDecimal] = None, storeId: Option[String] = None, idempotencyKey: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[BasketItemAdd200Response] =
     ApiRequest[BasketItemAdd200Response](ApiMethods.POST, baseUrl, "/basket.item.add.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
@@ -81,6 +82,7 @@ class BasketApi(baseUrl: String) {
       .withQueryParam("variant_id", variantId)
       .withQueryParam("quantity", quantity)
       .withQueryParam("store_id", storeId)
+      .withQueryParam("idempotency_key", idempotencyKey)
       .withSuccessResponse[BasketItemAdd200Response](200)
       
 
@@ -97,14 +99,16 @@ class BasketApi(baseUrl: String) {
    * @param name Shipping Service Name
    * @param callback Callback url that returns shipping rates. It should be able to accept POST requests with json data.
    * @param storeId Store Id
+   * @param idempotencyKey A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong>
    */
-  def basketLiveShippingServiceCreate(name: String, callback: String, storeId: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[BasketLiveShippingServiceCreate200Response] =
+  def basketLiveShippingServiceCreate(name: String, callback: String, storeId: Option[String] = None, idempotencyKey: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[BasketLiveShippingServiceCreate200Response] =
     ApiRequest[BasketLiveShippingServiceCreate200Response](ApiMethods.POST, baseUrl, "/basket.live_shipping_service.create.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
       .withQueryParam("name", name)
       .withQueryParam("callback", callback)
       .withQueryParam("store_id", storeId)
+      .withQueryParam("idempotency_key", idempotencyKey)
       .withSuccessResponse[BasketLiveShippingServiceCreate200Response](200)
       
 

@@ -19,6 +19,8 @@ case class ProductPriceAdd (
   /* Defines product's group prices */
   groupPrices: Option[Seq[ProductAddGroupPricesInner]] = None,
   /* Store Id */
-  storeId: Option[String] = None
+  storeId: Option[String] = None,
+  /* A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong> */
+  idempotencyKey: Option[String] = None
 ) extends ApiModel
 

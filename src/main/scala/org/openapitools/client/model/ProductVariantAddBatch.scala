@@ -17,6 +17,8 @@ case class ProductVariantAddBatch (
   clearCache: Option[Boolean] = None,
   reindex: Option[Boolean] = None,
   /* Contains an array of product variants objects. The list of properties may vary depending on the specific platform. */
-  payload: Seq[ProductVariantAddBatchPayloadInner]
+  payload: Seq[ProductVariantAddBatchPayloadInner],
+  /* A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong> */
+  idempotencyKey: Option[String] = None
 ) extends ApiModel
 

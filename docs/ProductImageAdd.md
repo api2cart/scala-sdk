@@ -21,6 +21,7 @@ Name | Type | Description | Notes
 **mime** | **String** | Mime type of image http://en.wikipedia.org/wiki/Internet_media_type. |  [optional]
 **position** | **Int** | Defines image’s position in the list |  [optional]
 **useLatestApiVersion** | **Boolean** | Use the latest platform API version |  [optional]
+**idempotencyKey** | **String** | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; |  [optional]
 
 
 ## Enum: `Type`

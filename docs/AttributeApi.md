@@ -114,8 +114,10 @@ object Example extends App {
     val usedForSortBy: Boolean = true // Boolean | Used for Sorting in Product Listing
 
     val applyTo: String = Global // String | Types of products which can have this attribute
+
+    val idempotencyKey: String = 098f6bcd4621d373cade4e832627b4f6 // String | A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong>
     
-    val request = apiInstance.attributeAdd(`type`, name, code, storeId, langId, visible, required, position, attributeGroupId, isGlobal, isSearchable, isFilterable, isComparable, isHtmlAllowedOnFront, isFilterableInSearch, isConfigurable, isVisibleInAdvancedSearch, isUsedForPromoRules, usedInProductListing, usedForSortBy, applyTo)
+    val request = apiInstance.attributeAdd(`type`, name, code, storeId, langId, visible, required, position, attributeGroupId, isGlobal, isSearchable, isFilterable, isComparable, isHtmlAllowedOnFront, isFilterableInSearch, isConfigurable, isVisibleInAdvancedSearch, isUsedForPromoRules, usedInProductListing, usedForSortBy, applyTo, idempotencyKey)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -164,6 +166,7 @@ Name | Type | Description  | Notes
  **usedInProductListing** | **Boolean**| Used in Product Listing | [optional]
  **usedForSortBy** | **Boolean**| Used for Sorting in Product Listing | [optional]
  **applyTo** | **String**| Types of products which can have this attribute | [optional]
+ **idempotencyKey** | **String**| A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [optional]
 
 ### Return type
 
@@ -224,8 +227,10 @@ object Example extends App {
     val groupId: String = 3 // String | Attribute group_id
 
     val attributeSetId: String = 4 // String | Attribute set id
+
+    val idempotencyKey: String = 098f6bcd4621d373cade4e832627b4f6 // String | A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong>
     
-    val request = apiInstance.attributeAssignGroup(id, groupId, attributeSetId)
+    val request = apiInstance.attributeAssignGroup(id, groupId, attributeSetId, idempotencyKey)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -256,6 +261,7 @@ Name | Type | Description  | Notes
  **id** | **String**| Entity id |
  **groupId** | **String**| Attribute group_id |
  **attributeSetId** | **String**| Attribute set id | [optional]
+ **idempotencyKey** | **String**| A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [optional]
 
 ### Return type
 
@@ -316,8 +322,10 @@ object Example extends App {
     val attributeSetId: String = 4 // String | Attribute set id
 
     val groupId: String = 3 // String | Attribute group_id
+
+    val idempotencyKey: String = 098f6bcd4621d373cade4e832627b4f6 // String | A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong>
     
-    val request = apiInstance.attributeAssignSet(id, attributeSetId, groupId)
+    val request = apiInstance.attributeAssignSet(id, attributeSetId, groupId, idempotencyKey)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -348,6 +356,7 @@ Name | Type | Description  | Notes
  **id** | **String**| Entity id |
  **attributeSetId** | **String**| Attribute set id |
  **groupId** | **String**| Attribute group_id | [optional]
+ **idempotencyKey** | **String**| A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [optional]
 
 ### Return type
 
@@ -1108,8 +1117,10 @@ object Example extends App {
     val id: String = 10 // String | Entity id
 
     val groupId: String = 3 // String | Customer group_id
+
+    val idempotencyKey: String = 098f6bcd4621d373cade4e832627b4f6 // String | A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong>
     
-    val request = apiInstance.attributeUnassignGroup(id, groupId)
+    val request = apiInstance.attributeUnassignGroup(id, groupId, idempotencyKey)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -1139,6 +1150,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| Entity id |
  **groupId** | **String**| Customer group_id |
+ **idempotencyKey** | **String**| A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [optional]
 
 ### Return type
 
@@ -1197,8 +1209,10 @@ object Example extends App {
     val id: String = 10 // String | Entity id
 
     val attributeSetId: String = 4 // String | Attribute set id
+
+    val idempotencyKey: String = 098f6bcd4621d373cade4e832627b4f6 // String | A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong>
     
-    val request = apiInstance.attributeUnassignSet(id, attributeSetId)
+    val request = apiInstance.attributeUnassignSet(id, attributeSetId, idempotencyKey)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -1228,6 +1242,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| Entity id |
  **attributeSetId** | **String**| Attribute set id |
+ **idempotencyKey** | **String**| A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [optional]
 
 ### Return type
 
@@ -1290,8 +1305,10 @@ object Example extends App {
     val storeId: String = 1 // String | Store Id
 
     val langId: String = 3 // String | Language id
+
+    val idempotencyKey: String = 098f6bcd4621d373cade4e832627b4f6 // String | A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong>
     
-    val request = apiInstance.attributeUpdate(id, name, storeId, langId)
+    val request = apiInstance.attributeUpdate(id, name, storeId, langId, idempotencyKey)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -1323,6 +1340,7 @@ Name | Type | Description  | Notes
  **name** | **String**| Defines new attributes&#39;s name |
  **storeId** | **String**| Store Id | [optional]
  **langId** | **String**| Language id | [optional]
+ **idempotencyKey** | **String**| A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [optional]
 
 ### Return type
 
@@ -1389,8 +1407,10 @@ object Example extends App {
     val storeId: String = 1 // String | Store Id
 
     val langId: String = 3 // String | Language id
+
+    val idempotencyKey: String = 098f6bcd4621d373cade4e832627b4f6 // String | A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong>
     
-    val request = apiInstance.attributeValueAdd(attributeId, name, code, description, storeId, langId)
+    val request = apiInstance.attributeValueAdd(attributeId, name, code, description, storeId, langId, idempotencyKey)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -1424,6 +1444,7 @@ Name | Type | Description  | Notes
  **description** | **String**| Defines attribute value&#39;s description | [optional]
  **storeId** | **String**| Store Id | [optional]
  **langId** | **String**| Language id | [optional]
+ **idempotencyKey** | **String**| A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [optional]
 
 ### Return type
 
@@ -1584,8 +1605,10 @@ object Example extends App {
     val storeId: String = 1 // String | Store Id
 
     val langId: String = 3 // String | Language id
+
+    val idempotencyKey: String = 098f6bcd4621d373cade4e832627b4f6 // String | A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong>
     
-    val request = apiInstance.attributeValueUpdate(id, attributeId, name, description, code, storeId, langId)
+    val request = apiInstance.attributeValueUpdate(id, attributeId, name, description, code, storeId, langId, idempotencyKey)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -1620,6 +1643,7 @@ Name | Type | Description  | Notes
  **code** | **String**| Entity code | [optional]
  **storeId** | **String**| Store Id | [optional]
  **langId** | **String**| Language id | [optional]
+ **idempotencyKey** | **String**| A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [optional]
 
 ### Return type
 

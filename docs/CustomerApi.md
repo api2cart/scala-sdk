@@ -469,8 +469,10 @@ object Example extends App {
     val apiInvoker = ApiInvoker()
     val apiInstance = CustomerApi("https://api.api2cart.local.com/v1.1")
     val id: String = 10 // String | Identifies customer specified by the id
+
+    val storeId: String = 1 // String | Store Id
     
-    val request = apiInstance.customerDelete(id)
+    val request = apiInstance.customerDelete(id, storeId)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -499,6 +501,7 @@ object Example extends App {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| Identifies customer specified by the id |
+ **storeId** | **String**| Store Id | [optional]
 
 ### Return type
 
@@ -657,8 +660,10 @@ object Example extends App {
     val storeId: String = 1 // String | Store Id
 
     val storesIds: String = 1,2 // String | Assign customer group to the stores that is specified by comma-separated stores' id
+
+    val idempotencyKey: String = 098f6bcd4621d373cade4e832627b4f6 // String | A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong>
     
-    val request = apiInstance.customerGroupAdd(name, storeId, storesIds)
+    val request = apiInstance.customerGroupAdd(name, storeId, storesIds, idempotencyKey)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -689,6 +694,7 @@ Name | Type | Description  | Notes
  **name** | **String**| Customer group name |
  **storeId** | **String**| Store Id | [optional]
  **storesIds** | **String**| Assign customer group to the stores that is specified by comma-separated stores&#39; id | [optional]
+ **idempotencyKey** | **String**| A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [optional]
 
 ### Return type
 

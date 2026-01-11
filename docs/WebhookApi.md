@@ -162,8 +162,10 @@ object Example extends App {
     val langId: String = 3 // String | Language id
 
     val storeId: String = 1 // String | Defines store id where the webhook should be assigned
+
+    val idempotencyKey: String = 098f6bcd4621d373cade4e832627b4f6 // String | A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong>
     
-    val request = apiInstance.webhookCreate(entity, action, callback, label, fields, responseFields, active, langId, storeId)
+    val request = apiInstance.webhookCreate(entity, action, callback, label, fields, responseFields, active, langId, storeId, idempotencyKey)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -200,6 +202,7 @@ Name | Type | Description  | Notes
  **active** | **Boolean**| Webhook status | [optional]
  **langId** | **String**| Language id | [optional]
  **storeId** | **String**| Defines store id where the webhook should be assigned | [optional]
+ **idempotencyKey** | **String**| A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [optional]
 
 ### Return type
 
@@ -539,8 +542,10 @@ object Example extends App {
     val active: Boolean = true // Boolean | Webhook status
 
     val langId: String = 3 // String | Language id
+
+    val idempotencyKey: String = 098f6bcd4621d373cade4e832627b4f6 // String | A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong>
     
-    val request = apiInstance.webhookUpdate(id, callback, label, fields, responseFields, active, langId)
+    val request = apiInstance.webhookUpdate(id, callback, label, fields, responseFields, active, langId, idempotencyKey)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -575,6 +580,7 @@ Name | Type | Description  | Notes
  **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
  **active** | **Boolean**| Webhook status | [optional]
  **langId** | **String**| Language id | [optional]
+ **idempotencyKey** | **String**| A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [optional]
 
 ### Return type
 

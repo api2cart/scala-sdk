@@ -197,6 +197,8 @@ case class ProductUpdate (
   /* String containing the JSON representation of the supplied data */
   marketplaceItemProperties: Option[String] = None,
   /* The minimum quantity an order must contain, to be eligible to purchase this product. */
-  minOrderQuantity: Option[BigDecimal] = None
+  minOrderQuantity: Option[BigDecimal] = None,
+  /* A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong> */
+  idempotencyKey: Option[String] = None
 ) extends ApiModel
 

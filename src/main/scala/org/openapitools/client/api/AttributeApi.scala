@@ -65,8 +65,9 @@ class AttributeApi(baseUrl: String) {
    * @param usedInProductListing Used in Product Listing
    * @param usedForSortBy Used for Sorting in Product Listing
    * @param applyTo Types of products which can have this attribute
+   * @param idempotencyKey A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong>
    */
-  def attributeAdd(`type`: String, name: String, code: Option[String] = None, storeId: Option[String] = None, langId: Option[String] = None, visible: Option[Boolean] = None, required: Option[Boolean] = None, position: Option[Int] = None, attributeGroupId: Option[String] = None, isGlobal: Option[String] = None, isSearchable: Option[Boolean] = None, isFilterable: Option[String] = None, isComparable: Option[Boolean] = None, isHtmlAllowedOnFront: Option[Boolean] = None, isFilterableInSearch: Option[Boolean] = None, isConfigurable: Option[Boolean] = None, isVisibleInAdvancedSearch: Option[Boolean] = None, isUsedForPromoRules: Option[Boolean] = None, usedInProductListing: Option[Boolean] = None, usedForSortBy: Option[Boolean] = None, applyTo: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[AttributeAdd200Response] =
+  def attributeAdd(`type`: String, name: String, code: Option[String] = None, storeId: Option[String] = None, langId: Option[String] = None, visible: Option[Boolean] = None, required: Option[Boolean] = None, position: Option[Int] = None, attributeGroupId: Option[String] = None, isGlobal: Option[String] = None, isSearchable: Option[Boolean] = None, isFilterable: Option[String] = None, isComparable: Option[Boolean] = None, isHtmlAllowedOnFront: Option[Boolean] = None, isFilterableInSearch: Option[Boolean] = None, isConfigurable: Option[Boolean] = None, isVisibleInAdvancedSearch: Option[Boolean] = None, isUsedForPromoRules: Option[Boolean] = None, usedInProductListing: Option[Boolean] = None, usedForSortBy: Option[Boolean] = None, applyTo: Option[String] = None, idempotencyKey: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[AttributeAdd200Response] =
     ApiRequest[AttributeAdd200Response](ApiMethods.POST, baseUrl, "/attribute.add.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
@@ -91,6 +92,7 @@ class AttributeApi(baseUrl: String) {
       .withQueryParam("used_in_product_listing", usedInProductListing)
       .withQueryParam("used_for_sort_by", usedForSortBy)
       .withQueryParam("apply_to", applyTo)
+      .withQueryParam("idempotency_key", idempotencyKey)
       .withSuccessResponse[AttributeAdd200Response](200)
       
 
@@ -107,14 +109,16 @@ class AttributeApi(baseUrl: String) {
    * @param id Entity id
    * @param groupId Attribute group_id
    * @param attributeSetId Attribute set id
+   * @param idempotencyKey A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong>
    */
-  def attributeAssignGroup(id: String, groupId: String, attributeSetId: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[AttributeAssignGroup200Response] =
+  def attributeAssignGroup(id: String, groupId: String, attributeSetId: Option[String] = None, idempotencyKey: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[AttributeAssignGroup200Response] =
     ApiRequest[AttributeAssignGroup200Response](ApiMethods.POST, baseUrl, "/attribute.assign.group.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
       .withQueryParam("id", id)
       .withQueryParam("group_id", groupId)
       .withQueryParam("attribute_set_id", attributeSetId)
+      .withQueryParam("idempotency_key", idempotencyKey)
       .withSuccessResponse[AttributeAssignGroup200Response](200)
       
 
@@ -131,14 +135,16 @@ class AttributeApi(baseUrl: String) {
    * @param id Entity id
    * @param attributeSetId Attribute set id
    * @param groupId Attribute group_id
+   * @param idempotencyKey A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong>
    */
-  def attributeAssignSet(id: String, attributeSetId: String, groupId: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[AttributeAssignGroup200Response] =
+  def attributeAssignSet(id: String, attributeSetId: String, groupId: Option[String] = None, idempotencyKey: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[AttributeAssignGroup200Response] =
     ApiRequest[AttributeAssignGroup200Response](ApiMethods.POST, baseUrl, "/attribute.assign.set.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
       .withQueryParam("id", id)
       .withQueryParam("group_id", groupId)
       .withQueryParam("attribute_set_id", attributeSetId)
+      .withQueryParam("idempotency_key", idempotencyKey)
       .withSuccessResponse[AttributeAssignGroup200Response](200)
       
 
@@ -361,13 +367,15 @@ class AttributeApi(baseUrl: String) {
    * 
    * @param id Entity id
    * @param groupId Customer group_id
+   * @param idempotencyKey A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong>
    */
-  def attributeUnassignGroup(id: String, groupId: String)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[AttributeUnassignGroup200Response] =
+  def attributeUnassignGroup(id: String, groupId: String, idempotencyKey: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[AttributeUnassignGroup200Response] =
     ApiRequest[AttributeUnassignGroup200Response](ApiMethods.POST, baseUrl, "/attribute.unassign.group.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
       .withQueryParam("id", id)
       .withQueryParam("group_id", groupId)
+      .withQueryParam("idempotency_key", idempotencyKey)
       .withSuccessResponse[AttributeUnassignGroup200Response](200)
       
 
@@ -383,13 +391,15 @@ class AttributeApi(baseUrl: String) {
    * 
    * @param id Entity id
    * @param attributeSetId Attribute set id
+   * @param idempotencyKey A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong>
    */
-  def attributeUnassignSet(id: String, attributeSetId: String)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[AttributeUnassignGroup200Response] =
+  def attributeUnassignSet(id: String, attributeSetId: String, idempotencyKey: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[AttributeUnassignGroup200Response] =
     ApiRequest[AttributeUnassignGroup200Response](ApiMethods.POST, baseUrl, "/attribute.unassign.set.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
       .withQueryParam("id", id)
       .withQueryParam("attribute_set_id", attributeSetId)
+      .withQueryParam("idempotency_key", idempotencyKey)
       .withSuccessResponse[AttributeUnassignGroup200Response](200)
       
 
@@ -407,8 +417,9 @@ class AttributeApi(baseUrl: String) {
    * @param name Defines new attributes's name
    * @param storeId Store Id
    * @param langId Language id
+   * @param idempotencyKey A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong>
    */
-  def attributeUpdate(id: String, name: String, storeId: Option[String] = None, langId: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[AttributeUpdate200Response] =
+  def attributeUpdate(id: String, name: String, storeId: Option[String] = None, langId: Option[String] = None, idempotencyKey: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[AttributeUpdate200Response] =
     ApiRequest[AttributeUpdate200Response](ApiMethods.PUT, baseUrl, "/attribute.update.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
@@ -416,6 +427,7 @@ class AttributeApi(baseUrl: String) {
       .withQueryParam("name", name)
       .withQueryParam("store_id", storeId)
       .withQueryParam("lang_id", langId)
+      .withQueryParam("idempotency_key", idempotencyKey)
       .withSuccessResponse[AttributeUpdate200Response](200)
       
 
@@ -435,8 +447,9 @@ class AttributeApi(baseUrl: String) {
    * @param description Defines attribute value's description
    * @param storeId Store Id
    * @param langId Language id
+   * @param idempotencyKey A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong>
    */
-  def attributeValueAdd(attributeId: String, name: String, code: Option[String] = None, description: Option[String] = None, storeId: Option[String] = None, langId: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[AttributeAdd200Response] =
+  def attributeValueAdd(attributeId: String, name: String, code: Option[String] = None, description: Option[String] = None, storeId: Option[String] = None, langId: Option[String] = None, idempotencyKey: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[AttributeAdd200Response] =
     ApiRequest[AttributeAdd200Response](ApiMethods.POST, baseUrl, "/attribute.value.add.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
@@ -446,6 +459,7 @@ class AttributeApi(baseUrl: String) {
       .withQueryParam("description", description)
       .withQueryParam("store_id", storeId)
       .withQueryParam("lang_id", langId)
+      .withQueryParam("idempotency_key", idempotencyKey)
       .withSuccessResponse[AttributeAdd200Response](200)
       
 
@@ -490,8 +504,9 @@ class AttributeApi(baseUrl: String) {
    * @param code Entity code
    * @param storeId Store Id
    * @param langId Language id
+   * @param idempotencyKey A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong>
    */
-  def attributeValueUpdate(id: String, attributeId: String, name: Option[String] = None, description: Option[String] = None, code: Option[String] = None, storeId: Option[String] = None, langId: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[AttributeUpdate200Response] =
+  def attributeValueUpdate(id: String, attributeId: String, name: Option[String] = None, description: Option[String] = None, code: Option[String] = None, storeId: Option[String] = None, langId: Option[String] = None, idempotencyKey: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[AttributeUpdate200Response] =
     ApiRequest[AttributeUpdate200Response](ApiMethods.PUT, baseUrl, "/attribute.value.update.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
@@ -502,6 +517,7 @@ class AttributeApi(baseUrl: String) {
       .withQueryParam("code", code)
       .withQueryParam("store_id", storeId)
       .withQueryParam("lang_id", langId)
+      .withQueryParam("idempotency_key", idempotencyKey)
       .withSuccessResponse[AttributeUpdate200Response](200)
       
 

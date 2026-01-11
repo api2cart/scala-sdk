@@ -19,6 +19,7 @@ import org.openapitools.client.model.CategoryAddBatch200Response
 import org.openapitools.client.model.CategoryAssign200Response
 import org.openapitools.client.model.CategoryCount200Response
 import org.openapitools.client.model.CategoryDelete200Response
+import org.openapitools.client.model.CategoryDeleteBatch
 import org.openapitools.client.model.CategoryFind200Response
 import org.openapitools.client.model.CategoryImageAdd200Response
 import org.openapitools.client.model.CategoryInfo200Response
@@ -59,8 +60,9 @@ class CategoryApi(baseUrl: String) {
    * @param storeId Store Id
    * @param storesIds Create category in the stores that is specified by comma-separated stores' id
    * @param langId Language id
+   * @param idempotencyKey A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong>
    */
-  def categoryAdd(name: String, description: Option[String] = None, shortDescription: Option[String] = None, parentId: Option[String] = None, avail: Option[Boolean] = None, createdTime: Option[String] = None, modifiedTime: Option[String] = None, sortOrder: Option[Int] = None, metaTitle: Option[String] = None, metaDescription: Option[String] = None, metaKeywords: Option[String] = None, seoUrl: Option[String] = None, storeId: Option[String] = None, storesIds: Option[String] = None, langId: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[CategoryAdd200Response] =
+  def categoryAdd(name: String, description: Option[String] = None, shortDescription: Option[String] = None, parentId: Option[String] = None, avail: Option[Boolean] = None, createdTime: Option[String] = None, modifiedTime: Option[String] = None, sortOrder: Option[Int] = None, metaTitle: Option[String] = None, metaDescription: Option[String] = None, metaKeywords: Option[String] = None, seoUrl: Option[String] = None, storeId: Option[String] = None, storesIds: Option[String] = None, langId: Option[String] = None, idempotencyKey: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[CategoryAdd200Response] =
     ApiRequest[CategoryAdd200Response](ApiMethods.POST, baseUrl, "/category.add.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
@@ -79,6 +81,7 @@ class CategoryApi(baseUrl: String) {
       .withQueryParam("store_id", storeId)
       .withQueryParam("stores_ids", storesIds)
       .withQueryParam("lang_id", langId)
+      .withQueryParam("idempotency_key", idempotencyKey)
       .withSuccessResponse[CategoryAdd200Response](200)
       
 
@@ -115,14 +118,16 @@ class CategoryApi(baseUrl: String) {
    * @param categoryId Defines category assign, specified by category id
    * @param productId Defines category assign to the product, specified by product id
    * @param storeId Store Id
+   * @param idempotencyKey A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong>
    */
-  def categoryAssign(categoryId: String, productId: String, storeId: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[CategoryAssign200Response] =
+  def categoryAssign(categoryId: String, productId: String, storeId: Option[String] = None, idempotencyKey: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[CategoryAssign200Response] =
     ApiRequest[CategoryAssign200Response](ApiMethods.POST, baseUrl, "/category.assign.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
       .withQueryParam("category_id", categoryId)
       .withQueryParam("product_id", productId)
       .withQueryParam("store_id", storeId)
+      .withQueryParam("idempotency_key", idempotencyKey)
       .withSuccessResponse[CategoryAssign200Response](200)
       
 
@@ -193,6 +198,26 @@ class CategoryApi(baseUrl: String) {
       
 
   /**
+   * Delete categories from the store.
+   * 
+   * Expected answers:
+   *   code 200 : CategoryAddBatch200Response (successful operation)
+   * 
+   * Available security schemes:
+   *   StoreKeyAuth (apiKey)
+   *   ApiKeyAuth (apiKey)
+   * 
+   * @param categoryDeleteBatch 
+   */
+  def categoryDeleteBatch(categoryDeleteBatch: CategoryDeleteBatch)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[CategoryAddBatch200Response] =
+    ApiRequest[CategoryAddBatch200Response](ApiMethods.POST, baseUrl, "/category.delete.batch.json", "application/json")
+      .withApiKey(apiKey, "x-store-key", HEADER)
+      .withApiKey(apiKey, "x-api-key", HEADER)
+      .withBody(categoryDeleteBatch)
+      .withSuccessResponse[CategoryAddBatch200Response](200)
+      
+
+  /**
    * Search category in store. \"Laptop\" is specified here by default.
    * 
    * Expected answers:
@@ -238,8 +263,9 @@ class CategoryApi(baseUrl: String) {
    * @param label Defines alternative text that has to be attached to the picture
    * @param mime Mime type of image http://en.wikipedia.org/wiki/Internet_media_type.
    * @param position Defines image’s position in the list
+   * @param idempotencyKey A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong>
    */
-  def categoryImageAdd(categoryId: String, imageName: String, url: String, `type`: String, storeId: Option[String] = None, label: Option[String] = None, mime: Option[String] = None, position: Option[Int] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[CategoryImageAdd200Response] =
+  def categoryImageAdd(categoryId: String, imageName: String, url: String, `type`: String, storeId: Option[String] = None, label: Option[String] = None, mime: Option[String] = None, position: Option[Int] = None, idempotencyKey: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[CategoryImageAdd200Response] =
     ApiRequest[CategoryImageAdd200Response](ApiMethods.POST, baseUrl, "/category.image.add.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
@@ -251,6 +277,7 @@ class CategoryApi(baseUrl: String) {
       .withQueryParam("label", label)
       .withQueryParam("mime", mime)
       .withQueryParam("position", position)
+      .withQueryParam("idempotency_key", idempotencyKey)
       .withSuccessResponse[CategoryImageAdd200Response](200)
       
 
@@ -385,14 +412,16 @@ class CategoryApi(baseUrl: String) {
    * @param categoryId Defines category unassign, specified by category id
    * @param productId Defines category unassign to the product, specified by product id
    * @param storeId Store Id
+   * @param idempotencyKey A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong>
    */
-  def categoryUnassign(categoryId: String, productId: String, storeId: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[CategoryAssign200Response] =
+  def categoryUnassign(categoryId: String, productId: String, storeId: Option[String] = None, idempotencyKey: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[CategoryAssign200Response] =
     ApiRequest[CategoryAssign200Response](ApiMethods.POST, baseUrl, "/category.unassign.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
       .withQueryParam("category_id", categoryId)
       .withQueryParam("product_id", productId)
       .withQueryParam("store_id", storeId)
+      .withQueryParam("idempotency_key", idempotencyKey)
       .withSuccessResponse[CategoryAssign200Response](200)
       
 
@@ -421,8 +450,9 @@ class CategoryApi(baseUrl: String) {
    * @param storeId Store Id
    * @param storesIds Update category in the stores that is specified by comma-separated stores' id
    * @param langId Language id
+   * @param idempotencyKey A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong>
    */
-  def categoryUpdate(id: String, name: Option[String] = None, description: Option[String] = None, shortDescription: Option[String] = None, parentId: Option[String] = None, avail: Option[Boolean] = None, sortOrder: Option[Int] = None, modifiedTime: Option[String] = None, metaTitle: Option[String] = None, metaDescription: Option[String] = None, metaKeywords: Option[String] = None, seoUrl: Option[String] = None, storeId: Option[String] = None, storesIds: Option[String] = None, langId: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[AccountConfigUpdate200Response] =
+  def categoryUpdate(id: String, name: Option[String] = None, description: Option[String] = None, shortDescription: Option[String] = None, parentId: Option[String] = None, avail: Option[Boolean] = None, sortOrder: Option[Int] = None, modifiedTime: Option[String] = None, metaTitle: Option[String] = None, metaDescription: Option[String] = None, metaKeywords: Option[String] = None, seoUrl: Option[String] = None, storeId: Option[String] = None, storesIds: Option[String] = None, langId: Option[String] = None, idempotencyKey: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[AccountConfigUpdate200Response] =
     ApiRequest[AccountConfigUpdate200Response](ApiMethods.PUT, baseUrl, "/category.update.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
@@ -441,6 +471,7 @@ class CategoryApi(baseUrl: String) {
       .withQueryParam("store_id", storeId)
       .withQueryParam("stores_ids", storesIds)
       .withQueryParam("lang_id", langId)
+      .withQueryParam("idempotency_key", idempotencyKey)
       .withSuccessResponse[AccountConfigUpdate200Response](200)
       
 

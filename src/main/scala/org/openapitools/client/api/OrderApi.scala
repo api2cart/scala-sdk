@@ -737,8 +737,9 @@ class OrderApi(baseUrl: String) {
    * @param createInvoice Determines whether an invoice should be created if it has not already been created
    * @param origin The source of the order
    * @param tags Order tags
+   * @param idempotencyKey A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong>
    */
-  def orderUpdate(orderId: String, storeId: Option[String] = None, orderStatus: Option[String] = None, financialStatus: Option[String] = None, fulfillmentStatus: Option[String] = None, cancellationReason: Option[String] = None, orderPaymentMethod: Option[String] = None, comment: Option[String] = None, adminComment: Option[String] = None, adminPrivateComment: Option[String] = None, invoiceAdminComment: Option[String] = None, dateModified: Option[String] = None, dateFinished: Option[String] = None, sendNotifications: Option[Boolean] = None, createInvoice: Option[Boolean] = None, origin: Option[String] = None, tags: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[AccountConfigUpdate200Response] =
+  def orderUpdate(orderId: String, storeId: Option[String] = None, orderStatus: Option[String] = None, financialStatus: Option[String] = None, fulfillmentStatus: Option[String] = None, cancellationReason: Option[String] = None, orderPaymentMethod: Option[String] = None, comment: Option[String] = None, adminComment: Option[String] = None, adminPrivateComment: Option[String] = None, invoiceAdminComment: Option[String] = None, dateModified: Option[String] = None, dateFinished: Option[String] = None, sendNotifications: Option[Boolean] = None, createInvoice: Option[Boolean] = None, origin: Option[String] = None, tags: Option[String] = None, idempotencyKey: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[AccountConfigUpdate200Response] =
     ApiRequest[AccountConfigUpdate200Response](ApiMethods.PUT, baseUrl, "/order.update.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
@@ -759,6 +760,7 @@ class OrderApi(baseUrl: String) {
       .withQueryParam("create_invoice", createInvoice)
       .withQueryParam("origin", origin)
       .withQueryParam("tags", tags)
+      .withQueryParam("idempotency_key", idempotencyKey)
       .withSuccessResponse[AccountConfigUpdate200Response](200)
       
 

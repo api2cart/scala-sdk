@@ -132,8 +132,9 @@ class CartApi(baseUrl: String) {
    * @param includeTax Indicates whether to apply a discount for taxes.
    * @param includeShipping Indicates whether to apply a discount for shipping.
    * @param storeId Store Id
+   * @param idempotencyKey A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong>
    */
-  def cartCouponConditionAdd(couponId: String, entity: String, key: String, operator: String, value: String, target: Option[String] = None, includeTax: Option[Boolean] = None, includeShipping: Option[Boolean] = None, storeId: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[BasketLiveShippingServiceDelete200Response] =
+  def cartCouponConditionAdd(couponId: String, entity: String, key: String, operator: String, value: String, target: Option[String] = None, includeTax: Option[Boolean] = None, includeShipping: Option[Boolean] = None, storeId: Option[String] = None, idempotencyKey: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[BasketLiveShippingServiceDelete200Response] =
     ApiRequest[BasketLiveShippingServiceDelete200Response](ApiMethods.POST, baseUrl, "/cart.coupon.condition.add.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
@@ -146,6 +147,7 @@ class CartApi(baseUrl: String) {
       .withQueryParam("include_tax", includeTax)
       .withQueryParam("include_shipping", includeShipping)
       .withQueryParam("store_id", storeId)
+      .withQueryParam("idempotency_key", idempotencyKey)
       .withSuccessResponse[BasketLiveShippingServiceDelete200Response](200)
       
 
@@ -285,8 +287,9 @@ class CartApi(baseUrl: String) {
    * @param recipientEmail Gift card recipient email
    * @param recipientName Gift card recipient name
    * @param ownerName Gift card owner name
+   * @param idempotencyKey A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong>
    */
-  def cartGiftcardAdd(amount: BigDecimal, code: Option[String] = None, ownerEmail: Option[String] = None, recipientEmail: Option[String] = None, recipientName: Option[String] = None, ownerName: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[CartGiftcardAdd200Response] =
+  def cartGiftcardAdd(amount: BigDecimal, code: Option[String] = None, ownerEmail: Option[String] = None, recipientEmail: Option[String] = None, recipientName: Option[String] = None, ownerName: Option[String] = None, idempotencyKey: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[CartGiftcardAdd200Response] =
     ApiRequest[CartGiftcardAdd200Response](ApiMethods.POST, baseUrl, "/cart.giftcard.add.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
@@ -296,6 +299,7 @@ class CartApi(baseUrl: String) {
       .withQueryParam("recipient_email", recipientEmail)
       .withQueryParam("recipient_name", recipientName)
       .withQueryParam("owner_name", ownerName)
+      .withQueryParam("idempotency_key", idempotencyKey)
       .withSuccessResponse[CartGiftcardAdd200Response](200)
       
 
@@ -452,8 +456,9 @@ class CartApi(baseUrl: String) {
    * @param entity Entity
    * @param storeId Store Id
    * @param langId Language id
+   * @param idempotencyKey A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong>
    */
-  def cartMetaDataSet(entityId: String, key: String, value: String, namespace: String, entity: Option[String] = None, storeId: Option[String] = None, langId: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[AttributeAdd200Response] =
+  def cartMetaDataSet(entityId: String, key: String, value: String, namespace: String, entity: Option[String] = None, storeId: Option[String] = None, langId: Option[String] = None, idempotencyKey: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[AttributeAdd200Response] =
     ApiRequest[AttributeAdd200Response](ApiMethods.POST, baseUrl, "/cart.meta_data.set.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
@@ -464,6 +469,7 @@ class CartApi(baseUrl: String) {
       .withQueryParam("entity", entity)
       .withQueryParam("store_id", storeId)
       .withQueryParam("lang_id", langId)
+      .withQueryParam("idempotency_key", idempotencyKey)
       .withSuccessResponse[AttributeAdd200Response](200)
       
 
@@ -554,8 +560,9 @@ class CartApi(baseUrl: String) {
    * @param scope The page or pages on the online store where the script should be included
    * @param events Event for run scripts
    * @param storeId Store Id
+   * @param idempotencyKey A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong>
    */
-  def cartScriptAdd(name: Option[String] = None, description: Option[String] = None, html: Option[String] = None, src: Option[String] = None, loadMethod: Option[String] = None, scope: Option[String] = None, events: Option[String] = None, storeId: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[CartScriptAdd200Response] =
+  def cartScriptAdd(name: Option[String] = None, description: Option[String] = None, html: Option[String] = None, src: Option[String] = None, loadMethod: Option[String] = None, scope: Option[String] = None, events: Option[String] = None, storeId: Option[String] = None, idempotencyKey: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[CartScriptAdd200Response] =
     ApiRequest[CartScriptAdd200Response](ApiMethods.POST, baseUrl, "/cart.script.add.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
@@ -567,6 +574,7 @@ class CartApi(baseUrl: String) {
       .withQueryParam("scope", scope)
       .withQueryParam("events", events)
       .withQueryParam("store_id", storeId)
+      .withQueryParam("idempotency_key", idempotencyKey)
       .withSuccessResponse[CartScriptAdd200Response](200)
       
 

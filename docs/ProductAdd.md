@@ -128,6 +128,7 @@ Name | Type | Description | Notes
 **shopSectionId** | **Int** | Add Shop Section Id |  [optional]
 **returnPolicyId** | **Int** | Add Return Policy Id |  [optional]
 **personalizationDetails** | [**ProductAddPersonalizationDetails**](ProductAddPersonalizationDetails.md) |  |  [optional]
+**idempotencyKey** | **String** | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; |  [optional]
 
 
 
