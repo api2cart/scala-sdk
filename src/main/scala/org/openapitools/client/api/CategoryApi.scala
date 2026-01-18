@@ -324,8 +324,9 @@ class CategoryApi(baseUrl: String) {
    * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
    * @param reportRequestId Report request id
    * @param disableReportCache Disable report cache for current request
+   * @param useLatestApiVersion Use the latest platform API version
    */
-  def categoryInfo(id: String, storeId: Option[String] = None, langId: Option[String] = None, schemaType: Option[String] = None, responseFields: Option[String] = None, params: Option[String] = None, exclude: Option[String] = None, reportRequestId: Option[String] = None, disableReportCache: Option[Boolean] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[CategoryInfo200Response] =
+  def categoryInfo(id: String, storeId: Option[String] = None, langId: Option[String] = None, schemaType: Option[String] = None, responseFields: Option[String] = None, params: Option[String] = None, exclude: Option[String] = None, reportRequestId: Option[String] = None, disableReportCache: Option[Boolean] = None, useLatestApiVersion: Option[Boolean] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[CategoryInfo200Response] =
     ApiRequest[CategoryInfo200Response](ApiMethods.GET, baseUrl, "/category.info.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
@@ -338,6 +339,7 @@ class CategoryApi(baseUrl: String) {
       .withQueryParam("exclude", exclude)
       .withQueryParam("report_request_id", reportRequestId)
       .withQueryParam("disable_report_cache", disableReportCache)
+      .withQueryParam("use_latest_api_version", useLatestApiVersion)
       .withSuccessResponse[CategoryInfo200Response](200)
       
 
@@ -371,8 +373,9 @@ class CategoryApi(baseUrl: String) {
    * @param reportRequestId Report request id
    * @param disableReportCache Disable report cache for current request
    * @param disableCache Disable cache for current request
+   * @param useLatestApiVersion Use the latest platform API version
    */
-  def categoryList(start: Option[Int] = None, count: Option[Int] = None, pageCursor: Option[String] = None, storeId: Option[String] = None, langId: Option[String] = None, parentId: Option[String] = None, avail: Option[Boolean] = None, productType: Option[String] = None, createdFrom: Option[String] = None, createdTo: Option[String] = None, modifiedFrom: Option[String] = None, modifiedTo: Option[String] = None, findValue: Option[String] = None, findWhere: Option[String] = None, responseFields: Option[String] = None, params: Option[String] = None, exclude: Option[String] = None, reportRequestId: Option[String] = None, disableReportCache: Option[Boolean] = None, disableCache: Option[Boolean] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseCategoryList] =
+  def categoryList(start: Option[Int] = None, count: Option[Int] = None, pageCursor: Option[String] = None, storeId: Option[String] = None, langId: Option[String] = None, parentId: Option[String] = None, avail: Option[Boolean] = None, productType: Option[String] = None, createdFrom: Option[String] = None, createdTo: Option[String] = None, modifiedFrom: Option[String] = None, modifiedTo: Option[String] = None, findValue: Option[String] = None, findWhere: Option[String] = None, responseFields: Option[String] = None, params: Option[String] = None, exclude: Option[String] = None, reportRequestId: Option[String] = None, disableReportCache: Option[Boolean] = None, disableCache: Option[Boolean] = None, useLatestApiVersion: Option[Boolean] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseCategoryList] =
     ApiRequest[ModelResponseCategoryList](ApiMethods.GET, baseUrl, "/category.list.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
@@ -396,6 +399,7 @@ class CategoryApi(baseUrl: String) {
       .withQueryParam("report_request_id", reportRequestId)
       .withQueryParam("disable_report_cache", disableReportCache)
       .withQueryParam("disable_cache", disableCache)
+      .withQueryParam("use_latest_api_version", useLatestApiVersion)
       .withSuccessResponse[ModelResponseCategoryList](200)
       
 

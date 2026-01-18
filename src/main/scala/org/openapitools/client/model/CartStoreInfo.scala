@@ -32,6 +32,7 @@ case class CartStoreInfo (
   storeOwnerInfo: Option[Info] = None,
   defaultWarehouseId: Option[String] = None,
   channels: Option[Seq[CartChannel]] = None,
+  pickupLocations: Option[Seq[CartPickupLocation]] = None,
   additionalFields: Option[Any] = None,
   customFields: Option[Any] = None
 ) extends ApiModel

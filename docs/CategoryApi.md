@@ -995,8 +995,10 @@ object Example extends App {
     val reportRequestId: String = 105245017661 // String | Report request id
 
     val disableReportCache: Boolean = false // Boolean | Disable report cache for current request
+
+    val useLatestApiVersion: Boolean = true // Boolean | Use the latest platform API version
     
-    val request = apiInstance.categoryInfo(id, storeId, langId, schemaType, responseFields, params, exclude, reportRequestId, disableReportCache)
+    val request = apiInstance.categoryInfo(id, storeId, langId, schemaType, responseFields, params, exclude, reportRequestId, disableReportCache, useLatestApiVersion)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -1033,6 +1035,7 @@ Name | Type | Description  | Notes
  **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional]
  **reportRequestId** | **String**| Report request id | [optional]
  **disableReportCache** | **Boolean**| Disable report cache for current request | [optional]
+ **useLatestApiVersion** | **Boolean**| Use the latest platform API version | [optional]
 
 ### Return type
 
@@ -1127,8 +1130,10 @@ object Example extends App {
     val disableReportCache: Boolean = false // Boolean | Disable report cache for current request
 
     val disableCache: Boolean = false // Boolean | Disable cache for current request
+
+    val useLatestApiVersion: Boolean = true // Boolean | Use the latest platform API version
     
-    val request = apiInstance.categoryList(start, count, pageCursor, storeId, langId, parentId, avail, productType, createdFrom, createdTo, modifiedFrom, modifiedTo, findValue, findWhere, responseFields, params, exclude, reportRequestId, disableReportCache, disableCache)
+    val request = apiInstance.categoryList(start, count, pageCursor, storeId, langId, parentId, avail, productType, createdFrom, createdTo, modifiedFrom, modifiedTo, findValue, findWhere, responseFields, params, exclude, reportRequestId, disableReportCache, disableCache, useLatestApiVersion)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -1176,6 +1181,7 @@ Name | Type | Description  | Notes
  **reportRequestId** | **String**| Report request id | [optional]
  **disableReportCache** | **Boolean**| Disable report cache for current request | [optional]
  **disableCache** | **Boolean**| Disable cache for current request | [optional]
+ **useLatestApiVersion** | **Boolean**| Use the latest platform API version | [optional]
 
 ### Return type
 
