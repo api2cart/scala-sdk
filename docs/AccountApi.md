@@ -140,11 +140,13 @@ object Example extends App {
 
     val requestToDate: String = 2100-08-29 // String | Retrieve entities to their creation date
 
+    val customLabel: String = This is test store // String | Defines a custom label for the store in the app
+
     val params: String = url,store_key // String | Set this parameter in order to choose which entity fields you want to retrieve
 
     val exclude: String = url,store_key // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
     
-    val request = apiInstance.accountCartList(storeUrl, storeKey, requestFromDate, requestToDate, params, exclude)
+    val request = apiInstance.accountCartList(storeUrl, storeKey, requestFromDate, requestToDate, customLabel, params, exclude)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -176,6 +178,7 @@ Name | Type | Description  | Notes
  **storeKey** | **String**| Find store by store key | [optional]
  **requestFromDate** | **String**| Retrieve entities from their creation date | [optional]
  **requestToDate** | **String**| Retrieve entities to their creation date | [optional]
+ **customLabel** | **String**| Defines a custom label for the store in the app | [optional]
  **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
  **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional]
 
@@ -238,6 +241,8 @@ object Example extends App {
     val newStoreUrl: String = http://mystore.com // String | The web address of the store you want to update to connect to API2Cart
 
     val newStoreKey: String = b636495648de3086f6f57b1bd4be548f // String | Update store key
+
+    val customLabel: String = This is test store // String | Defines a custom label for the store in the app
 
     val bridgeUrl: String = https://your-store.com/custom/bridge/path/bridge.php // String | This parameter allows to set up store with custom bridge url (also you must use store_root parameter if a bridge folder is not in the root folder of the store)
 
@@ -502,6 +507,16 @@ object Example extends App {
 
     val zidRefreshToken: String = def50eyfe9fe65d7e64a0cfe9fe65d7e64a0cfe9fe65d7e64a0cfe9fe65d7e64a0cfe9fe65d7e64a0cfe9fe65d7e64a0cfe9fe65d7e64a0cfe9fe657e64a0cfe9fe65d7e64a0cfe9fe65d7e64a0cfe9fe65d7e64a0cfe9fe65de64a0c865d // String | Zid refresh token
 
+    val jumpsellerClientId: String = your_client_id // String | Jumpseller OAuth2 Client ID
+
+    val jumpsellerClientSecret: String = your_client_secret // String | Jumpseller OAuth2 Client Secret
+
+    val jumpsellerRefreshToken: String = your_oauth_refresh_token // String | Jumpseller OAuth2 refresh token
+
+    val jumpsellerLogin: String = your_login // String | Jumpseller API login
+
+    val jumpsellerAuthtoken: String = your_auth_token // String | Jumpseller API auth token
+
     val flipkartClientId: String = 19414773883a13a850b6a52350b7246499a24 // String | Flipkart Client ID
 
     val flipkartClientSecret: String = nl5l1lE0vxgv6cV111fHsdlOOIfb0Ms5IR7l4Igs // String | Flipkart Client Secret
@@ -578,7 +593,7 @@ object Example extends App {
 
     val idempotencyKey: String = 098f6bcd4621d373cade4e832627b4f6 // String | A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong>
     
-    val request = apiInstance.accountConfigUpdate(replaceParameters, newStoreUrl, newStoreKey, bridgeUrl, storeRoot, dbTablesPrefix, userAgent, `3dcartPrivateKey`, `3dcartAccessToken`, `3dcartapiApiKey`, amazonSpClientId, amazonSpClientSecret, amazonSpRefreshToken, amazonSpAwsRegion, amazonSpApiEnvironment, amazonSellerId, aspdotnetstorefrontApiUser, aspdotnetstorefrontApiPass, americommerceAppId, americommerceAppSecret, americommerceAccessToken, americommerceRefreshToken, bigcommerceapiAdminAccount, bigcommerceapiApiPath, bigcommerceapiApiKey, bigcommerceapiClientId, bigcommerceapiAccessToken, bigcommerceapiContext, bolApiKey, bolApiSecret, bolRetailerId, demandwareClientId, demandwareApiPassword, demandwareUserName, demandwareUserPassword, ebayClientId, ebayClientSecret, ebayRuname, ebayAccessToken, ebayRefreshToken, ebayEnvironment, ebaySiteId, ecwidAcessToken, ecwidStoreId, lazadaAppId, lazadaAppSecret, lazadaRefreshToken, lazadaRegion, etsyKeystring, etsySharedSecret, etsyAccessToken, etsyTokenSecret, etsyClientId, etsyRefreshToken, facebookAppId, facebookAppSecret, facebookAccessToken, facebookBusinessId, netoApiKey, netoApiUsername, shoplineAccessToken, shoplineAppKey, shoplineAppSecret, shoplineSharedSecret, shopifyAccessToken, shopifyClientId, shopifyApiKey, shopifyApiPassword, shopifySharedSecret, shopeePartnerId, shopeePartnerKey, shopeeShopId, shopeeRefreshToken, shopeeRegion, shopeeEnvironment, shoplazzaAccessToken, shoplazzaSharedSecret, mivaAccessToken, mivaSignature, shopwareAccessKey, unasApiKey, shopwareApiKey, shopwareApiSecret, bigcartelUserName, bigcartelPassword, bricklinkConsumerKey, bricklinkConsumerSecret, bricklinkToken, bricklinkTokenSecret, volusionLogin, volusionPassword, walmartClientId, walmartClientSecret, walmartEnvironment, walmartChannelType, walmartRegion, squareClientId, squareClientSecret, squareRefreshToken, squarespaceApiKey, squarespaceClientId, squarespaceClientSecret, squarespaceAccessToken, squarespaceRefreshToken, hybrisClientId, hybrisClientSecret, hybrisUsername, hybrisPassword, hybrisWebsites, lightspeedApiKey, lightspeedApiSecret, commercehqApiKey, commercehqApiPassword, wcConsumerKey, wcConsumerSecret, magentoConsumerKey, magentoConsumerSecret, magentoAccessToken, magentoTokenSecret, prestashopWebserviceKey, wixAppId, wixAppSecretKey, wixInstanceId, wixRefreshToken, mercadoLibreAppId, mercadoLibreAppSecretKey, mercadoLibreRefreshToken, zidClientId, zidClientSecret, zidAccessToken, zidAuthorization, zidRefreshToken, flipkartClientId, flipkartClientSecret, allegroClientId, allegroClientSecret, allegroAccessToken, allegroRefreshToken, allegroEnvironment, zohoClientId, zohoClientSecret, zohoRefreshToken, zohoRegion, tiendanubeUserId, tiendanubeAccessToken, tiendanubeClientSecret, ottoClientId, ottoClientSecret, ottoAppId, ottoRefreshToken, ottoEnvironment, ottoAccessToken, tiktokshopAppKey, tiktokshopAppSecret, tiktokshopRefreshToken, tiktokshopAccessToken, sallaClientId, sallaClientSecret, sallaRefreshToken, sallaAccessToken, temuAppKey, temuAppSecret, temuAccessToken, temuRegion, scapiClientId, scapiClientSecret, scapiOrganizationId, scapiShortCode, scapiScopes, idempotencyKey)
+    val request = apiInstance.accountConfigUpdate(replaceParameters, newStoreUrl, newStoreKey, customLabel, bridgeUrl, storeRoot, dbTablesPrefix, userAgent, `3dcartPrivateKey`, `3dcartAccessToken`, `3dcartapiApiKey`, amazonSpClientId, amazonSpClientSecret, amazonSpRefreshToken, amazonSpAwsRegion, amazonSpApiEnvironment, amazonSellerId, aspdotnetstorefrontApiUser, aspdotnetstorefrontApiPass, americommerceAppId, americommerceAppSecret, americommerceAccessToken, americommerceRefreshToken, bigcommerceapiAdminAccount, bigcommerceapiApiPath, bigcommerceapiApiKey, bigcommerceapiClientId, bigcommerceapiAccessToken, bigcommerceapiContext, bolApiKey, bolApiSecret, bolRetailerId, demandwareClientId, demandwareApiPassword, demandwareUserName, demandwareUserPassword, ebayClientId, ebayClientSecret, ebayRuname, ebayAccessToken, ebayRefreshToken, ebayEnvironment, ebaySiteId, ecwidAcessToken, ecwidStoreId, lazadaAppId, lazadaAppSecret, lazadaRefreshToken, lazadaRegion, etsyKeystring, etsySharedSecret, etsyAccessToken, etsyTokenSecret, etsyClientId, etsyRefreshToken, facebookAppId, facebookAppSecret, facebookAccessToken, facebookBusinessId, netoApiKey, netoApiUsername, shoplineAccessToken, shoplineAppKey, shoplineAppSecret, shoplineSharedSecret, shopifyAccessToken, shopifyClientId, shopifyApiKey, shopifyApiPassword, shopifySharedSecret, shopeePartnerId, shopeePartnerKey, shopeeShopId, shopeeRefreshToken, shopeeRegion, shopeeEnvironment, shoplazzaAccessToken, shoplazzaSharedSecret, mivaAccessToken, mivaSignature, shopwareAccessKey, unasApiKey, shopwareApiKey, shopwareApiSecret, bigcartelUserName, bigcartelPassword, bricklinkConsumerKey, bricklinkConsumerSecret, bricklinkToken, bricklinkTokenSecret, volusionLogin, volusionPassword, walmartClientId, walmartClientSecret, walmartEnvironment, walmartChannelType, walmartRegion, squareClientId, squareClientSecret, squareRefreshToken, squarespaceApiKey, squarespaceClientId, squarespaceClientSecret, squarespaceAccessToken, squarespaceRefreshToken, hybrisClientId, hybrisClientSecret, hybrisUsername, hybrisPassword, hybrisWebsites, lightspeedApiKey, lightspeedApiSecret, commercehqApiKey, commercehqApiPassword, wcConsumerKey, wcConsumerSecret, magentoConsumerKey, magentoConsumerSecret, magentoAccessToken, magentoTokenSecret, prestashopWebserviceKey, wixAppId, wixAppSecretKey, wixInstanceId, wixRefreshToken, mercadoLibreAppId, mercadoLibreAppSecretKey, mercadoLibreRefreshToken, zidClientId, zidClientSecret, zidAccessToken, zidAuthorization, zidRefreshToken, jumpsellerClientId, jumpsellerClientSecret, jumpsellerRefreshToken, jumpsellerLogin, jumpsellerAuthtoken, flipkartClientId, flipkartClientSecret, allegroClientId, allegroClientSecret, allegroAccessToken, allegroRefreshToken, allegroEnvironment, zohoClientId, zohoClientSecret, zohoRefreshToken, zohoRegion, tiendanubeUserId, tiendanubeAccessToken, tiendanubeClientSecret, ottoClientId, ottoClientSecret, ottoAppId, ottoRefreshToken, ottoEnvironment, ottoAccessToken, tiktokshopAppKey, tiktokshopAppSecret, tiktokshopRefreshToken, tiktokshopAccessToken, sallaClientId, sallaClientSecret, sallaRefreshToken, sallaAccessToken, temuAppKey, temuAppSecret, temuAccessToken, temuRegion, scapiClientId, scapiClientSecret, scapiOrganizationId, scapiShortCode, scapiScopes, idempotencyKey)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -609,6 +624,7 @@ Name | Type | Description  | Notes
  **replaceParameters** | **Boolean**| Identifies if there is a necessity to replace parameters | [optional]
  **newStoreUrl** | **String**| The web address of the store you want to update to connect to API2Cart | [optional]
  **newStoreKey** | **String**| Update store key | [optional]
+ **customLabel** | **String**| Defines a custom label for the store in the app | [optional]
  **bridgeUrl** | **String**| This parameter allows to set up store with custom bridge url (also you must use store_root parameter if a bridge folder is not in the root folder of the store) | [optional]
  **storeRoot** | **String**| Absolute path to the store root directory (used with \&quot;bridge_url\&quot; parameter) | [optional]
  **dbTablesPrefix** | **String**| DB tables prefix | [optional]
@@ -738,6 +754,11 @@ Name | Type | Description  | Notes
  **zidAccessToken** | **String**| Zid Access Token | [optional]
  **zidAuthorization** | **String**| Zid Authorization | [optional]
  **zidRefreshToken** | **String**| Zid refresh token | [optional]
+ **jumpsellerClientId** | **String**| Jumpseller OAuth2 Client ID | [optional]
+ **jumpsellerClientSecret** | **String**| Jumpseller OAuth2 Client Secret | [optional]
+ **jumpsellerRefreshToken** | **String**| Jumpseller OAuth2 refresh token | [optional]
+ **jumpsellerLogin** | **String**| Jumpseller API login | [optional]
+ **jumpsellerAuthtoken** | **String**| Jumpseller API auth token | [optional]
  **flipkartClientId** | **String**| Flipkart Client ID | [optional]
  **flipkartClientSecret** | **String**| Flipkart Client Secret | [optional]
  **allegroClientId** | **String**| Allegro Client ID | [optional]

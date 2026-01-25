@@ -18,6 +18,8 @@ case class AccountCartList200ResponseResultCartsInner (
   url: Option[String] = None,
   storeKey: Option[String] = None,
   cartId: Option[String] = None,
+  customLabel: Option[String] = None,
+  bridgeVersion: Option[String] = None,
   totalCalls: Option[String] = None
 ) extends ApiModel
 

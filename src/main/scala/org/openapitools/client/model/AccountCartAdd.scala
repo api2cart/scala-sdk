@@ -24,6 +24,10 @@ case class AccountCartAdd (
   storeRoot: Option[String] = None,
   /* Set this parameter if bridge is already uploaded to store */
   storeKey: Option[String] = None,
+  /* Defines alternative text that has to be attached to the picture */
+  label: Option[String] = None,
+  /* Defines a custom label for the store in the app */
+  customLabel: Option[String] = None,
   /* Specify if api2cart should validate cart version */
   validateVersion: Option[Boolean] = None,
   /* Enables or disables cart's verification */
@@ -298,6 +302,16 @@ case class AccountCartAdd (
   zidAuthorization: Option[String] = None,
   /* Zid refresh token */
   zidRefreshToken: Option[String] = None,
+  /* Jumpseller OAuth2 Client ID */
+  jumpsellerClientId: Option[String] = None,
+  /* Jumpseller OAuth2 Client Secret */
+  jumpsellerClientSecret: Option[String] = None,
+  /* Jumpseller OAuth2 refresh token */
+  jumpsellerRefreshToken: Option[String] = None,
+  /* Jumpseller API login */
+  jumpsellerLogin: Option[String] = None,
+  /* Jumpseller API auth token */
+  jumpsellerAuthtoken: Option[String] = None,
   /* Flipkart Client ID */
   flipkartClientId: Option[String] = None,
   /* Flipkart Client Secret */

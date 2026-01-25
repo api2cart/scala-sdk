@@ -11,6 +11,8 @@ Name | Type | Description | Notes
 **url** | **String** |  |  [optional]
 **storeKey** | **String** |  |  [optional]
 **cartId** | **String** |  |  [optional]
+**customLabel** | **String** |  |  [optional]
+**bridgeVersion** | **String** |  |  [optional]
 **totalCalls** | **String** |  |  [optional]
 
 
