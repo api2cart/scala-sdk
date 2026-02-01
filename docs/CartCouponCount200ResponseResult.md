@@ -7,7 +7,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**couponsCount** | **String** |  |  [optional]
+**couponsCount** | **Int** |  |  [optional]
 
 
 

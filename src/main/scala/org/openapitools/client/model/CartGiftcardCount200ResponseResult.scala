@@ -14,6 +14,6 @@ package org.openapitools.client.model
 import org.openapitools.client.core.ApiModel
 
 case class CartGiftcardCount200ResponseResult (
-  giftCardsCount: Option[String] = None
+  giftCardsCount: Option[Int] = None
 ) extends ApiModel
 

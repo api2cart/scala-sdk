@@ -7,7 +7,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**catalogPriceRulesCount** | **String** |  |  [optional]
+**catalogPriceRulesCount** | **Int** |  |  [optional]
 
 
 

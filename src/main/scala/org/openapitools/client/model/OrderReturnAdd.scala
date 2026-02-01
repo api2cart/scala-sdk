@@ -24,6 +24,8 @@ case class OrderReturnAdd (
   returnActionId: String,
   /* Defines return request reason */
   returnReasonId: String,
+  /* Defines return request action */
+  returnAction: Option[String] = None,
   /* Defines return request reason */
   returnReason: Option[String] = None,
   /* Boolean, whether or not to add the line items back to the store inventory. */

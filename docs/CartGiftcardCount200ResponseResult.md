@@ -7,7 +7,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**giftCardsCount** | **String** |  |  [optional]
+**giftCardsCount** | **Int** |  |  [optional]
 
 
 
