@@ -111,7 +111,7 @@ case class OrderAdd (
   totalPaid: Option[BigDecimal] = None,
   /* Defines the sum of all line item weights in grams for the order */
   totalWeight: Option[Int] = None,
-  /* Indicates whether prices and subtotal includes tax. */
+  /* Indicates whether prices and subtotal include tax. */
   pricesIncTax: Option[Boolean] = None,
   /* Specifies order's shipping price */
   shippingPrice: Option[BigDecimal] = None,

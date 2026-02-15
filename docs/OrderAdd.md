@@ -55,7 +55,7 @@ Name | Type | Description | Notes
 **totalPrice** | **BigDecimal** | Defines order&#39;s total price |  [optional]
 **totalPaid** | **BigDecimal** | Defines total paid amount for the order |  [optional]
 **totalWeight** | **Int** | Defines the sum of all line item weights in grams for the order |  [optional]
-**pricesIncTax** | **Boolean** | Indicates whether prices and subtotal includes tax. |  [optional]
+**pricesIncTax** | **Boolean** | Indicates whether prices and subtotal include tax. |  [optional]
 **shippingPrice** | **BigDecimal** | Specifies order&#39;s shipping price |  [optional]
 **shippingTax** | **BigDecimal** | Specifies order&#39;s shipping price tax |  [optional]
 **discount** | **BigDecimal** | Specifies order&#39;s discount |  [optional]

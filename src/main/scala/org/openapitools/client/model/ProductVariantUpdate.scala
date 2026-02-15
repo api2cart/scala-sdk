@@ -71,6 +71,8 @@ case class ProductVariantUpdate (
   increaseQuantity: Option[BigDecimal] = None,
   /* Defines the decrement changes in product quantity */
   reduceQuantity: Option[BigDecimal] = None,
+  /* Indicates whether prices include tax. */
+  pricesIncTax: Option[Boolean] = None,
   /* Defines new product's variant price */
   price: Option[BigDecimal] = None,
   /* Defines new product's variant special price */

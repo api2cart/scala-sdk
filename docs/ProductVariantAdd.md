@@ -31,6 +31,7 @@ Name | Type | Description | Notes
 **tierPrices** | [**Seq&lt;ProductAddTierPricesInner&gt;**](ProductAddTierPricesInner.md) | Defines product&#39;s tier prices |  [optional]
 **measureUnit** | **String** | Unit for the price per unit. Must be in allowed list |  [optional]
 **unitPrice** | **BigDecimal** | Defines new product&#39;s unit price |  [optional]
+**pricesIncTax** | **Boolean** | Indicates whether prices include tax. |  [optional]
 **quantity** | **BigDecimal** | Defines product variant&#39;s quantity that has to be added |  [optional]
 **warehouseId** | **String** | This parameter is used for selecting a warehouse where you need to set/modify a product quantity. |  [optional]
 **inStock** | **Boolean** | Set stock status |  [optional]

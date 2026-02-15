@@ -80,6 +80,8 @@ case class ProductAdd (
   measureUnit: Option[String] = None,
   /* Defines new product's unit price */
   unitPrice: Option[BigDecimal] = None,
+  /* Indicates whether prices include tax. */
+  pricesIncTax: Option[Boolean] = None,
   /* Defines product's quantity that has to be added */
   quantity: Option[BigDecimal] = None,
   /* Set stock status */

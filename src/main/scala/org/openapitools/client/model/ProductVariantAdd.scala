@@ -63,6 +63,8 @@ case class ProductVariantAdd (
   measureUnit: Option[String] = None,
   /* Defines new product's unit price */
   unitPrice: Option[BigDecimal] = None,
+  /* Indicates whether prices include tax. */
+  pricesIncTax: Option[Boolean] = None,
   /* Defines product variant's quantity that has to be added */
   quantity: Option[BigDecimal] = None,
   /* This parameter is used for selecting a warehouse where you need to set/modify a product quantity. */

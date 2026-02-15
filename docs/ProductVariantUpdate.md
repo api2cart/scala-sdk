@@ -35,6 +35,7 @@ Name | Type | Description | Notes
 **quantity** | **BigDecimal** | Defines new products&#39; variants quantity |  [optional]
 **increaseQuantity** | **BigDecimal** | Defines the incremental changes in product quantity |  [optional]
 **reduceQuantity** | **BigDecimal** | Defines the decrement changes in product quantity |  [optional]
+**pricesIncTax** | **Boolean** | Indicates whether prices include tax. |  [optional]
 **price** | **BigDecimal** | Defines new product&#39;s variant price |  [optional]
 **specialPrice** | **BigDecimal** | Defines new product&#39;s variant special price |  [optional]
 **retailPrice** | **BigDecimal** | Defines new product&#39;s retail price |  [optional]

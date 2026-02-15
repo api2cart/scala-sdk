@@ -39,6 +39,7 @@ Name | Type | Description | Notes
 **reservePrice** | **BigDecimal** | Defines reserve price value |  [optional]
 **measureUnit** | **String** | Unit for the price per unit. Must be in allowed list |  [optional]
 **unitPrice** | **BigDecimal** | Defines new product&#39;s unit price |  [optional]
+**pricesIncTax** | **Boolean** | Indicates whether prices include tax. |  [optional]
 **quantity** | **BigDecimal** | Defines product&#39;s quantity that has to be added |  [optional]
 **inStock** | **Boolean** | Set stock status |  [optional]
 **manageStock** | **Boolean** | Defines inventory tracking for product |  [optional]

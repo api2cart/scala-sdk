@@ -27,6 +27,8 @@ case class ProductUpdate (
   description: Option[String] = None,
   /* Defines short description */
   shortDescription: Option[String] = None,
+  /* Indicates whether prices include tax. */
+  pricesIncTax: Option[Boolean] = None,
   /* Defines new product's price */
   price: Option[BigDecimal] = None,
   /* Defines product's old price */
