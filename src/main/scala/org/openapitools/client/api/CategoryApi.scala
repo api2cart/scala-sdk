@@ -263,9 +263,10 @@ class CategoryApi(baseUrl: String) {
    * @param label Defines alternative text that has to be attached to the picture
    * @param mime Mime type of image http://en.wikipedia.org/wiki/Internet_media_type.
    * @param position Defines image’s position in the list
+   * @param applyToTranslations Defines whether to add image to all category translations
    * @param idempotencyKey A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong>
    */
-  def categoryImageAdd(categoryId: String, imageName: String, url: String, `type`: String, storeId: Option[String] = None, label: Option[String] = None, mime: Option[String] = None, position: Option[Int] = None, idempotencyKey: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[CategoryImageAdd200Response] =
+  def categoryImageAdd(categoryId: String, imageName: String, url: String, `type`: String, storeId: Option[String] = None, label: Option[String] = None, mime: Option[String] = None, position: Option[Int] = None, applyToTranslations: Option[Boolean] = None, idempotencyKey: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[CategoryImageAdd200Response] =
     ApiRequest[CategoryImageAdd200Response](ApiMethods.POST, baseUrl, "/category.image.add.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
@@ -277,6 +278,7 @@ class CategoryApi(baseUrl: String) {
       .withQueryParam("label", label)
       .withQueryParam("mime", mime)
       .withQueryParam("position", position)
+      .withQueryParam("apply_to_translations", applyToTranslations)
       .withQueryParam("idempotency_key", idempotencyKey)
       .withSuccessResponse[CategoryImageAdd200Response](200)
       
@@ -294,14 +296,16 @@ class CategoryApi(baseUrl: String) {
    * @param categoryId Defines category id where the image should be deleted
    * @param imageId Define image id
    * @param storeId Store Id
+   * @param applyToTranslations Defines whether to delete image from all category translations
    */
-  def categoryImageDelete(categoryId: String, imageId: String, storeId: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[AttributeDelete200Response] =
+  def categoryImageDelete(categoryId: String, imageId: String, storeId: Option[String] = None, applyToTranslations: Option[Boolean] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[AttributeDelete200Response] =
     ApiRequest[AttributeDelete200Response](ApiMethods.DELETE, baseUrl, "/category.image.delete.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
       .withQueryParam("category_id", categoryId)
       .withQueryParam("image_id", imageId)
       .withQueryParam("store_id", storeId)
+      .withQueryParam("apply_to_translations", applyToTranslations)
       .withSuccessResponse[AttributeDelete200Response](200)
       
 

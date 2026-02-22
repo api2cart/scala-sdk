@@ -65,6 +65,7 @@ class TaxApi(baseUrl: String) {
    *   ApiKeyAuth (apiKey)
    * 
    * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count=250
+   * @param start This parameter sets the number from which you want to get entities
    * @param pageCursor Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
    * @param storeId Store Id
    * @param findValue Entity search that is specified by some value
@@ -75,11 +76,12 @@ class TaxApi(baseUrl: String) {
    * @param modifiedFrom Retrieve entities from their modification date
    * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
    */
-  def taxClassList(count: Option[Int] = None, pageCursor: Option[String] = None, storeId: Option[String] = None, findValue: Option[String] = None, findWhere: Option[String] = None, createdTo: Option[String] = None, createdFrom: Option[String] = None, modifiedTo: Option[String] = None, modifiedFrom: Option[String] = None, responseFields: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseTaxClassList] =
+  def taxClassList(count: Option[Int] = None, start: Option[Int] = None, pageCursor: Option[String] = None, storeId: Option[String] = None, findValue: Option[String] = None, findWhere: Option[String] = None, createdTo: Option[String] = None, createdFrom: Option[String] = None, modifiedTo: Option[String] = None, modifiedFrom: Option[String] = None, responseFields: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseTaxClassList] =
     ApiRequest[ModelResponseTaxClassList](ApiMethods.GET, baseUrl, "/tax.class.list.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
       .withQueryParam("count", count)
+      .withQueryParam("start", start)
       .withQueryParam("page_cursor", pageCursor)
       .withQueryParam("store_id", storeId)
       .withQueryParam("find_value", findValue)

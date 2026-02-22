@@ -148,6 +148,8 @@ object Example extends App {
     val apiInstance = TaxApi("https://api.api2cart.local.com/v1.1")
     val count: Int = 20 // Int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
 
+    val start: Int = 0 // Int | This parameter sets the number from which you want to get entities
+
     val pageCursor: String =  // String | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
 
     val storeId: String = 1 // String | Store Id
@@ -166,7 +168,7 @@ object Example extends App {
 
     val responseFields: String = {result} // String | Set this parameter in order to choose which entity fields you want to retrieve
     
-    val request = apiInstance.taxClassList(count, pageCursor, storeId, findValue, findWhere, createdTo, createdFrom, modifiedTo, modifiedFrom, responseFields)
+    val request = apiInstance.taxClassList(count, start, pageCursor, storeId, findValue, findWhere, createdTo, createdFrom, modifiedTo, modifiedFrom, responseFields)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -195,6 +197,7 @@ object Example extends App {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **count** | **Int**| This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional]
+ **start** | **Int**| This parameter sets the number from which you want to get entities | [optional]
  **pageCursor** | **String**| Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional]
  **storeId** | **String**| Store Id | [optional]
  **findValue** | **String**| Entity search that is specified by some value | [optional]

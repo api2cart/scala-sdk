@@ -241,6 +241,8 @@ object Example extends App {
     val apiInstance = CustomerApi("https://api.api2cart.local.com/v1.1")
     val customerId: String = 5 // String | Retrieves orders specified by customer id
 
+    val start: Int = 0 // Int | This parameter sets the number from which you want to get entities
+
     val count: Int = 20 // Int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
 
     val pageCursor: String =  // String | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
@@ -255,7 +257,7 @@ object Example extends App {
 
     val exclude: String = false // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
     
-    val request = apiInstance.customerAttributeList(customerId, count, pageCursor, storeId, langId, responseFields, params, exclude)
+    val request = apiInstance.customerAttributeList(customerId, start, count, pageCursor, storeId, langId, responseFields, params, exclude)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -284,6 +286,7 @@ object Example extends App {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **customerId** | **String**| Retrieves orders specified by customer id |
+ **start** | **Int**| This parameter sets the number from which you want to get entities | [optional]
  **count** | **Int**| This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional]
  **pageCursor** | **String**| Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional]
  **storeId** | **String**| Store Id | [optional]

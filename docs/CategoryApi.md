@@ -792,9 +792,11 @@ object Example extends App {
 
     val position: Int = 5 // Int | Defines image’s position in the list
 
+    val applyToTranslations: Boolean = true // Boolean | Defines whether to add image to all category translations
+
     val idempotencyKey: String = 098f6bcd4621d373cade4e832627b4f6 // String | A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong>
     
-    val request = apiInstance.categoryImageAdd(categoryId, imageName, url, `type`, storeId, label, mime, position, idempotencyKey)
+    val request = apiInstance.categoryImageAdd(categoryId, imageName, url, `type`, storeId, label, mime, position, applyToTranslations, idempotencyKey)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -830,6 +832,7 @@ Name | Type | Description  | Notes
  **label** | **String**| Defines alternative text that has to be attached to the picture | [optional]
  **mime** | **String**| Mime type of image http://en.wikipedia.org/wiki/Internet_media_type. | [optional]
  **position** | **Int**| Defines image’s position in the list | [optional]
+ **applyToTranslations** | **Boolean**| Defines whether to add image to all category translations | [optional]
  **idempotencyKey** | **String**| A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [optional]
 
 ### Return type
@@ -891,8 +894,10 @@ object Example extends App {
     val imageId: String = 82950b84f468edff480680f99cedbe0d // String | Define image id
 
     val storeId: String = 1 // String | Store Id
+
+    val applyToTranslations: Boolean = false // Boolean | Defines whether to delete image from all category translations
     
-    val request = apiInstance.categoryImageDelete(categoryId, imageId, storeId)
+    val request = apiInstance.categoryImageDelete(categoryId, imageId, storeId, applyToTranslations)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -923,6 +928,7 @@ Name | Type | Description  | Notes
  **categoryId** | **String**| Defines category id where the image should be deleted |
  **imageId** | **String**| Define image id |
  **storeId** | **String**| Store Id | [optional]
+ **applyToTranslations** | **Boolean**| Defines whether to delete image from all category translations | [optional]
 
 ### Return type
 

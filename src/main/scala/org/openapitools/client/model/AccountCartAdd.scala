@@ -409,6 +409,7 @@ object AccountCartAddEnums {
     val Gambio = Value("Gambio")
     val Hybris = Value("Hybris")
     val JooCart = Value("JooCart")
+    val Jumpseller = Value("Jumpseller")
     val Lazada = Value("Lazada")
     val LightSpeed = Value("LightSpeed")
     val Magento1212 = Value("Magento1212")

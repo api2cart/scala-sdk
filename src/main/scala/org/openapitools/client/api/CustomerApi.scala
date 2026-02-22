@@ -88,6 +88,7 @@ class CustomerApi(baseUrl: String) {
    *   ApiKeyAuth (apiKey)
    * 
    * @param customerId Retrieves orders specified by customer id
+   * @param start This parameter sets the number from which you want to get entities
    * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count=250
    * @param pageCursor Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
    * @param storeId Store Id
@@ -96,10 +97,11 @@ class CustomerApi(baseUrl: String) {
    * @param params Set this parameter in order to choose which entity fields you want to retrieve
    * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
    */
-  def customerAttributeList(customerId: String, count: Option[Int] = None, pageCursor: Option[String] = None, storeId: Option[String] = None, langId: Option[String] = None, responseFields: Option[String] = None, params: Option[String] = None, exclude: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseCustomerAttributeList] =
+  def customerAttributeList(customerId: String, start: Option[Int] = None, count: Option[Int] = None, pageCursor: Option[String] = None, storeId: Option[String] = None, langId: Option[String] = None, responseFields: Option[String] = None, params: Option[String] = None, exclude: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseCustomerAttributeList] =
     ApiRequest[ModelResponseCustomerAttributeList](ApiMethods.GET, baseUrl, "/customer.attribute.list.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
+      .withQueryParam("start", start)
       .withQueryParam("count", count)
       .withQueryParam("page_cursor", pageCursor)
       .withQueryParam("customer_id", customerId)
