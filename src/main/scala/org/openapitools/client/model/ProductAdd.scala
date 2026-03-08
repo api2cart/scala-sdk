@@ -253,6 +253,8 @@ case class ProductAdd (
   /* Add Return Policy Id */
   returnPolicyId: Option[Int] = None,
   personalizationDetails: Option[ProductAddPersonalizationDetails] = None,
+  /* Defines personalization questions for the listing as an array of question objects. Each question object supports the following fields: question_id (integer, nullable), question_text (string, 1-45 chars), instructions (string, nullable), question_type (string), required (boolean), max_allowed_characters (integer, nullable), max_allowed_files (integer, nullable), options (array, nullable). Cannot be used together with <strong>personalization_details</strong>. */
+  personalizationQuestions: Option[Seq[ProductAddPersonalizationQuestionsInner]] = None,
   /* A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong> */
   idempotencyKey: Option[String] = None
 ) extends ApiModel

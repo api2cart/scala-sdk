@@ -194,6 +194,8 @@ case class ProductUpdate (
   /* Add Shop Section Id */
   shopSectionId: Option[Int] = None,
   personalizationDetails: Option[ProductAddPersonalizationDetails] = None,
+  /* Defines personalization questions for the listing as an array of question objects. Each question object supports the following fields: question_id (integer, nullable), question_text (string, 1-45 chars), instructions (string, nullable), question_type (string), required (boolean), max_allowed_characters (integer, nullable), max_allowed_files (integer, nullable), options (array, nullable). Cannot be used together with <strong>personalization_details</strong>. */
+  personalizationQuestions: Option[Seq[ProductAddPersonalizationQuestionsInner]] = None,
   /* External product link */
   externalProductLink: Option[String] = None,
   /* String containing the JSON representation of the supplied data */

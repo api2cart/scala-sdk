@@ -24,6 +24,7 @@ object EnumsSerializers {
     new EnumNameSerializer(CartCouponAddEnums.ActionScope) :+
     new EnumNameSerializer(CustomerAddConsentsInnerEnums.`Type`) :+
     new EnumNameSerializer(ProductAddBatchEnums.NestedItemsUpdateBehaviour) :+
+    new EnumNameSerializer(ProductAddPersonalizationQuestionsInnerEnums.QuestionType) :+
     new EnumNameSerializer(ProductAddSpecificsInnerBookingDetailsEnums.`Type`) :+
     new EnumNameSerializer(ProductAddSpecificsInnerBookingDetailsEnums.TimeStrictType) :+
     new EnumNameSerializer(ProductAddSpecificsInnerBookingDetailsAvailabilitiesInnerEnums.Day) :+
