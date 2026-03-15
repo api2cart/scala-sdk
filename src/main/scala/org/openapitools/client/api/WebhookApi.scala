@@ -15,8 +15,10 @@ import org.openapitools.client.model.AttributeDelete200Response
 import org.openapitools.client.model.BasketLiveShippingServiceCreate200Response
 import org.openapitools.client.model.ProductImageUpdate200Response
 import org.openapitools.client.model.WebhookCount200Response
+import org.openapitools.client.model.WebhookCreate
 import org.openapitools.client.model.WebhookEvents200Response
 import org.openapitools.client.model.WebhookList200Response
+import org.openapitools.client.model.WebhookUpdate
 import org.openapitools.client.core._
 import org.openapitools.client.core.CollectionFormats._
 import org.openapitools.client.core.ApiKeyLocations._
@@ -62,31 +64,13 @@ class WebhookApi(baseUrl: String) {
    *   StoreKeyAuth (apiKey)
    *   ApiKeyAuth (apiKey)
    * 
-   * @param entity Specify the entity that you want to enable webhooks for (e.g product, order, customer, category)
-   * @param action Specify what action (event) will trigger the webhook (e.g add, delete, or update)
-   * @param callback Callback url that returns shipping rates. It should be able to accept POST requests with json data.
-   * @param label The name you give to the webhook
-   * @param fields Fields the webhook should send
-   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
-   * @param active Webhook status
-   * @param langId Language id
-   * @param storeId Defines store id where the webhook should be assigned
-   * @param idempotencyKey A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong>
+   * @param webhookCreate 
    */
-  def webhookCreate(entity: String, action: String, callback: Option[String] = None, label: Option[String] = None, fields: Option[String] = None, responseFields: Option[String] = None, active: Option[Boolean] = None, langId: Option[String] = None, storeId: Option[String] = None, idempotencyKey: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[BasketLiveShippingServiceCreate200Response] =
+  def webhookCreate(webhookCreate: WebhookCreate)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[BasketLiveShippingServiceCreate200Response] =
     ApiRequest[BasketLiveShippingServiceCreate200Response](ApiMethods.POST, baseUrl, "/webhook.create.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
-      .withQueryParam("entity", entity)
-      .withQueryParam("action", action)
-      .withQueryParam("callback", callback)
-      .withQueryParam("label", label)
-      .withQueryParam("fields", fields)
-      .withQueryParam("response_fields", responseFields)
-      .withQueryParam("active", active)
-      .withQueryParam("lang_id", langId)
-      .withQueryParam("store_id", storeId)
-      .withQueryParam("idempotency_key", idempotencyKey)
+      .withBody(webhookCreate)
       .withSuccessResponse[BasketLiveShippingServiceCreate200Response](200)
       
 
@@ -169,27 +153,13 @@ class WebhookApi(baseUrl: String) {
    *   StoreKeyAuth (apiKey)
    *   ApiKeyAuth (apiKey)
    * 
-   * @param id Webhook id
-   * @param callback Callback url that returns shipping rates. It should be able to accept POST requests with json data.
-   * @param label The name you give to the webhook
-   * @param fields Fields the webhook should send
-   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
-   * @param active Webhook status
-   * @param langId Language id
-   * @param idempotencyKey A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong>
+   * @param webhookUpdate 
    */
-  def webhookUpdate(id: String, callback: Option[String] = None, label: Option[String] = None, fields: Option[String] = None, responseFields: Option[String] = None, active: Option[Boolean] = None, langId: Option[String] = None, idempotencyKey: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ProductImageUpdate200Response] =
+  def webhookUpdate(webhookUpdate: WebhookUpdate)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ProductImageUpdate200Response] =
     ApiRequest[ProductImageUpdate200Response](ApiMethods.PUT, baseUrl, "/webhook.update.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
-      .withQueryParam("id", id)
-      .withQueryParam("callback", callback)
-      .withQueryParam("label", label)
-      .withQueryParam("fields", fields)
-      .withQueryParam("response_fields", responseFields)
-      .withQueryParam("active", active)
-      .withQueryParam("lang_id", langId)
-      .withQueryParam("idempotency_key", idempotencyKey)
+      .withBody(webhookUpdate)
       .withSuccessResponse[ProductImageUpdate200Response](200)
       
 

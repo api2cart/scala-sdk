@@ -263,6 +263,10 @@ docs/OrderTotals.md
 docs/OrderTotalsNewDiscount.md
 docs/OrderTransaction.md
 docs/Pagination.md
+docs/ParamDefinitionFilteringConditionsFilterCondition.md
+docs/ParamDefinitionFilteringConditionsFilterGroup.md
+docs/ParamDefinitionFilteringConditionsFilterRule.md
+docs/ParamDefinitionFilteringConditionsFilterRuleValue.md
 docs/Plugin.md
 docs/PluginList.md
 docs/Product.md
@@ -445,11 +449,13 @@ docs/Webhook.md
 docs/WebhookApi.md
 docs/WebhookCount200Response.md
 docs/WebhookCount200ResponseResult.md
+docs/WebhookCreate.md
 docs/WebhookEvents200Response.md
 docs/WebhookEvents200ResponseResult.md
 docs/WebhookEvents200ResponseResultEventsInner.md
 docs/WebhookList200Response.md
 docs/WebhookList200ResponseResult.md
+docs/WebhookUpdate.md
 pom.xml
 project/build.properties
 src/main/resources/reference.conf
@@ -727,6 +733,10 @@ src/main/scala/org/openapitools/client/model/OrderTotals.scala
 src/main/scala/org/openapitools/client/model/OrderTotalsNewDiscount.scala
 src/main/scala/org/openapitools/client/model/OrderTransaction.scala
 src/main/scala/org/openapitools/client/model/Pagination.scala
+src/main/scala/org/openapitools/client/model/ParamDefinitionFilteringConditionsFilterCondition.scala
+src/main/scala/org/openapitools/client/model/ParamDefinitionFilteringConditionsFilterGroup.scala
+src/main/scala/org/openapitools/client/model/ParamDefinitionFilteringConditionsFilterRule.scala
+src/main/scala/org/openapitools/client/model/ParamDefinitionFilteringConditionsFilterRuleValue.scala
 src/main/scala/org/openapitools/client/model/Plugin.scala
 src/main/scala/org/openapitools/client/model/PluginList.scala
 src/main/scala/org/openapitools/client/model/Product.scala
@@ -903,8 +913,10 @@ src/main/scala/org/openapitools/client/model/TaxClassZipCodesRange.scala
 src/main/scala/org/openapitools/client/model/Webhook.scala
 src/main/scala/org/openapitools/client/model/WebhookCount200Response.scala
 src/main/scala/org/openapitools/client/model/WebhookCount200ResponseResult.scala
+src/main/scala/org/openapitools/client/model/WebhookCreate.scala
 src/main/scala/org/openapitools/client/model/WebhookEvents200Response.scala
 src/main/scala/org/openapitools/client/model/WebhookEvents200ResponseResult.scala
 src/main/scala/org/openapitools/client/model/WebhookEvents200ResponseResultEventsInner.scala
 src/main/scala/org/openapitools/client/model/WebhookList200Response.scala
 src/main/scala/org/openapitools/client/model/WebhookList200ResponseResult.scala
+src/main/scala/org/openapitools/client/model/WebhookUpdate.scala

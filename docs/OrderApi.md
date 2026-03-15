@@ -425,8 +425,10 @@ object Example extends App {
     val modifiedFrom: String = 2010-07-29 13:45:52 // String | Retrieve entities from their modification date
 
     val modifiedTo: String = 2100-08-29 13:45:52 // String | Retrieve entities to their modification date
+
+    val useLatestApiVersion: Boolean = true // Boolean | Use the latest platform API version
     
-    val request = apiInstance.orderCount(orderIds, ids, customerId, storeId, customerEmail, orderStatus, orderStatusIds, ebayOrderStatus, financialStatus, financialStatusIds, fulfillmentChannel, fulfillmentStatus, shippingMethod, deliveryMethod, tags, shipNodeType, createdFrom, createdTo, modifiedFrom, modifiedTo)
+    val request = apiInstance.orderCount(orderIds, ids, customerId, storeId, customerEmail, orderStatus, orderStatusIds, ebayOrderStatus, financialStatus, financialStatusIds, fulfillmentChannel, fulfillmentStatus, shippingMethod, deliveryMethod, tags, shipNodeType, createdFrom, createdTo, modifiedFrom, modifiedTo, useLatestApiVersion)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -474,6 +476,7 @@ Name | Type | Description  | Notes
  **createdTo** | **String**| Retrieve entities to their creation date | [optional]
  **modifiedFrom** | **String**| Retrieve entities from their modification date | [optional]
  **modifiedTo** | **String**| Retrieve entities to their modification date | [optional]
+ **useLatestApiVersion** | **Boolean**| Use the latest platform API version | [optional]
 
 ### Return type
 

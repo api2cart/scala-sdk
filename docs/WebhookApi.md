@@ -124,6 +124,7 @@ Create webhook on the store and subscribe to it.
 ```scala
 // Import classes:
 import 
+import 
 import org.openapitools.client.core._
 import org.openapitools.client.core.CollectionFormats._
 import org.openapitools.client.core.ApiKeyLocations._
@@ -145,27 +146,9 @@ object Example extends App {
 
     val apiInvoker = ApiInvoker()
     val apiInstance = WebhookApi("https://api.api2cart.local.com/v1.1")
-    val entity: String = product // String | Specify the entity that you want to enable webhooks for (e.g product, order, customer, category)
-
-    val action: String = add // String | Specify what action (event) will trigger the webhook (e.g add, delete, or update)
-
-    val callback: String = https://example.com/callback // String | Callback url that returns shipping rates. It should be able to accept POST requests with json data.
-
-    val label: String = Super webhook // String | The name you give to the webhook
-
-    val fields: String = id, name, description // String | Fields the webhook should send
-
-    val responseFields: String = {result} // String | Set this parameter in order to choose which entity fields you want to retrieve
-
-    val active: Boolean = true // Boolean | Webhook status
-
-    val langId: String = 3 // String | Language id
-
-    val storeId: String = 1 // String | Defines store id where the webhook should be assigned
-
-    val idempotencyKey: String = 098f6bcd4621d373cade4e832627b4f6 // String | A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong>
+    val webhookCreate: WebhookCreate =  // WebhookCreate | 
     
-    val request = apiInstance.webhookCreate(entity, action, callback, label, fields, responseFields, active, langId, storeId, idempotencyKey)
+    val request = apiInstance.webhookCreate(webhookCreate)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -193,16 +176,7 @@ object Example extends App {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **entity** | **String**| Specify the entity that you want to enable webhooks for (e.g product, order, customer, category) |
- **action** | **String**| Specify what action (event) will trigger the webhook (e.g add, delete, or update) |
- **callback** | **String**| Callback url that returns shipping rates. It should be able to accept POST requests with json data. | [optional]
- **label** | **String**| The name you give to the webhook | [optional]
- **fields** | **String**| Fields the webhook should send | [optional]
- **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
- **active** | **Boolean**| Webhook status | [optional]
- **langId** | **String**| Language id | [optional]
- **storeId** | **String**| Defines store id where the webhook should be assigned | [optional]
- **idempotencyKey** | **String**| A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [optional]
+ **webhookCreate** | [**WebhookCreate**](WebhookCreate.md)|  |
 
 ### Return type
 
@@ -215,7 +189,7 @@ ApiRequest[[**BasketLiveShippingServiceCreate200Response**](BasketLiveShippingSe
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 ### HTTP response details
@@ -508,6 +482,7 @@ Update Webhooks parameters.
 ```scala
 // Import classes:
 import 
+import 
 import org.openapitools.client.core._
 import org.openapitools.client.core.CollectionFormats._
 import org.openapitools.client.core.ApiKeyLocations._
@@ -529,23 +504,9 @@ object Example extends App {
 
     val apiInvoker = ApiInvoker()
     val apiInstance = WebhookApi("https://api.api2cart.local.com/v1.1")
-    val id: String = 25 // String | Webhook id
-
-    val callback: String = https://example.com/callback // String | Callback url that returns shipping rates. It should be able to accept POST requests with json data.
-
-    val label: String = Super webhook // String | The name you give to the webhook
-
-    val fields: String = id, name, description // String | Fields the webhook should send
-
-    val responseFields: String = {result} // String | Set this parameter in order to choose which entity fields you want to retrieve
-
-    val active: Boolean = true // Boolean | Webhook status
-
-    val langId: String = 3 // String | Language id
-
-    val idempotencyKey: String = 098f6bcd4621d373cade4e832627b4f6 // String | A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong>
+    val webhookUpdate: WebhookUpdate =  // WebhookUpdate | 
     
-    val request = apiInstance.webhookUpdate(id, callback, label, fields, responseFields, active, langId, idempotencyKey)
+    val request = apiInstance.webhookUpdate(webhookUpdate)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -573,14 +534,7 @@ object Example extends App {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| Webhook id |
- **callback** | **String**| Callback url that returns shipping rates. It should be able to accept POST requests with json data. | [optional]
- **label** | **String**| The name you give to the webhook | [optional]
- **fields** | **String**| Fields the webhook should send | [optional]
- **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
- **active** | **Boolean**| Webhook status | [optional]
- **langId** | **String**| Language id | [optional]
- **idempotencyKey** | **String**| A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [optional]
+ **webhookUpdate** | [**WebhookUpdate**](WebhookUpdate.md)|  |
 
 ### Return type
 
@@ -593,7 +547,7 @@ ApiRequest[[**ProductImageUpdate200Response**](ProductImageUpdate200Response.md)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 ### HTTP response details

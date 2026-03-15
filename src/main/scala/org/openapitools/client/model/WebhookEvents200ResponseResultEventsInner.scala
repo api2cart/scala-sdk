@@ -16,6 +16,7 @@ import org.openapitools.client.core.ApiModel
 case class WebhookEvents200ResponseResultEventsInner (
   webhookName: Option[String] = None,
   entity: Option[String] = None,
-  action: Option[String] = None
+  action: Option[String] = None,
+  filterableFields: Option[Any] = None
 ) extends ApiModel
 

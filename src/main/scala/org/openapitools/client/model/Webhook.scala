@@ -26,6 +26,7 @@ case class Webhook (
   updatedAt: Option[String] = None,
   entity: Option[String] = None,
   action: Option[String] = None,
+  filteringConditions: Option[Any] = None,
   additionalFields: Option[Any] = None,
   customFields: Option[Any] = None
 ) extends ApiModel

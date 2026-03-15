@@ -13,11 +13,12 @@ package org.openapitools.client.model
 
 import org.openapitools.client.core.ApiModel
 
-case class Plugin (
-  name: Option[String] = None,
-  code: Option[String] = None,
-  active: Option[Boolean] = None,
-  additionalFields: Option[Any] = None,
-  customFields: Option[Any] = None
+case class ParamDefinitionFilteringConditionsFilterCondition (
+  and: Option[Seq[Any]] = None,
+  or: Option[Seq[Any]] = None,
+  not: Option[Any] = None,
+  field: Option[String] = None,
+  operator: Option[String] = None,
+  value: Option[ParamDefinitionFilteringConditionsFilterRuleValue] = None
 ) extends ApiModel
 

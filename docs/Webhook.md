@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **updatedAt** | **String** |  |  [optional]
 **entity** | **String** |  |  [optional]
 **action** | **String** |  |  [optional]
+**filteringConditions** | **Any** |  |  [optional]
 **additionalFields** | **Any** |  |  [optional]
 **customFields** | **Any** |  |  [optional]
 
