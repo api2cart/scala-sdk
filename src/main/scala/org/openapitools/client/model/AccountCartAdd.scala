@@ -106,6 +106,8 @@ case class AccountCartAdd (
   bricklinkToken: Option[String] = None,
   /* Bricklink Access Token Secret */
   bricklinkTokenSecret: Option[String] = None,
+  /* Access token authorizing the app to access resources on behalf of a user */
+  nopcommerceToken: Option[String] = None,
   /* Demandware client id */
   demandwareClientId: Option[String] = None,
   /* Demandware api password */

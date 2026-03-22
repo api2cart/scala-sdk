@@ -202,6 +202,10 @@ case class ProductUpdate (
   marketplaceItemProperties: Option[String] = None,
   /* The minimum quantity an order must contain, to be eligible to purchase this product. */
   minOrderQuantity: Option[BigDecimal] = None,
+  /* A comma-separated list of manufacturer IDs. Retrieve the IDs from the cart.info method. */
+  manufacturerIds: Option[String] = None,
+  /* A comma-separated list of responsible person IDs. Retrieve the IDs from the cart.info method. */
+  responsiblePersonIds: Option[String] = None,
   /* A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong> */
   idempotencyKey: Option[String] = None
 ) extends ApiModel
