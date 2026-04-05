@@ -681,13 +681,15 @@ object Example extends App {
 
     val modifiedTo: String = 2100-08-29 13:45:52 // String | Retrieve entities to their modification date
 
+    val avail: Boolean = false // Boolean | Defines category's visibility status
+
     val responseFields: String = {return_code,return_message,pagination,result} // String | Set this parameter in order to choose which entity fields you want to retrieve
 
     val params: String = id,model,price,images // String | Set this parameter in order to choose which entity fields you want to retrieve
 
     val exclude: String = false // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
     
-    val request = apiInstance.productBrandList(start, count, pageCursor, brandIds, categoryId, parentId, storeId, langId, findWhere, findValue, createdFrom, createdTo, modifiedFrom, modifiedTo, responseFields, params, exclude)
+    val request = apiInstance.productBrandList(start, count, pageCursor, brandIds, categoryId, parentId, storeId, langId, findWhere, findValue, createdFrom, createdTo, modifiedFrom, modifiedTo, avail, responseFields, params, exclude)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -729,6 +731,7 @@ Name | Type | Description  | Notes
  **createdTo** | **String**| Retrieve entities to their creation date | [optional]
  **modifiedFrom** | **String**| Retrieve entities from their modification date | [optional]
  **modifiedTo** | **String**| Retrieve entities to their modification date | [optional]
+ **avail** | **Boolean**| Defines category&#39;s visibility status | [optional]
  **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
  **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
  **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional]
@@ -1156,6 +1159,8 @@ object Example extends App {
 
     val storeId: String = 1 // String | Counts products specified by store id
 
+    val vendorId: String = 1 // String | Counts products specified by vendor id
+
     val langId: String = 3 // String | Counts products specified by language id
 
     val availView: Boolean = true // Boolean | Specifies the set of visible/invisible products
@@ -1194,7 +1199,7 @@ object Example extends App {
 
     val useLatestApiVersion: Boolean = true // Boolean | Use the latest platform API version
     
-    val request = apiInstance.productCount(sku, productIds, sinceId, categoriesIds, categoryId, storeId, langId, availView, availSale, createdFrom, createdTo, modifiedFrom, modifiedTo, brandName, manufacturerId, productAttributes, status, `type`, visible, findValue, findWhere, reportRequestId, returnGlobal, disableReportCache, useLatestApiVersion)
+    val request = apiInstance.productCount(sku, productIds, sinceId, categoriesIds, categoryId, storeId, vendorId, langId, availView, availSale, createdFrom, createdTo, modifiedFrom, modifiedTo, brandName, manufacturerId, productAttributes, status, `type`, visible, findValue, findWhere, reportRequestId, returnGlobal, disableReportCache, useLatestApiVersion)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -1228,6 +1233,7 @@ Name | Type | Description  | Notes
  **categoriesIds** | **String**| Defines product add that is specified by comma-separated categories id | [optional]
  **categoryId** | **String**| Counts products specified by category id | [optional]
  **storeId** | **String**| Counts products specified by store id | [optional]
+ **vendorId** | **String**| Counts products specified by vendor id | [optional]
  **langId** | **String**| Counts products specified by language id | [optional]
  **availView** | **Boolean**| Specifies the set of visible/invisible products | [optional]
  **availSale** | **Boolean**| Specifies the set of available/not available products for sale | [optional]
@@ -2093,6 +2099,8 @@ object Example extends App {
 
     val storeId: String = 1 // String | Retrieves product info specified by store id
 
+    val vendorId: String = 1 // String | Vendor Id
+
     val langId: String = 3 // String | Retrieves product info specified by language id
 
     val currencyId: String = usd // String | Currency Id
@@ -2109,7 +2117,7 @@ object Example extends App {
 
     val useLatestApiVersion: Boolean = true // Boolean | Use the latest platform API version
     
-    val request = apiInstance.productInfo(id, storeId, langId, currencyId, responseFields, params, exclude, reportRequestId, disableReportCache, useLatestApiVersion)
+    val request = apiInstance.productInfo(id, storeId, vendorId, langId, currencyId, responseFields, params, exclude, reportRequestId, disableReportCache, useLatestApiVersion)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -2139,6 +2147,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| Retrieves product&#39;s info specified by product id |
  **storeId** | **String**| Retrieves product info specified by store id | [optional]
+ **vendorId** | **String**| Vendor Id | [optional]
  **langId** | **String**| Retrieves product info specified by language id | [optional]
  **currencyId** | **String**| Currency Id | [optional]
  **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
@@ -2218,6 +2227,8 @@ object Example extends App {
 
     val storeId: String = 1 // String | Retrieves products specified by store id
 
+    val vendorId: String = 1 // String | Retrieves products specified by vendor id
+
     val langId: String = 3 // String | Retrieves products specified by language id
 
     val currencyId: String = usd // String | Currency Id
@@ -2274,7 +2285,7 @@ object Example extends App {
 
     val productType: String = BICYCLE // String | A categorization for the product
     
-    val request = apiInstance.productList(start, count, pageCursor, productIds, sinceId, categoriesIds, categoryId, storeId, langId, currencyId, availView, availSale, createdFrom, createdTo, modifiedFrom, modifiedTo, sku, brandName, productAttributes, manufacturerId, status, `type`, visible, findValue, findWhere, returnGlobal, params, responseFields, exclude, sortBy, sortDirection, reportRequestId, disableCache, disableReportCache, useLatestApiVersion, productType)
+    val request = apiInstance.productList(start, count, pageCursor, productIds, sinceId, categoriesIds, categoryId, storeId, vendorId, langId, currencyId, availView, availSale, createdFrom, createdTo, modifiedFrom, modifiedTo, sku, brandName, productAttributes, manufacturerId, status, `type`, visible, findValue, findWhere, returnGlobal, params, responseFields, exclude, sortBy, sortDirection, reportRequestId, disableCache, disableReportCache, useLatestApiVersion, productType)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -2310,6 +2321,7 @@ Name | Type | Description  | Notes
  **categoriesIds** | **String**| Retrieves products specified by categories ids | [optional]
  **categoryId** | **String**| Retrieves products specified by category id | [optional]
  **storeId** | **String**| Retrieves products specified by store id | [optional]
+ **vendorId** | **String**| Retrieves products specified by vendor id | [optional]
  **langId** | **String**| Retrieves products specified by language id | [optional]
  **currencyId** | **String**| Currency Id | [optional]
  **availView** | **Boolean**| Specifies the set of visible/invisible products | [optional]

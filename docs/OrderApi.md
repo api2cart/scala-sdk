@@ -430,8 +430,10 @@ object Example extends App {
     val modifiedTo: String = 2100-08-29 13:45:52 // String | Retrieve entities to their modification date
 
     val useLatestApiVersion: Boolean = true // Boolean | Use the latest platform API version
+
+    val vendorId: String = 1 // String | Counts orders specified by vendor id
     
-    val request = apiInstance.orderCount(orderIds, ids, customerId, storeId, customerEmail, orderStatus, orderStatusIds, ebayOrderStatus, financialStatus, financialStatusIds, fulfillmentChannel, fulfillmentStatus, shippingMethod, deliveryMethod, tags, shipNodeType, createdFrom, createdTo, modifiedFrom, modifiedTo, useLatestApiVersion)
+    val request = apiInstance.orderCount(orderIds, ids, customerId, storeId, customerEmail, orderStatus, orderStatusIds, ebayOrderStatus, financialStatus, financialStatusIds, fulfillmentChannel, fulfillmentStatus, shippingMethod, deliveryMethod, tags, shipNodeType, createdFrom, createdTo, modifiedFrom, modifiedTo, useLatestApiVersion, vendorId)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -480,6 +482,7 @@ Name | Type | Description  | Notes
  **modifiedFrom** | **String**| Retrieve entities from their modification date | [optional]
  **modifiedTo** | **String**| Retrieve entities to their modification date | [optional]
  **useLatestApiVersion** | **Boolean**| Use the latest platform API version | [optional]
+ **vendorId** | **String**| Counts orders specified by vendor id | [optional]
 
 ### Return type
 
@@ -829,6 +832,8 @@ object Example extends App {
 
     val storeId: String = 1 // String | Store Id
 
+    val vendorId: String = 1 // String | Retrieves orders specified by vendor id
+
     val customerId: String = 5 // String | Retrieves orders specified by customer id
 
     val customerEmail: String = jubari@hannsgroup.com // String | Retrieves orders specified by customer email
@@ -895,7 +900,7 @@ object Example extends App {
 
     val allowUserDefinedOrderStatuses: Boolean = true // Boolean | Indicates whether custom (user-defined) order statuses should be included in the response.
     
-    val request = apiInstance.orderList(start, count, pageCursor, ids, orderIds, sinceId, storeId, customerId, customerEmail, basketId, currencyId, phone, orderStatus, orderStatusIds, ebayOrderStatus, financialStatus, financialStatusIds, fulfillmentStatus, returnStatus, fulfillmentChannel, shippingMethod, skipOrderIds, isDeleted, shippingCountryIso3, deliveryMethod, shipNodeType, createdTo, createdFrom, modifiedTo, modifiedFrom, tags, sortBy, sortDirection, params, responseFields, exclude, enableCache, useLatestApiVersion, roundingPrecision, allowUserDefinedOrderStatuses)
+    val request = apiInstance.orderList(start, count, pageCursor, ids, orderIds, sinceId, storeId, vendorId, customerId, customerEmail, basketId, currencyId, phone, orderStatus, orderStatusIds, ebayOrderStatus, financialStatus, financialStatusIds, fulfillmentStatus, returnStatus, fulfillmentChannel, shippingMethod, skipOrderIds, isDeleted, shippingCountryIso3, deliveryMethod, shipNodeType, createdTo, createdFrom, modifiedTo, modifiedFrom, tags, sortBy, sortDirection, params, responseFields, exclude, enableCache, useLatestApiVersion, roundingPrecision, allowUserDefinedOrderStatuses)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -930,6 +935,7 @@ Name | Type | Description  | Notes
  **orderIds** | **String**| Retrieves orders specified by order ids | [optional]
  **sinceId** | **String**| Retrieve entities starting from the specified id. | [optional]
  **storeId** | **String**| Store Id | [optional]
+ **vendorId** | **String**| Retrieves orders specified by vendor id | [optional]
  **customerId** | **String**| Retrieves orders specified by customer id | [optional]
  **customerEmail** | **String**| Retrieves orders specified by customer email | [optional]
  **basketId** | **String**| Retrieves order’s info specified by basket id. | [optional]

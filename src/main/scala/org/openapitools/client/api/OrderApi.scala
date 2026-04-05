@@ -172,8 +172,9 @@ class OrderApi(baseUrl: String) {
    * @param modifiedFrom Retrieve entities from their modification date
    * @param modifiedTo Retrieve entities to their modification date
    * @param useLatestApiVersion Use the latest platform API version
+   * @param vendorId Counts orders specified by vendor id
    */
-  def orderCount(orderIds: Option[String] = None, ids: Option[String] = None, customerId: Option[String] = None, storeId: Option[String] = None, customerEmail: Option[String] = None, orderStatus: Option[String] = None, orderStatusIds: Seq[String], ebayOrderStatus: Option[String] = None, financialStatus: Option[String] = None, financialStatusIds: Seq[String], fulfillmentChannel: Option[String] = None, fulfillmentStatus: Option[String] = None, shippingMethod: Option[String] = None, deliveryMethod: Option[String] = None, tags: Option[String] = None, shipNodeType: Option[String] = None, createdFrom: Option[String] = None, createdTo: Option[String] = None, modifiedFrom: Option[String] = None, modifiedTo: Option[String] = None, useLatestApiVersion: Option[Boolean] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[OrderCount200Response] =
+  def orderCount(orderIds: Option[String] = None, ids: Option[String] = None, customerId: Option[String] = None, storeId: Option[String] = None, customerEmail: Option[String] = None, orderStatus: Option[String] = None, orderStatusIds: Seq[String], ebayOrderStatus: Option[String] = None, financialStatus: Option[String] = None, financialStatusIds: Seq[String], fulfillmentChannel: Option[String] = None, fulfillmentStatus: Option[String] = None, shippingMethod: Option[String] = None, deliveryMethod: Option[String] = None, tags: Option[String] = None, shipNodeType: Option[String] = None, createdFrom: Option[String] = None, createdTo: Option[String] = None, modifiedFrom: Option[String] = None, modifiedTo: Option[String] = None, useLatestApiVersion: Option[Boolean] = None, vendorId: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[OrderCount200Response] =
     ApiRequest[OrderCount200Response](ApiMethods.GET, baseUrl, "/order.count.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
@@ -198,6 +199,7 @@ class OrderApi(baseUrl: String) {
       .withQueryParam("modified_from", modifiedFrom)
       .withQueryParam("modified_to", modifiedTo)
       .withQueryParam("use_latest_api_version", useLatestApiVersion)
+      .withQueryParam("vendor_id", vendorId)
       .withSuccessResponse[OrderCount200Response](200)
       
 
@@ -293,6 +295,7 @@ class OrderApi(baseUrl: String) {
    * @param orderIds Retrieves orders specified by order ids
    * @param sinceId Retrieve entities starting from the specified id.
    * @param storeId Store Id
+   * @param vendorId Retrieves orders specified by vendor id
    * @param customerId Retrieves orders specified by customer id
    * @param customerEmail Retrieves orders specified by customer email
    * @param basketId Retrieves order’s info specified by basket id.
@@ -327,7 +330,7 @@ class OrderApi(baseUrl: String) {
    * @param roundingPrecision <p>Specifies the rounding precision for fractional numeric values (such as prices, taxes, and weights).</p> <p>Supported values range from <b>1</b> to <b>6</b>.</p> <p>The default rounding precision may vary depending on the platform. You can retrieve the default value using the <strong>cart.info</strong> method in the <code>default_rounding_precision</code> field. </p><p>Values are rounded to the nearest number at the specified precision. Fractions of .5 or higher are rounded up, while fractions lower than .5 are rounded down.</p>
    * @param allowUserDefinedOrderStatuses Indicates whether custom (user-defined) order statuses should be included in the response.
    */
-  def orderList(start: Option[Int] = None, count: Option[Int] = None, pageCursor: Option[String] = None, ids: Option[String] = None, orderIds: Option[String] = None, sinceId: Option[String] = None, storeId: Option[String] = None, customerId: Option[String] = None, customerEmail: Option[String] = None, basketId: Option[String] = None, currencyId: Option[String] = None, phone: Option[String] = None, orderStatus: Option[String] = None, orderStatusIds: Seq[String], ebayOrderStatus: Option[String] = None, financialStatus: Option[String] = None, financialStatusIds: Seq[String], fulfillmentStatus: Option[String] = None, returnStatus: Option[String] = None, fulfillmentChannel: Option[String] = None, shippingMethod: Option[String] = None, skipOrderIds: Option[String] = None, isDeleted: Option[Boolean] = None, shippingCountryIso3: Option[String] = None, deliveryMethod: Option[String] = None, shipNodeType: Option[String] = None, createdTo: Option[String] = None, createdFrom: Option[String] = None, modifiedTo: Option[String] = None, modifiedFrom: Option[String] = None, tags: Option[String] = None, sortBy: Option[String] = None, sortDirection: Option[String] = None, params: Option[String] = None, responseFields: Option[String] = None, exclude: Option[String] = None, enableCache: Option[Boolean] = None, useLatestApiVersion: Option[Boolean] = None, roundingPrecision: Option[Int] = None, allowUserDefinedOrderStatuses: Option[Boolean] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseOrderList] =
+  def orderList(start: Option[Int] = None, count: Option[Int] = None, pageCursor: Option[String] = None, ids: Option[String] = None, orderIds: Option[String] = None, sinceId: Option[String] = None, storeId: Option[String] = None, vendorId: Option[String] = None, customerId: Option[String] = None, customerEmail: Option[String] = None, basketId: Option[String] = None, currencyId: Option[String] = None, phone: Option[String] = None, orderStatus: Option[String] = None, orderStatusIds: Seq[String], ebayOrderStatus: Option[String] = None, financialStatus: Option[String] = None, financialStatusIds: Seq[String], fulfillmentStatus: Option[String] = None, returnStatus: Option[String] = None, fulfillmentChannel: Option[String] = None, shippingMethod: Option[String] = None, skipOrderIds: Option[String] = None, isDeleted: Option[Boolean] = None, shippingCountryIso3: Option[String] = None, deliveryMethod: Option[String] = None, shipNodeType: Option[String] = None, createdTo: Option[String] = None, createdFrom: Option[String] = None, modifiedTo: Option[String] = None, modifiedFrom: Option[String] = None, tags: Option[String] = None, sortBy: Option[String] = None, sortDirection: Option[String] = None, params: Option[String] = None, responseFields: Option[String] = None, exclude: Option[String] = None, enableCache: Option[Boolean] = None, useLatestApiVersion: Option[Boolean] = None, roundingPrecision: Option[Int] = None, allowUserDefinedOrderStatuses: Option[Boolean] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseOrderList] =
     ApiRequest[ModelResponseOrderList](ApiMethods.GET, baseUrl, "/order.list.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
@@ -338,6 +341,7 @@ class OrderApi(baseUrl: String) {
       .withQueryParam("order_ids", orderIds)
       .withQueryParam("since_id", sinceId)
       .withQueryParam("store_id", storeId)
+      .withQueryParam("vendor_id", vendorId)
       .withQueryParam("customer_id", customerId)
       .withQueryParam("customer_email", customerEmail)
       .withQueryParam("basket_id", basketId)
