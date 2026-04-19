@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **childItemId** | **String** |  |  [optional]
 **productId** | **String** |  |  [optional]
-**defaultQtyInPack** | **String** |  |  [optional]
+**defaultQtyInPack** | **BigDecimal** |  |  [optional]
 **isQtyInPackFixed** | **Boolean** |  |  [optional]
 **price** | **BigDecimal** |  |  [optional]
 **additionalFields** | **Any** |  |  [optional]

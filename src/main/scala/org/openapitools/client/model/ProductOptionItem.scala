@@ -11,6 +11,7 @@
  */
 package org.openapitools.client.model
 
+import java.math.BigDecimal
 import org.openapitools.client.core.ApiModel
 
 case class ProductOptionItem (
@@ -18,8 +19,8 @@ case class ProductOptionItem (
   productOptionItemId: Option[String] = None,
   name: Option[String] = None,
   sortOrder: Option[Int] = None,
-  price: Option[String] = None,
-  weight: Option[String] = None,
+  price: Option[BigDecimal] = None,
+  weight: Option[BigDecimal] = None,
   quantity: Option[Int] = None,
   typePrice: Option[String] = None,
   sku: Option[String] = None,

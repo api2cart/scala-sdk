@@ -226,6 +226,8 @@ case class AccountCartAdd (
   mivaAccessToken: Option[String] = None,
   /* Miva signature */
   mivaSignature: Option[String] = None,
+  /* Mirakl API Key */
+  miraklApiKey: Option[String] = None,
   /* Tiendanube User ID */
   tiendanubeUserId: Option[Int] = None,
   /* Tiendanube Access Token */
@@ -428,7 +430,6 @@ object AccountCartAddEnums {
     val Pinnacle = Value("Pinnacle")
     val Prestashop = Value("Prestashop")
     val PrestashopApi = Value("PrestashopApi")
-    val SSPremium = Value("SSPremium")
     val Salla = Value("Salla")
     val SCAPI = Value("SCAPI")
     val Shopify = Value("Shopify")
@@ -449,7 +450,6 @@ object AccountCartAddEnums {
     val Volusion = Value("Volusion")
     val WPecommerce = Value("WPecommerce")
     val Walmart = Value("Walmart")
-    val WebAsyst = Value("WebAsyst")
     val Wix = Value("Wix")
     val Woocommerce = Value("Woocommerce")
     val WoocommerceApi = Value("WoocommerceApi")

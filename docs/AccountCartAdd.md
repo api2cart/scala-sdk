@@ -113,6 +113,7 @@ Name | Type | Description | Notes
 **shopwareApiSecret** | **String** | Shopware client secret access key |  [optional]
 **mivaAccessToken** | **String** | Miva access token |  [optional]
 **mivaSignature** | **String** | Miva signature |  [optional]
+**miraklApiKey** | **String** | Mirakl API Key |  [optional]
 **tiendanubeUserId** | **Int** | Tiendanube User ID |  [optional]
 **tiendanubeAccessToken** | **String** | Tiendanube Access Token |  [optional]
 **tiendanubeClientSecret** | **String** | Tiendanube Client Secret |  [optional]
@@ -194,7 +195,7 @@ Name | Type | Description | Notes
 
 
 ## Enum: CartId
-Allowed values: [3DCart, 3DCartApi, AceShop, AmazonSP, Americommerce, AspDotNetStorefront, BigCartel, Bricklink, BigcommerceApi, Bol, CommerceHQ, Creloaded, Cscart, Cubecart, Demandware, EBay, Ecwid, EtsyAPIv3, Facebook, Flipkart, Gambio, Hybris, JooCart, Jumpseller, Lazada, LightSpeed, Magento1212, Magento2Api, MercadoLibre, MijoShop, Miva, Neto, Opencart14, Oscmax2, Oscommerce22ms2, Otto, Oxid, Pinnacle, Prestashop, PrestashopApi, SSPremium, Salla, SCAPI, Shopify, Shopee, Shoplazza, Shopline, Shopware, ShopwareApi, Square, Squarespace, Temu, Tiendanube, TikTokShop, Tomatocart, Ubercart, Unas, Virtuemart, Volusion, WPecommerce, Walmart, WebAsyst, Wix, Woocommerce, WoocommerceApi, Xcart, Xtcommerce, XtcommerceVeyton, Zencart137, Zid, Zoey, Zoho]
+Allowed values: [3DCart, 3DCartApi, AceShop, AmazonSP, Americommerce, AspDotNetStorefront, BigCartel, Bricklink, BigcommerceApi, Bol, CommerceHQ, Creloaded, Cscart, Cubecart, Demandware, EBay, Ecwid, EtsyAPIv3, Facebook, Flipkart, Gambio, Hybris, JooCart, Jumpseller, Lazada, LightSpeed, Magento1212, Magento2Api, MercadoLibre, MijoShop, Miva, Neto, Opencart14, Oscmax2, Oscommerce22ms2, Otto, Oxid, Pinnacle, Prestashop, PrestashopApi, Salla, SCAPI, Shopify, Shopee, Shoplazza, Shopline, Shopware, ShopwareApi, Square, Squarespace, Temu, Tiendanube, TikTokShop, Tomatocart, Ubercart, Unas, Virtuemart, Volusion, WPecommerce, Walmart, Wix, Woocommerce, WoocommerceApi, Xcart, Xtcommerce, XtcommerceVeyton, Zencart137, Zid, Zoey, Zoho]
 
 
 

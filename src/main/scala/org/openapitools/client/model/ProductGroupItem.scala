@@ -17,7 +17,7 @@ import org.openapitools.client.core.ApiModel
 case class ProductGroupItem (
   childItemId: Option[String] = None,
   productId: Option[String] = None,
-  defaultQtyInPack: Option[String] = None,
+  defaultQtyInPack: Option[BigDecimal] = None,
   isQtyInPackFixed: Option[Boolean] = None,
   price: Option[BigDecimal] = None,
   additionalFields: Option[Any] = None,
