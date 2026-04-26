@@ -58,6 +58,12 @@ case class CustomerAdd (
   note: Option[String] = None,
   /* Specifies ISO code or name of country */
   country: Option[String] = None,
+  /* Currency Id */
+  currencyId: Option[String] = None,
+  /* Marks a customer as tax-exempt (B2B/wholesale). */
+  isTaxExempt: Option[Boolean] = None,
+  /* Vendor Id */
+  vendorId: Option[String] = None,
   /* Store Id */
   storeId: Option[String] = None,
   /* A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong> */
