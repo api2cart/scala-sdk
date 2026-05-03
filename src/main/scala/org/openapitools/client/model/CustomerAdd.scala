@@ -62,7 +62,7 @@ case class CustomerAdd (
   currencyId: Option[String] = None,
   /* Marks a customer as tax-exempt (B2B/wholesale). */
   isTaxExempt: Option[Boolean] = None,
-  /* Vendor Id */
+  /* Assigns vendor id to the customer */
   vendorId: Option[String] = None,
   /* Store Id */
   storeId: Option[String] = None,

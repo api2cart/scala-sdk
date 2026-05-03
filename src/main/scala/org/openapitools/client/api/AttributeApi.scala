@@ -306,6 +306,7 @@ class AttributeApi(baseUrl: String) {
    * 
    * @param start This parameter sets the number from which you want to get entities
    * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count=250
+   * @param pageCursor Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
    * @param attributeIds Filter attributes by ids
    * @param attributeSetId Filter items by attribute set id
    * @param storeId Store Id
@@ -318,12 +319,13 @@ class AttributeApi(baseUrl: String) {
    * @param params Set this parameter in order to choose which entity fields you want to retrieve
    * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
    */
-  def attributeList(start: Option[Int] = None, count: Option[Int] = None, attributeIds: Option[String] = None, attributeSetId: Option[String] = None, storeId: Option[String] = None, langId: Option[String] = None, `type`: Option[String] = None, visible: Option[Boolean] = None, required: Option[Boolean] = None, system: Option[Boolean] = None, responseFields: Option[String] = None, params: Option[String] = None, exclude: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseAttributeList] =
+  def attributeList(start: Option[Int] = None, count: Option[Int] = None, pageCursor: Option[String] = None, attributeIds: Option[String] = None, attributeSetId: Option[String] = None, storeId: Option[String] = None, langId: Option[String] = None, `type`: Option[String] = None, visible: Option[Boolean] = None, required: Option[Boolean] = None, system: Option[Boolean] = None, responseFields: Option[String] = None, params: Option[String] = None, exclude: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseAttributeList] =
     ApiRequest[ModelResponseAttributeList](ApiMethods.GET, baseUrl, "/attribute.list.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
       .withQueryParam("start", start)
       .withQueryParam("count", count)
+      .withQueryParam("page_cursor", pageCursor)
       .withQueryParam("attribute_ids", attributeIds)
       .withQueryParam("attribute_set_id", attributeSetId)
       .withQueryParam("store_id", storeId)
@@ -415,16 +417,20 @@ class AttributeApi(baseUrl: String) {
    * 
    * @param id Entity id
    * @param name Defines new attributes's name
+   * @param visible Set visibility status
+   * @param position Attribute`s position
    * @param storeId Store Id
    * @param langId Language id
    * @param idempotencyKey A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong>
    */
-  def attributeUpdate(id: String, name: String, storeId: Option[String] = None, langId: Option[String] = None, idempotencyKey: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[AttributeUpdate200Response] =
+  def attributeUpdate(id: String, name: Option[String] = None, visible: Option[Boolean] = None, position: Option[Int] = None, storeId: Option[String] = None, langId: Option[String] = None, idempotencyKey: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[AttributeUpdate200Response] =
     ApiRequest[AttributeUpdate200Response](ApiMethods.PUT, baseUrl, "/attribute.update.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
       .withQueryParam("id", id)
       .withQueryParam("name", name)
+      .withQueryParam("visible", visible)
+      .withQueryParam("position", position)
       .withQueryParam("store_id", storeId)
       .withQueryParam("lang_id", langId)
       .withQueryParam("idempotency_key", idempotencyKey)

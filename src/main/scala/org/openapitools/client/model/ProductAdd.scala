@@ -250,6 +250,8 @@ case class ProductAdd (
   viewedCount: Option[Int] = None,
   /* Defines how many times the product was ordered */
   orderedCount: Option[Int] = None,
+  /* Vendor Id */
+  vendorId: Option[String] = None,
   /* Add Shop Section Id */
   shopSectionId: Option[Int] = None,
   /* Add Return Policy Id */

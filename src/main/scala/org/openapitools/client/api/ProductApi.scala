@@ -848,6 +848,7 @@ class ProductApi(baseUrl: String) {
    * @param productId Defines products specified by product id
    * @param manufacturer Defines product’s manufacturer's name
    * @param storeId Store Id
+   * @param description Defines manufacturer's description
    * @param metaTitle Defines unique meta title for each entity
    * @param metaKeywords Defines unique meta keywords for each entity
    * @param metaDescription Defines unique meta description of a entity
@@ -856,13 +857,14 @@ class ProductApi(baseUrl: String) {
    * @param seoUrl Defines unique URL for SEO
    * @param idempotencyKey A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong>
    */
-  def productManufacturerAdd(productId: String, manufacturer: String, storeId: Option[String] = None, metaTitle: Option[String] = None, metaKeywords: Option[String] = None, metaDescription: Option[String] = None, searchKeywords: Option[String] = None, imageUrl: Option[String] = None, seoUrl: Option[String] = None, idempotencyKey: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ProductManufacturerAdd200Response] =
+  def productManufacturerAdd(productId: String, manufacturer: String, storeId: Option[String] = None, description: Option[String] = None, metaTitle: Option[String] = None, metaKeywords: Option[String] = None, metaDescription: Option[String] = None, searchKeywords: Option[String] = None, imageUrl: Option[String] = None, seoUrl: Option[String] = None, idempotencyKey: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ProductManufacturerAdd200Response] =
     ApiRequest[ProductManufacturerAdd200Response](ApiMethods.POST, baseUrl, "/product.manufacturer.add.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
       .withQueryParam("product_id", productId)
       .withQueryParam("manufacturer", manufacturer)
       .withQueryParam("store_id", storeId)
+      .withQueryParam("description", description)
       .withQueryParam("meta_title", metaTitle)
       .withQueryParam("meta_keywords", metaKeywords)
       .withQueryParam("meta_description", metaDescription)

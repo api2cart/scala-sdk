@@ -17,6 +17,7 @@ import org.openapitools.client.core.ApiModel
 case class ProductVariantAddAttributesInner (
   attributeName: Option[String] = None,
   attributeValue: Option[String] = None,
-  attributePrice: Option[BigDecimal] = None
+  attributePrice: Option[BigDecimal] = None,
+  attributeWeight: Option[BigDecimal] = None
 ) extends ApiModel
 

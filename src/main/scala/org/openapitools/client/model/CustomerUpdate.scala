@@ -48,9 +48,17 @@ case class CustomerUpdate (
   password: Option[String] = None,
   /* Currency Id */
   currencyId: Option[String] = None,
+  /* Defines customer's company */
+  company: Option[String] = None,
+  /* Specifies ISO code or name of country */
+  country: Option[String] = None,
+  /* Defines customer's fax */
+  fax: Option[String] = None,
+  /* Add Tax Id */
+  taxId: Option[String] = None,
   /* Marks a customer as tax-exempt (B2B/wholesale). */
   isTaxExempt: Option[Boolean] = None,
-  /* Vendor Id */
+  /* Updates vendor id of the customer */
   vendorId: Option[String] = None,
   /* Store Id */
   storeId: Option[String] = None,

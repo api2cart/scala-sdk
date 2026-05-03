@@ -46,6 +46,8 @@ case class CustomerUpdateAddressInner (
   addressBookIdentificationNumber: Option[String] = None,
   /* Specifies customer's gender */
   addressBookGender: Option[String] = None,
+  /* Specifies customer's region */
+  addressBookRegion: Option[String] = None,
   /* Specifies customer's alias in the address book */
   addressBookAlias: Option[String] = None,
   /* Specifies customer's address type */

@@ -2411,6 +2411,8 @@ object Example extends App {
 
     val storeId: String = 1 // String | Store Id
 
+    val description: String = Acme Corporation — premium tools brand // String | Defines manufacturer's description
+
     val metaTitle: String = category,test // String | Defines unique meta title for each entity
 
     val metaKeywords: String = category,test // String | Defines unique meta keywords for each entity
@@ -2425,7 +2427,7 @@ object Example extends App {
 
     val idempotencyKey: String = 098f6bcd4621d373cade4e832627b4f6 // String | A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong>
     
-    val request = apiInstance.productManufacturerAdd(productId, manufacturer, storeId, metaTitle, metaKeywords, metaDescription, searchKeywords, imageUrl, seoUrl, idempotencyKey)
+    val request = apiInstance.productManufacturerAdd(productId, manufacturer, storeId, description, metaTitle, metaKeywords, metaDescription, searchKeywords, imageUrl, seoUrl, idempotencyKey)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -2456,6 +2458,7 @@ Name | Type | Description  | Notes
  **productId** | **String**| Defines products specified by product id |
  **manufacturer** | **String**| Defines product’s manufacturer&#39;s name |
  **storeId** | **String**| Store Id | [optional]
+ **description** | **String**| Defines manufacturer&#39;s description | [optional]
  **metaTitle** | **String**| Defines unique meta title for each entity | [optional]
  **metaKeywords** | **String**| Defines unique meta keywords for each entity | [optional]
  **metaDescription** | **String**| Defines unique meta description of a entity | [optional]

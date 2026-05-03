@@ -17,7 +17,7 @@ import org.openapitools.client.core.ApiModel
 case class ProductVariantAdd (
   /* Defines product's id where the variant has to be added */
   productId: Option[String] = None,
-  /* Defines variant's attributes list */
+  /* Defines variant's attributes list with optional per-option price and weight modifiers */
   attributes: Option[Seq[ProductVariantAddAttributesInner]] = None,
   /* Defines variant's name that has to be added */
   name: Option[String] = None,

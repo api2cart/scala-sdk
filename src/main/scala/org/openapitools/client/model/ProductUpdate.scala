@@ -99,6 +99,10 @@ case class ProductUpdate (
   reduceQuantity: Option[BigDecimal] = None,
   /* Specify the quantity threshold below which the product is considered low in stock */
   lowStockThreshold: Option[BigDecimal] = None,
+  /* The minimum quantity an order must contain, to be eligible to purchase this product. */
+  minOrderQuantity: Option[BigDecimal] = None,
+  /* The maximum quantity an order can contain when purchasing the product. */
+  maxOrderQuantity: Option[BigDecimal] = None,
   /* This parameter is used for selecting a warehouse where you need to set/modify a product quantity. */
   warehouseId: Option[String] = None,
   /* Weight */
@@ -133,6 +137,8 @@ case class ProductUpdate (
   manufacturer: Option[String] = None,
   /* Defines product's manufacturer by manufacturer_id */
   manufacturerId: Option[String] = None,
+  /* Vendor Id */
+  vendorId: Option[String] = None,
   /* Defines product add that is specified by comma-separated categories id */
   categoriesIds: Option[String] = None,
   /* Defines product related products ids that has to be updated */
@@ -200,8 +206,6 @@ case class ProductUpdate (
   externalProductLink: Option[String] = None,
   /* String containing the JSON representation of the supplied data */
   marketplaceItemProperties: Option[String] = None,
-  /* The minimum quantity an order must contain, to be eligible to purchase this product. */
-  minOrderQuantity: Option[BigDecimal] = None,
   /* A comma-separated list of manufacturer IDs. Retrieve the IDs from the cart.info method. */
   manufacturerIds: Option[String] = None,
   /* A comma-separated list of responsible person IDs. Retrieve the IDs from the cart.info method. */

@@ -145,7 +145,7 @@ object Example extends App {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **`type`** | **String**| Defines attribute&#39;s type | [enum: text, select, textarea, date, price, multiselect, boolean]
+ **`type`** | **String**| Defines attribute&#39;s type | [enum: text, select, media, color, textarea, date, price, multiselect, boolean]
  **name** | **String**| Defines attributes&#39;s name |
  **code** | **String**| Entity code | [optional]
  **storeId** | **String**| Store Id | [optional]
@@ -915,6 +915,8 @@ object Example extends App {
 
     val count: Int = 20 // Int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
 
+    val pageCursor: String =  // String | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
+
     val attributeIds: String = 1,2,3 // String | Filter attributes by ids
 
     val attributeSetId: String = 4 // String | Filter items by attribute set id
@@ -937,7 +939,7 @@ object Example extends App {
 
     val exclude: String = id,name // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
     
-    val request = apiInstance.attributeList(start, count, attributeIds, attributeSetId, storeId, langId, `type`, visible, required, system, responseFields, params, exclude)
+    val request = apiInstance.attributeList(start, count, pageCursor, attributeIds, attributeSetId, storeId, langId, `type`, visible, required, system, responseFields, params, exclude)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -967,6 +969,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **start** | **Int**| This parameter sets the number from which you want to get entities | [optional]
  **count** | **Int**| This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional]
+ **pageCursor** | **String**| Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional]
  **attributeIds** | **String**| Filter attributes by ids | [optional]
  **attributeSetId** | **String**| Filter items by attribute set id | [optional]
  **storeId** | **String**| Store Id | [optional]
@@ -1302,13 +1305,17 @@ object Example extends App {
 
     val name: String = Test name // String | Defines new attributes's name
 
+    val visible: Boolean = true // Boolean | Set visibility status
+
+    val position: Int = 5 // Int | Attribute`s position
+
     val storeId: String = 1 // String | Store Id
 
     val langId: String = 3 // String | Language id
 
     val idempotencyKey: String = 098f6bcd4621d373cade4e832627b4f6 // String | A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong>
     
-    val request = apiInstance.attributeUpdate(id, name, storeId, langId, idempotencyKey)
+    val request = apiInstance.attributeUpdate(id, name, visible, position, storeId, langId, idempotencyKey)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -1337,7 +1344,9 @@ object Example extends App {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| Entity id |
- **name** | **String**| Defines new attributes&#39;s name |
+ **name** | **String**| Defines new attributes&#39;s name | [optional]
+ **visible** | **Boolean**| Set visibility status | [optional]
+ **position** | **Int**| Attribute&#x60;s position | [optional]
  **storeId** | **String**| Store Id | [optional]
  **langId** | **String**| Language id | [optional]
  **idempotencyKey** | **String**| A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [optional]
