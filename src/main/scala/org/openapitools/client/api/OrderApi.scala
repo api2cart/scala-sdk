@@ -12,11 +12,13 @@
 package org.openapitools.client.api
 
 import org.openapitools.client.model.AccountConfigUpdate200Response
+import org.openapitools.client.model.AttributeAdd200Response
 import org.openapitools.client.model.AttributeValueDelete200Response
 import org.openapitools.client.model.CategoryAddBatch200Response
 import org.openapitools.client.model.ModelResponseOrderAbandonedList
 import org.openapitools.client.model.ModelResponseOrderList
 import org.openapitools.client.model.ModelResponseOrderPreestimateShippingList
+import org.openapitools.client.model.ModelResponseOrderShipmentEventList
 import org.openapitools.client.model.ModelResponseOrderShipmentList
 import org.openapitools.client.model.ModelResponseOrderStatusList
 import org.openapitools.client.model.ModelResponseOrderTransactionList
@@ -38,6 +40,7 @@ import org.openapitools.client.model.OrderShipmentAdd
 import org.openapitools.client.model.OrderShipmentAdd200Response
 import org.openapitools.client.model.OrderShipmentAddBatch
 import org.openapitools.client.model.OrderShipmentDelete200Response
+import org.openapitools.client.model.OrderShipmentEventAdd
 import org.openapitools.client.model.OrderShipmentInfo200Response
 import org.openapitools.client.model.OrderShipmentTrackingAdd
 import org.openapitools.client.model.OrderShipmentTrackingAdd200Response
@@ -544,6 +547,58 @@ class OrderApi(baseUrl: String) {
       .withQueryParam("order_id", orderId)
       .withQueryParam("store_id", storeId)
       .withSuccessResponse[OrderShipmentDelete200Response](200)
+      
+
+  /**
+   * Add a tracking event to the shipment.
+   * 
+   * Expected answers:
+   *   code 200 : AttributeAdd200Response (successful operation)
+   * 
+   * Available security schemes:
+   *   StoreKeyAuth (apiKey)
+   *   ApiKeyAuth (apiKey)
+   * 
+   * @param orderShipmentEventAdd 
+   */
+  def orderShipmentEventAdd(orderShipmentEventAdd: OrderShipmentEventAdd)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[AttributeAdd200Response] =
+    ApiRequest[AttributeAdd200Response](ApiMethods.POST, baseUrl, "/order.shipment.event.add.json", "application/json")
+      .withApiKey(apiKey, "x-store-key", HEADER)
+      .withApiKey(apiKey, "x-api-key", HEADER)
+      .withBody(orderShipmentEventAdd)
+      .withSuccessResponse[AttributeAdd200Response](200)
+      
+
+  /**
+   * Get list of shipment tracking events.
+   * 
+   * Expected answers:
+   *   code 200 : ModelResponseOrderShipmentEventList (successful operation)
+   * 
+   * Available security schemes:
+   *   StoreKeyAuth (apiKey)
+   *   ApiKeyAuth (apiKey)
+   * 
+   * @param shipmentId Defines the shipment for which tracking events will be retrieved
+   * @param orderId Defines the order to which the shipment belongs
+   * @param storeId Store Id
+   * @param start This parameter sets the number from which you want to get entities
+   * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count=250
+   * @param pageCursor Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
+   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
+   */
+  def orderShipmentEventList(shipmentId: String, orderId: Option[String] = None, storeId: Option[String] = None, start: Option[Int] = None, count: Option[Int] = None, pageCursor: Option[String] = None, responseFields: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseOrderShipmentEventList] =
+    ApiRequest[ModelResponseOrderShipmentEventList](ApiMethods.GET, baseUrl, "/order.shipment.event.list.json", "application/json")
+      .withApiKey(apiKey, "x-store-key", HEADER)
+      .withApiKey(apiKey, "x-api-key", HEADER)
+      .withQueryParam("shipment_id", shipmentId)
+      .withQueryParam("order_id", orderId)
+      .withQueryParam("store_id", storeId)
+      .withQueryParam("start", start)
+      .withQueryParam("count", count)
+      .withQueryParam("page_cursor", pageCursor)
+      .withQueryParam("response_fields", responseFields)
+      .withSuccessResponse[ModelResponseOrderShipmentEventList](200)
       
 
   /**

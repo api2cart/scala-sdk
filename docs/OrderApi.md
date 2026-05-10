@@ -36,6 +36,10 @@ Method | HTTP request | Description
 [**orderShipmentAddBatchWithHttpInfo**](OrderApi.md#orderShipmentAddBatchWithHttpInfo) | **POST** /order.shipment.add.batch.json | order.shipment.add.batch
 [**orderShipmentDelete**](OrderApi.md#orderShipmentDelete) | **DELETE** /order.shipment.delete.json | order.shipment.delete
 [**orderShipmentDeleteWithHttpInfo**](OrderApi.md#orderShipmentDeleteWithHttpInfo) | **DELETE** /order.shipment.delete.json | order.shipment.delete
+[**orderShipmentEventAdd**](OrderApi.md#orderShipmentEventAdd) | **POST** /order.shipment.event.add.json | order.shipment.event.add
+[**orderShipmentEventAddWithHttpInfo**](OrderApi.md#orderShipmentEventAddWithHttpInfo) | **POST** /order.shipment.event.add.json | order.shipment.event.add
+[**orderShipmentEventList**](OrderApi.md#orderShipmentEventList) | **GET** /order.shipment.event.list.json | order.shipment.event.list
+[**orderShipmentEventListWithHttpInfo**](OrderApi.md#orderShipmentEventListWithHttpInfo) | **GET** /order.shipment.event.list.json | order.shipment.event.list
 [**orderShipmentInfo**](OrderApi.md#orderShipmentInfo) | **GET** /order.shipment.info.json | order.shipment.info
 [**orderShipmentInfoWithHttpInfo**](OrderApi.md#orderShipmentInfoWithHttpInfo) | **GET** /order.shipment.info.json | order.shipment.info
 [**orderShipmentList**](OrderApi.md#orderShipmentList) | **GET** /order.shipment.list.json | order.shipment.list
@@ -1679,6 +1683,197 @@ Name | Type | Description  | Notes
 ### Return type
 
 ApiRequest[[**OrderShipmentDelete200Response**](OrderShipmentDelete200Response.md)]
+
+
+### Authorization
+
+[StoreKeyAuth](../README.md#StoreKeyAuth), [ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | successful operation |  -  |
+
+
+## orderShipmentEventAdd
+
+> orderShipmentEventAdd(orderShipmentEventAddRequest): ApiRequest[AttributeAdd200Response]
+
+order.shipment.event.add
+
+Add a tracking event to the shipment.
+
+### Example
+
+```scala
+// Import classes:
+import 
+import 
+import org.openapitools.client.core._
+import org.openapitools.client.core.CollectionFormats._
+import org.openapitools.client.core.ApiKeyLocations._
+
+import akka.actor.ActorSystem
+import scala.concurrent.Future
+import scala.util.{Failure, Success}
+
+object Example extends App {
+    
+    implicit val system: ActorSystem = ActorSystem()
+    import system.dispatcher
+    
+    // Configure API key authorization: StoreKeyAuth
+    implicit val StoreKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
+
+    // Configure API key authorization: ApiKeyAuth
+    implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
+
+    val apiInvoker = ApiInvoker()
+    val apiInstance = OrderApi("https://api.api2cart.local.com/v1.1")
+    val orderShipmentEventAdd: OrderShipmentEventAdd =  // OrderShipmentEventAdd | 
+    
+    val request = apiInstance.orderShipmentEventAdd(orderShipmentEventAdd)
+    val response = apiInvoker.execute(request)
+
+    response.onComplete {
+        case Success(ApiResponse(code, content, headers)) =>
+            System.out.println(s"Status code: $code}")
+            System.out.println(s"Response headers: ${headers.mkString(", ")}")
+            System.out.println(s"Response body: $content")
+        
+        case Failure(error @ ApiError(code, message, responseContent, cause, headers)) =>
+            System.err.println("Exception when calling OrderApi#orderShipmentEventAdd")
+            System.err.println(s"Status code: $code}")
+            System.err.println(s"Reason: $responseContent")
+            System.err.println(s"Response headers: ${headers.mkString(", ")}")
+            error.printStackTrace();
+
+        case Failure(exception) => 
+            System.err.println("Exception when calling OrderApi#orderShipmentEventAdd")
+            exception.printStackTrace();
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **orderShipmentEventAdd** | [**OrderShipmentEventAdd**](OrderShipmentEventAdd.md)|  |
+
+### Return type
+
+ApiRequest[[**AttributeAdd200Response**](AttributeAdd200Response.md)]
+
+
+### Authorization
+
+[StoreKeyAuth](../README.md#StoreKeyAuth), [ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | successful operation |  -  |
+
+
+## orderShipmentEventList
+
+> orderShipmentEventList(orderShipmentEventListRequest): ApiRequest[ModelResponseOrderShipmentEventList]
+
+order.shipment.event.list
+
+Get list of shipment tracking events.
+
+### Example
+
+```scala
+// Import classes:
+import 
+import org.openapitools.client.core._
+import org.openapitools.client.core.CollectionFormats._
+import org.openapitools.client.core.ApiKeyLocations._
+
+import akka.actor.ActorSystem
+import scala.concurrent.Future
+import scala.util.{Failure, Success}
+
+object Example extends App {
+    
+    implicit val system: ActorSystem = ActorSystem()
+    import system.dispatcher
+    
+    // Configure API key authorization: StoreKeyAuth
+    implicit val StoreKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
+
+    // Configure API key authorization: ApiKeyAuth
+    implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
+
+    val apiInvoker = ApiInvoker()
+    val apiInstance = OrderApi("https://api.api2cart.local.com/v1.1")
+    val shipmentId: String = 200000002 // String | Defines the shipment for which tracking events will be retrieved
+
+    val orderId: String = 25 // String | Defines the order to which the shipment belongs
+
+    val storeId: String = 1 // String | Store Id
+
+    val start: Int = 0 // Int | This parameter sets the number from which you want to get entities
+
+    val count: Int = 20 // Int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
+
+    val pageCursor: String =  // String | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
+
+    val responseFields: String = {result} // String | Set this parameter in order to choose which entity fields you want to retrieve
+    
+    val request = apiInstance.orderShipmentEventList(shipmentId, orderId, storeId, start, count, pageCursor, responseFields)
+    val response = apiInvoker.execute(request)
+
+    response.onComplete {
+        case Success(ApiResponse(code, content, headers)) =>
+            System.out.println(s"Status code: $code}")
+            System.out.println(s"Response headers: ${headers.mkString(", ")}")
+            System.out.println(s"Response body: $content")
+        
+        case Failure(error @ ApiError(code, message, responseContent, cause, headers)) =>
+            System.err.println("Exception when calling OrderApi#orderShipmentEventList")
+            System.err.println(s"Status code: $code}")
+            System.err.println(s"Reason: $responseContent")
+            System.err.println(s"Response headers: ${headers.mkString(", ")}")
+            error.printStackTrace();
+
+        case Failure(exception) => 
+            System.err.println("Exception when calling OrderApi#orderShipmentEventList")
+            exception.printStackTrace();
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **shipmentId** | **String**| Defines the shipment for which tracking events will be retrieved |
+ **orderId** | **String**| Defines the order to which the shipment belongs | [optional]
+ **storeId** | **String**| Store Id | [optional]
+ **start** | **Int**| This parameter sets the number from which you want to get entities | [optional]
+ **count** | **Int**| This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional]
+ **pageCursor** | **String**| Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional]
+ **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
+
+### Return type
+
+ApiRequest[[**ModelResponseOrderShipmentEventList**](ModelResponseOrderShipmentEventList.md)]
 
 
 ### Authorization

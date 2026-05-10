@@ -178,6 +178,7 @@ docs/ModelResponseMarketplaceProductFind.md
 docs/ModelResponseOrderAbandonedList.md
 docs/ModelResponseOrderList.md
 docs/ModelResponseOrderPreestimateShippingList.md
+docs/ModelResponseOrderShipmentEventList.md
 docs/ModelResponseOrderShipmentList.md
 docs/ModelResponseOrderStatusList.md
 docs/ModelResponseOrderTransactionList.md
@@ -248,6 +249,7 @@ docs/OrderShipmentAddItemsInner.md
 docs/OrderShipmentAddTrackingNumbersInner.md
 docs/OrderShipmentDelete200Response.md
 docs/OrderShipmentDelete200ResponseResult.md
+docs/OrderShipmentEventAdd.md
 docs/OrderShipmentInfo200Response.md
 docs/OrderShipmentTrackingAdd.md
 docs/OrderShipmentTrackingAdd200Response.md
@@ -397,6 +399,7 @@ docs/ResponseMarketplaceProductFindResult.md
 docs/ResponseOrderAbandonedListResult.md
 docs/ResponseOrderListResult.md
 docs/ResponseOrderPreestimateShippingListResult.md
+docs/ResponseOrderShipmentEventListResult.md
 docs/ResponseOrderShipmentListResult.md
 docs/ResponseOrderStatusListResult.md
 docs/ResponseOrderTransactionListResult.md
@@ -428,6 +431,7 @@ docs/ReturnStatusList200Response.md
 docs/ReturnStatusList200ResponseResult.md
 docs/Script.md
 docs/Shipment.md
+docs/ShipmentEvent.md
 docs/ShipmentItem.md
 docs/ShipmentTrackingNumber.md
 docs/SpecialPrice.md
@@ -648,6 +652,7 @@ src/main/scala/org/openapitools/client/model/ModelResponseMarketplaceProductFind
 src/main/scala/org/openapitools/client/model/ModelResponseOrderAbandonedList.scala
 src/main/scala/org/openapitools/client/model/ModelResponseOrderList.scala
 src/main/scala/org/openapitools/client/model/ModelResponseOrderPreestimateShippingList.scala
+src/main/scala/org/openapitools/client/model/ModelResponseOrderShipmentEventList.scala
 src/main/scala/org/openapitools/client/model/ModelResponseOrderShipmentList.scala
 src/main/scala/org/openapitools/client/model/ModelResponseOrderStatusList.scala
 src/main/scala/org/openapitools/client/model/ModelResponseOrderTransactionList.scala
@@ -718,6 +723,7 @@ src/main/scala/org/openapitools/client/model/OrderShipmentAddItemsInner.scala
 src/main/scala/org/openapitools/client/model/OrderShipmentAddTrackingNumbersInner.scala
 src/main/scala/org/openapitools/client/model/OrderShipmentDelete200Response.scala
 src/main/scala/org/openapitools/client/model/OrderShipmentDelete200ResponseResult.scala
+src/main/scala/org/openapitools/client/model/OrderShipmentEventAdd.scala
 src/main/scala/org/openapitools/client/model/OrderShipmentInfo200Response.scala
 src/main/scala/org/openapitools/client/model/OrderShipmentTrackingAdd.scala
 src/main/scala/org/openapitools/client/model/OrderShipmentTrackingAdd200Response.scala
@@ -866,6 +872,7 @@ src/main/scala/org/openapitools/client/model/ResponseMarketplaceProductFindResul
 src/main/scala/org/openapitools/client/model/ResponseOrderAbandonedListResult.scala
 src/main/scala/org/openapitools/client/model/ResponseOrderListResult.scala
 src/main/scala/org/openapitools/client/model/ResponseOrderPreestimateShippingListResult.scala
+src/main/scala/org/openapitools/client/model/ResponseOrderShipmentEventListResult.scala
 src/main/scala/org/openapitools/client/model/ResponseOrderShipmentListResult.scala
 src/main/scala/org/openapitools/client/model/ResponseOrderStatusListResult.scala
 src/main/scala/org/openapitools/client/model/ResponseOrderTransactionListResult.scala
@@ -895,6 +902,7 @@ src/main/scala/org/openapitools/client/model/ReturnStatusList200Response.scala
 src/main/scala/org/openapitools/client/model/ReturnStatusList200ResponseResult.scala
 src/main/scala/org/openapitools/client/model/Script.scala
 src/main/scala/org/openapitools/client/model/Shipment.scala
+src/main/scala/org/openapitools/client/model/ShipmentEvent.scala
 src/main/scala/org/openapitools/client/model/ShipmentItem.scala
 src/main/scala/org/openapitools/client/model/ShipmentTrackingNumber.scala
 src/main/scala/org/openapitools/client/model/SpecialPrice.scala
