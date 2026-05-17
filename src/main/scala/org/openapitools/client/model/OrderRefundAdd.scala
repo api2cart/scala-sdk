@@ -33,6 +33,8 @@ case class OrderRefundAdd (
   sendNotifications: Option[Boolean] = None,
   /* Specifies an order creation date in format Y-m-d H:i:s */
   date: Option[String] = None,
+  /* Store Id */
+  storeId: Option[String] = None,
   /* Indicates whether refund type is online */
   isOnline: Option[Boolean] = None,
   /* A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong> */
