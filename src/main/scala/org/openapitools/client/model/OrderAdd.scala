@@ -149,6 +149,8 @@ case class OrderAdd (
   inventoryBehaviour: Option[String] = None,
   /* Defines whether the invoice is created automatically along with the order */
   createInvoice: Option[Boolean] = None,
+  /* Specifies admin's order invoice comment */
+  invoiceAdminComment: Option[String] = None,
   /* Defines note attributes */
   noteAttributes: Option[Seq[OrderAddNoteAttributesInner]] = None,
   /* Is cache clear required */

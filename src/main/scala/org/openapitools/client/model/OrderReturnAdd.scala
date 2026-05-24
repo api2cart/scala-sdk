@@ -11,6 +11,7 @@
  */
 package org.openapitools.client.model
 
+import java.math.BigDecimal
 import org.openapitools.client.core.ApiModel
 
 case class OrderReturnAdd (
@@ -34,10 +35,18 @@ case class OrderReturnAdd (
   staffNote: Option[String] = None,
   /* Specifies return comment */
   comment: Option[String] = None,
+  /* Customer-visible message attached to the return request. */
+  message: Option[String] = None,
   /* Send notifications to customer after order was created */
   sendNotifications: Option[Boolean] = None,
   /* Defines return reject reason */
   rejectReason: Option[String] = None,
+  /* Indicates whether refund type is online */
+  isOnline: Option[Boolean] = None,
+  /* Specifies refund's fee price */
+  feePrice: Option[BigDecimal] = None,
+  /* Specifies order's shipping price */
+  shippingPrice: Option[BigDecimal] = None,
   /* A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong> */
   idempotencyKey: Option[String] = None,
   orderProducts: Seq[OrderReturnAddOrderProductsInner]

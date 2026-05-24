@@ -422,6 +422,7 @@ object AccountCartAddEnums {
     val MijoShop = Value("MijoShop")
     val Miva = Value("Miva")
     val Neto = Value("Neto")
+    val Nopcommerce = Value("Nopcommerce")
     val Opencart14 = Value("Opencart14")
     val Oscmax2 = Value("Oscmax2")
     val Oscommerce22ms2 = Value("Oscommerce22ms2")

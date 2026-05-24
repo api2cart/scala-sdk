@@ -16,6 +16,8 @@ import org.openapitools.client.core.ApiModel
 case class OrderCalculate (
   /* Defines the customer specified by email for whom the order needs to be calculated */
   customerEmail: String,
+  /* Currency code of order */
+  currency: Option[String] = None,
   /* Currency Id */
   currencyId: Option[String] = None,
   /* Store Id */
