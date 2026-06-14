@@ -34,6 +34,8 @@ case class CustomerUpdate (
   birthDay: Option[String] = None,
   /* Defines whether the newsletter subscription is available for the user */
   newsLetterSubscription: Option[Boolean] = None,
+  /* Defines whether the customer agreed to receive offers from partners */
+  partnerOffersSubscription: Option[Boolean] = None,
   /* Defines consents to notifications */
   consents: Option[Seq[CustomerAddConsentsInner]] = None,
   /* Customer tags */
@@ -50,6 +52,8 @@ case class CustomerUpdate (
   currencyId: Option[String] = None,
   /* Defines customer's company */
   company: Option[String] = None,
+  /* Link to customer website */
+  website: Option[String] = None,
   /* Specifies ISO code or name of country */
   country: Option[String] = None,
   /* Defines customer's fax */

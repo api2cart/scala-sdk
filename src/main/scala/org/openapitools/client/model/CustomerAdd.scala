@@ -42,6 +42,8 @@ case class CustomerAdd (
   birthDay: Option[String] = None,
   /* Defines whether the newsletter subscription is available for the user */
   newsLetterSubscription: Option[Boolean] = None,
+  /* Defines whether the customer agreed to receive offers from partners */
+  partnerOffersSubscription: Option[Boolean] = None,
   /* Defines consents to notifications */
   consents: Option[Seq[CustomerAddConsentsInner]] = None,
   /* Defines customer's gender */
