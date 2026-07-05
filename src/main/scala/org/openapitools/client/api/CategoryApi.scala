@@ -16,14 +16,15 @@ import org.openapitools.client.model.AttributeDelete200Response
 import org.openapitools.client.model.CategoryAdd200Response
 import org.openapitools.client.model.CategoryAddBatch
 import org.openapitools.client.model.CategoryAddBatch200Response
-import org.openapitools.client.model.CategoryAssign200Response
-import org.openapitools.client.model.CategoryCount200Response
 import org.openapitools.client.model.CategoryDelete200Response
 import org.openapitools.client.model.CategoryDeleteBatch
-import org.openapitools.client.model.CategoryFind200Response
 import org.openapitools.client.model.CategoryImageAdd200Response
 import org.openapitools.client.model.CategoryInfo200Response
+import org.openapitools.client.model.ModelResponseCategoryAssign
+import org.openapitools.client.model.ModelResponseCategoryCount
+import org.openapitools.client.model.ModelResponseCategoryFind
 import org.openapitools.client.model.ModelResponseCategoryList
+import org.openapitools.client.model.ModelResponseCategoryUnassign
 import org.openapitools.client.core._
 import org.openapitools.client.core.CollectionFormats._
 import org.openapitools.client.core.ApiKeyLocations._
@@ -109,7 +110,7 @@ class CategoryApi(baseUrl: String) {
    * Assign category to product
    * 
    * Expected answers:
-   *   code 200 : CategoryAssign200Response (successful operation)
+   *   code 200 : ModelResponseCategoryAssign (successful operation)
    * 
    * Available security schemes:
    *   StoreKeyAuth (apiKey)
@@ -120,22 +121,22 @@ class CategoryApi(baseUrl: String) {
    * @param storeId Store Id
    * @param idempotencyKey A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong>
    */
-  def categoryAssign(categoryId: String, productId: String, storeId: Option[String] = None, idempotencyKey: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[CategoryAssign200Response] =
-    ApiRequest[CategoryAssign200Response](ApiMethods.POST, baseUrl, "/category.assign.json", "application/json")
+  def categoryAssign(categoryId: String, productId: String, storeId: Option[String] = None, idempotencyKey: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseCategoryAssign] =
+    ApiRequest[ModelResponseCategoryAssign](ApiMethods.POST, baseUrl, "/category.assign.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
       .withQueryParam("category_id", categoryId)
       .withQueryParam("product_id", productId)
       .withQueryParam("store_id", storeId)
       .withQueryParam("idempotency_key", idempotencyKey)
-      .withSuccessResponse[CategoryAssign200Response](200)
+      .withSuccessResponse[ModelResponseCategoryAssign](200)
       
 
   /**
    * Count categories in store.
    * 
    * Expected answers:
-   *   code 200 : CategoryCount200Response (successful operation)
+   *   code 200 : ModelResponseCategoryCount (successful operation)
    * 
    * Available security schemes:
    *   StoreKeyAuth (apiKey)
@@ -155,8 +156,8 @@ class CategoryApi(baseUrl: String) {
    * @param reportRequestId Report request id
    * @param disableReportCache Disable report cache for current request
    */
-  def categoryCount(parentId: Option[String] = None, storeId: Option[String] = None, langId: Option[String] = None, avail: Option[Boolean] = None, createdFrom: Option[String] = None, createdTo: Option[String] = None, modifiedFrom: Option[String] = None, modifiedTo: Option[String] = None, productType: Option[String] = None, findValue: Option[String] = None, findWhere: Option[String] = None, reportRequestId: Option[String] = None, disableReportCache: Option[Boolean] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[CategoryCount200Response] =
-    ApiRequest[CategoryCount200Response](ApiMethods.GET, baseUrl, "/category.count.json", "application/json")
+  def categoryCount(parentId: Option[String] = None, storeId: Option[String] = None, langId: Option[String] = None, avail: Option[Boolean] = None, createdFrom: Option[String] = None, createdTo: Option[String] = None, modifiedFrom: Option[String] = None, modifiedTo: Option[String] = None, productType: Option[String] = None, findValue: Option[String] = None, findWhere: Option[String] = None, reportRequestId: Option[String] = None, disableReportCache: Option[Boolean] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseCategoryCount] =
+    ApiRequest[ModelResponseCategoryCount](ApiMethods.GET, baseUrl, "/category.count.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
       .withQueryParam("parent_id", parentId)
@@ -172,7 +173,7 @@ class CategoryApi(baseUrl: String) {
       .withQueryParam("find_where", findWhere)
       .withQueryParam("report_request_id", reportRequestId)
       .withQueryParam("disable_report_cache", disableReportCache)
-      .withSuccessResponse[CategoryCount200Response](200)
+      .withSuccessResponse[ModelResponseCategoryCount](200)
       
 
   /**
@@ -221,7 +222,7 @@ class CategoryApi(baseUrl: String) {
    * Search category in store. \"Laptop\" is specified here by default.
    * 
    * Expected answers:
-   *   code 200 : CategoryFind200Response (successful operation)
+   *   code 200 : ModelResponseCategoryFind (successful operation)
    * 
    * Available security schemes:
    *   StoreKeyAuth (apiKey)
@@ -233,8 +234,8 @@ class CategoryApi(baseUrl: String) {
    * @param storeId Store Id
    * @param langId Language id
    */
-  def categoryFind(findValue: String, findWhere: Option[String] = None, findParams: Option[String] = None, storeId: Option[String] = None, langId: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[CategoryFind200Response] =
-    ApiRequest[CategoryFind200Response](ApiMethods.GET, baseUrl, "/category.find.json", "application/json")
+  def categoryFind(findValue: String, findWhere: Option[String] = None, findParams: Option[String] = None, storeId: Option[String] = None, langId: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseCategoryFind] =
+    ApiRequest[ModelResponseCategoryFind](ApiMethods.GET, baseUrl, "/category.find.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
       .withQueryParam("find_value", findValue)
@@ -242,7 +243,7 @@ class CategoryApi(baseUrl: String) {
       .withQueryParam("find_params", findParams)
       .withQueryParam("store_id", storeId)
       .withQueryParam("lang_id", langId)
-      .withSuccessResponse[CategoryFind200Response](200)
+      .withSuccessResponse[ModelResponseCategoryFind](200)
       
 
   /**
@@ -411,7 +412,7 @@ class CategoryApi(baseUrl: String) {
    * Unassign category to product
    * 
    * Expected answers:
-   *   code 200 : CategoryAssign200Response (successful operation)
+   *   code 200 : ModelResponseCategoryUnassign (successful operation)
    * 
    * Available security schemes:
    *   StoreKeyAuth (apiKey)
@@ -422,15 +423,15 @@ class CategoryApi(baseUrl: String) {
    * @param storeId Store Id
    * @param idempotencyKey A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong>
    */
-  def categoryUnassign(categoryId: String, productId: String, storeId: Option[String] = None, idempotencyKey: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[CategoryAssign200Response] =
-    ApiRequest[CategoryAssign200Response](ApiMethods.POST, baseUrl, "/category.unassign.json", "application/json")
+  def categoryUnassign(categoryId: String, productId: String, storeId: Option[String] = None, idempotencyKey: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseCategoryUnassign] =
+    ApiRequest[ModelResponseCategoryUnassign](ApiMethods.POST, baseUrl, "/category.unassign.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
       .withQueryParam("category_id", categoryId)
       .withQueryParam("product_id", productId)
       .withQueryParam("store_id", storeId)
       .withQueryParam("idempotency_key", idempotencyKey)
-      .withSuccessResponse[CategoryAssign200Response](200)
+      .withSuccessResponse[ModelResponseCategoryUnassign](200)
       
 
   /**

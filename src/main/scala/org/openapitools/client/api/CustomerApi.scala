@@ -16,13 +16,13 @@ import org.openapitools.client.model.AttributeAdd200Response
 import org.openapitools.client.model.CustomerAdd
 import org.openapitools.client.model.CustomerAdd200Response
 import org.openapitools.client.model.CustomerAddressAdd
-import org.openapitools.client.model.CustomerCount200Response
 import org.openapitools.client.model.CustomerDelete200Response
-import org.openapitools.client.model.CustomerFind200Response
 import org.openapitools.client.model.CustomerGroupAdd200Response
 import org.openapitools.client.model.CustomerInfo200Response
 import org.openapitools.client.model.CustomerUpdate
 import org.openapitools.client.model.ModelResponseCustomerAttributeList
+import org.openapitools.client.model.ModelResponseCustomerCount
+import org.openapitools.client.model.ModelResponseCustomerFind
 import org.openapitools.client.model.ModelResponseCustomerGroupList
 import org.openapitools.client.model.ModelResponseCustomerList
 import org.openapitools.client.model.ModelResponseCustomerWishlistList
@@ -117,7 +117,7 @@ class CustomerApi(baseUrl: String) {
    * Get number of customers from store.
    * 
    * Expected answers:
-   *   code 200 : CustomerCount200Response (successful operation)
+   *   code 200 : ModelResponseCustomerCount (successful operation)
    * 
    * Available security schemes:
    *   StoreKeyAuth (apiKey)
@@ -137,8 +137,8 @@ class CustomerApi(baseUrl: String) {
    * @param modifiedFrom Retrieve entities from their modification date
    * @param modifiedTo Retrieve entities to their modification date
    */
-  def customerCount(ids: Option[String] = None, sinceId: Option[String] = None, customerListId: Option[String] = None, groupId: Option[String] = None, storeId: Option[String] = None, avail: Option[Boolean] = None, includeGuests: Option[Boolean] = None, findValue: Option[String] = None, findWhere: Option[String] = None, createdFrom: Option[String] = None, createdTo: Option[String] = None, modifiedFrom: Option[String] = None, modifiedTo: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[CustomerCount200Response] =
-    ApiRequest[CustomerCount200Response](ApiMethods.GET, baseUrl, "/customer.count.json", "application/json")
+  def customerCount(ids: Option[String] = None, sinceId: Option[String] = None, customerListId: Option[String] = None, groupId: Option[String] = None, storeId: Option[String] = None, avail: Option[Boolean] = None, includeGuests: Option[Boolean] = None, findValue: Option[String] = None, findWhere: Option[String] = None, createdFrom: Option[String] = None, createdTo: Option[String] = None, modifiedFrom: Option[String] = None, modifiedTo: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseCustomerCount] =
+    ApiRequest[ModelResponseCustomerCount](ApiMethods.GET, baseUrl, "/customer.count.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
       .withQueryParam("ids", ids)
@@ -154,7 +154,7 @@ class CustomerApi(baseUrl: String) {
       .withQueryParam("created_to", createdTo)
       .withQueryParam("modified_from", modifiedFrom)
       .withQueryParam("modified_to", modifiedTo)
-      .withSuccessResponse[CustomerCount200Response](200)
+      .withSuccessResponse[ModelResponseCustomerCount](200)
       
 
   /**
@@ -183,7 +183,7 @@ class CustomerApi(baseUrl: String) {
    * Find customers in store.
    * 
    * Expected answers:
-   *   code 200 : CustomerFind200Response (successful operation)
+   *   code 200 : ModelResponseCustomerFind (successful operation)
    * 
    * Available security schemes:
    *   StoreKeyAuth (apiKey)
@@ -195,8 +195,8 @@ class CustomerApi(baseUrl: String) {
    * @param storeId Store Id
    * @param includeGuests Indicates whether to search among guest customers when looking up a customer.
    */
-  def customerFind(findValue: String, findWhere: Option[String] = None, findParams: Option[String] = None, storeId: Option[String] = None, includeGuests: Option[Boolean] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[CustomerFind200Response] =
-    ApiRequest[CustomerFind200Response](ApiMethods.GET, baseUrl, "/customer.find.json", "application/json")
+  def customerFind(findValue: String, findWhere: Option[String] = None, findParams: Option[String] = None, storeId: Option[String] = None, includeGuests: Option[Boolean] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseCustomerFind] =
+    ApiRequest[ModelResponseCustomerFind](ApiMethods.GET, baseUrl, "/customer.find.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
       .withQueryParam("find_value", findValue)
@@ -204,7 +204,7 @@ class CustomerApi(baseUrl: String) {
       .withQueryParam("find_params", findParams)
       .withQueryParam("store_id", storeId)
       .withQueryParam("include_guests", includeGuests)
-      .withSuccessResponse[CustomerFind200Response](200)
+      .withSuccessResponse[ModelResponseCustomerFind](200)
       
 
   /**

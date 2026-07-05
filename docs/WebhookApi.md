@@ -21,7 +21,7 @@ Method | HTTP request | Description
 
 ## webhookCount
 
-> webhookCount(webhookCountRequest): ApiRequest[WebhookCount200Response]
+> webhookCount(webhookCountRequest): ApiRequest[ModelResponseWebhookCount]
 
 webhook.count
 
@@ -93,7 +93,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-ApiRequest[[**WebhookCount200Response**](WebhookCount200Response.md)]
+ApiRequest[[**ModelResponseWebhookCount**](ModelResponseWebhookCount.md)]
 
 
 ### Authorization
@@ -286,7 +286,7 @@ ApiRequest[[**AttributeDelete200Response**](AttributeDelete200Response.md)]
 
 ## webhookEvents
 
-> webhookEvents(): ApiRequest[WebhookEvents200Response]
+> webhookEvents(): ApiRequest[ModelResponseWebhookEvents]
 
 webhook.events
 
@@ -347,7 +347,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-ApiRequest[[**WebhookEvents200Response**](WebhookEvents200Response.md)]
+ApiRequest[[**ModelResponseWebhookEvents**](ModelResponseWebhookEvents.md)]
 
 
 ### Authorization

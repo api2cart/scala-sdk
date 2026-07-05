@@ -21,7 +21,7 @@ Method | HTTP request | Description
 
 ## returnActionList
 
-> returnActionList(): ApiRequest[ReturnActionList200Response]
+> returnActionList(): ApiRequest[ModelResponseReturnActionList]
 
 return.action.list
 
@@ -82,7 +82,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-ApiRequest[[**ReturnActionList200Response**](ReturnActionList200Response.md)]
+ApiRequest[[**ModelResponseReturnActionList**](ModelResponseReturnActionList.md)]
 
 
 ### Authorization
@@ -102,7 +102,7 @@ ApiRequest[[**ReturnActionList200Response**](ReturnActionList200Response.md)]
 
 ## returnCount
 
-> returnCount(returnCountRequest): ApiRequest[ReturnCount200Response]
+> returnCount(returnCountRequest): ApiRequest[ModelResponseReturnCount]
 
 return.count
 
@@ -198,7 +198,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-ApiRequest[[**ReturnCount200Response**](ReturnCount200Response.md)]
+ApiRequest[[**ModelResponseReturnCount**](ModelResponseReturnCount.md)]
 
 
 ### Authorization
@@ -456,7 +456,7 @@ ApiRequest[[**ModelResponseReturnList**](ModelResponseReturnList.md)]
 
 ## returnReasonList
 
-> returnReasonList(returnReasonListRequest): ApiRequest[ReturnReasonList200Response]
+> returnReasonList(returnReasonListRequest): ApiRequest[ModelResponseReturnReasonList]
 
 return.reason.list
 
@@ -522,7 +522,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-ApiRequest[[**ReturnReasonList200Response**](ReturnReasonList200Response.md)]
+ApiRequest[[**ModelResponseReturnReasonList**](ModelResponseReturnReasonList.md)]
 
 
 ### Authorization
@@ -542,7 +542,7 @@ ApiRequest[[**ReturnReasonList200Response**](ReturnReasonList200Response.md)]
 
 ## returnStatusList
 
-> returnStatusList(): ApiRequest[ReturnStatusList200Response]
+> returnStatusList(): ApiRequest[ModelResponseReturnStatusList]
 
 return.status.list
 
@@ -603,7 +603,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-ApiRequest[[**ReturnStatusList200Response**](ReturnStatusList200Response.md)]
+ApiRequest[[**ModelResponseReturnStatusList**](ModelResponseReturnStatusList.md)]
 
 
 ### Authorization

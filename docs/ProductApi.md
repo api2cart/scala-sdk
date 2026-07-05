@@ -758,7 +758,7 @@ ApiRequest[[**ModelResponseProductBrandList**](ModelResponseProductBrandList.md)
 
 ## productChildItemFind
 
-> productChildItemFind(productChildItemFindRequest): ApiRequest[ProductChildItemFind200Response]
+> productChildItemFind(productChildItemFindRequest): ApiRequest[ModelResponseProductChildItemFind]
 
 product.child_item.find
 
@@ -833,7 +833,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-ApiRequest[[**ProductChildItemFind200Response**](ProductChildItemFind200Response.md)]
+ApiRequest[[**ModelResponseProductChildItemFind**](ModelResponseProductChildItemFind.md)]
 
 
 ### Authorization
@@ -1115,7 +1115,7 @@ ApiRequest[[**ModelResponseProductChildItemList**](ModelResponseProductChildItem
 
 ## productCount
 
-> productCount(productCountRequest): ApiRequest[ProductCount200Response]
+> productCount(productCountRequest): ApiRequest[ModelResponseProductCount]
 
 product.count
 
@@ -1256,7 +1256,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-ApiRequest[[**ProductCount200Response**](ProductCount200Response.md)]
+ApiRequest[[**ModelResponseProductCount**](ModelResponseProductCount.md)]
 
 
 ### Authorization
@@ -1667,7 +1667,7 @@ ApiRequest[[**CategoryAddBatch200Response**](CategoryAddBatch200Response.md)]
 
 ## productFind
 
-> productFind(productFindRequest): ApiRequest[ProductFind200Response]
+> productFind(productFindRequest): ApiRequest[ModelResponseProductFind]
 
 product.find
 
@@ -1748,7 +1748,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-ApiRequest[[**ProductFind200Response**](ProductFind200Response.md)]
+ApiRequest[[**ModelResponseProductFind**](ModelResponseProductFind.md)]
 
 
 ### Authorization

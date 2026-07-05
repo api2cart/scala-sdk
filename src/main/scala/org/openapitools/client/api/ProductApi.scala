@@ -20,8 +20,11 @@ import org.openapitools.client.model.CategoryAddBatch200Response
 import org.openapitools.client.model.CustomerDelete200Response
 import org.openapitools.client.model.ModelResponseProductAttributeList
 import org.openapitools.client.model.ModelResponseProductBrandList
+import org.openapitools.client.model.ModelResponseProductChildItemFind
 import org.openapitools.client.model.ModelResponseProductChildItemList
+import org.openapitools.client.model.ModelResponseProductCount
 import org.openapitools.client.model.ModelResponseProductCurrencyList
+import org.openapitools.client.model.ModelResponseProductFind
 import org.openapitools.client.model.ModelResponseProductList
 import org.openapitools.client.model.ModelResponseProductOptionList
 import org.openapitools.client.model.ModelResponseProductReviewList
@@ -30,12 +33,9 @@ import org.openapitools.client.model.ProductAdd200Response
 import org.openapitools.client.model.ProductAddBatch
 import org.openapitools.client.model.ProductAttributeValueSet200Response
 import org.openapitools.client.model.ProductAttributeValueUnset200Response
-import org.openapitools.client.model.ProductChildItemFind200Response
 import org.openapitools.client.model.ProductChildItemInfo200Response
-import org.openapitools.client.model.ProductCount200Response
 import org.openapitools.client.model.ProductCurrencyAdd200Response
 import org.openapitools.client.model.ProductDeleteBatch
-import org.openapitools.client.model.ProductFind200Response
 import org.openapitools.client.model.ProductImageAdd
 import org.openapitools.client.model.ProductImageAdd200Response
 import org.openapitools.client.model.ProductImageUpdate200Response
@@ -287,7 +287,7 @@ class ProductApi(baseUrl: String) {
    * Search product child item (bundled item or configurable product variant) in store catalog.
    * 
    * Expected answers:
-   *   code 200 : ProductChildItemFind200Response (successful operation)
+   *   code 200 : ModelResponseProductChildItemFind (successful operation)
    * 
    * Available security schemes:
    *   StoreKeyAuth (apiKey)
@@ -298,15 +298,15 @@ class ProductApi(baseUrl: String) {
    * @param findParams Entity search that is specified by comma-separated parameters
    * @param storeId Store Id
    */
-  def productChildItemFind(findValue: Option[String] = None, findWhere: Option[String] = None, findParams: Option[String] = None, storeId: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ProductChildItemFind200Response] =
-    ApiRequest[ProductChildItemFind200Response](ApiMethods.GET, baseUrl, "/product.child_item.find.json", "application/json")
+  def productChildItemFind(findValue: Option[String] = None, findWhere: Option[String] = None, findParams: Option[String] = None, storeId: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseProductChildItemFind] =
+    ApiRequest[ModelResponseProductChildItemFind](ApiMethods.GET, baseUrl, "/product.child_item.find.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
       .withQueryParam("find_value", findValue)
       .withQueryParam("find_where", findWhere)
       .withQueryParam("find_params", findParams)
       .withQueryParam("store_id", storeId)
-      .withSuccessResponse[ProductChildItemFind200Response](200)
+      .withSuccessResponse[ModelResponseProductChildItemFind](200)
       
 
   /**
@@ -413,7 +413,7 @@ class ProductApi(baseUrl: String) {
    * Count products in store.
    * 
    * Expected answers:
-   *   code 200 : ProductCount200Response (successful operation)
+   *   code 200 : ModelResponseProductCount (successful operation)
    * 
    * Available security schemes:
    *   StoreKeyAuth (apiKey)
@@ -446,8 +446,8 @@ class ProductApi(baseUrl: String) {
    * @param disableReportCache Disable report cache for current request
    * @param useLatestApiVersion Use the latest platform API version
    */
-  def productCount(sku: Option[String] = None, productIds: Option[String] = None, sinceId: Option[String] = None, categoriesIds: Option[String] = None, categoryId: Option[String] = None, storeId: Option[String] = None, vendorId: Option[String] = None, langId: Option[String] = None, availView: Option[Boolean] = None, availSale: Option[Boolean] = None, createdFrom: Option[String] = None, createdTo: Option[String] = None, modifiedFrom: Option[String] = None, modifiedTo: Option[String] = None, brandName: Option[String] = None, manufacturerId: Option[String] = None, productAttributes: Seq[String], status: Option[String] = None, `type`: Option[String] = None, visible: Option[String] = None, findValue: Option[String] = None, findWhere: Option[String] = None, reportRequestId: Option[String] = None, returnGlobal: Option[Boolean] = None, disableReportCache: Option[Boolean] = None, useLatestApiVersion: Option[Boolean] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ProductCount200Response] =
-    ApiRequest[ProductCount200Response](ApiMethods.GET, baseUrl, "/product.count.json", "application/json")
+  def productCount(sku: Option[String] = None, productIds: Option[String] = None, sinceId: Option[String] = None, categoriesIds: Option[String] = None, categoryId: Option[String] = None, storeId: Option[String] = None, vendorId: Option[String] = None, langId: Option[String] = None, availView: Option[Boolean] = None, availSale: Option[Boolean] = None, createdFrom: Option[String] = None, createdTo: Option[String] = None, modifiedFrom: Option[String] = None, modifiedTo: Option[String] = None, brandName: Option[String] = None, manufacturerId: Option[String] = None, productAttributes: Seq[String], status: Option[String] = None, `type`: Option[String] = None, visible: Option[String] = None, findValue: Option[String] = None, findWhere: Option[String] = None, reportRequestId: Option[String] = None, returnGlobal: Option[Boolean] = None, disableReportCache: Option[Boolean] = None, useLatestApiVersion: Option[Boolean] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseProductCount] =
+    ApiRequest[ModelResponseProductCount](ApiMethods.GET, baseUrl, "/product.count.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
       .withQueryParam("sku", sku)
@@ -476,7 +476,7 @@ class ProductApi(baseUrl: String) {
       .withQueryParam("return_global", returnGlobal)
       .withQueryParam("disable_report_cache", disableReportCache)
       .withQueryParam("use_latest_api_version", useLatestApiVersion)
-      .withSuccessResponse[ProductCount200Response](200)
+      .withSuccessResponse[ModelResponseProductCount](200)
       
 
   /**
@@ -593,7 +593,7 @@ class ProductApi(baseUrl: String) {
    * Search product in store catalog. \"Apple\" is specified here by default.
    * 
    * Expected answers:
-   *   code 200 : ProductFind200Response (successful operation)
+   *   code 200 : ModelResponseProductFind (successful operation)
    * 
    * Available security schemes:
    *   StoreKeyAuth (apiKey)
@@ -606,8 +606,8 @@ class ProductApi(baseUrl: String) {
    * @param langId Search products specified by language id
    * @param storeId Store Id
    */
-  def productFind(findValue: String, findWhere: Option[String] = None, findParams: Option[String] = None, findWhat: Option[String] = None, langId: Option[String] = None, storeId: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ProductFind200Response] =
-    ApiRequest[ProductFind200Response](ApiMethods.GET, baseUrl, "/product.find.json", "application/json")
+  def productFind(findValue: String, findWhere: Option[String] = None, findParams: Option[String] = None, findWhat: Option[String] = None, langId: Option[String] = None, storeId: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseProductFind] =
+    ApiRequest[ModelResponseProductFind](ApiMethods.GET, baseUrl, "/product.find.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
       .withQueryParam("find_value", findValue)
@@ -616,7 +616,7 @@ class ProductApi(baseUrl: String) {
       .withQueryParam("find_what", findWhat)
       .withQueryParam("lang_id", langId)
       .withQueryParam("store_id", storeId)
-      .withSuccessResponse[ProductFind200Response](200)
+      .withSuccessResponse[ModelResponseProductFind](200)
       
 
   /**

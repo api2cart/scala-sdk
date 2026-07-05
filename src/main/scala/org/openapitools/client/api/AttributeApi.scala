@@ -13,16 +13,16 @@ package org.openapitools.client.api
 
 import org.openapitools.client.model.AttributeAdd200Response
 import org.openapitools.client.model.AttributeAssignGroup200Response
-import org.openapitools.client.model.AttributeCount200Response
 import org.openapitools.client.model.AttributeDelete200Response
 import org.openapitools.client.model.AttributeInfo200Response
-import org.openapitools.client.model.AttributeTypeList200Response
 import org.openapitools.client.model.AttributeUnassignGroup200Response
 import org.openapitools.client.model.AttributeUpdate200Response
 import org.openapitools.client.model.AttributeValueDelete200Response
 import org.openapitools.client.model.ModelResponseAttributeAttributesetList
+import org.openapitools.client.model.ModelResponseAttributeCount
 import org.openapitools.client.model.ModelResponseAttributeGroupList
 import org.openapitools.client.model.ModelResponseAttributeList
+import org.openapitools.client.model.ModelResponseAttributeTypeList
 import org.openapitools.client.core._
 import org.openapitools.client.core.CollectionFormats._
 import org.openapitools.client.core.ApiKeyLocations._
@@ -180,7 +180,7 @@ class AttributeApi(baseUrl: String) {
    * Get attributes count
    * 
    * Expected answers:
-   *   code 200 : AttributeCount200Response (successful operation)
+   *   code 200 : ModelResponseAttributeCount (successful operation)
    * 
    * Available security schemes:
    *   StoreKeyAuth (apiKey)
@@ -194,8 +194,8 @@ class AttributeApi(baseUrl: String) {
    * @param required Defines if the option is required
    * @param system True if attribute is system
    */
-  def attributeCount(`type`: Option[String] = None, attributeSetId: Option[String] = None, storeId: Option[String] = None, langId: Option[String] = None, visible: Option[Boolean] = None, required: Option[Boolean] = None, system: Option[Boolean] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[AttributeCount200Response] =
-    ApiRequest[AttributeCount200Response](ApiMethods.GET, baseUrl, "/attribute.count.json", "application/json")
+  def attributeCount(`type`: Option[String] = None, attributeSetId: Option[String] = None, storeId: Option[String] = None, langId: Option[String] = None, visible: Option[Boolean] = None, required: Option[Boolean] = None, system: Option[Boolean] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseAttributeCount] =
+    ApiRequest[ModelResponseAttributeCount](ApiMethods.GET, baseUrl, "/attribute.count.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
       .withQueryParam("type", `type`)
@@ -205,7 +205,7 @@ class AttributeApi(baseUrl: String) {
       .withQueryParam("visible", visible)
       .withQueryParam("required", required)
       .withQueryParam("system", system)
-      .withSuccessResponse[AttributeCount200Response](200)
+      .withSuccessResponse[ModelResponseAttributeCount](200)
       
 
   /**
@@ -344,17 +344,17 @@ class AttributeApi(baseUrl: String) {
    * Get list of supported attributes types
    * 
    * Expected answers:
-   *   code 200 : AttributeTypeList200Response (successful operation)
+   *   code 200 : ModelResponseAttributeTypeList (successful operation)
    * 
    * Available security schemes:
    *   StoreKeyAuth (apiKey)
    *   ApiKeyAuth (apiKey)
    */
-  def attributeTypeList()(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[AttributeTypeList200Response] =
-    ApiRequest[AttributeTypeList200Response](ApiMethods.GET, baseUrl, "/attribute.type.list.json", "application/json")
+  def attributeTypeList()(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseAttributeTypeList] =
+    ApiRequest[ModelResponseAttributeTypeList](ApiMethods.GET, baseUrl, "/attribute.type.list.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
-      .withSuccessResponse[AttributeTypeList200Response](200)
+      .withSuccessResponse[ModelResponseAttributeTypeList](200)
       
 
   /**

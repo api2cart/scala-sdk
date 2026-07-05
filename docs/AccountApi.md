@@ -918,7 +918,7 @@ ApiRequest[[**AccountFailedWebhooks200Response**](AccountFailedWebhooks200Respon
 
 ## accountSupportedPlatforms
 
-> accountSupportedPlatforms(): ApiRequest[AccountSupportedPlatforms200Response]
+> accountSupportedPlatforms(): ApiRequest[ModelResponseAccountSupportedPlatforms]
 
 account.supported_platforms
 
@@ -976,7 +976,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-ApiRequest[[**AccountSupportedPlatforms200Response**](AccountSupportedPlatforms200Response.md)]
+ApiRequest[[**ModelResponseAccountSupportedPlatforms**](ModelResponseAccountSupportedPlatforms.md)]
 
 
 ### Authorization

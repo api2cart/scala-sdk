@@ -361,7 +361,7 @@ ApiRequest[[**OrderCalculate200Response**](OrderCalculate200Response.md)]
 
 ## orderCount
 
-> orderCount(orderCountRequest): ApiRequest[OrderCount200Response]
+> orderCount(orderCountRequest): ApiRequest[ModelResponseOrderCount]
 
 order.count
 
@@ -490,7 +490,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-ApiRequest[[**OrderCount200Response**](OrderCount200Response.md)]
+ApiRequest[[**ModelResponseOrderCount**](ModelResponseOrderCount.md)]
 
 
 ### Authorization
@@ -510,7 +510,7 @@ ApiRequest[[**OrderCount200Response**](OrderCount200Response.md)]
 
 ## orderFinancialStatusList
 
-> orderFinancialStatusList(): ApiRequest[OrderFinancialStatusList200Response]
+> orderFinancialStatusList(): ApiRequest[ModelResponseOrderFinancialStatusList]
 
 order.financial_status.list
 
@@ -571,7 +571,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-ApiRequest[[**OrderFinancialStatusList200Response**](OrderFinancialStatusList200Response.md)]
+ApiRequest[[**ModelResponseOrderFinancialStatusList**](ModelResponseOrderFinancialStatusList.md)]
 
 
 ### Authorization
@@ -591,7 +591,7 @@ ApiRequest[[**OrderFinancialStatusList200Response**](OrderFinancialStatusList200
 
 ## orderFulfillmentStatusList
 
-> orderFulfillmentStatusList(orderFulfillmentStatusListRequest): ApiRequest[OrderFulfillmentStatusList200Response]
+> orderFulfillmentStatusList(orderFulfillmentStatusListRequest): ApiRequest[ModelResponseOrderFulfillmentStatusList]
 
 order.fulfillment_status.list
 
@@ -657,7 +657,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-ApiRequest[[**OrderFulfillmentStatusList200Response**](OrderFulfillmentStatusList200Response.md)]
+ApiRequest[[**ModelResponseOrderFulfillmentStatusList**](ModelResponseOrderFulfillmentStatusList.md)]
 
 
 ### Authorization

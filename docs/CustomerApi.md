@@ -317,7 +317,7 @@ ApiRequest[[**ModelResponseCustomerAttributeList**](ModelResponseCustomerAttribu
 
 ## customerCount
 
-> customerCount(customerCountRequest): ApiRequest[CustomerCount200Response]
+> customerCount(customerCountRequest): ApiRequest[ModelResponseCustomerCount]
 
 customer.count
 
@@ -419,7 +419,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-ApiRequest[[**CustomerCount200Response**](CustomerCount200Response.md)]
+ApiRequest[[**ModelResponseCustomerCount**](ModelResponseCustomerCount.md)]
 
 
 ### Authorization
@@ -528,7 +528,7 @@ ApiRequest[[**CustomerDelete200Response**](CustomerDelete200Response.md)]
 
 ## customerFind
 
-> customerFind(customerFindRequest): ApiRequest[CustomerFind200Response]
+> customerFind(customerFindRequest): ApiRequest[ModelResponseCustomerFind]
 
 customer.find
 
@@ -606,7 +606,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-ApiRequest[[**CustomerFind200Response**](CustomerFind200Response.md)]
+ApiRequest[[**ModelResponseCustomerFind**](ModelResponseCustomerFind.md)]
 
 
 ### Authorization

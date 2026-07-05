@@ -253,7 +253,7 @@ ApiRequest[[**CategoryAddBatch200Response**](CategoryAddBatch200Response.md)]
 
 ## categoryAssign
 
-> categoryAssign(categoryAssignRequest): ApiRequest[CategoryAssign200Response]
+> categoryAssign(categoryAssignRequest): ApiRequest[ModelResponseCategoryAssign]
 
 category.assign
 
@@ -328,7 +328,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-ApiRequest[[**CategoryAssign200Response**](CategoryAssign200Response.md)]
+ApiRequest[[**ModelResponseCategoryAssign**](ModelResponseCategoryAssign.md)]
 
 
 ### Authorization
@@ -348,7 +348,7 @@ ApiRequest[[**CategoryAssign200Response**](CategoryAssign200Response.md)]
 
 ## categoryCount
 
-> categoryCount(categoryCountRequest): ApiRequest[CategoryCount200Response]
+> categoryCount(categoryCountRequest): ApiRequest[ModelResponseCategoryCount]
 
 category.count
 
@@ -450,7 +450,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-ApiRequest[[**CategoryCount200Response**](CategoryCount200Response.md)]
+ApiRequest[[**ModelResponseCategoryCount**](ModelResponseCategoryCount.md)]
 
 
 ### Authorization
@@ -646,7 +646,7 @@ ApiRequest[[**CategoryAddBatch200Response**](CategoryAddBatch200Response.md)]
 
 ## categoryFind
 
-> categoryFind(categoryFindRequest): ApiRequest[CategoryFind200Response]
+> categoryFind(categoryFindRequest): ApiRequest[ModelResponseCategoryFind]
 
 category.find
 
@@ -724,7 +724,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-ApiRequest[[**CategoryFind200Response**](CategoryFind200Response.md)]
+ApiRequest[[**ModelResponseCategoryFind**](ModelResponseCategoryFind.md)]
 
 
 ### Authorization
@@ -1211,7 +1211,7 @@ ApiRequest[[**ModelResponseCategoryList**](ModelResponseCategoryList.md)]
 
 ## categoryUnassign
 
-> categoryUnassign(categoryUnassignRequest): ApiRequest[CategoryAssign200Response]
+> categoryUnassign(categoryUnassignRequest): ApiRequest[ModelResponseCategoryUnassign]
 
 category.unassign
 
@@ -1286,7 +1286,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-ApiRequest[[**CategoryAssign200Response**](CategoryAssign200Response.md)]
+ApiRequest[[**ModelResponseCategoryUnassign**](ModelResponseCategoryUnassign.md)]
 
 
 ### Authorization

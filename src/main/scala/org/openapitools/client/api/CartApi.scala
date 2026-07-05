@@ -15,22 +15,22 @@ import org.openapitools.client.model.AttributeAdd200Response
 import org.openapitools.client.model.AttributeDelete200Response
 import org.openapitools.client.model.BasketLiveShippingServiceDelete200Response
 import java.math.BigDecimal
-import org.openapitools.client.model.CartCatalogPriceRulesCount200Response
 import org.openapitools.client.model.CartCouponAdd
 import org.openapitools.client.model.CartCouponAdd200Response
-import org.openapitools.client.model.CartCouponCount200Response
 import org.openapitools.client.model.CartDelete200Response
 import org.openapitools.client.model.CartGiftcardAdd200Response
-import org.openapitools.client.model.CartGiftcardCount200Response
 import org.openapitools.client.model.CartInfo200Response
-import org.openapitools.client.model.CartMethods200Response
 import org.openapitools.client.model.CartPluginList200Response
 import org.openapitools.client.model.CartScriptAdd200Response
 import org.openapitools.client.model.CartValidate200Response
+import org.openapitools.client.model.ModelResponseCartCatalogPriceRulesCount
 import org.openapitools.client.model.ModelResponseCartCatalogPriceRulesList
+import org.openapitools.client.model.ModelResponseCartCouponCount
 import org.openapitools.client.model.ModelResponseCartCouponList
 import org.openapitools.client.model.ModelResponseCartGiftCardList
+import org.openapitools.client.model.ModelResponseCartGiftcardCount
 import org.openapitools.client.model.ModelResponseCartMetaDataList
+import org.openapitools.client.model.ModelResponseCartMethods
 import org.openapitools.client.model.ModelResponseCartScriptList
 import org.openapitools.client.model.ModelResponseCartShippingZonesList
 import org.openapitools.client.core._
@@ -48,17 +48,17 @@ class CartApi(baseUrl: String) {
    * Get count of cart catalog price rules discounts.
    * 
    * Expected answers:
-   *   code 200 : CartCatalogPriceRulesCount200Response (successful operation)
+   *   code 200 : ModelResponseCartCatalogPriceRulesCount (successful operation)
    * 
    * Available security schemes:
    *   StoreKeyAuth (apiKey)
    *   ApiKeyAuth (apiKey)
    */
-  def cartCatalogPriceRulesCount()(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[CartCatalogPriceRulesCount200Response] =
-    ApiRequest[CartCatalogPriceRulesCount200Response](ApiMethods.GET, baseUrl, "/cart.catalog_price_rules.count.json", "application/json")
+  def cartCatalogPriceRulesCount()(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseCartCatalogPriceRulesCount] =
+    ApiRequest[ModelResponseCartCatalogPriceRulesCount](ApiMethods.GET, baseUrl, "/cart.catalog_price_rules.count.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
-      .withSuccessResponse[CartCatalogPriceRulesCount200Response](200)
+      .withSuccessResponse[ModelResponseCartCatalogPriceRulesCount](200)
       
 
   /**
@@ -155,7 +155,7 @@ class CartApi(baseUrl: String) {
    * This method allows you to get the number of coupons. On some platforms, you can filter the coupons by the date they were active.
    * 
    * Expected answers:
-   *   code 200 : CartCouponCount200Response (successful operation)
+   *   code 200 : ModelResponseCartCouponCount (successful operation)
    * 
    * Available security schemes:
    *   StoreKeyAuth (apiKey)
@@ -168,8 +168,8 @@ class CartApi(baseUrl: String) {
    * @param dateEndFrom Filter entity by date_end (greater or equal)
    * @param dateEndTo Filter entity by date_end (less or equal)
    */
-  def cartCouponCount(storeId: Option[String] = None, avail: Option[Boolean] = None, dateStartFrom: Option[String] = None, dateStartTo: Option[String] = None, dateEndFrom: Option[String] = None, dateEndTo: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[CartCouponCount200Response] =
-    ApiRequest[CartCouponCount200Response](ApiMethods.GET, baseUrl, "/cart.coupon.count.json", "application/json")
+  def cartCouponCount(storeId: Option[String] = None, avail: Option[Boolean] = None, dateStartFrom: Option[String] = None, dateStartTo: Option[String] = None, dateEndFrom: Option[String] = None, dateEndTo: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseCartCouponCount] =
+    ApiRequest[ModelResponseCartCouponCount](ApiMethods.GET, baseUrl, "/cart.coupon.count.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
       .withQueryParam("store_id", storeId)
@@ -178,7 +178,7 @@ class CartApi(baseUrl: String) {
       .withQueryParam("date_start_to", dateStartTo)
       .withQueryParam("date_end_from", dateEndFrom)
       .withQueryParam("date_end_to", dateEndTo)
-      .withSuccessResponse[CartCouponCount200Response](200)
+      .withSuccessResponse[ModelResponseCartCouponCount](200)
       
 
   /**
@@ -282,23 +282,31 @@ class CartApi(baseUrl: String) {
    *   ApiKeyAuth (apiKey)
    * 
    * @param amount Defines the gift card amount value.
+   * @param currency Defines currency code
+   * @param storeId Store Id
    * @param code Gift card code
+   * @param name Entity name
    * @param ownerEmail Gift card owner email
+   * @param ownerName Gift card owner name
    * @param recipientEmail Gift card recipient email
    * @param recipientName Gift card recipient name
-   * @param ownerName Gift card owner name
+   * @param message Free-form message attached to the entity.
    * @param idempotencyKey A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong>
    */
-  def cartGiftcardAdd(amount: BigDecimal, code: Option[String] = None, ownerEmail: Option[String] = None, recipientEmail: Option[String] = None, recipientName: Option[String] = None, ownerName: Option[String] = None, idempotencyKey: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[CartGiftcardAdd200Response] =
+  def cartGiftcardAdd(amount: BigDecimal, currency: Option[String] = None, storeId: Option[String] = None, code: Option[String] = None, name: Option[String] = None, ownerEmail: Option[String] = None, ownerName: Option[String] = None, recipientEmail: Option[String] = None, recipientName: Option[String] = None, message: Option[String] = None, idempotencyKey: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[CartGiftcardAdd200Response] =
     ApiRequest[CartGiftcardAdd200Response](ApiMethods.POST, baseUrl, "/cart.giftcard.add.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
       .withQueryParam("amount", amount)
+      .withQueryParam("currency", currency)
+      .withQueryParam("store_id", storeId)
       .withQueryParam("code", code)
+      .withQueryParam("name", name)
       .withQueryParam("owner_email", ownerEmail)
+      .withQueryParam("owner_name", ownerName)
       .withQueryParam("recipient_email", recipientEmail)
       .withQueryParam("recipient_name", recipientName)
-      .withQueryParam("owner_name", ownerName)
+      .withQueryParam("message", message)
       .withQueryParam("idempotency_key", idempotencyKey)
       .withSuccessResponse[CartGiftcardAdd200Response](200)
       
@@ -307,7 +315,7 @@ class CartApi(baseUrl: String) {
    * Get gift cards count.
    * 
    * Expected answers:
-   *   code 200 : CartGiftcardCount200Response (successful operation)
+   *   code 200 : ModelResponseCartGiftcardCount (successful operation)
    * 
    * Available security schemes:
    *   StoreKeyAuth (apiKey)
@@ -315,12 +323,12 @@ class CartApi(baseUrl: String) {
    * 
    * @param storeId Store Id
    */
-  def cartGiftcardCount(storeId: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[CartGiftcardCount200Response] =
-    ApiRequest[CartGiftcardCount200Response](ApiMethods.GET, baseUrl, "/cart.giftcard.count.json", "application/json")
+  def cartGiftcardCount(storeId: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseCartGiftcardCount] =
+    ApiRequest[ModelResponseCartGiftcardCount](ApiMethods.GET, baseUrl, "/cart.giftcard.count.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
       .withQueryParam("store_id", storeId)
-      .withSuccessResponse[CartGiftcardCount200Response](200)
+      .withSuccessResponse[ModelResponseCartGiftcardCount](200)
       
 
   /**
@@ -334,12 +342,14 @@ class CartApi(baseUrl: String) {
    *   ApiKeyAuth (apiKey)
    * 
    * @param id Entity id
+   * @param storeId Store Id
    */
-  def cartGiftcardDelete(id: String)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[AttributeDelete200Response] =
+  def cartGiftcardDelete(id: String, storeId: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[AttributeDelete200Response] =
     ApiRequest[AttributeDelete200Response](ApiMethods.DELETE, baseUrl, "/cart.giftcard.delete.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
       .withQueryParam("id", id)
+      .withQueryParam("store_id", storeId)
       .withSuccessResponse[AttributeDelete200Response](200)
       
 
@@ -353,6 +363,7 @@ class CartApi(baseUrl: String) {
    *   StoreKeyAuth (apiKey)
    *   ApiKeyAuth (apiKey)
    * 
+   * @param ids Retrieves gift cards specified by ids
    * @param start This parameter sets the number from which you want to get entities
    * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count=250
    * @param pageCursor Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
@@ -361,10 +372,11 @@ class CartApi(baseUrl: String) {
    * @param params Set this parameter in order to choose which entity fields you want to retrieve
    * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
    */
-  def cartGiftcardList(start: Option[Int] = None, count: Option[Int] = None, pageCursor: Option[String] = None, storeId: Option[String] = None, responseFields: Option[String] = None, params: Option[String] = None, exclude: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseCartGiftCardList] =
+  def cartGiftcardList(ids: Option[String] = None, start: Option[Int] = None, count: Option[Int] = None, pageCursor: Option[String] = None, storeId: Option[String] = None, responseFields: Option[String] = None, params: Option[String] = None, exclude: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseCartGiftCardList] =
     ApiRequest[ModelResponseCartGiftCardList](ApiMethods.GET, baseUrl, "/cart.giftcard.list.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
+      .withQueryParam("ids", ids)
       .withQueryParam("start", start)
       .withQueryParam("count", count)
       .withQueryParam("page_cursor", pageCursor)
@@ -402,7 +414,7 @@ class CartApi(baseUrl: String) {
       
 
   /**
-   * Using this method, you can get a list of metadata for various entities (products, options, customers, orders). Usually this is data created by third-party plugins.
+   * Using this method, you can get a list of metadata for various entities. Entities supported may differ across platforms. To get the list of supported entities, pass an invalid value in the <code>entity</code> parameter. The response will contain the list of entities supported by the specific platform. Usually this is data created by third-party plugins.
    * 
    * Expected answers:
    *   code 200 : ModelResponseCartMetaDataList (successful operation)
@@ -440,7 +452,7 @@ class CartApi(baseUrl: String) {
       
 
   /**
-   * Set meta data for a specific entity
+   * Set metadata for a specific entity. Entities supported may differ across platforms. To get the list of supported entities, pass an invalid value in the <code>entity</code> parameter. The response will contain the list of entities supported by the specific platform. Usually this is data created by third-party plugins.
    * 
    * Expected answers:
    *   code 200 : AttributeAdd200Response (successful operation)
@@ -505,17 +517,17 @@ class CartApi(baseUrl: String) {
    * Returns a list of supported API methods.
    * 
    * Expected answers:
-   *   code 200 : CartMethods200Response (successful operation)
+   *   code 200 : ModelResponseCartMethods (successful operation)
    * 
    * Available security schemes:
    *   StoreKeyAuth (apiKey)
    *   ApiKeyAuth (apiKey)
    */
-  def cartMethods()(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[CartMethods200Response] =
-    ApiRequest[CartMethods200Response](ApiMethods.GET, baseUrl, "/cart.methods.json", "application/json")
+  def cartMethods()(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseCartMethods] =
+    ApiRequest[ModelResponseCartMethods](ApiMethods.GET, baseUrl, "/cart.methods.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
-      .withSuccessResponse[CartMethods200Response](200)
+      .withSuccessResponse[ModelResponseCartMethods](200)
       
 
   /**

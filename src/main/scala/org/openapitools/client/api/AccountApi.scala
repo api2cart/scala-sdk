@@ -16,7 +16,7 @@ import org.openapitools.client.model.AccountCartAdd200Response
 import org.openapitools.client.model.AccountCartList200Response
 import org.openapitools.client.model.AccountConfigUpdate200Response
 import org.openapitools.client.model.AccountFailedWebhooks200Response
-import org.openapitools.client.model.AccountSupportedPlatforms200Response
+import org.openapitools.client.model.ModelResponseAccountSupportedPlatforms
 import org.openapitools.client.core._
 import org.openapitools.client.core.CollectionFormats._
 import org.openapitools.client.core.ApiKeyLocations._
@@ -478,15 +478,15 @@ class AccountApi(baseUrl: String) {
    * Use this method to retrieve a list of supported platforms and the sets of parameters required for connecting to each of them. Note: some platforms may have multiple connection methods so that the response will contain multiple sets of parameters.
    * 
    * Expected answers:
-   *   code 200 : AccountSupportedPlatforms200Response (successful operation)
+   *   code 200 : ModelResponseAccountSupportedPlatforms (successful operation)
    * 
    * Available security schemes:
    *   ApiKeyAuth (apiKey)
    */
-  def accountSupportedPlatforms()(implicit apiKey: ApiKeyValue): ApiRequest[AccountSupportedPlatforms200Response] =
-    ApiRequest[AccountSupportedPlatforms200Response](ApiMethods.GET, baseUrl, "/account.supported_platforms.json", "application/json")
+  def accountSupportedPlatforms()(implicit apiKey: ApiKeyValue): ApiRequest[ModelResponseAccountSupportedPlatforms] =
+    ApiRequest[ModelResponseAccountSupportedPlatforms](ApiMethods.GET, baseUrl, "/account.supported_platforms.json", "application/json")
       .withApiKey(apiKey, "x-api-key", HEADER)
-      .withSuccessResponse[AccountSupportedPlatforms200Response](200)
+      .withSuccessResponse[ModelResponseAccountSupportedPlatforms](200)
       
 
 

@@ -11,12 +11,12 @@
  */
 package org.openapitools.client.api
 
+import org.openapitools.client.model.ModelResponseReturnActionList
+import org.openapitools.client.model.ModelResponseReturnCount
 import org.openapitools.client.model.ModelResponseReturnList
-import org.openapitools.client.model.ReturnActionList200Response
-import org.openapitools.client.model.ReturnCount200Response
+import org.openapitools.client.model.ModelResponseReturnReasonList
+import org.openapitools.client.model.ModelResponseReturnStatusList
 import org.openapitools.client.model.ReturnInfo200Response
-import org.openapitools.client.model.ReturnReasonList200Response
-import org.openapitools.client.model.ReturnStatusList200Response
 import org.openapitools.client.core._
 import org.openapitools.client.core.CollectionFormats._
 import org.openapitools.client.core.ApiKeyLocations._
@@ -32,24 +32,24 @@ class ReturnApi(baseUrl: String) {
    * Retrieve list of return actions
    * 
    * Expected answers:
-   *   code 200 : ReturnActionList200Response (successful operation)
+   *   code 200 : ModelResponseReturnActionList (successful operation)
    * 
    * Available security schemes:
    *   StoreKeyAuth (apiKey)
    *   ApiKeyAuth (apiKey)
    */
-  def returnActionList()(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ReturnActionList200Response] =
-    ApiRequest[ReturnActionList200Response](ApiMethods.GET, baseUrl, "/return.action.list.json", "application/json")
+  def returnActionList()(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseReturnActionList] =
+    ApiRequest[ModelResponseReturnActionList](ApiMethods.GET, baseUrl, "/return.action.list.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
-      .withSuccessResponse[ReturnActionList200Response](200)
+      .withSuccessResponse[ModelResponseReturnActionList](200)
       
 
   /**
    * Count returns in store
    * 
    * Expected answers:
-   *   code 200 : ReturnCount200Response (successful operation)
+   *   code 200 : ModelResponseReturnCount (successful operation)
    * 
    * Available security schemes:
    *   StoreKeyAuth (apiKey)
@@ -67,8 +67,8 @@ class ReturnApi(baseUrl: String) {
    * @param reportRequestId Report request id
    * @param disableReportCache Disable report cache for current request
    */
-  def returnCount(orderIds: Option[String] = None, customerId: Option[String] = None, storeId: Option[String] = None, status: Option[String] = None, returnType: Option[String] = None, createdFrom: Option[String] = None, createdTo: Option[String] = None, modifiedFrom: Option[String] = None, modifiedTo: Option[String] = None, reportRequestId: Option[String] = None, disableReportCache: Option[Boolean] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ReturnCount200Response] =
-    ApiRequest[ReturnCount200Response](ApiMethods.GET, baseUrl, "/return.count.json", "application/json")
+  def returnCount(orderIds: Option[String] = None, customerId: Option[String] = None, storeId: Option[String] = None, status: Option[String] = None, returnType: Option[String] = None, createdFrom: Option[String] = None, createdTo: Option[String] = None, modifiedFrom: Option[String] = None, modifiedTo: Option[String] = None, reportRequestId: Option[String] = None, disableReportCache: Option[Boolean] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseReturnCount] =
+    ApiRequest[ModelResponseReturnCount](ApiMethods.GET, baseUrl, "/return.count.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
       .withQueryParam("order_ids", orderIds)
@@ -82,7 +82,7 @@ class ReturnApi(baseUrl: String) {
       .withQueryParam("modified_to", modifiedTo)
       .withQueryParam("report_request_id", reportRequestId)
       .withQueryParam("disable_report_cache", disableReportCache)
-      .withSuccessResponse[ReturnCount200Response](200)
+      .withSuccessResponse[ModelResponseReturnCount](200)
       
 
   /**
@@ -173,7 +173,7 @@ class ReturnApi(baseUrl: String) {
    * Retrieve list of return reasons
    * 
    * Expected answers:
-   *   code 200 : ReturnReasonList200Response (successful operation)
+   *   code 200 : ModelResponseReturnReasonList (successful operation)
    * 
    * Available security schemes:
    *   StoreKeyAuth (apiKey)
@@ -181,29 +181,29 @@ class ReturnApi(baseUrl: String) {
    * 
    * @param storeId Store Id
    */
-  def returnReasonList(storeId: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ReturnReasonList200Response] =
-    ApiRequest[ReturnReasonList200Response](ApiMethods.GET, baseUrl, "/return.reason.list.json", "application/json")
+  def returnReasonList(storeId: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseReturnReasonList] =
+    ApiRequest[ModelResponseReturnReasonList](ApiMethods.GET, baseUrl, "/return.reason.list.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
       .withQueryParam("store_id", storeId)
-      .withSuccessResponse[ReturnReasonList200Response](200)
+      .withSuccessResponse[ModelResponseReturnReasonList](200)
       
 
   /**
    * Retrieve list of statuses
    * 
    * Expected answers:
-   *   code 200 : ReturnStatusList200Response (successful operation)
+   *   code 200 : ModelResponseReturnStatusList (successful operation)
    * 
    * Available security schemes:
    *   StoreKeyAuth (apiKey)
    *   ApiKeyAuth (apiKey)
    */
-  def returnStatusList()(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ReturnStatusList200Response] =
-    ApiRequest[ReturnStatusList200Response](ApiMethods.GET, baseUrl, "/return.status.list.json", "application/json")
+  def returnStatusList()(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseReturnStatusList] =
+    ApiRequest[ModelResponseReturnStatusList](ApiMethods.GET, baseUrl, "/return.status.list.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
-      .withSuccessResponse[ReturnStatusList200Response](200)
+      .withSuccessResponse[ModelResponseReturnStatusList](200)
       
 
 

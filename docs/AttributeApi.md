@@ -478,7 +478,7 @@ ApiRequest[[**ModelResponseAttributeAttributesetList**](ModelResponseAttributeAt
 
 ## attributeCount
 
-> attributeCount(attributeCountRequest): ApiRequest[AttributeCount200Response]
+> attributeCount(attributeCountRequest): ApiRequest[ModelResponseAttributeCount]
 
 attribute.count
 
@@ -562,7 +562,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-ApiRequest[[**AttributeCount200Response**](AttributeCount200Response.md)]
+ApiRequest[[**ModelResponseAttributeCount**](ModelResponseAttributeCount.md)]
 
 
 ### Authorization
@@ -1004,7 +1004,7 @@ ApiRequest[[**ModelResponseAttributeList**](ModelResponseAttributeList.md)]
 
 ## attributeTypeList
 
-> attributeTypeList(): ApiRequest[AttributeTypeList200Response]
+> attributeTypeList(): ApiRequest[ModelResponseAttributeTypeList]
 
 attribute.type.list
 
@@ -1065,7 +1065,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-ApiRequest[[**AttributeTypeList200Response**](AttributeTypeList200Response.md)]
+ApiRequest[[**ModelResponseAttributeTypeList**](ModelResponseAttributeTypeList.md)]
 
 
 ### Authorization

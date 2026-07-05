@@ -13,10 +13,10 @@ package org.openapitools.client.api
 
 import org.openapitools.client.model.AttributeDelete200Response
 import org.openapitools.client.model.BasketLiveShippingServiceCreate200Response
+import org.openapitools.client.model.ModelResponseWebhookCount
+import org.openapitools.client.model.ModelResponseWebhookEvents
 import org.openapitools.client.model.ProductImageUpdate200Response
-import org.openapitools.client.model.WebhookCount200Response
 import org.openapitools.client.model.WebhookCreate
-import org.openapitools.client.model.WebhookEvents200Response
 import org.openapitools.client.model.WebhookList200Response
 import org.openapitools.client.model.WebhookUpdate
 import org.openapitools.client.core._
@@ -34,7 +34,7 @@ class WebhookApi(baseUrl: String) {
    * Count registered webhooks on the store.
    * 
    * Expected answers:
-   *   code 200 : WebhookCount200Response (successful operation)
+   *   code 200 : ModelResponseWebhookCount (successful operation)
    * 
    * Available security schemes:
    *   StoreKeyAuth (apiKey)
@@ -44,14 +44,14 @@ class WebhookApi(baseUrl: String) {
    * @param action The action you want to filter webhooks by (e.g. order or product)
    * @param active The webhook status you want to filter webhooks by
    */
-  def webhookCount(entity: Option[String] = None, action: Option[String] = None, active: Option[Boolean] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[WebhookCount200Response] =
-    ApiRequest[WebhookCount200Response](ApiMethods.GET, baseUrl, "/webhook.count.json", "application/json")
+  def webhookCount(entity: Option[String] = None, action: Option[String] = None, active: Option[Boolean] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseWebhookCount] =
+    ApiRequest[ModelResponseWebhookCount](ApiMethods.GET, baseUrl, "/webhook.count.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
       .withQueryParam("entity", entity)
       .withQueryParam("action", action)
       .withQueryParam("active", active)
-      .withSuccessResponse[WebhookCount200Response](200)
+      .withSuccessResponse[ModelResponseWebhookCount](200)
       
 
   /**
@@ -98,17 +98,17 @@ class WebhookApi(baseUrl: String) {
    * List all Webhooks that are available on this store.
    * 
    * Expected answers:
-   *   code 200 : WebhookEvents200Response (successful operation)
+   *   code 200 : ModelResponseWebhookEvents (successful operation)
    * 
    * Available security schemes:
    *   StoreKeyAuth (apiKey)
    *   ApiKeyAuth (apiKey)
    */
-  def webhookEvents()(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[WebhookEvents200Response] =
-    ApiRequest[WebhookEvents200Response](ApiMethods.GET, baseUrl, "/webhook.events.json", "application/json")
+  def webhookEvents()(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseWebhookEvents] =
+    ApiRequest[ModelResponseWebhookEvents](ApiMethods.GET, baseUrl, "/webhook.events.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
-      .withSuccessResponse[WebhookEvents200Response](200)
+      .withSuccessResponse[ModelResponseWebhookEvents](200)
       
 
   /**

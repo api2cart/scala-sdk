@@ -16,6 +16,9 @@ import org.openapitools.client.model.AttributeAdd200Response
 import org.openapitools.client.model.AttributeValueDelete200Response
 import org.openapitools.client.model.CategoryAddBatch200Response
 import org.openapitools.client.model.ModelResponseOrderAbandonedList
+import org.openapitools.client.model.ModelResponseOrderCount
+import org.openapitools.client.model.ModelResponseOrderFinancialStatusList
+import org.openapitools.client.model.ModelResponseOrderFulfillmentStatusList
 import org.openapitools.client.model.ModelResponseOrderList
 import org.openapitools.client.model.ModelResponseOrderPreestimateShippingList
 import org.openapitools.client.model.ModelResponseOrderShipmentEventList
@@ -26,9 +29,6 @@ import org.openapitools.client.model.OrderAdd
 import org.openapitools.client.model.OrderAdd200Response
 import org.openapitools.client.model.OrderCalculate
 import org.openapitools.client.model.OrderCalculate200Response
-import org.openapitools.client.model.OrderCount200Response
-import org.openapitools.client.model.OrderFinancialStatusList200Response
-import org.openapitools.client.model.OrderFulfillmentStatusList200Response
 import org.openapitools.client.model.OrderInfo200Response
 import org.openapitools.client.model.OrderPreestimateShippingList
 import org.openapitools.client.model.OrderRefundAdd
@@ -148,7 +148,7 @@ class OrderApi(baseUrl: String) {
    * Count orders in store
    * 
    * Expected answers:
-   *   code 200 : OrderCount200Response (successful operation)
+   *   code 200 : ModelResponseOrderCount (successful operation)
    * 
    * Available security schemes:
    *   StoreKeyAuth (apiKey)
@@ -177,8 +177,8 @@ class OrderApi(baseUrl: String) {
    * @param useLatestApiVersion Use the latest platform API version
    * @param vendorId Counts orders specified by vendor id
    */
-  def orderCount(orderIds: Option[String] = None, ids: Option[String] = None, customerId: Option[String] = None, storeId: Option[String] = None, customerEmail: Option[String] = None, orderStatus: Option[String] = None, orderStatusIds: Seq[String], ebayOrderStatus: Option[String] = None, financialStatus: Option[String] = None, financialStatusIds: Seq[String], fulfillmentChannel: Option[String] = None, fulfillmentStatus: Option[String] = None, shippingMethod: Option[String] = None, deliveryMethod: Option[String] = None, tags: Option[String] = None, shipNodeType: Option[String] = None, createdFrom: Option[String] = None, createdTo: Option[String] = None, modifiedFrom: Option[String] = None, modifiedTo: Option[String] = None, useLatestApiVersion: Option[Boolean] = None, vendorId: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[OrderCount200Response] =
-    ApiRequest[OrderCount200Response](ApiMethods.GET, baseUrl, "/order.count.json", "application/json")
+  def orderCount(orderIds: Option[String] = None, ids: Option[String] = None, customerId: Option[String] = None, storeId: Option[String] = None, customerEmail: Option[String] = None, orderStatus: Option[String] = None, orderStatusIds: Seq[String], ebayOrderStatus: Option[String] = None, financialStatus: Option[String] = None, financialStatusIds: Seq[String], fulfillmentChannel: Option[String] = None, fulfillmentStatus: Option[String] = None, shippingMethod: Option[String] = None, deliveryMethod: Option[String] = None, tags: Option[String] = None, shipNodeType: Option[String] = None, createdFrom: Option[String] = None, createdTo: Option[String] = None, modifiedFrom: Option[String] = None, modifiedTo: Option[String] = None, useLatestApiVersion: Option[Boolean] = None, vendorId: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseOrderCount] =
+    ApiRequest[ModelResponseOrderCount](ApiMethods.GET, baseUrl, "/order.count.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
       .withQueryParam("order_ids", orderIds)
@@ -203,31 +203,31 @@ class OrderApi(baseUrl: String) {
       .withQueryParam("modified_to", modifiedTo)
       .withQueryParam("use_latest_api_version", useLatestApiVersion)
       .withQueryParam("vendor_id", vendorId)
-      .withSuccessResponse[OrderCount200Response](200)
+      .withSuccessResponse[ModelResponseOrderCount](200)
       
 
   /**
    * Retrieve list of financial statuses
    * 
    * Expected answers:
-   *   code 200 : OrderFinancialStatusList200Response (successful operation)
+   *   code 200 : ModelResponseOrderFinancialStatusList (successful operation)
    * 
    * Available security schemes:
    *   StoreKeyAuth (apiKey)
    *   ApiKeyAuth (apiKey)
    */
-  def orderFinancialStatusList()(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[OrderFinancialStatusList200Response] =
-    ApiRequest[OrderFinancialStatusList200Response](ApiMethods.GET, baseUrl, "/order.financial_status.list.json", "application/json")
+  def orderFinancialStatusList()(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseOrderFinancialStatusList] =
+    ApiRequest[ModelResponseOrderFinancialStatusList](ApiMethods.GET, baseUrl, "/order.financial_status.list.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
-      .withSuccessResponse[OrderFinancialStatusList200Response](200)
+      .withSuccessResponse[ModelResponseOrderFinancialStatusList](200)
       
 
   /**
    * Retrieve list of fulfillment statuses
    * 
    * Expected answers:
-   *   code 200 : OrderFulfillmentStatusList200Response (successful operation)
+   *   code 200 : ModelResponseOrderFulfillmentStatusList (successful operation)
    * 
    * Available security schemes:
    *   StoreKeyAuth (apiKey)
@@ -235,12 +235,12 @@ class OrderApi(baseUrl: String) {
    * 
    * @param action Available statuses for the specified action.
    */
-  def orderFulfillmentStatusList(action: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[OrderFulfillmentStatusList200Response] =
-    ApiRequest[OrderFulfillmentStatusList200Response](ApiMethods.GET, baseUrl, "/order.fulfillment_status.list.json", "application/json")
+  def orderFulfillmentStatusList(action: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseOrderFulfillmentStatusList] =
+    ApiRequest[ModelResponseOrderFulfillmentStatusList](ApiMethods.GET, baseUrl, "/order.fulfillment_status.list.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
       .withQueryParam("action", action)
-      .withSuccessResponse[OrderFulfillmentStatusList200Response](200)
+      .withSuccessResponse[ModelResponseOrderFulfillmentStatusList](200)
       
 
   /**

@@ -55,7 +55,7 @@ Method | HTTP request | Description
 
 ## cartCatalogPriceRulesCount
 
-> cartCatalogPriceRulesCount(): ApiRequest[CartCatalogPriceRulesCount200Response]
+> cartCatalogPriceRulesCount(): ApiRequest[ModelResponseCartCatalogPriceRulesCount]
 
 cart.catalog_price_rules.count
 
@@ -116,7 +116,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-ApiRequest[[**CartCatalogPriceRulesCount200Response**](CartCatalogPriceRulesCount200Response.md)]
+ApiRequest[[**ModelResponseCartCatalogPriceRulesCount**](ModelResponseCartCatalogPriceRulesCount.md)]
 
 
 ### Authorization
@@ -440,7 +440,7 @@ ApiRequest[[**BasketLiveShippingServiceDelete200Response**](BasketLiveShippingSe
 
 ## cartCouponCount
 
-> cartCouponCount(cartCouponCountRequest): ApiRequest[CartCouponCount200Response]
+> cartCouponCount(cartCouponCountRequest): ApiRequest[ModelResponseCartCouponCount]
 
 cart.coupon.count
 
@@ -521,7 +521,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-ApiRequest[[**CartCouponCount200Response**](CartCouponCount200Response.md)]
+ApiRequest[[**ModelResponseCartCouponCount**](ModelResponseCartCouponCount.md)]
 
 
 ### Authorization
@@ -879,19 +879,27 @@ object Example extends App {
     val apiInstance = CartApi("https://api.api2cart.local.com/v1.1")
     val amount: BigDecimal = 15.5 // BigDecimal | Defines the gift card amount value.
 
+    val currency: String = USD // String | Defines currency code
+
+    val storeId: String = 1 // String | Store Id
+
     val code: String = GFT1 A4S5 AA11 RD61 // String | Gift card code
 
+    val name: String = Test name // String | Entity name
+
     val ownerEmail: String = jubari@hannsgroup.com // String | Gift card owner email
+
+    val ownerName: String = John Doe // String | Gift card owner name
 
     val recipientEmail: String = jubari@hannsgroup.com // String | Gift card recipient email
 
     val recipientName: String = John Doe // String | Gift card recipient name
 
-    val ownerName: String = John Doe // String | Gift card owner name
+    val message: String = Received item is not like in the photo, get my money back. // String | Free-form message attached to the entity.
 
     val idempotencyKey: String = 098f6bcd4621d373cade4e832627b4f6 // String | A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong>
     
-    val request = apiInstance.cartGiftcardAdd(amount, code, ownerEmail, recipientEmail, recipientName, ownerName, idempotencyKey)
+    val request = apiInstance.cartGiftcardAdd(amount, currency, storeId, code, name, ownerEmail, ownerName, recipientEmail, recipientName, message, idempotencyKey)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -920,11 +928,15 @@ object Example extends App {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **amount** | **BigDecimal**| Defines the gift card amount value. |
+ **currency** | **String**| Defines currency code | [optional]
+ **storeId** | **String**| Store Id | [optional]
  **code** | **String**| Gift card code | [optional]
+ **name** | **String**| Entity name | [optional]
  **ownerEmail** | **String**| Gift card owner email | [optional]
+ **ownerName** | **String**| Gift card owner name | [optional]
  **recipientEmail** | **String**| Gift card recipient email | [optional]
  **recipientName** | **String**| Gift card recipient name | [optional]
- **ownerName** | **String**| Gift card owner name | [optional]
+ **message** | **String**| Free-form message attached to the entity. | [optional]
  **idempotencyKey** | **String**| A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [optional]
 
 ### Return type
@@ -949,7 +961,7 @@ ApiRequest[[**CartGiftcardAdd200Response**](CartGiftcardAdd200Response.md)]
 
 ## cartGiftcardCount
 
-> cartGiftcardCount(cartGiftcardCountRequest): ApiRequest[CartGiftcardCount200Response]
+> cartGiftcardCount(cartGiftcardCountRequest): ApiRequest[ModelResponseCartGiftcardCount]
 
 cart.giftcard.count
 
@@ -1015,7 +1027,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-ApiRequest[[**CartGiftcardCount200Response**](CartGiftcardCount200Response.md)]
+ApiRequest[[**ModelResponseCartGiftcardCount**](ModelResponseCartGiftcardCount.md)]
 
 
 ### Authorization
@@ -1068,8 +1080,10 @@ object Example extends App {
     val apiInvoker = ApiInvoker()
     val apiInstance = CartApi("https://api.api2cart.local.com/v1.1")
     val id: String = 10 // String | Entity id
+
+    val storeId: String = 1 // String | Store Id
     
-    val request = apiInstance.cartGiftcardDelete(id)
+    val request = apiInstance.cartGiftcardDelete(id, storeId)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -1098,6 +1112,7 @@ object Example extends App {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| Entity id |
+ **storeId** | **String**| Store Id | [optional]
 
 ### Return type
 
@@ -1153,6 +1168,8 @@ object Example extends App {
 
     val apiInvoker = ApiInvoker()
     val apiInstance = CartApi("https://api.api2cart.local.com/v1.1")
+    val ids: String = 24,25 // String | Retrieves gift cards specified by ids
+
     val start: Int = 0 // Int | This parameter sets the number from which you want to get entities
 
     val count: Int = 20 // Int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
@@ -1167,7 +1184,7 @@ object Example extends App {
 
     val exclude: String = false // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
     
-    val request = apiInstance.cartGiftcardList(start, count, pageCursor, storeId, responseFields, params, exclude)
+    val request = apiInstance.cartGiftcardList(ids, start, count, pageCursor, storeId, responseFields, params, exclude)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -1195,6 +1212,7 @@ object Example extends App {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ids** | **String**| Retrieves gift cards specified by ids | [optional]
  **start** | **Int**| This parameter sets the number from which you want to get entities | [optional]
  **count** | **Int**| This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional]
  **pageCursor** | **String**| Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional]
@@ -1324,7 +1342,7 @@ ApiRequest[[**CartInfo200Response**](CartInfo200Response.md)]
 
 cart.meta_data.list
 
-Using this method, you can get a list of metadata for various entities (products, options, customers, orders). Usually this is data created by third-party plugins.
+Using this method, you can get a list of metadata for various entities. Entities supported may differ across platforms. To get the list of supported entities, pass an invalid value in the &lt;code&gt;entity&lt;/code&gt; parameter. The response will contain the list of entities supported by the specific platform. Usually this is data created by third-party plugins.
 
 ### Example
 
@@ -1437,7 +1455,7 @@ ApiRequest[[**ModelResponseCartMetaDataList**](ModelResponseCartMetaDataList.md)
 
 cart.meta_data.set
 
-Set meta data for a specific entity
+Set metadata for a specific entity. Entities supported may differ across platforms. To get the list of supported entities, pass an invalid value in the &lt;code&gt;entity&lt;/code&gt; parameter. The response will contain the list of entities supported by the specific platform. Usually this is data created by third-party plugins.
 
 ### Example
 
@@ -1638,7 +1656,7 @@ ApiRequest[[**BasketLiveShippingServiceDelete200Response**](BasketLiveShippingSe
 
 ## cartMethods
 
-> cartMethods(): ApiRequest[CartMethods200Response]
+> cartMethods(): ApiRequest[ModelResponseCartMethods]
 
 cart.methods
 
@@ -1699,7 +1717,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-ApiRequest[[**CartMethods200Response**](CartMethods200Response.md)]
+ApiRequest[[**ModelResponseCartMethods**](ModelResponseCartMethods.md)]
 
 
 ### Authorization
