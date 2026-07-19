@@ -18,6 +18,14 @@ docs/AccountFailedWebhooks200ResponseResultWebhookInner.md
 docs/AccountSupportedPlatform.md
 docs/AccountSupportedPlatformParams.md
 docs/AccountSupportedPlatformParamsRequiredInnerInner.md
+docs/AnalyticsApi.md
+docs/AnalyticsCustomer.md
+docs/AnalyticsCustomerMetric.md
+docs/AnalyticsInterval.md
+docs/AnalyticsMetric.md
+docs/AnalyticsPeriod.md
+docs/AnalyticsProduct.md
+docs/AnalyticsProductMetric.md
 docs/AttributeAdd200Response.md
 docs/AttributeAdd200ResponseResult.md
 docs/AttributeApi.md
@@ -367,6 +375,9 @@ docs/ProductVariantUpdateBatch.md
 docs/ProductVariantUpdateBatchPayloadInner.md
 docs/ProductVariantUpdateOptionsInner.md
 docs/ResponseAccountSupportedPlatformsResult.md
+docs/ResponseAnalyticsCustomerReportResult.md
+docs/ResponseAnalyticsProductReportResult.md
+docs/ResponseAnalyticsReportResult.md
 docs/ResponseAttributeAttributesetListResult.md
 docs/ResponseAttributeCountResult.md
 docs/ResponseAttributeGroupListResult.md
@@ -464,6 +475,7 @@ pom.xml
 project/build.properties
 src/main/resources/reference.conf
 src/main/scala/org/openapitools/client/api/AccountApi.scala
+src/main/scala/org/openapitools/client/api/AnalyticsApi.scala
 src/main/scala/org/openapitools/client/api/AttributeApi.scala
 src/main/scala/org/openapitools/client/api/BasketApi.scala
 src/main/scala/org/openapitools/client/api/BatchApi.scala
@@ -500,6 +512,13 @@ src/main/scala/org/openapitools/client/model/AccountFailedWebhooks200ResponseRes
 src/main/scala/org/openapitools/client/model/AccountSupportedPlatform.scala
 src/main/scala/org/openapitools/client/model/AccountSupportedPlatformParams.scala
 src/main/scala/org/openapitools/client/model/AccountSupportedPlatformParamsRequiredInnerInner.scala
+src/main/scala/org/openapitools/client/model/AnalyticsCustomer.scala
+src/main/scala/org/openapitools/client/model/AnalyticsCustomerMetric.scala
+src/main/scala/org/openapitools/client/model/AnalyticsInterval.scala
+src/main/scala/org/openapitools/client/model/AnalyticsMetric.scala
+src/main/scala/org/openapitools/client/model/AnalyticsPeriod.scala
+src/main/scala/org/openapitools/client/model/AnalyticsProduct.scala
+src/main/scala/org/openapitools/client/model/AnalyticsProductMetric.scala
 src/main/scala/org/openapitools/client/model/AttributeAdd200Response.scala
 src/main/scala/org/openapitools/client/model/AttributeAdd200ResponseResult.scala
 src/main/scala/org/openapitools/client/model/AttributeAssignGroup200Response.scala
@@ -840,6 +859,9 @@ src/main/scala/org/openapitools/client/model/ProductVariantUpdateBatch.scala
 src/main/scala/org/openapitools/client/model/ProductVariantUpdateBatchPayloadInner.scala
 src/main/scala/org/openapitools/client/model/ProductVariantUpdateOptionsInner.scala
 src/main/scala/org/openapitools/client/model/ResponseAccountSupportedPlatformsResult.scala
+src/main/scala/org/openapitools/client/model/ResponseAnalyticsCustomerReportResult.scala
+src/main/scala/org/openapitools/client/model/ResponseAnalyticsProductReportResult.scala
+src/main/scala/org/openapitools/client/model/ResponseAnalyticsReportResult.scala
 src/main/scala/org/openapitools/client/model/ResponseAttributeAttributesetListResult.scala
 src/main/scala/org/openapitools/client/model/ResponseAttributeCountResult.scala
 src/main/scala/org/openapitools/client/model/ResponseAttributeGroupListResult.scala
