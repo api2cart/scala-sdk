@@ -14,7 +14,7 @@ package org.openapitools.client.model
 import org.openapitools.client.core.ApiModel
 
 case class AccountCartAdd (
-  /* Store’s identifier which you can get from cart_list method */
+  /* Integration identifier */
   cartId: AccountCartAddEnums.CartId,
   /* A web address of a store that you would like to connect to API2Cart */
   storeUrl: Option[String] = None,
@@ -22,7 +22,7 @@ case class AccountCartAdd (
   bridgeUrl: Option[String] = None,
   /* Absolute path to the store root directory (used with \"bridge_url\" parameter) */
   storeRoot: Option[String] = None,
-  /* Set this parameter if bridge is already uploaded to store */
+  /* If a bridge connector is already installed on the store, you MUST pass here the store key it generated during installation, to connect via the bridge-based integration. Omit it only when connecting via an API-based integration, which uses API credentials instead. */
   storeKey: Option[String] = None,
   /* Defines alternative text that has to be attached to the picture */
   label: Option[String] = None,

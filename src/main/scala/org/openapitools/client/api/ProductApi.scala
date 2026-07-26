@@ -135,9 +135,9 @@ class ProductApi(baseUrl: String) {
    * @param setName Retrieves attributes specified by set_name in Magento
    * @param sortBy Set field to sort by
    * @param sortDirection Set sorting direction
-   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
-   * @param params Set this parameter in order to choose which entity fields you want to retrieve
-   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
+   * @param responseFields Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields.
+   * @param params Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to retrieve
+   * @param exclude Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
    */
   def productAttributeList(productId: String, start: Option[Int] = None, count: Option[Int] = None, pageCursor: Option[String] = None, attributeId: Option[String] = None, variantId: Option[String] = None, attributeGroupId: Option[String] = None, langId: Option[String] = None, storeId: Option[String] = None, setName: Option[String] = None, sortBy: Option[String] = None, sortDirection: Option[String] = None, responseFields: Option[String] = None, params: Option[String] = None, exclude: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseProductAttributeList] =
     ApiRequest[ModelResponseProductAttributeList](ApiMethods.GET, baseUrl, "/product.attribute.list.json", "application/json")
@@ -254,9 +254,9 @@ class ProductApi(baseUrl: String) {
    * @param modifiedFrom Retrieve entities from their modification date
    * @param modifiedTo Retrieve entities to their modification date
    * @param avail Defines category's visibility status
-   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
-   * @param params Set this parameter in order to choose which entity fields you want to retrieve
-   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
+   * @param responseFields Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields.
+   * @param params Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to retrieve
+   * @param exclude Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
    */
   def productBrandList(start: Option[Int] = None, count: Option[Int] = None, pageCursor: Option[String] = None, brandIds: Option[String] = None, categoryId: Option[String] = None, parentId: Option[String] = None, storeId: Option[String] = None, langId: Option[String] = None, findWhere: Option[String] = None, findValue: Option[String] = None, createdFrom: Option[String] = None, createdTo: Option[String] = None, modifiedFrom: Option[String] = None, modifiedTo: Option[String] = None, avail: Option[Boolean] = None, responseFields: Option[String] = None, params: Option[String] = None, exclude: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseProductBrandList] =
     ApiRequest[ModelResponseProductBrandList](ApiMethods.GET, baseUrl, "/product.brand.list.json", "application/json")
@@ -324,9 +324,9 @@ class ProductApi(baseUrl: String) {
    * @param storeId Store Id
    * @param langId Language id
    * @param currencyId Currency Id
-   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
-   * @param params Set this parameter in order to choose which entity fields you want to retrieve
-   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
+   * @param responseFields Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields.
+   * @param params Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to retrieve
+   * @param exclude Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
    * @param useLatestApiVersion Use the latest platform API version
    */
   def productChildItemInfo(productId: String, id: String, storeId: Option[String] = None, langId: Option[String] = None, currencyId: Option[String] = None, responseFields: Option[String] = None, params: Option[String] = None, exclude: Option[String] = None, useLatestApiVersion: Option[Boolean] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ProductChildItemInfo200Response] =
@@ -372,9 +372,9 @@ class ProductApi(baseUrl: String) {
    * @param modifiedFrom Retrieve entities from their modification date
    * @param modifiedTo Retrieve entities to their modification date
    * @param returnGlobal Determines the type of products to be returned. If set to 'true', only global products will be returned; if set to 'false', only local products will be returned.
-   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
-   * @param params Set this parameter in order to choose which entity fields you want to retrieve
-   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
+   * @param responseFields Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields.
+   * @param params Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to retrieve
+   * @param exclude Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
    * @param reportRequestId Report request id
    * @param disableReportCache Disable report cache for current request
    * @param useLatestApiVersion Use the latest platform API version
@@ -528,9 +528,9 @@ class ProductApi(baseUrl: String) {
    * @param pageCursor Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
    * @param default Specifies the set of default/not default currencies
    * @param avail Specifies the set of available/not available currencies
-   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
-   * @param params Set this parameter in order to choose which entity fields you want to retrieve
-   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
+   * @param responseFields Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields.
+   * @param params Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to retrieve
+   * @param exclude Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
    */
   def productCurrencyList(start: Option[Int] = None, count: Option[Int] = None, pageCursor: Option[String] = None, default: Option[Boolean] = None, avail: Option[Boolean] = None, responseFields: Option[String] = None, params: Option[String] = None, exclude: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseProductCurrencyList] =
     ApiRequest[ModelResponseProductCurrencyList](ApiMethods.GET, baseUrl, "/product.currency.list.json", "application/json")
@@ -718,9 +718,9 @@ class ProductApi(baseUrl: String) {
    * @param vendorId Vendor Id
    * @param langId Retrieves product info specified by language id
    * @param currencyId Currency Id
-   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
-   * @param params Set this parameter in order to choose which entity fields you want to retrieve
-   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
+   * @param responseFields Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields.
+   * @param params Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to retrieve
+   * @param exclude Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
    * @param reportRequestId Report request id
    * @param disableReportCache Disable report cache for current request
    * @param useLatestApiVersion Use the latest platform API version
@@ -780,9 +780,9 @@ class ProductApi(baseUrl: String) {
    * @param findValue Entity search that is specified by some value
    * @param findWhere Product search that is specified by field
    * @param returnGlobal Determines the type of products to be returned. If set to 'true', only global products will be returned; if set to 'false', only local products will be returned.
-   * @param params Set this parameter in order to choose which entity fields you want to retrieve
-   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
-   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
+   * @param params Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to retrieve
+   * @param responseFields Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields.
+   * @param exclude Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
    * @param sortBy Set field to sort by
    * @param sortDirection Set sorting direction
    * @param reportRequestId Report request id
@@ -966,9 +966,9 @@ class ProductApi(baseUrl: String) {
    * @param productId Retrieves products' options specified by product id
    * @param langId Language id
    * @param storeId Store Id
-   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
-   * @param params Set this parameter in order to choose which entity fields you want to retrieve
-   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
+   * @param responseFields Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields.
+   * @param params Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to retrieve
+   * @param exclude Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
    */
   def productOptionList(start: Option[Int] = None, count: Option[Int] = None, productId: Option[String] = None, langId: Option[String] = None, storeId: Option[String] = None, responseFields: Option[String] = None, params: Option[String] = None, exclude: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseProductOptionList] =
     ApiRequest[ModelResponseProductOptionList](ApiMethods.GET, baseUrl, "/product.option.list.json", "application/json")
@@ -1194,9 +1194,9 @@ class ProductApi(baseUrl: String) {
    * @param customerId Retrieves orders specified by customer id
    * @param sortBy Set field to sort by
    * @param sortDirection Set sorting direction
-   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
-   * @param params Set this parameter in order to choose which entity fields you want to retrieve
-   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
+   * @param responseFields Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields.
+   * @param params Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to retrieve
+   * @param exclude Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
    */
   def productReviewList(productId: String, start: Option[Int] = None, count: Option[Int] = None, pageCursor: Option[String] = None, ids: Option[String] = None, storeId: Option[String] = None, langId: Option[String] = None, status: Option[String] = None, createdFrom: Option[String] = None, createdTo: Option[String] = None, customerId: Option[String] = None, sortBy: Option[String] = None, sortDirection: Option[String] = None, responseFields: Option[String] = None, params: Option[String] = None, exclude: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseProductReviewList] =
     ApiRequest[ModelResponseProductReviewList](ApiMethods.GET, baseUrl, "/product.review.list.json", "application/json")

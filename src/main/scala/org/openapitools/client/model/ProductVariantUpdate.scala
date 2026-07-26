@@ -57,19 +57,19 @@ case class ProductVariantUpdate (
   taxClassId: Option[String] = None,
   /* Defines whether the product is virtual */
   isVirtual: Option[Boolean] = None,
-  /* Defines inventory tracking for product variant */
+  /* Defines inventory tracking for product variant. When true, quantity sets the stock level and the stock status is derived from it; when false, quantity is ignored and in_stock sets the status directly. */
   manageStock: Option[Boolean] = None,
-  /* Set stock status */
+  /* Set stock status. Effective only when manage_stock is false — when stock is managed, the status is derived from quantity automatically and this parameter is ignored. */
   inStock: Option[Boolean] = None,
   /* This parameter is used for selecting a warehouse where you need to set/modify a product quantity. */
   warehouseId: Option[String] = None,
   /* This parameter allows to reserve/unreserve product variants quantity. */
   reserveQuantity: Option[BigDecimal] = None,
-  /* Defines new products' variants quantity */
+  /* Defines new products' variants quantity. Effective only when manage_stock is true — otherwise the value is ignored. To enable stock tracking and set a quantity in one call, pass manage_stock=true together with quantity. */
   quantity: Option[BigDecimal] = None,
-  /* Defines the incremental changes in product quantity */
+  /* Defines the incremental changes in product quantity. Effective only when manage_stock is true — otherwise the value is ignored. */
   increaseQuantity: Option[BigDecimal] = None,
-  /* Defines the decrement changes in product quantity */
+  /* Defines the decrement changes in product quantity. Effective only when manage_stock is true — otherwise the value is ignored. */
   reduceQuantity: Option[BigDecimal] = None,
   /* Indicates whether prices include tax. */
   pricesIncTax: Option[Boolean] = None,

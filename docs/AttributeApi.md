@@ -416,11 +416,11 @@ object Example extends App {
 
     val count: Int = 20 // Int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
 
-    val responseFields: String = {result} // String | Set this parameter in order to choose which entity fields you want to retrieve
+    val responseFields: String = {result} // String | Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields.
 
-    val params: String = id,name // String | Set this parameter in order to choose which entity fields you want to retrieve
+    val params: String = id,name // String | Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to retrieve
 
-    val exclude: String = id,name // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
+    val exclude: String = id,name // String | Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
     
     val request = apiInstance.attributeAttributesetList(start, count, responseFields, params, exclude)
     val response = apiInvoker.execute(request)
@@ -452,9 +452,9 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **start** | **Int**| This parameter sets the number from which you want to get entities | [optional]
  **count** | **Int**| This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional]
- **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
- **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
- **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional]
+ **responseFields** | **String**| Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields. | [optional]
+ **params** | **String**| Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to retrieve | [optional]
+ **exclude** | **String**| Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional]
 
 ### Return type
 
@@ -711,11 +711,11 @@ object Example extends App {
 
     val langId: String = 3 // String | Language id
 
-    val responseFields: String = {result} // String | Set this parameter in order to choose which entity fields you want to retrieve
+    val responseFields: String = {result} // String | Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields.
 
-    val params: String = id,name // String | Set this parameter in order to choose which entity fields you want to retrieve
+    val params: String = id,name // String | Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to retrieve
 
-    val exclude: String = id,name // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
+    val exclude: String = id,name // String | Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
     
     val request = apiInstance.attributeGroupList(start, count, attributeSetId, langId, responseFields, params, exclude)
     val response = apiInvoker.execute(request)
@@ -749,9 +749,9 @@ Name | Type | Description  | Notes
  **count** | **Int**| This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional]
  **attributeSetId** | **String**| Attribute set id | [optional]
  **langId** | **String**| Language id | [optional]
- **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
- **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
- **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional]
+ **responseFields** | **String**| Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields. | [optional]
+ **params** | **String**| Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to retrieve | [optional]
+ **exclude** | **String**| Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional]
 
 ### Return type
 
@@ -815,11 +815,11 @@ object Example extends App {
 
     val langId: String = 3 // String | Language id
 
-    val responseFields: String = {result} // String | Set this parameter in order to choose which entity fields you want to retrieve
+    val responseFields: String = {result} // String | Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields.
 
-    val params: String = force_all // String | Set this parameter in order to choose which entity fields you want to retrieve
+    val params: String = force_all // String | Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to retrieve
 
-    val exclude: String = name // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
+    val exclude: String = name // String | Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
     
     val request = apiInstance.attributeInfo(id, attributeSetId, storeId, langId, responseFields, params, exclude)
     val response = apiInvoker.execute(request)
@@ -853,9 +853,9 @@ Name | Type | Description  | Notes
  **attributeSetId** | **String**| Attribute set id | [optional]
  **storeId** | **String**| Store Id | [optional]
  **langId** | **String**| Language id | [optional]
- **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
- **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
- **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional]
+ **responseFields** | **String**| Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields. | [optional]
+ **params** | **String**| Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to retrieve | [optional]
+ **exclude** | **String**| Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional]
 
 ### Return type
 
@@ -933,11 +933,11 @@ object Example extends App {
 
     val system: Boolean = false // Boolean | True if attribute is system
 
-    val responseFields: String = {return_code,return_message,pagination,result} // String | Set this parameter in order to choose which entity fields you want to retrieve
+    val responseFields: String = {return_code,return_message,pagination,result} // String | Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields.
 
-    val params: String = id,name // String | Set this parameter in order to choose which entity fields you want to retrieve
+    val params: String = id,name // String | Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to retrieve
 
-    val exclude: String = id,name // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
+    val exclude: String = id,name // String | Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
     
     val request = apiInstance.attributeList(start, count, pageCursor, attributeIds, attributeSetId, storeId, langId, `type`, visible, required, system, responseFields, params, exclude)
     val response = apiInvoker.execute(request)
@@ -978,9 +978,9 @@ Name | Type | Description  | Notes
  **visible** | **Boolean**| Filter items by visibility status | [optional]
  **required** | **Boolean**| Defines if the option is required | [optional]
  **system** | **Boolean**| True if attribute is system | [optional]
- **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
- **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
- **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional]
+ **responseFields** | **String**| Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields. | [optional]
+ **params** | **String**| Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to retrieve | [optional]
+ **exclude** | **String**| Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional]
 
 ### Return type
 

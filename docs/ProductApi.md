@@ -335,11 +335,11 @@ object Example extends App {
 
     val sortDirection: String = asc // String | Set sorting direction
 
-    val responseFields: String = {pagination,result{attribute}} // String | Set this parameter in order to choose which entity fields you want to retrieve
+    val responseFields: String = {pagination,result{attribute}} // String | Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields.
 
-    val params: String = attribute_id,name // String | Set this parameter in order to choose which entity fields you want to retrieve
+    val params: String = attribute_id,name // String | Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to retrieve
 
-    val exclude: String = attribute_id,name // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
+    val exclude: String = attribute_id,name // String | Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
     
     val request = apiInstance.productAttributeList(productId, start, count, pageCursor, attributeId, variantId, attributeGroupId, langId, storeId, setName, sortBy, sortDirection, responseFields, params, exclude)
     val response = apiInvoker.execute(request)
@@ -381,9 +381,9 @@ Name | Type | Description  | Notes
  **setName** | **String**| Retrieves attributes specified by set_name in Magento | [optional]
  **sortBy** | **String**| Set field to sort by | [optional]
  **sortDirection** | **String**| Set sorting direction | [optional]
- **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
- **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
- **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional]
+ **responseFields** | **String**| Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields. | [optional]
+ **params** | **String**| Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to retrieve | [optional]
+ **exclude** | **String**| Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional]
 
 ### Return type
 
@@ -683,11 +683,11 @@ object Example extends App {
 
     val avail: Boolean = false // Boolean | Defines category's visibility status
 
-    val responseFields: String = {return_code,return_message,pagination,result} // String | Set this parameter in order to choose which entity fields you want to retrieve
+    val responseFields: String = {return_code,return_message,pagination,result} // String | Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields.
 
-    val params: String = id,model,price,images // String | Set this parameter in order to choose which entity fields you want to retrieve
+    val params: String = id,model,price,images // String | Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to retrieve
 
-    val exclude: String = false // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
+    val exclude: String = false // String | Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
     
     val request = apiInstance.productBrandList(start, count, pageCursor, brandIds, categoryId, parentId, storeId, langId, findWhere, findValue, createdFrom, createdTo, modifiedFrom, modifiedTo, avail, responseFields, params, exclude)
     val response = apiInvoker.execute(request)
@@ -732,9 +732,9 @@ Name | Type | Description  | Notes
  **modifiedFrom** | **String**| Retrieve entities from their modification date | [optional]
  **modifiedTo** | **String**| Retrieve entities to their modification date | [optional]
  **avail** | **Boolean**| Defines category&#39;s visibility status | [optional]
- **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
- **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
- **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional]
+ **responseFields** | **String**| Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields. | [optional]
+ **params** | **String**| Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to retrieve | [optional]
+ **exclude** | **String**| Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional]
 
 ### Return type
 
@@ -895,11 +895,11 @@ object Example extends App {
 
     val currencyId: String = usd // String | Currency Id
 
-    val responseFields: String = {result{id,parent_id,sku,upc,images,combination}} // String | Set this parameter in order to choose which entity fields you want to retrieve
+    val responseFields: String = {result{id,parent_id,sku,upc,images,combination}} // String | Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields.
 
-    val params: String = id,model,price,images // String | Set this parameter in order to choose which entity fields you want to retrieve
+    val params: String = id,model,price,images // String | Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to retrieve
 
-    val exclude: String = false // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
+    val exclude: String = false // String | Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
 
     val useLatestApiVersion: Boolean = true // Boolean | Use the latest platform API version
     
@@ -936,9 +936,9 @@ Name | Type | Description  | Notes
  **storeId** | **String**| Store Id | [optional]
  **langId** | **String**| Language id | [optional]
  **currencyId** | **String**| Currency Id | [optional]
- **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
- **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
- **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional]
+ **responseFields** | **String**| Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields. | [optional]
+ **params** | **String**| Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to retrieve | [optional]
+ **exclude** | **String**| Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional]
  **useLatestApiVersion** | **Boolean**| Use the latest platform API version | [optional]
 
 ### Return type
@@ -1029,11 +1029,11 @@ object Example extends App {
 
     val returnGlobal: Boolean = false // Boolean | Determines the type of products to be returned. If set to 'true', only global products will be returned; if set to 'false', only local products will be returned.
 
-    val responseFields: String = {result{children{id,parent_id,sku,upc,images,combination}}} // String | Set this parameter in order to choose which entity fields you want to retrieve
+    val responseFields: String = {result{children{id,parent_id,sku,upc,images,combination}}} // String | Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields.
 
-    val params: String = id,model,price,images // String | Set this parameter in order to choose which entity fields you want to retrieve
+    val params: String = id,model,price,images // String | Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to retrieve
 
-    val exclude: String = false // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
+    val exclude: String = false // String | Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
 
     val reportRequestId: String = 105245017661 // String | Report request id
 
@@ -1086,9 +1086,9 @@ Name | Type | Description  | Notes
  **modifiedFrom** | **String**| Retrieve entities from their modification date | [optional]
  **modifiedTo** | **String**| Retrieve entities to their modification date | [optional]
  **returnGlobal** | **Boolean**| Determines the type of products to be returned. If set to &#39;true&#39;, only global products will be returned; if set to &#39;false&#39;, only local products will be returned. | [optional]
- **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
- **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
- **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional]
+ **responseFields** | **String**| Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields. | [optional]
+ **params** | **String**| Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to retrieve | [optional]
+ **exclude** | **String**| Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional]
  **reportRequestId** | **String**| Report request id | [optional]
  **disableReportCache** | **Boolean**| Disable report cache for current request | [optional]
  **useLatestApiVersion** | **Boolean**| Use the latest platform API version | [optional]
@@ -1426,11 +1426,11 @@ object Example extends App {
 
     val avail: Boolean = false // Boolean | Specifies the set of available/not available currencies
 
-    val responseFields: String = {return_message,pagination,result{currency}} // String | Set this parameter in order to choose which entity fields you want to retrieve
+    val responseFields: String = {return_message,pagination,result{currency}} // String | Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields.
 
-    val params: String = name,iso3,default,avail // String | Set this parameter in order to choose which entity fields you want to retrieve
+    val params: String = name,iso3,default,avail // String | Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to retrieve
 
-    val exclude: String = name,iso3,default,avail // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
+    val exclude: String = name,iso3,default,avail // String | Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
     
     val request = apiInstance.productCurrencyList(start, count, pageCursor, default, avail, responseFields, params, exclude)
     val response = apiInvoker.execute(request)
@@ -1465,9 +1465,9 @@ Name | Type | Description  | Notes
  **pageCursor** | **String**| Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional]
  **default** | **Boolean**| Specifies the set of default/not default currencies | [optional]
  **avail** | **Boolean**| Specifies the set of available/not available currencies | [optional]
- **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
- **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
- **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional]
+ **responseFields** | **String**| Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields. | [optional]
+ **params** | **String**| Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to retrieve | [optional]
+ **exclude** | **String**| Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional]
 
 ### Return type
 
@@ -2105,11 +2105,11 @@ object Example extends App {
 
     val currencyId: String = usd // String | Currency Id
 
-    val responseFields: String = {result{id,name,price,images}} // String | Set this parameter in order to choose which entity fields you want to retrieve
+    val responseFields: String = {result{id,name,price,images}} // String | Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields.
 
-    val params: String = id,model,price,images // String | Set this parameter in order to choose which entity fields you want to retrieve
+    val params: String = id,model,price,images // String | Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to retrieve
 
-    val exclude: String = false // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
+    val exclude: String = false // String | Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
 
     val reportRequestId: String = 105245017661 // String | Report request id
 
@@ -2150,9 +2150,9 @@ Name | Type | Description  | Notes
  **vendorId** | **String**| Vendor Id | [optional]
  **langId** | **String**| Retrieves product info specified by language id | [optional]
  **currencyId** | **String**| Currency Id | [optional]
- **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
- **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
- **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional]
+ **responseFields** | **String**| Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields. | [optional]
+ **params** | **String**| Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to retrieve | [optional]
+ **exclude** | **String**| Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional]
  **reportRequestId** | **String**| Report request id | [optional]
  **disableReportCache** | **Boolean**| Disable report cache for current request | [optional]
  **useLatestApiVersion** | **Boolean**| Use the latest platform API version | [optional]
@@ -2265,11 +2265,11 @@ object Example extends App {
 
     val returnGlobal: Boolean = false // Boolean | Determines the type of products to be returned. If set to 'true', only global products will be returned; if set to 'false', only local products will be returned.
 
-    val params: String = id,model,price,images // String | Set this parameter in order to choose which entity fields you want to retrieve
+    val params: String = id,model,price,images // String | Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to retrieve
 
-    val responseFields: String = {return_code,pagination,result{product{id,name,price,images}}} // String | Set this parameter in order to choose which entity fields you want to retrieve
+    val responseFields: String = {return_code,pagination,result{product{id,name,price,images}}} // String | Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields.
 
-    val exclude: String = false // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
+    val exclude: String = false // String | Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
 
     val sortBy: String = value_id // String | Set field to sort by
 
@@ -2340,9 +2340,9 @@ Name | Type | Description  | Notes
  **findValue** | **String**| Entity search that is specified by some value | [optional]
  **findWhere** | **String**| Product search that is specified by field | [optional]
  **returnGlobal** | **Boolean**| Determines the type of products to be returned. If set to &#39;true&#39;, only global products will be returned; if set to &#39;false&#39;, only local products will be returned. | [optional]
- **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
- **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
- **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional]
+ **params** | **String**| Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to retrieve | [optional]
+ **responseFields** | **String**| Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields. | [optional]
+ **exclude** | **String**| Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional]
  **sortBy** | **String**| Set field to sort by | [optional]
  **sortDirection** | **String**| Set sorting direction | [optional]
  **reportRequestId** | **String**| Report request id | [optional]
@@ -2814,11 +2814,11 @@ object Example extends App {
 
     val storeId: String = 1 // String | Store Id
 
-    val responseFields: String = {return_code,return_message,pagination,result} // String | Set this parameter in order to choose which entity fields you want to retrieve
+    val responseFields: String = {return_code,return_message,pagination,result} // String | Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields.
 
-    val params: String = id,name,sort_order // String | Set this parameter in order to choose which entity fields you want to retrieve
+    val params: String = id,name,sort_order // String | Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to retrieve
 
-    val exclude: String = id,name,sort_order // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
+    val exclude: String = id,name,sort_order // String | Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
     
     val request = apiInstance.productOptionList(start, count, productId, langId, storeId, responseFields, params, exclude)
     val response = apiInvoker.execute(request)
@@ -2853,9 +2853,9 @@ Name | Type | Description  | Notes
  **productId** | **String**| Retrieves products&#39; options specified by product id | [optional]
  **langId** | **String**| Language id | [optional]
  **storeId** | **String**| Store Id | [optional]
- **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
- **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
- **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional]
+ **responseFields** | **String**| Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields. | [optional]
+ **params** | **String**| Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to retrieve | [optional]
+ **exclude** | **String**| Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional]
 
 ### Return type
 
@@ -3611,11 +3611,11 @@ object Example extends App {
 
     val sortDirection: String = asc // String | Set sorting direction
 
-    val responseFields: String = {return_code,return_message,pagination,result} // String | Set this parameter in order to choose which entity fields you want to retrieve
+    val responseFields: String = {return_code,return_message,pagination,result} // String | Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields.
 
-    val params: String = id,model,price,images // String | Set this parameter in order to choose which entity fields you want to retrieve
+    val params: String = id,model,price,images // String | Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to retrieve
 
-    val exclude: String = false // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
+    val exclude: String = false // String | Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
     
     val request = apiInstance.productReviewList(productId, start, count, pageCursor, ids, storeId, langId, status, createdFrom, createdTo, customerId, sortBy, sortDirection, responseFields, params, exclude)
     val response = apiInvoker.execute(request)
@@ -3658,9 +3658,9 @@ Name | Type | Description  | Notes
  **customerId** | **String**| Retrieves orders specified by customer id | [optional]
  **sortBy** | **String**| Set field to sort by | [optional]
  **sortDirection** | **String**| Set sorting direction | [optional]
- **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
- **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
- **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional]
+ **responseFields** | **String**| Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields. | [optional]
+ **params** | **String**| Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to retrieve | [optional]
+ **exclude** | **String**| Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional]
 
 ### Return type
 

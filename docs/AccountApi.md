@@ -134,17 +134,17 @@ object Example extends App {
     val apiInstance = AccountApi("https://api.api2cart.local.com/v1.1")
     val storeUrl: String = http://mystore.com // String | A web address of a store
 
-    val storeKey: String = ab37fc230bc5df63a5be1b11220949be // String | Find store by store key
+    val storeKey: String = ab37fc230bc5df63a5be1b11220949be // String | Optional filter: return only the connected store whose store key matches this value. A store key is the unique 32-character identifier of a connected store, returned as store_key here and by account.cart.add.
 
-    val requestFromDate: String = 2010-07-29 // String | Retrieve entities from their creation date
+    val requestFromDate: String = 2010-07-29 // String | Start date of the period for counting API requests made to each connection. Set together with request_to_date to include each store's total_calls (number of API requests in that period) in the response.
 
-    val requestToDate: String = 2100-08-29 // String | Retrieve entities to their creation date
+    val requestToDate: String = 2100-08-29 // String | End date of the period for counting API requests made to each connection. Set together with request_from_date to include each store's total_calls (number of API requests in that period) in the response.
 
     val customLabel: String = This is test store // String | Defines a custom label for the store in the app
 
-    val params: String = url,store_key // String | Set this parameter in order to choose which entity fields you want to retrieve
+    val params: String = url,store_key // String | Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to retrieve
 
-    val exclude: String = url,store_key // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
+    val exclude: String = url,store_key // String | Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
     
     val request = apiInstance.accountCartList(storeUrl, storeKey, requestFromDate, requestToDate, customLabel, params, exclude)
     val response = apiInvoker.execute(request)
@@ -175,12 +175,12 @@ object Example extends App {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **storeUrl** | **String**| A web address of a store | [optional]
- **storeKey** | **String**| Find store by store key | [optional]
- **requestFromDate** | **String**| Retrieve entities from their creation date | [optional]
- **requestToDate** | **String**| Retrieve entities to their creation date | [optional]
+ **storeKey** | **String**| Optional filter: return only the connected store whose store key matches this value. A store key is the unique 32-character identifier of a connected store, returned as store_key here and by account.cart.add. | [optional]
+ **requestFromDate** | **String**| Start date of the period for counting API requests made to each connection. Set together with request_to_date to include each store&#39;s total_calls (number of API requests in that period) in the response. | [optional]
+ **requestToDate** | **String**| End date of the period for counting API requests made to each connection. Set together with request_from_date to include each store&#39;s total_calls (number of API requests in that period) in the response. | [optional]
  **customLabel** | **String**| Defines a custom label for the store in the app | [optional]
- **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
- **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional]
+ **params** | **String**| Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to retrieve | [optional]
+ **exclude** | **String**| Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional]
 
 ### Return type
 
@@ -918,7 +918,7 @@ ApiRequest[[**AccountFailedWebhooks200Response**](AccountFailedWebhooks200Respon
 
 ## accountSupportedPlatforms
 
-> accountSupportedPlatforms(): ApiRequest[ModelResponseAccountSupportedPlatforms]
+> accountSupportedPlatforms(accountSupportedPlatformsRequest): ApiRequest[ModelResponseAccountSupportedPlatforms]
 
 account.supported_platforms
 
@@ -946,8 +946,10 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = AccountApi("https://api.api2cart.local.com/v1.1")    
-    val request = apiInstance.accountSupportedPlatforms()
+    val apiInstance = AccountApi("https://api.api2cart.local.com/v1.1")
+    val cartId: String = Opencart14 // String | Filter by integration identifier (e.g. 'Shopify'). If omitted, the method returns all integrations.
+    
+    val request = apiInstance.accountSupportedPlatforms(cartId)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -972,7 +974,10 @@ object Example extends App {
 
 ### Parameters
 
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **cartId** | **String**| Filter by integration identifier (e.g. &#39;Shopify&#39;). If omitted, the method returns all integrations. | [optional]
 
 ### Return type
 

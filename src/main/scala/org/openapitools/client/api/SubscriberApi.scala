@@ -44,9 +44,9 @@ class SubscriberApi(baseUrl: String) {
    * @param createdTo Retrieve entities to their creation date
    * @param modifiedFrom Retrieve entities from their modification date
    * @param modifiedTo Retrieve entities to their modification date
-   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
-   * @param params Set this parameter in order to choose which entity fields you want to retrieve
-   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
+   * @param responseFields Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields.
+   * @param params Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to retrieve
+   * @param exclude Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
    */
   def subscriberList(ids: Option[String] = None, start: Option[Int] = None, count: Option[Int] = None, pageCursor: Option[String] = None, subscribed: Option[Boolean] = None, storeId: Option[String] = None, email: Option[String] = None, createdFrom: Option[String] = None, createdTo: Option[String] = None, modifiedFrom: Option[String] = None, modifiedTo: Option[String] = None, responseFields: Option[String] = None, params: Option[String] = None, exclude: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseSubscriberList] =
     ApiRequest[ModelResponseSubscriberList](ApiMethods.GET, baseUrl, "/subscriber.list.json", "application/json")

@@ -78,9 +78,9 @@ class OrderApi(baseUrl: String) {
    * @param modifiedTo Retrieve entities to their modification date
    * @param skipEmptyEmail Filter empty emails
    * @param roundingPrecision <p>Specifies the rounding precision for fractional numeric values (such as prices, taxes, and weights).</p> <p>Supported values range from <b>1</b> to <b>6</b>.</p> <p>The default rounding precision may vary depending on the platform. You can retrieve the default value using the <strong>cart.info</strong> method in the <code>default_rounding_precision</code> field. </p><p>Values are rounded to the nearest number at the specified precision. Fractions of .5 or higher are rounded up, while fractions lower than .5 are rounded down.</p>
-   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
-   * @param params Set this parameter in order to choose which entity fields you want to retrieve
-   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
+   * @param responseFields Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields.
+   * @param params Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to retrieve
+   * @param exclude Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
    */
   def orderAbandonedList(start: Option[Int] = None, count: Option[Int] = None, pageCursor: Option[String] = None, customerId: Option[String] = None, customerEmail: Option[String] = None, storeId: Option[String] = None, createdFrom: Option[String] = None, createdTo: Option[String] = None, modifiedFrom: Option[String] = None, modifiedTo: Option[String] = None, skipEmptyEmail: Option[Boolean] = None, roundingPrecision: Option[Int] = None, responseFields: Option[String] = None, params: Option[String] = None, exclude: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseOrderAbandonedList] =
     ApiRequest[ModelResponseOrderAbandonedList](ApiMethods.GET, baseUrl, "/order.abandoned.list.json", "application/json")
@@ -256,9 +256,9 @@ class OrderApi(baseUrl: String) {
    * @param id Retrieves order info specified by id
    * @param orderId Retrieves order’s info specified by order id
    * @param storeId Defines store id where the order should be found
-   * @param params Set this parameter in order to choose which entity fields you want to retrieve
-   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
-   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
+   * @param params Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to retrieve
+   * @param responseFields Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields.
+   * @param exclude Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
    * @param enableCache If the value is 'true' and order exist in our cache, we will return order.info response from cache
    * @param useLatestApiVersion Use the latest platform API version
    * @param roundingPrecision <p>Specifies the rounding precision for fractional numeric values (such as prices, taxes, and weights).</p> <p>Supported values range from <b>1</b> to <b>6</b>.</p> <p>The default rounding precision may vary depending on the platform. You can retrieve the default value using the <strong>cart.info</strong> method in the <code>default_rounding_precision</code> field. </p><p>Values are rounded to the nearest number at the specified precision. Fractions of .5 or higher are rounded up, while fractions lower than .5 are rounded down.</p>
@@ -325,9 +325,9 @@ class OrderApi(baseUrl: String) {
    * @param tags Order tags
    * @param sortBy Set field to sort by
    * @param sortDirection Set sorting direction
-   * @param params Set this parameter in order to choose which entity fields you want to retrieve
-   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
-   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
+   * @param params Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to retrieve
+   * @param responseFields Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields.
+   * @param exclude Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
    * @param enableCache If the value is 'true', we will cache orders for a 15 minutes in order to increase speed and reduce requests throttling for some methods and shoping platforms (for example order.shipment.add)
    * @param useLatestApiVersion Use the latest platform API version
    * @param roundingPrecision <p>Specifies the rounding precision for fractional numeric values (such as prices, taxes, and weights).</p> <p>Supported values range from <b>1</b> to <b>6</b>.</p> <p>The default rounding precision may vary depending on the platform. You can retrieve the default value using the <strong>cart.info</strong> method in the <code>default_rounding_precision</code> field. </p><p>Values are rounded to the nearest number at the specified precision. Fractions of .5 or higher are rounded up, while fractions lower than .5 are rounded down.</p>
@@ -585,7 +585,7 @@ class OrderApi(baseUrl: String) {
    * @param start This parameter sets the number from which you want to get entities
    * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count=250
    * @param pageCursor Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
-   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
+   * @param responseFields Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields.
    */
   def orderShipmentEventList(shipmentId: String, orderId: Option[String] = None, storeId: Option[String] = None, start: Option[Int] = None, count: Option[Int] = None, pageCursor: Option[String] = None, responseFields: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseOrderShipmentEventList] =
     ApiRequest[ModelResponseOrderShipmentEventList](ApiMethods.GET, baseUrl, "/order.shipment.event.list.json", "application/json")
@@ -615,9 +615,9 @@ class OrderApi(baseUrl: String) {
    * @param orderId Defines the order id
    * @param start This parameter sets the number from which you want to get entities
    * @param storeId Store Id
-   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
-   * @param params Set this parameter in order to choose which entity fields you want to retrieve
-   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
+   * @param responseFields Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields.
+   * @param params Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to retrieve
+   * @param exclude Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
    */
   def orderShipmentInfo(id: String, orderId: String, start: Option[Int] = None, storeId: Option[String] = None, responseFields: Option[String] = None, params: Option[String] = None, exclude: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[OrderShipmentInfo200Response] =
     ApiRequest[OrderShipmentInfo200Response](ApiMethods.GET, baseUrl, "/order.shipment.info.json", "application/json")
@@ -652,9 +652,9 @@ class OrderApi(baseUrl: String) {
    * @param createdTo Retrieve entities to their creation date
    * @param modifiedFrom Retrieve entities from their modification date
    * @param modifiedTo Retrieve entities to their modification date
-   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
-   * @param params Set this parameter in order to choose which entity fields you want to retrieve
-   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
+   * @param responseFields Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields.
+   * @param params Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to retrieve
+   * @param exclude Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
    */
   def orderShipmentList(orderId: String, start: Option[Int] = None, count: Option[Int] = None, pageCursor: Option[String] = None, storeId: Option[String] = None, createdFrom: Option[String] = None, createdTo: Option[String] = None, modifiedFrom: Option[String] = None, modifiedTo: Option[String] = None, responseFields: Option[String] = None, params: Option[String] = None, exclude: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseOrderShipmentList] =
     ApiRequest[ModelResponseOrderShipmentList](ApiMethods.GET, baseUrl, "/order.shipment.list.json", "application/json")
@@ -728,7 +728,7 @@ class OrderApi(baseUrl: String) {
    * @param storeId Store Id
    * @param action Available statuses for the specified action.
    * @param allowUserDefinedOrderStatuses Indicates whether custom (user-defined) order statuses should be included in the response.
-   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
+   * @param responseFields Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields.
    */
   def orderStatusList(storeId: Option[String] = None, action: Option[String] = None, allowUserDefinedOrderStatuses: Option[Boolean] = None, responseFields: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseOrderStatusList] =
     ApiRequest[ModelResponseOrderStatusList](ApiMethods.GET, baseUrl, "/order.status.list.json", "application/json")
@@ -755,9 +755,9 @@ class OrderApi(baseUrl: String) {
    * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count=250
    * @param pageCursor Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
    * @param storeId Store Id
-   * @param params Set this parameter in order to choose which entity fields you want to retrieve
-   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
-   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
+   * @param params Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to retrieve
+   * @param responseFields Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields.
+   * @param exclude Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
    */
   def orderTransactionList(orderIds: String, count: Option[Int] = None, pageCursor: Option[String] = None, storeId: Option[String] = None, params: Option[String] = None, responseFields: Option[String] = None, exclude: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseOrderTransactionList] =
     ApiRequest[ModelResponseOrderTransactionList](ApiMethods.GET, baseUrl, "/order.transaction.list.json", "application/json")

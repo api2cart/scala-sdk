@@ -63,7 +63,7 @@ case class ProductUpdate (
   condition: Option[String] = None,
   /* Set visibility status */
   visible: Option[String] = None,
-  /* Set stock status */
+  /* Set stock status. Effective only when manage_stock is false — when stock is managed, the status is derived from quantity automatically and this parameter is ignored. */
   inStock: Option[Boolean] = None,
   /* Defines category's visibility status */
   avail: Option[Boolean] = None,
@@ -85,17 +85,17 @@ case class ProductUpdate (
   storeId: Option[String] = None,
   /* Language id */
   langId: Option[String] = None,
-  /* Defines new product's quantity */
+  /* Defines new product's quantity. Effective only when manage_stock is true — otherwise the value is ignored. To enable stock tracking and set a quantity in one call, pass manage_stock=true together with quantity. */
   quantity: Option[BigDecimal] = None,
   /* This parameter allows to reserve/unreserve product quantity. */
   reserveQuantity: Option[BigDecimal] = None,
-  /* Defines inventory tracking for product */
+  /* Defines inventory tracking for product. When true, quantity sets the stock level and the stock status is derived from it; when false, quantity is ignored and in_stock sets the status directly. */
   manageStock: Option[Boolean] = None,
   /* Set backorder status */
   backorderStatus: Option[String] = None,
-  /* Defines the incremental changes in product quantity */
+  /* Defines the incremental changes in product quantity. Effective only when manage_stock is true — otherwise the value is ignored. */
   increaseQuantity: Option[BigDecimal] = None,
-  /* Defines the decrement changes in product quantity */
+  /* Defines the decrement changes in product quantity. Effective only when manage_stock is true — otherwise the value is ignored. */
   reduceQuantity: Option[BigDecimal] = None,
   /* Specify the quantity threshold below which the product is considered low in stock */
   lowStockThreshold: Option[BigDecimal] = None,

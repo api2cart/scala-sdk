@@ -160,9 +160,9 @@ class AttributeApi(baseUrl: String) {
    * 
    * @param start This parameter sets the number from which you want to get entities
    * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count=250
-   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
-   * @param params Set this parameter in order to choose which entity fields you want to retrieve
-   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
+   * @param responseFields Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields.
+   * @param params Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to retrieve
+   * @param exclude Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
    */
   def attributeAttributesetList(start: Option[Int] = None, count: Option[Int] = None, responseFields: Option[String] = None, params: Option[String] = None, exclude: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseAttributeAttributesetList] =
     ApiRequest[ModelResponseAttributeAttributesetList](ApiMethods.GET, baseUrl, "/attribute.attributeset.list.json", "application/json")
@@ -244,9 +244,9 @@ class AttributeApi(baseUrl: String) {
    * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count=250
    * @param attributeSetId Attribute set id
    * @param langId Language id
-   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
-   * @param params Set this parameter in order to choose which entity fields you want to retrieve
-   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
+   * @param responseFields Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields.
+   * @param params Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to retrieve
+   * @param exclude Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
    */
   def attributeGroupList(start: Option[Int] = None, count: Option[Int] = None, attributeSetId: Option[String] = None, langId: Option[String] = None, responseFields: Option[String] = None, params: Option[String] = None, exclude: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseAttributeGroupList] =
     ApiRequest[ModelResponseAttributeGroupList](ApiMethods.GET, baseUrl, "/attribute.group.list.json", "application/json")
@@ -276,9 +276,9 @@ class AttributeApi(baseUrl: String) {
    * @param attributeSetId Attribute set id
    * @param storeId Store Id
    * @param langId Language id
-   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
-   * @param params Set this parameter in order to choose which entity fields you want to retrieve
-   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
+   * @param responseFields Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields.
+   * @param params Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to retrieve
+   * @param exclude Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
    */
   def attributeInfo(id: String, attributeSetId: Option[String] = None, storeId: Option[String] = None, langId: Option[String] = None, responseFields: Option[String] = None, params: Option[String] = None, exclude: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[AttributeInfo200Response] =
     ApiRequest[AttributeInfo200Response](ApiMethods.GET, baseUrl, "/attribute.info.json", "application/json")
@@ -315,9 +315,9 @@ class AttributeApi(baseUrl: String) {
    * @param visible Filter items by visibility status
    * @param required Defines if the option is required
    * @param system True if attribute is system
-   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
-   * @param params Set this parameter in order to choose which entity fields you want to retrieve
-   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
+   * @param responseFields Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields.
+   * @param params Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to retrieve
+   * @param exclude Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
    */
   def attributeList(start: Option[Int] = None, count: Option[Int] = None, pageCursor: Option[String] = None, attributeIds: Option[String] = None, attributeSetId: Option[String] = None, storeId: Option[String] = None, langId: Option[String] = None, `type`: Option[String] = None, visible: Option[Boolean] = None, required: Option[Boolean] = None, system: Option[Boolean] = None, responseFields: Option[String] = None, params: Option[String] = None, exclude: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseAttributeList] =
     ApiRequest[ModelResponseAttributeList](ApiMethods.GET, baseUrl, "/attribute.list.json", "application/json")

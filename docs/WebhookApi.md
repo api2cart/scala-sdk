@@ -411,7 +411,7 @@ object Example extends App {
 
     val ids: String = 3,14,25 // String | List of сomma-separated webhook ids
 
-    val params: String = id,entity,callback,fields // String | Set this parameter in order to choose which entity fields you want to retrieve
+    val params: String = id,entity,callback,fields // String | Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to retrieve
     
     val request = apiInstance.webhookList(start, count, entity, action, active, ids, params)
     val response = apiInvoker.execute(request)
@@ -447,7 +447,7 @@ Name | Type | Description  | Notes
  **action** | **String**| The action you want to filter webhooks by (e.g. add, update, or delete) | [optional]
  **active** | **Boolean**| The webhook status you want to filter webhooks by | [optional]
  **ids** | **String**| List of сomma-separated webhook ids | [optional]
- **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
+ **params** | **String**| Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to retrieve | [optional]
 
 ### Return type
 

@@ -16,13 +16,13 @@ import org.openapitools.client.core.ApiModel
 case class WebhookUpdate (
   /* Webhook id */
   id: String,
-  /* Callback url that returns shipping rates. It should be able to accept POST requests with json data. */
+  /* Callback where the webhook should send the POST request when the event occurs */
   callback: Option[String] = None,
   /* The name you give to the webhook */
   label: Option[String] = None,
   /* Fields the webhook should send */
   fields: Option[String] = None,
-  /* Set this parameter in order to choose which entity fields you want to retrieve */
+  /* Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields. */
   responseFields: Option[String] = None,
   /* Webhook status */
   active: Option[Boolean] = None,

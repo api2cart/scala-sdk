@@ -45,7 +45,7 @@ class AnalyticsApi(baseUrl: String) {
    * @param sortBy Set field to sort by
    * @param sortDirection Set sorting direction
    * @param pageCursor Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
-   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
+   * @param responseFields Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields.
    */
   def analyticsCustomerReport(dateFrom: Option[String] = None, dateTo: Option[String] = None, count: Option[Int] = None, currencyId: Option[String] = None, storeId: Option[String] = None, customerType: Option[String] = None, email: Option[String] = None, sortBy: Option[String] = None, sortDirection: Option[String] = None, pageCursor: Option[String] = None, responseFields: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ResponseAnalyticsCustomerReportResult] =
     ApiRequest[ResponseAnalyticsCustomerReportResult](ApiMethods.GET, baseUrl, "/analytics.customer_report.json", "application/json")
@@ -85,7 +85,7 @@ class AnalyticsApi(baseUrl: String) {
    * @param sortBy Set field to sort by
    * @param sortDirection Set sorting direction
    * @param pageCursor Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
-   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
+   * @param responseFields Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields.
    */
   def analyticsProductReport(dateFrom: Option[String] = None, dateTo: Option[String] = None, count: Option[Int] = None, productIds: Option[String] = None, currencyId: Option[String] = None, storeId: Option[String] = None, categoriesIds: Option[String] = None, sortBy: Option[String] = None, sortDirection: Option[String] = None, pageCursor: Option[String] = None, responseFields: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ResponseAnalyticsProductReportResult] =
     ApiRequest[ResponseAnalyticsProductReportResult](ApiMethods.GET, baseUrl, "/analytics.product_report.json", "application/json")
@@ -124,7 +124,7 @@ class AnalyticsApi(baseUrl: String) {
    * @param storeId Store Id
    * @param sortBy Set field to sort by
    * @param sortDirection Set sorting direction
-   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
+   * @param responseFields Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields.
    */
   def analyticsReport(dateFrom: String, dateTo: Option[String] = None, interval: Option[String] = None, orderStatus: Option[String] = None, financialStatus: Option[String] = None, currencyId: Option[String] = None, storeId: Option[String] = None, sortBy: Option[String] = None, sortDirection: Option[String] = None, responseFields: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ResponseAnalyticsReportResult] =
     ApiRequest[ResponseAnalyticsReportResult](ApiMethods.GET, baseUrl, "/analytics.report.json", "application/json")

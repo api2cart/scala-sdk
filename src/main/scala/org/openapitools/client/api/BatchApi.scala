@@ -41,7 +41,7 @@ class BatchApi(baseUrl: String) {
    * @param createdTo Retrieve entities to their creation date
    * @param processedFrom Retrieve entities according to their processing datetime
    * @param processedTo Retrieve entities according to their processing datetime
-   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
+   * @param responseFields Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields.
    */
   def batchJobList(count: Option[Int] = None, pageCursor: Option[String] = None, ids: Option[String] = None, createdFrom: Option[String] = None, createdTo: Option[String] = None, processedFrom: Option[String] = None, processedTo: Option[String] = None, responseFields: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseBatchJobList] =
     ApiRequest[ModelResponseBatchJobList](ApiMethods.GET, baseUrl, "/batch.job.list.json", "application/json")

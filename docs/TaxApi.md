@@ -51,11 +51,11 @@ object Example extends App {
 
     val langId: String = 3 // String | Language id
 
-    val responseFields: String = {result{id,name,tax,tax_rates{id,countries{id,name,states},cities,address,zip_codes{is_range,range,fields}}}} // String | Set this parameter in order to choose which entity fields you want to retrieve
+    val responseFields: String = {result{id,name,tax,tax_rates{id,countries{id,name,states},cities,address,zip_codes{is_range,range,fields}}}} // String | Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields.
 
-    val params: String = tax_class_id,tax // String | Set this parameter in order to choose which entity fields you want to retrieve
+    val params: String = tax_class_id,tax // String | Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to retrieve
 
-    val exclude: String = tax_class_id,tax // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
+    val exclude: String = tax_class_id,tax // String | Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
     
     val request = apiInstance.taxClassInfo(taxClassId, storeId, langId, responseFields, params, exclude)
     val response = apiInvoker.execute(request)
@@ -88,9 +88,9 @@ Name | Type | Description  | Notes
  **taxClassId** | **String**| Retrieves taxes specified by class id |
  **storeId** | **String**| Store Id | [optional]
  **langId** | **String**| Language id | [optional]
- **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
- **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
- **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional]
+ **responseFields** | **String**| Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields. | [optional]
+ **params** | **String**| Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to retrieve | [optional]
+ **exclude** | **String**| Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional]
 
 ### Return type
 
@@ -166,7 +166,7 @@ object Example extends App {
 
     val modifiedFrom: String = 2010-07-29 13:45:52 // String | Retrieve entities from their modification date
 
-    val responseFields: String = {result} // String | Set this parameter in order to choose which entity fields you want to retrieve
+    val responseFields: String = {result} // String | Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields.
     
     val request = apiInstance.taxClassList(count, start, pageCursor, storeId, findValue, findWhere, createdTo, createdFrom, modifiedTo, modifiedFrom, responseFields)
     val response = apiInvoker.execute(request)
@@ -206,7 +206,7 @@ Name | Type | Description  | Notes
  **createdFrom** | **String**| Retrieve entities from their creation date | [optional]
  **modifiedTo** | **String**| Retrieve entities to their modification date | [optional]
  **modifiedFrom** | **String**| Retrieve entities from their modification date | [optional]
- **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
+ **responseFields** | **String**| Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields. | [optional]
 
 ### Return type
 

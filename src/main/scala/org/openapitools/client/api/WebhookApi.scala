@@ -127,7 +127,7 @@ class WebhookApi(baseUrl: String) {
    * @param action The action you want to filter webhooks by (e.g. add, update, or delete)
    * @param active The webhook status you want to filter webhooks by
    * @param ids List of сomma-separated webhook ids
-   * @param params Set this parameter in order to choose which entity fields you want to retrieve
+   * @param params Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to retrieve
    */
   def webhookList(start: Option[Int] = None, count: Option[Int] = None, entity: Option[String] = None, action: Option[String] = None, active: Option[Boolean] = None, ids: Option[String] = None, params: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[WebhookList200Response] =
     ApiRequest[WebhookList200Response](ApiMethods.GET, baseUrl, "/webhook.list.json", "application/json")

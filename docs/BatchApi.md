@@ -59,7 +59,7 @@ object Example extends App {
 
     val processedTo: String = 2100-08-29 13:45:52 // String | Retrieve entities according to their processing datetime
 
-    val responseFields: String = {result} // String | Set this parameter in order to choose which entity fields you want to retrieve
+    val responseFields: String = {result} // String | Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields.
     
     val request = apiInstance.batchJobList(count, pageCursor, ids, createdFrom, createdTo, processedFrom, processedTo, responseFields)
     val response = apiInvoker.execute(request)
@@ -96,7 +96,7 @@ Name | Type | Description  | Notes
  **createdTo** | **String**| Retrieve entities to their creation date | [optional]
  **processedFrom** | **String**| Retrieve entities according to their processing datetime | [optional]
  **processedTo** | **String**| Retrieve entities according to their processing datetime | [optional]
- **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional]
+ **responseFields** | **String**| Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields. | [optional]
 
 ### Return type
 

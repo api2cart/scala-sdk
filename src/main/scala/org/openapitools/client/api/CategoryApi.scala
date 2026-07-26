@@ -324,9 +324,9 @@ class CategoryApi(baseUrl: String) {
    * @param storeId Retrieves category info  specified by store id
    * @param langId Retrieves category info  specified by language id
    * @param schemaType The name of the requirements set for the provided schema.
-   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
-   * @param params Set this parameter in order to choose which entity fields you want to retrieve
-   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
+   * @param responseFields Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields.
+   * @param params Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to retrieve
+   * @param exclude Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
    * @param reportRequestId Report request id
    * @param disableReportCache Disable report cache for current request
    * @param useLatestApiVersion Use the latest platform API version
@@ -372,9 +372,9 @@ class CategoryApi(baseUrl: String) {
    * @param modifiedTo Retrieve entities to their modification date
    * @param findValue Entity search that is specified by some value
    * @param findWhere Category search that is specified by field
-   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
-   * @param params Set this parameter in order to choose which entity fields you want to retrieve
-   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
+   * @param responseFields Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields.
+   * @param params Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to retrieve
+   * @param exclude Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
    * @param reportRequestId Report request id
    * @param disableReportCache Disable report cache for current request
    * @param disableCache Disable cache for current request

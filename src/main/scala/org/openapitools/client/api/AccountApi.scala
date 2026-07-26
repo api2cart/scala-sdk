@@ -56,12 +56,12 @@ class AccountApi(baseUrl: String) {
    *   ApiKeyAuth (apiKey)
    * 
    * @param storeUrl A web address of a store
-   * @param storeKey Find store by store key
-   * @param requestFromDate Retrieve entities from their creation date
-   * @param requestToDate Retrieve entities to their creation date
+   * @param storeKey Optional filter: return only the connected store whose store key matches this value. A store key is the unique 32-character identifier of a connected store, returned as store_key here and by account.cart.add.
+   * @param requestFromDate Start date of the period for counting API requests made to each connection. Set together with request_to_date to include each store's total_calls (number of API requests in that period) in the response.
+   * @param requestToDate End date of the period for counting API requests made to each connection. Set together with request_from_date to include each store's total_calls (number of API requests in that period) in the response.
    * @param customLabel Defines a custom label for the store in the app
-   * @param params Set this parameter in order to choose which entity fields you want to retrieve
-   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
+   * @param params Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to retrieve
+   * @param exclude Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
    */
   def accountCartList(storeUrl: Option[String] = None, storeKey: Option[String] = None, requestFromDate: Option[String] = None, requestToDate: Option[String] = None, customLabel: Option[String] = None, params: Option[String] = None, exclude: Option[String] = None)(implicit apiKey: ApiKeyValue): ApiRequest[AccountCartList200Response] =
     ApiRequest[AccountCartList200Response](ApiMethods.GET, baseUrl, "/account.cart.list.json", "application/json")
@@ -482,10 +482,13 @@ class AccountApi(baseUrl: String) {
    * 
    * Available security schemes:
    *   ApiKeyAuth (apiKey)
+   * 
+   * @param cartId Filter by integration identifier (e.g. 'Shopify'). If omitted, the method returns all integrations.
    */
-  def accountSupportedPlatforms()(implicit apiKey: ApiKeyValue): ApiRequest[ModelResponseAccountSupportedPlatforms] =
+  def accountSupportedPlatforms(cartId: Option[String] = None)(implicit apiKey: ApiKeyValue): ApiRequest[ModelResponseAccountSupportedPlatforms] =
     ApiRequest[ModelResponseAccountSupportedPlatforms](ApiMethods.GET, baseUrl, "/account.supported_platforms.json", "application/json")
       .withApiKey(apiKey, "x-api-key", HEADER)
+      .withQueryParam("cart_id", cartId)
       .withSuccessResponse[ModelResponseAccountSupportedPlatforms](200)
       
 

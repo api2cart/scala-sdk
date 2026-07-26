@@ -44,9 +44,9 @@ class MarketplaceApi(baseUrl: String) {
    * @param upc Universal Product Code. A UPC (UPC-A) is a commonly used identifer for many different products.
    * @param mpn Manufacturer Part Number. A MPN is an identifier of a particular part design or material used.
    * @param isbn International Standard Book Number. An ISBN is a unique identifier for books.
-   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
-   * @param params Set this parameter in order to choose which entity fields you want to retrieve
-   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
+   * @param responseFields Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields.
+   * @param params Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to retrieve
+   * @param exclude Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
    */
   def marketplaceProductFind(count: Option[Int] = None, pageCursor: Option[String] = None, keyword: Option[String] = None, categoriesIds: Option[String] = None, storeId: Option[String] = None, asin: Option[String] = None, ean: Option[String] = None, gtin: Option[String] = None, upc: Option[String] = None, mpn: Option[String] = None, isbn: Option[String] = None, responseFields: Option[String] = None, params: Option[String] = None, exclude: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseMarketplaceProductFind] =
     ApiRequest[ModelResponseMarketplaceProductFind](ApiMethods.GET, baseUrl, "/marketplace.product.find.json", "application/json")

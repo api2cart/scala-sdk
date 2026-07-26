@@ -11,6 +11,7 @@
  */
 package org.openapitools.client.model
 
+import java.math.BigDecimal
 import org.openapitools.client.core.ApiModel
 
 case class OrderShipmentAdd (
@@ -36,16 +37,48 @@ case class OrderShipmentAdd (
   sendNotifications: Option[Boolean] = None,
   /* This parameter is used for adjust stock. */
   adjustStock: Option[Boolean] = None,
-  /* If the value is 'true' and order exist in our cache, we will use order.info from cache to prepare shipment items. */
-  enableCache: Option[Boolean] = None,
   /* Disable or enable check process status. Please note that the response will be slower due to additional requests to the store. */
   checkProcessStatus: Option[Boolean] = None,
   /* Defines name of the company which provides shipment tracking */
   trackingProvider: Option[String] = None,
-  /* Use the latest platform API version */
-  useLatestApiVersion: Option[Boolean] = None,
   /* Specifies admin's order comment */
   adminComment: Option[String] = None,
+  /* Mail class for the shipment (e.g., priority, express). */
+  mailClass: Option[String] = None,
+  /* Ship date. */
+  shipDate: Option[String] = None,
+  /* Weight */
+  weight: Option[BigDecimal] = None,
+  /* Weight Unit */
+  weightUnit: Option[String] = None,
+  /* Defines product's length */
+  length: Option[BigDecimal] = None,
+  /* Defines product's width */
+  width: Option[BigDecimal] = None,
+  /* Defines product's height */
+  height: Option[BigDecimal] = None,
+  /* Weight Unit */
+  dimensionsUnit: Option[String] = None,
+  /* Cost of the shipping label. */
+  shippingLabelCost: Option[BigDecimal] = None,
+  /* Currency code for the shipping label cost (3-letter ISO code). */
+  shippingLabelCurrency: Option[String] = None,
+  /* Revenue eligibility flag. */
+  revenueEligibility: Option[Boolean] = None,
+  /* Country code the shipment is sent from (2-letter ISO code). */
+  shipFromCountry: Option[String] = None,
+  /* Country code the shipment is sent to (2-letter ISO code). */
+  shipToCountry: Option[String] = None,
+  /* International commercial term for the shipment (e.g., DAP, DDP). */
+  incoterm: Option[String] = None,
+  /* Duty amount for international shipment. */
+  dutyAmount: Option[BigDecimal] = None,
+  /* Currency code for the duty amount (3-letter ISO code). */
+  dutyCurrency: Option[String] = None,
+  /* If the value is 'true' and order exist in our cache, we will use order.info from cache to prepare shipment items. */
+  enableCache: Option[Boolean] = None,
+  /* Use the latest platform API version */
+  useLatestApiVersion: Option[Boolean] = None,
   /* A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong> */
   idempotencyKey: Option[String] = None
 ) extends ApiModel
