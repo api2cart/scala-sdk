@@ -16,6 +16,7 @@ import org.openapitools.client.core.ApiModel
 case class ParamDefinitionFilteringConditionsFilterRule (
   field: Option[String] = None,
   operator: Option[String] = None,
-  value: Option[ParamDefinitionFilteringConditionsFilterRuleValue] = None
+  value: Option[ParamDefinitionFilteringConditionsFilterRuleValue] = None,
+  matchItems: Option[String] = None
 ) extends ApiModel
 

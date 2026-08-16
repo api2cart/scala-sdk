@@ -142,6 +142,10 @@ case class AccountCartAdd (
   walmartChannelType: Option[String] = None,
   /* Walmart region */
   walmartRegion: Option[String] = None,
+  /* Walmart refresh token received by a Solution Provider application through the Walmart App Store authorization. When it is set, walmart_client_id and walmart_client_secret are the credentials of that application, not of the seller. Must be used together with walmart_seller_id and is supported only for walmart_region = 'us' */
+  walmartRefreshToken: Option[String] = None,
+  /* Walmart seller id the refresh token was issued for, sent as the WM_PARTNER.ID header. Must be used together with walmart_refresh_token and is supported only for walmart_region = 'us' */
+  walmartSellerId: Option[String] = None,
   /* Access token authorizing the app to access resources on behalf of a user */
   ecwidAcessToken: Option[String] = None,
   /* Store Id */
@@ -404,7 +408,6 @@ object AccountCartAddEnums {
     val Bol = Value("Bol")
     val CommerceHQ = Value("CommerceHQ")
     val Creloaded = Value("Creloaded")
-    val Cscart = Value("Cscart")
     val Cubecart = Value("Cubecart")
     val Demandware = Value("Demandware")
     val EBay = Value("EBay")

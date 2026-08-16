@@ -19,6 +19,7 @@ case class ParamDefinitionFilteringConditionsFilterCondition (
   not: Option[Any] = None,
   field: Option[String] = None,
   operator: Option[String] = None,
-  value: Option[ParamDefinitionFilteringConditionsFilterRuleValue] = None
+  value: Option[ParamDefinitionFilteringConditionsFilterRuleValue] = None,
+  matchItems: Option[String] = None
 ) extends ApiModel
 

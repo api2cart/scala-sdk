@@ -71,6 +71,8 @@ Name | Type | Description | Notes
 **walmartEnvironment** | **String** | Walmart environment |  [optional]
 **walmartChannelType** | **String** | Walmart WM_CONSUMER.CHANNEL.TYPE header |  [optional]
 **walmartRegion** | **String** | Walmart region |  [optional]
+**walmartRefreshToken** | **String** | Walmart refresh token received by a Solution Provider application through the Walmart App Store authorization. When it is set, walmart_client_id and walmart_client_secret are the credentials of that application, not of the seller. Must be used together with walmart_seller_id and is supported only for walmart_region &#x3D; &#39;us&#39; |  [optional]
+**walmartSellerId** | **String** | Walmart seller id the refresh token was issued for, sent as the WM_PARTNER.ID header. Must be used together with walmart_refresh_token and is supported only for walmart_region &#x3D; &#39;us&#39; |  [optional]
 **ecwidAcessToken** | **String** | Access token authorizing the app to access resources on behalf of a user |  [optional]
 **ecwidStoreId** | **String** | Store Id |  [optional]
 **lazadaAppId** | **String** | Lazada App ID |  [optional]
@@ -196,7 +198,7 @@ Name | Type | Description | Notes
 
 
 ## Enum: CartId
-Allowed values: [3DCart, 3DCartApi, AceShop, AmazonSP, Americommerce, AspDotNetStorefront, BigCartel, Bricklink, BigcommerceApi, Bol, CommerceHQ, Creloaded, Cscart, Cubecart, Demandware, EBay, Ecwid, EtsyAPIv3, Facebook, Flipkart, Gambio, Hybris, JooCart, Jumpseller, Lazada, LightSpeed, Magento1212, Magento2Api, MercadoLibre, MijoShop, Miva, Neto, Nopcommerce, Opencart14, Oscmax2, Oscommerce22ms2, Otto, Oxid, Pinnacle, Prestashop, PrestashopApi, Salla, SCAPI, Shopify, Shopee, Shoplazza, Shopline, Shopware, ShopwareApi, Square, Squarespace, Temu, Tiendanube, TikTokShop, Tomatocart, Ubercart, Unas, Virtuemart, Volusion, WPecommerce, Walmart, Wix, Woocommerce, WoocommerceApi, Xcart, Xtcommerce, XtcommerceVeyton, Zencart137, Zid, Zoey, Zoho]
+Allowed values: [3DCart, 3DCartApi, AceShop, AmazonSP, Americommerce, AspDotNetStorefront, BigCartel, Bricklink, BigcommerceApi, Bol, CommerceHQ, Creloaded, Cubecart, Demandware, EBay, Ecwid, EtsyAPIv3, Facebook, Flipkart, Gambio, Hybris, JooCart, Jumpseller, Lazada, LightSpeed, Magento1212, Magento2Api, MercadoLibre, MijoShop, Miva, Neto, Nopcommerce, Opencart14, Oscmax2, Oscommerce22ms2, Otto, Oxid, Pinnacle, Prestashop, PrestashopApi, Salla, SCAPI, Shopify, Shopee, Shoplazza, Shopline, Shopware, ShopwareApi, Square, Squarespace, Temu, Tiendanube, TikTokShop, Tomatocart, Ubercart, Unas, Virtuemart, Volusion, WPecommerce, Walmart, Wix, Woocommerce, WoocommerceApi, Xcart, Xtcommerce, XtcommerceVeyton, Zencart137, Zid, Zoey, Zoho]
 
 
 
