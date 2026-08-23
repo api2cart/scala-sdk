@@ -400,14 +400,16 @@ class CartApi(baseUrl: String) {
    * @param responseFields Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields.
    * @param params Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to retrieve
    * @param exclude Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
+   * @param useLatestApiVersion Use the latest platform API version
    */
-  def cartInfo(responseFields: Option[String] = None, params: Option[String] = None, exclude: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[CartInfo200Response] =
+  def cartInfo(responseFields: Option[String] = None, params: Option[String] = None, exclude: Option[String] = None, useLatestApiVersion: Option[Boolean] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[CartInfo200Response] =
     ApiRequest[CartInfo200Response](ApiMethods.GET, baseUrl, "/cart.info.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
       .withQueryParam("response_fields", responseFields)
       .withQueryParam("params", params)
       .withQueryParam("exclude", exclude)
+      .withQueryParam("use_latest_api_version", useLatestApiVersion)
       .withSuccessResponse[CartInfo200Response](200)
       
 
