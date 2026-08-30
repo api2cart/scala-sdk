@@ -34,11 +34,14 @@ class BridgeApi(baseUrl: String) {
    * Available security schemes:
    *   StoreKeyAuth (apiKey)
    *   ApiKeyAuth (apiKey)
+   * 
+   * @param idempotencyKey A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong>
    */
-  def bridgeDelete()(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[AttributeValueDelete200Response] =
+  def bridgeDelete(idempotencyKey: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[AttributeValueDelete200Response] =
     ApiRequest[AttributeValueDelete200Response](ApiMethods.POST, baseUrl, "/bridge.delete.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
+      .withQueryParam("idempotency_key", idempotencyKey)
       .withSuccessResponse[AttributeValueDelete200Response](200)
       
 
@@ -71,11 +74,14 @@ class BridgeApi(baseUrl: String) {
    * Available security schemes:
    *   StoreKeyAuth (apiKey)
    *   ApiKeyAuth (apiKey)
+   * 
+   * @param idempotencyKey A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong>
    */
-  def bridgeUpdate()(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[AttributeUpdate200Response] =
+  def bridgeUpdate(idempotencyKey: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[AttributeUpdate200Response] =
     ApiRequest[AttributeUpdate200Response](ApiMethods.POST, baseUrl, "/bridge.update.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
+      .withQueryParam("idempotency_key", idempotencyKey)
       .withSuccessResponse[AttributeUpdate200Response](200)
       
 

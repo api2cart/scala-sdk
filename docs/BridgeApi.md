@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 ## bridgeDelete
 
-> bridgeDelete(): ApiRequest[AttributeValueDelete200Response]
+> bridgeDelete(bridgeDeleteRequest): ApiRequest[AttributeValueDelete200Response]
 
 bridge.delete
 
@@ -46,8 +46,10 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = BridgeApi("https://api.api2cart.local.com/v1.1")    
-    val request = apiInstance.bridgeDelete()
+    val apiInstance = BridgeApi("https://api.api2cart.local.com/v1.1")
+    val idempotencyKey: String = 098f6bcd4621d373cade4e832627b4f6 // String | A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong>
+    
+    val request = apiInstance.bridgeDelete(idempotencyKey)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -72,7 +74,10 @@ object Example extends App {
 
 ### Parameters
 
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **idempotencyKey** | **String**| A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [optional]
 
 ### Return type
 
@@ -182,7 +187,7 @@ ApiRequest[[**File**](File.md)]
 
 ## bridgeUpdate
 
-> bridgeUpdate(): ApiRequest[AttributeUpdate200Response]
+> bridgeUpdate(bridgeUpdateRequest): ApiRequest[AttributeUpdate200Response]
 
 bridge.update
 
@@ -213,8 +218,10 @@ object Example extends App {
     implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
-    val apiInstance = BridgeApi("https://api.api2cart.local.com/v1.1")    
-    val request = apiInstance.bridgeUpdate()
+    val apiInstance = BridgeApi("https://api.api2cart.local.com/v1.1")
+    val idempotencyKey: String = 098f6bcd4621d373cade4e832627b4f6 // String | A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong>
+    
+    val request = apiInstance.bridgeUpdate(idempotencyKey)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -239,7 +246,10 @@ object Example extends App {
 
 ### Parameters
 
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **idempotencyKey** | **String**| A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [optional]
 
 ### Return type
 
