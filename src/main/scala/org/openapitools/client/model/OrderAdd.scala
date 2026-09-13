@@ -159,6 +159,12 @@ case class OrderAdd (
   origin: Option[String] = None,
   /* Specifies refund's fee price */
   feePrice: Option[BigDecimal] = None,
+  /* Specifies short national address code of a shipping address */
+  shippNationalAddress: Option[String] = None,
+  /* Specifies building number of a shipping address */
+  shippBuildingNumber: Option[String] = None,
+  /* Specifies additional number of a shipping address */
+  shippAdditionalNumber: Option[String] = None,
   /* A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong> */
   idempotencyKey: Option[String] = None,
   orderItem: Seq[OrderAddOrderItemInner]
