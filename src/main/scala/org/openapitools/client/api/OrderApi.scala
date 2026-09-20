@@ -796,7 +796,7 @@ class OrderApi(baseUrl: String) {
    * @param invoiceAdminComment Specifies admin's order invoice comment
    * @param dateModified Specifies order's  modification date
    * @param dateFinished Specifies order's  finished date
-   * @param sendNotifications Send notifications to customer after order was created
+   * @param sendNotifications Send notifications to customer after order status was changed
    * @param createInvoice Determines whether an invoice should be created if it has not already been created
    * @param origin The source of the order
    * @param tags Order tags

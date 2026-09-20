@@ -2547,7 +2547,7 @@ object Example extends App {
 
     val dateFinished: String = 2014-06-05 05:05:00 // String | Specifies order's  finished date
 
-    val sendNotifications: Boolean = true // Boolean | Send notifications to customer after order was created
+    val sendNotifications: Boolean = true // Boolean | Send notifications to customer after order status was changed
 
     val createInvoice: Boolean = true // Boolean | Determines whether an invoice should be created if it has not already been created
 
@@ -2598,7 +2598,7 @@ Name | Type | Description  | Notes
  **invoiceAdminComment** | **String**| Specifies admin&#39;s order invoice comment | [optional]
  **dateModified** | **String**| Specifies order&#39;s  modification date | [optional]
  **dateFinished** | **String**| Specifies order&#39;s  finished date | [optional]
- **sendNotifications** | **Boolean**| Send notifications to customer after order was created | [optional]
+ **sendNotifications** | **Boolean**| Send notifications to customer after order status was changed | [optional]
  **createInvoice** | **Boolean**| Determines whether an invoice should be created if it has not already been created | [optional]
  **origin** | **String**| The source of the order | [optional]
  **tags** | **String**| Order tags | [optional]
