@@ -1165,7 +1165,7 @@ object Example extends App {
 
     val availView: Boolean = true // Boolean | Specifies the set of visible/invisible products
 
-    val availSale: Boolean = false // Boolean | Specifies the set of available/not available products for sale
+    val availSale: Boolean = false // Boolean | Specifies the set of available/not available products for sale.<br/>On BigCommerce the count checks only whether the product is set as purchasable and ignores stock (pre-order products are counted neither as true nor as false), so it can differ from product.list with the same value, which also checks stock at all inventory locations
 
     val createdFrom: String = 2010-07-29 13:45:52 // String | Retrieve entities from their creation date
 
@@ -1236,7 +1236,7 @@ Name | Type | Description  | Notes
  **vendorId** | **String**| Counts products specified by vendor id | [optional]
  **langId** | **String**| Counts products specified by language id | [optional]
  **availView** | **Boolean**| Specifies the set of visible/invisible products | [optional]
- **availSale** | **Boolean**| Specifies the set of available/not available products for sale | [optional]
+ **availSale** | **Boolean**| Specifies the set of available/not available products for sale.&lt;br/&gt;On BigCommerce the count checks only whether the product is set as purchasable and ignores stock (pre-order products are counted neither as true nor as false), so it can differ from product.list with the same value, which also checks stock at all inventory locations | [optional]
  **createdFrom** | **String**| Retrieve entities from their creation date | [optional]
  **createdTo** | **String**| Retrieve entities to their creation date | [optional]
  **modifiedFrom** | **String**| Retrieve entities from their modification date | [optional]
