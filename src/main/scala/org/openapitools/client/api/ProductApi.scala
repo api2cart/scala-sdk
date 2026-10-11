@@ -429,6 +429,7 @@ class ProductApi(baseUrl: String) {
    * @param langId Counts products specified by language id
    * @param availView Specifies the set of visible/invisible products
    * @param availSale Specifies the set of available/not available products for sale.<br/>On BigCommerce the count checks only whether the product is set as purchasable and ignores stock (pre-order products are counted neither as true nor as false), so it can differ from product.list with the same value, which also checks stock at all inventory locations
+   * @param isPartialOrFullOutOfStock Specifies the set of products that are out of stock completely or partially. Only true is supported: it returns products tracked per product that have no stock, and products tracked per variant that have at least one out-of-stock variant, even while other variants of the same product still have stock. Stock is checked at the default inventory location only, so a product that still has stock at another location can be returned, and a product whose only variant is the base one is not matched. Unlike avail_sale, which answers for the product as a whole, this catches a product that still sells overall because some of its variants do
    * @param createdFrom Retrieve entities from their creation date
    * @param createdTo Retrieve entities to their creation date
    * @param modifiedFrom Retrieve entities from their modification date
@@ -446,7 +447,7 @@ class ProductApi(baseUrl: String) {
    * @param disableReportCache Disable report cache for current request
    * @param useLatestApiVersion Use the latest platform API version
    */
-  def productCount(sku: Option[String] = None, productIds: Option[String] = None, sinceId: Option[String] = None, categoriesIds: Option[String] = None, categoryId: Option[String] = None, storeId: Option[String] = None, vendorId: Option[String] = None, langId: Option[String] = None, availView: Option[Boolean] = None, availSale: Option[Boolean] = None, createdFrom: Option[String] = None, createdTo: Option[String] = None, modifiedFrom: Option[String] = None, modifiedTo: Option[String] = None, brandName: Option[String] = None, manufacturerId: Option[String] = None, productAttributes: Seq[String], status: Option[String] = None, `type`: Option[String] = None, visible: Option[String] = None, findValue: Option[String] = None, findWhere: Option[String] = None, reportRequestId: Option[String] = None, returnGlobal: Option[Boolean] = None, disableReportCache: Option[Boolean] = None, useLatestApiVersion: Option[Boolean] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseProductCount] =
+  def productCount(sku: Option[String] = None, productIds: Option[String] = None, sinceId: Option[String] = None, categoriesIds: Option[String] = None, categoryId: Option[String] = None, storeId: Option[String] = None, vendorId: Option[String] = None, langId: Option[String] = None, availView: Option[Boolean] = None, availSale: Option[Boolean] = None, isPartialOrFullOutOfStock: Option[Boolean] = None, createdFrom: Option[String] = None, createdTo: Option[String] = None, modifiedFrom: Option[String] = None, modifiedTo: Option[String] = None, brandName: Option[String] = None, manufacturerId: Option[String] = None, productAttributes: Seq[String], status: Option[String] = None, `type`: Option[String] = None, visible: Option[String] = None, findValue: Option[String] = None, findWhere: Option[String] = None, reportRequestId: Option[String] = None, returnGlobal: Option[Boolean] = None, disableReportCache: Option[Boolean] = None, useLatestApiVersion: Option[Boolean] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseProductCount] =
     ApiRequest[ModelResponseProductCount](ApiMethods.GET, baseUrl, "/product.count.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
@@ -460,6 +461,7 @@ class ProductApi(baseUrl: String) {
       .withQueryParam("lang_id", langId)
       .withQueryParam("avail_view", availView)
       .withQueryParam("avail_sale", availSale)
+      .withQueryParam("is_partial_or_full_out_of_stock", isPartialOrFullOutOfStock)
       .withQueryParam("created_from", createdFrom)
       .withQueryParam("created_to", createdTo)
       .withQueryParam("modified_from", modifiedFrom)
@@ -766,6 +768,7 @@ class ProductApi(baseUrl: String) {
    * @param currencyId Currency Id
    * @param availView Specifies the set of visible/invisible products
    * @param availSale Specifies the set of available/not available products for sale
+   * @param isPartialOrFullOutOfStock Specifies the set of products that are out of stock completely or partially. Only true is supported: it returns products tracked per product that have no stock, and products tracked per variant that have at least one out-of-stock variant, even while other variants of the same product still have stock. Stock is checked at the default inventory location only, so a product that still has stock at another location can be returned, and a product whose only variant is the base one is not matched. Unlike avail_sale, which answers for the product as a whole, this catches a product that still sells overall because some of its variants do
    * @param createdFrom Retrieve entities from their creation date
    * @param createdTo Retrieve entities to their creation date
    * @param modifiedFrom Retrieve entities from their modification date
@@ -791,7 +794,7 @@ class ProductApi(baseUrl: String) {
    * @param useLatestApiVersion Use the latest platform API version
    * @param productType A categorization for the product
    */
-  def productList(start: Option[Int] = None, count: Option[Int] = None, pageCursor: Option[String] = None, productIds: Option[String] = None, sinceId: Option[String] = None, categoriesIds: Option[String] = None, categoryId: Option[String] = None, storeId: Option[String] = None, vendorId: Option[String] = None, langId: Option[String] = None, currencyId: Option[String] = None, availView: Option[Boolean] = None, availSale: Option[Boolean] = None, createdFrom: Option[String] = None, createdTo: Option[String] = None, modifiedFrom: Option[String] = None, modifiedTo: Option[String] = None, sku: Option[String] = None, brandName: Option[String] = None, productAttributes: Seq[String], manufacturerId: Option[String] = None, status: Option[String] = None, `type`: Option[String] = None, visible: Option[String] = None, findValue: Option[String] = None, findWhere: Option[String] = None, returnGlobal: Option[Boolean] = None, params: Option[String] = None, responseFields: Option[String] = None, exclude: Option[String] = None, sortBy: Option[String] = None, sortDirection: Option[String] = None, reportRequestId: Option[String] = None, disableCache: Option[Boolean] = None, disableReportCache: Option[Boolean] = None, useLatestApiVersion: Option[Boolean] = None, productType: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseProductList] =
+  def productList(start: Option[Int] = None, count: Option[Int] = None, pageCursor: Option[String] = None, productIds: Option[String] = None, sinceId: Option[String] = None, categoriesIds: Option[String] = None, categoryId: Option[String] = None, storeId: Option[String] = None, vendorId: Option[String] = None, langId: Option[String] = None, currencyId: Option[String] = None, availView: Option[Boolean] = None, availSale: Option[Boolean] = None, isPartialOrFullOutOfStock: Option[Boolean] = None, createdFrom: Option[String] = None, createdTo: Option[String] = None, modifiedFrom: Option[String] = None, modifiedTo: Option[String] = None, sku: Option[String] = None, brandName: Option[String] = None, productAttributes: Seq[String], manufacturerId: Option[String] = None, status: Option[String] = None, `type`: Option[String] = None, visible: Option[String] = None, findValue: Option[String] = None, findWhere: Option[String] = None, returnGlobal: Option[Boolean] = None, params: Option[String] = None, responseFields: Option[String] = None, exclude: Option[String] = None, sortBy: Option[String] = None, sortDirection: Option[String] = None, reportRequestId: Option[String] = None, disableCache: Option[Boolean] = None, disableReportCache: Option[Boolean] = None, useLatestApiVersion: Option[Boolean] = None, productType: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ModelResponseProductList] =
     ApiRequest[ModelResponseProductList](ApiMethods.GET, baseUrl, "/product.list.json", "application/json")
       .withApiKey(apiKey, "x-store-key", HEADER)
       .withApiKey(apiKey, "x-api-key", HEADER)
@@ -808,6 +811,7 @@ class ProductApi(baseUrl: String) {
       .withQueryParam("currency_id", currencyId)
       .withQueryParam("avail_view", availView)
       .withQueryParam("avail_sale", availSale)
+      .withQueryParam("is_partial_or_full_out_of_stock", isPartialOrFullOutOfStock)
       .withQueryParam("created_from", createdFrom)
       .withQueryParam("created_to", createdTo)
       .withQueryParam("modified_from", modifiedFrom)
