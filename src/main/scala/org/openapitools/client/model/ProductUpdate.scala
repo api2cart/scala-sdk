@@ -95,7 +95,7 @@ case class ProductUpdate (
   backorderStatus: Option[String] = None,
   /* Defines the incremental changes in product quantity. Effective only when manage_stock is true — otherwise the value is ignored. */
   increaseQuantity: Option[BigDecimal] = None,
-  /* Defines the decrement changes in product quantity. Effective only when manage_stock is true — otherwise the value is ignored. */
+  /* Defines the decrement changes in product quantity. Effective only when manage_stock is true. */
   reduceQuantity: Option[BigDecimal] = None,
   /* Specify the quantity threshold below which the product is considered low in stock */
   lowStockThreshold: Option[BigDecimal] = None,

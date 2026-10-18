@@ -69,7 +69,7 @@ case class ProductVariantUpdate (
   quantity: Option[BigDecimal] = None,
   /* Defines the incremental changes in product quantity. Effective only when manage_stock is true — otherwise the value is ignored. */
   increaseQuantity: Option[BigDecimal] = None,
-  /* Defines the decrement changes in product quantity. Effective only when manage_stock is true — otherwise the value is ignored. */
+  /* Defines the decrement changes in product quantity. Effective only when manage_stock is true. */
   reduceQuantity: Option[BigDecimal] = None,
   /* Indicates whether prices include tax. */
   pricesIncTax: Option[Boolean] = None,

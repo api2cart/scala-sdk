@@ -34,7 +34,7 @@ Name | Type | Description | Notes
 **reserveQuantity** | **BigDecimal** | This parameter allows to reserve/unreserve product variants quantity. |  [optional]
 **quantity** | **BigDecimal** | Defines new products&#39; variants quantity. Effective only when manage_stock is true — otherwise the value is ignored. To enable stock tracking and set a quantity in one call, pass manage_stock&#x3D;true together with quantity. |  [optional]
 **increaseQuantity** | **BigDecimal** | Defines the incremental changes in product quantity. Effective only when manage_stock is true — otherwise the value is ignored. |  [optional]
-**reduceQuantity** | **BigDecimal** | Defines the decrement changes in product quantity. Effective only when manage_stock is true — otherwise the value is ignored. |  [optional]
+**reduceQuantity** | **BigDecimal** | Defines the decrement changes in product quantity. Effective only when manage_stock is true. |  [optional]
 **pricesIncTax** | **Boolean** | Indicates whether prices include tax. |  [optional]
 **price** | **BigDecimal** | Defines new product&#39;s variant price |  [optional]
 **specialPrice** | **BigDecimal** | Defines new product&#39;s variant special price |  [optional]
