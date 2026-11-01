@@ -223,6 +223,7 @@ docs/OrderCalculateShippingRate.md
 docs/OrderCalculateSubtotal.md
 docs/OrderCalculateTax.md
 docs/OrderInfo200Response.md
+docs/OrderInvoiceAdd.md
 docs/OrderItem.md
 docs/OrderItemOption.md
 docs/OrderPaymentMethod.md
@@ -708,6 +709,7 @@ src/main/scala/org/openapitools/client/model/OrderCalculateShippingRate.scala
 src/main/scala/org/openapitools/client/model/OrderCalculateSubtotal.scala
 src/main/scala/org/openapitools/client/model/OrderCalculateTax.scala
 src/main/scala/org/openapitools/client/model/OrderInfo200Response.scala
+src/main/scala/org/openapitools/client/model/OrderInvoiceAdd.scala
 src/main/scala/org/openapitools/client/model/OrderItem.scala
 src/main/scala/org/openapitools/client/model/OrderItemOption.scala
 src/main/scala/org/openapitools/client/model/OrderPaymentMethod.scala

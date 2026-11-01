@@ -30,6 +30,7 @@ import org.openapitools.client.model.OrderAdd200Response
 import org.openapitools.client.model.OrderCalculate
 import org.openapitools.client.model.OrderCalculate200Response
 import org.openapitools.client.model.OrderInfo200Response
+import org.openapitools.client.model.OrderInvoiceAdd
 import org.openapitools.client.model.OrderPreestimateShippingList
 import org.openapitools.client.model.OrderRefundAdd
 import org.openapitools.client.model.OrderRefundAdd200Response
@@ -279,6 +280,26 @@ class OrderApi(baseUrl: String) {
       .withQueryParam("rounding_precision", roundingPrecision)
       .withQueryParam("allow_user_defined_order_statuses", allowUserDefinedOrderStatuses)
       .withSuccessResponse[OrderInfo200Response](200)
+      
+
+  /**
+   * Upload a PDF invoice or credit note of the order to the store. The store checks the document after the upload, so a successful response means it was received, not accepted. Use the returned id to find the result of the check in the store.
+   * 
+   * Expected answers:
+   *   code 200 : AttributeAdd200Response (successful operation)
+   * 
+   * Available security schemes:
+   *   StoreKeyAuth (apiKey)
+   *   ApiKeyAuth (apiKey)
+   * 
+   * @param orderInvoiceAdd 
+   */
+  def orderInvoiceAdd(orderInvoiceAdd: OrderInvoiceAdd)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[AttributeAdd200Response] =
+    ApiRequest[AttributeAdd200Response](ApiMethods.POST, baseUrl, "/order.invoice.add.json", "application/json")
+      .withApiKey(apiKey, "x-store-key", HEADER)
+      .withApiKey(apiKey, "x-api-key", HEADER)
+      .withBody(orderInvoiceAdd)
+      .withSuccessResponse[AttributeAdd200Response](200)
       
 
   /**

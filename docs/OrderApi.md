@@ -18,6 +18,8 @@ Method | HTTP request | Description
 [**orderFulfillmentStatusListWithHttpInfo**](OrderApi.md#orderFulfillmentStatusListWithHttpInfo) | **GET** /order.fulfillment_status.list.json | order.fulfillment_status.list
 [**orderInfo**](OrderApi.md#orderInfo) | **GET** /order.info.json | order.info
 [**orderInfoWithHttpInfo**](OrderApi.md#orderInfoWithHttpInfo) | **GET** /order.info.json | order.info
+[**orderInvoiceAdd**](OrderApi.md#orderInvoiceAdd) | **POST** /order.invoice.add.json | order.invoice.add
+[**orderInvoiceAddWithHttpInfo**](OrderApi.md#orderInvoiceAddWithHttpInfo) | **POST** /order.invoice.add.json | order.invoice.add
 [**orderList**](OrderApi.md#orderList) | **GET** /order.list.json | order.list
 [**orderListWithHttpInfo**](OrderApi.md#orderListWithHttpInfo) | **GET** /order.list.json | order.list
 [**orderPreestimateShippingList**](OrderApi.md#orderPreestimateShippingList) | **POST** /order.preestimate_shipping.list.json | order.preestimate_shipping.list
@@ -780,6 +782,93 @@ ApiRequest[[**OrderInfo200Response**](OrderInfo200Response.md)]
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | successful operation |  -  |
+
+
+## orderInvoiceAdd
+
+> orderInvoiceAdd(orderInvoiceAddRequest): ApiRequest[AttributeAdd200Response]
+
+order.invoice.add
+
+Upload a PDF invoice or credit note of the order to the store. The store checks the document after the upload, so a successful response means it was received, not accepted. Use the returned id to find the result of the check in the store.
+
+### Example
+
+```scala
+// Import classes:
+import 
+import 
+import org.openapitools.client.core._
+import org.openapitools.client.core.CollectionFormats._
+import org.openapitools.client.core.ApiKeyLocations._
+
+import akka.actor.ActorSystem
+import scala.concurrent.Future
+import scala.util.{Failure, Success}
+
+object Example extends App {
+    
+    implicit val system: ActorSystem = ActorSystem()
+    import system.dispatcher
+    
+    // Configure API key authorization: StoreKeyAuth
+    implicit val StoreKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
+
+    // Configure API key authorization: ApiKeyAuth
+    implicit val ApiKeyAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
+
+    val apiInvoker = ApiInvoker()
+    val apiInstance = OrderApi("https://api.api2cart.local.com/v1.1")
+    val orderInvoiceAdd: OrderInvoiceAdd =  // OrderInvoiceAdd | 
+    
+    val request = apiInstance.orderInvoiceAdd(orderInvoiceAdd)
+    val response = apiInvoker.execute(request)
+
+    response.onComplete {
+        case Success(ApiResponse(code, content, headers)) =>
+            System.out.println(s"Status code: $code}")
+            System.out.println(s"Response headers: ${headers.mkString(", ")}")
+            System.out.println(s"Response body: $content")
+        
+        case Failure(error @ ApiError(code, message, responseContent, cause, headers)) =>
+            System.err.println("Exception when calling OrderApi#orderInvoiceAdd")
+            System.err.println(s"Status code: $code}")
+            System.err.println(s"Reason: $responseContent")
+            System.err.println(s"Response headers: ${headers.mkString(", ")}")
+            error.printStackTrace();
+
+        case Failure(exception) => 
+            System.err.println("Exception when calling OrderApi#orderInvoiceAdd")
+            exception.printStackTrace();
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **orderInvoiceAdd** | [**OrderInvoiceAdd**](OrderInvoiceAdd.md)|  |
+
+### Return type
+
+ApiRequest[[**AttributeAdd200Response**](AttributeAdd200Response.md)]
+
+
+### Authorization
+
+[StoreKeyAuth](../README.md#StoreKeyAuth), [ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 ### HTTP response details
